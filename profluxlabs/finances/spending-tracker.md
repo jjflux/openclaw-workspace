@@ -33,7 +33,7 @@
 | — | — | — | — | — |
 
 ## Running Totals
-- **Total spent to date:** ~$580 (includes $90 Instantly domains + $30 first month email accounts)
+- **Total spent to date:** ~$580 (GHL $297 + Porkbun ~$63 + Instantly sub $97 + Instantly domains $90 + email accounts $30)
 - **Monthly burn rate:** ~$824/mo
 - **Monthly revenue:** $0
 - **Net:** -$824/mo
