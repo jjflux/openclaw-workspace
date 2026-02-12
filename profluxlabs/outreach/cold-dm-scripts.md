@@ -50,6 +50,12 @@ I think it'd work well for {{CompanyName}}. Want me to send over a quick breakdo
 
 ---
 
+## Booking Link
+
+When someone's interested, send: **https://cal.com/profluxlabs/demo**
+
+---
+
 ## DM Tips
 
 - **Don't send at night.** Weekday mornings or lunch breaks work best.

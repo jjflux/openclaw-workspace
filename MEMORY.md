@@ -29,6 +29,8 @@
 - Telegram: @FluxOpenClawBot / Jason is @Jx_CryptoFlux (ID: 6000033769)
 - WhatsApp also connected
 - GHL access pending
+- **BotWhiteFam** group chat (Telegram): Jason, Dad (David), Flux, DianaMoon42bot (Diana — David's OpenClaw bot)
+- David's bot: @DianaMoon42bot (runs claude-opus-4-5)
 
 ## Lessons & Notes
 - Jason responds well to direct honesty — don't sugarcoat
