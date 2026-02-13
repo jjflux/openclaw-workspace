@@ -8,7 +8,8 @@
 - **Primary email:** jwhite1130@gmail.com
 - **Secondary email:** jjflux11@gmail.com (also used for GHL, Etsy)
 - **Note:** Both emails connected to GHL
-- **Address:** 12 Highland Cove Lane, Henderson, NV
+- **Address:** Los Angeles area, near Huntington Beach, CA
+- **Family address:** 12 Highland Cove Lane, Henderson, NV
 - **Occupation:** Pro soccer player + AI automation entrepreneur
 - **Agency:** ProFluxLabs (GHL-based, targeting roofers)
 - **Girlfriend:** Jen
