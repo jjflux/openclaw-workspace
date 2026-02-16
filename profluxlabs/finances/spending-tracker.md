@@ -7,9 +7,10 @@
 | Instantly.ai (subscription) | $97/mo | Mar 11 | jjflux11@gmail.com |
 | Instantly.ai (6 email accounts) | $30/mo | 15th monthly | jjflux11@gmail.com |
 | Cal.com | Free | — | jjflux11@gmail.com |
+| ElevenLabs Creator | $11/mo | TBD | jjflux11@gmail.com |
 | OpenClaw (Flux) | $400/mo (~$100/wk) | Weekly | — |
 
-**Total MRR (tools): ~$824/mo**
+**Total MRR (tools): ~$835/mo**
 
 ## One-Time Purchases
 | Date | Item | Cost | Notes |
@@ -34,7 +35,7 @@
 
 ## Running Totals
 - **Total spent to date:** ~$580 (GHL $297 + Porkbun ~$63 + Instantly sub $97 + Instantly domains $90 + email accounts $30)
-- **Monthly burn rate:** ~$824/mo
+- **Monthly burn rate:** ~$835/mo (added ElevenLabs $11)
 - **Monthly revenue:** $0
 - **Net:** -$824/mo
 

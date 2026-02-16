@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProFlux Labs — AI-Powered Lead Management for Roofers</title>
+    <meta name="description" content="ProFlux Labs helps roofing companies capture every call, text, and inquiry automatically. Never miss another $10,000 job.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --navy-light: #1e293b;
+            --orange: #f97316;
+            --orange-hover: #ea580c;
+            --orange-glow: rgba(249, 115, 22, 0.3);
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Nav */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 24px;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        .nav.scrolled {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+        }
+        .nav-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 72px;
+        }
+        .nav img { height: 40px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: #fff; }
+        .nav-cta {
+            background: var(--orange) !important;
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+        }
+        .nav-cta:hover { background: var(--orange-hover) !important; transform: translateY(-1px); box-shadow: 0 4px 15px var(--orange-glow); }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0f172a 100%);
+            color: white;
+            padding: 160px 24px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 60%),
+                        radial-gradient(ellipse at 80% 50%, rgba(59,130,246,0.08) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        /* Grid pattern overlay */
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+        }
+        .hero-content { position: relative; z-index: 1; }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(249,115,22,0.15);
+            border: 1px solid rgba(249,115,22,0.3);
+            color: var(--orange);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            animation: fadeIn 0.8s ease;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -0.03em;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+        .hero h1 span { color: var(--orange); }
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.85;
+            max-width: 550px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+            box-shadow: 0 4px 20px var(--orange-glow);
+        }
+        .btn-primary:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249,115,22,0.4);
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+        }
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        .hero-proof {
+            margin-top: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 24px;
+            flex-wrap: wrap;
+            opacity: 0.7;
+            font-size: 0.9rem;
+            animation: fadeIn 1s ease 1s both;
+        }
+        .hero-proof span { display: flex; align-items: center; gap: 6px; }
+
+        /* Logos / Trust Bar */
+        .trust-bar {
+            background: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 32px 24px;
+            text-align: center;
+        }
+        .trust-bar p {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .trust-items {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .trust-items span { display: flex; align-items: center; gap: 8px; }
+
+        /* Section shared */
+        .section { padding: 100px 24px; }
+        .section-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+        .section-label {
+            display: inline-block;
+            background: rgba(249,115,22,0.1);
+            color: var(--orange);
+            padding: 4px 14px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            color: var(--navy);
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+        }
+
+        /* Features */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            background: var(--white);
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 36px 28px;
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            border-color: var(--orange);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+        }
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, rgba(249,115,22,0.1), rgba(249,115,22,0.05));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Stats */
+        .stats-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: white;
+            padding: 80px 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 30% 50%, rgba(249,115,22,0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        .stat-card { text-align: center; }
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--orange);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* How it works */
+        .how-it-works { background: var(--bg-light); }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .steps::before {
+            content: '';
+            position: absolute;
+            top: 44px;
+            left: 16%;
+            right: 16%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--orange), rgba(249,115,22,0.2));
+            z-index: 0;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .step-number {
+            width: 88px;
+            height: 88px;
+            background: linear-gradient(135deg, var(--orange), #fb923c);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 auto 24px;
+            box-shadow: 0 8px 30px var(--orange-glow);
+        }
+        .step h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            max-width: 260px;
+            margin: 0 auto;
+        }
+
+        /* Testimonial */
+        .testimonial-section { background: var(--white); }
+        .testimonial-card {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 48px;
+            background: var(--bg-light);
+            border-radius: 20px;
+            border: 1px solid #e2e8f0;
+        }
+        .testimonial-stars { font-size: 1.5rem; margin-bottom: 20px; color: #fbbf24; }
+        .testimonial-card blockquote {
+            font-size: 1.2rem;
+            font-style: italic;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 24px;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--navy);
+        }
+        .testimonial-role {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+            color: white;
+            padding: 100px 24px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 50% 100%, rgba(249,115,22,0.15) 0%, transparent 60%);
+            pointer-events: none;
+        }
+        .cta-content { position: relative; z-index: 1; }
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+        .cta-section p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+            margin-bottom: 36px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-section .btn-primary {
+            font-size: 1.15rem;
+            padding: 18px 44px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--navy);
+            color: #94a3b8;
+            padding: 60px 24px 32px;
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid rgba(148,163,184,0.15);
+        }
+        .footer-brand img { height: 36px; margin-bottom: 12px; }
+        .footer-brand p { max-width: 300px; font-size: 0.9rem; line-height: 1.7; }
+        .footer-links h4 {
+            color: #e2e8f0;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 16px;
+        }
+        .footer-links a {
+            display: block;
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: #fff; }
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 24px;
+            font-size: 0.85rem;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .nav-links a:not(.nav-cta) { display: none; }
+            .hero { padding: 130px 20px 70px; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.05rem; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .hero-proof { flex-direction: column; gap: 12px; }
+            .features-grid { grid-template-columns: 1fr; max-width: 400px; }
+            .stats-grid { grid-template-columns: 1fr; gap: 30px; }
+            .steps { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
+            .steps::before { display: none; }
+            .section-header h2 { font-size: 1.8rem; }
+            .cta-section h2 { font-size: 1.8rem; }
+            .footer-top { flex-direction: column; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+            .trust-items { gap: 20px; }
+        }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="/"><img src="/logo.png" alt="ProFlux Labs"></a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#contact">Contact</a>
+                <a href="https://cal.com/profluxlabs/demo" class="nav-cta">Book Demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🚀 Built for Roofing Companies</div>
+            <h1>Stop Losing Leads to <span>Voicemail</span></h1>
+            <p>AI-powered follow-up that captures every call, text, and inquiry — automatically. Never miss another $10,000 job.</p>
+            <div class="hero-buttons">
+                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book a Free Demo →</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            </div>
+            <div class="hero-proof">
+                <span>✅ No contracts</span>
+                <span>⚡ Setup in 24 hours</span>
+                <span>📈 5-10 extra jobs/month</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Trust -->
+    <div class="trust-bar">
+        <p>Trusted technology</p>
+        <div class="trust-items">
+            <span>🔒 TCPA Compliant</span>
+            <span>📱 SMS &amp; Email</span>
+            <span>🤖 AI-Powered</span>
+            <span>⭐ Google Reviews</span>
+            <span>📊 Real-Time Analytics</span>
+        </div>
+    </div>
+
+    <!-- Features -->
+    <section class="section" id="features">
+        <div class="section-header reveal">
+            <span class="section-label">Features</span>
+            <h2>Everything You Need to Close More Jobs</h2>
+            <p>From first contact to five-star review — we automate the entire customer journey.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card reveal reveal-delay-1">
+                <div class="feature-icon">📱</div>
+                <h3>Missed Call Text-Back</h3>
+                <p>Every missed call gets an instant text reply so you never lose a lead to voicemail again.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-2">
+                <div class="feature-icon">⚡</div>
+                <h3>Automated Follow-Up</h3>
+                <p>Smart text and email sequences that nurture leads from inquiry to booked estimate — hands-free.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-3">
+                <div class="feature-icon">📅</div>
+                <h3>Online Booking</h3>
+                <p>Customers book estimates directly from your texts. No phone tag, no back-and-forth.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-1">
+                <div class="feature-icon">⭐</div>
+                <h3>Review Requests</h3>
+                <p>Automatically ask happy customers for Google reviews after every completed job.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-2">
+                <div class="feature-icon">📊</div>
+                <h3>Lead Tracking</h3>
+                <p>See every lead, every stage, every dollar in one dashboard. Know exactly what's working.</p>
+            </div>
+            <div class="feature-card reveal reveal-delay-3">
+                <div class="feature-icon">🔔</div>
+                <h3>Appointment Reminders</h3>
+                <p>Reduce no-shows with automated text reminders before every scheduled estimate.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section">
+        <div class="stats-grid">
+            <div class="stat-card reveal reveal-delay-1">
+                <div class="stat-number">78%</div>
+                <div class="stat-label">of customers hire the first roofer who responds</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-2">
+                <div class="stat-number">5-10</div>
+                <div class="stat-label">extra jobs per month from recovered leads</div>
+            </div>
+            <div class="stat-card reveal reveal-delay-3">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">automated responses — nights, weekends, holidays</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section how-it-works" id="how-it-works">
+        <div class="section-header reveal">
+            <span class="section-label">How It Works</span>
+            <h2>Up and Running in 3 Simple Steps</h2>
+            <p>We handle the tech so you can focus on what you do best — roofing.</p>
+        </div>
+        <div class="steps">
+            <div class="step reveal reveal-delay-1">
+                <div class="step-number">1</div>
+                <h3>Sign Up</h3>
+                <p>Book a quick demo call. We'll learn about your business and build your custom plan.</p>
+            </div>
+            <div class="step reveal reveal-delay-2">
+                <div class="step-number">2</div>
+                <h3>We Set Up</h3>
+                <p>Our team configures everything — automations, messaging, booking — all done for you.</p>
+            </div>
+            <div class="step reveal reveal-delay-3">
+                <div class="step-number">3</div>
+                <h3>You Profit</h3>
+                <p>Start capturing leads instantly. More calls answered, more estimates booked, more revenue.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="section testimonial-section">
+        <div class="section-header reveal">
+            <span class="section-label">Results</span>
+            <h2>Built for Roofers Who Want to Grow</h2>
+        </div>
+        <div class="testimonial-card reveal">
+            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+            <blockquote>"We were losing calls every weekend. Now every missed call gets a text back in seconds. We've picked up at least 6 extra jobs a month just from that alone."</blockquote>
+            <div class="testimonial-author">— Roofing Company Owner</div>
+            <div class="testimonial-role">Los Angeles, CA</div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-content reveal">
+            <h2>Ready to Stop Losing Money?</h2>
+            <p>See how ProFlux Labs can help your roofing business capture more leads in just 15 minutes.</p>
+            <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book Your Free Demo →</a>
+        </div>
+    </section>
+
+    <!-- Contact / Opt-In Form -->
+    <section class="section" id="contact" style="padding: 80px 24px;">
+        <div class="section-header reveal">
+            <span class="section-label">Contact</span>
+            <h2>Get a Free Consultation</h2>
+            <p>Fill out the form below and we'll reach out to discuss how we can help your roofing business.</p>
+        </div>
+        <div class="reveal" style="max-width: 500px; margin: 0 auto;">
+            <div style="text-align: center; margin-bottom: 20px; padding: 16px; background: #f1f5f9; border-radius: 12px; border: 1px solid #e2e8f0;">
+                <h3 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">Jason White</h3>
+                <p style="font-size: 0.95rem; color: #64748b; font-weight: 500;">d/b/a ProFlux Labs — AI-Powered Lead Management for Roofers</p>
+                <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">By submitting this form, you are contacting <strong style="color:#0f172a;">Jason White d/b/a ProFlux Labs</strong></p>
+            </div>
+            <form action="https://cal.com/profluxlabs/demo" method="get" style="display: flex; flex-direction: column; gap: 16px;">
+                <input type="text" name="name" placeholder="Your Name" required style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
+                <input type="email" name="email" placeholder="Email Address" required style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
+                <input type="tel" name="phone" placeholder="Phone Number" required style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
+                <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #64748b; cursor: pointer;">
+                    <input type="checkbox" required style="margin-top: 3px; accent-color: #f97316;">
+                    I agree to the <a href="/terms.html" style="color: #f97316; text-decoration: underline;">Terms of Service</a> and <a href="/privacy.html" style="color: #f97316; text-decoration: underline;">Privacy Policy</a> provided by ProFlux Labs.
+                </label>
+                <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #64748b; cursor: pointer;">
+                    <input type="checkbox" required style="margin-top: 3px; accent-color: #f97316;">
+                    I agree to receive SMS/text messages from Jason White d/b/a ProFlux Labs at the phone number provided, including: appointment confirmations, appointment reminders, follow-up messages, promotional offers, and customer service communications. You may receive up to 10 messages per month. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.
+                </label>
+                <div style="font-size: 0.8rem; color: #64748b; margin: 4px 0 0 0; line-height: 1.5; background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
+                    <p style="margin-bottom: 6px;"><strong style="color: #0f172a;">Message Types:</strong> By opting in, you may receive the following types of SMS messages from Jason White d/b/a ProFlux Labs: appointment confirmations, appointment reminders, follow-up messages, promotional offers, and customer service communications.</p>
+                    <p style="margin-bottom: 6px;"><strong style="color: #0f172a;">Frequency:</strong> Up to 10 messages per month.</p>
+                    <p><strong style="color: #0f172a;">Opt-Out:</strong> Reply STOP to unsubscribe at any time. Reply HELP for assistance. Message and data rates may apply.</p>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;">Get Started →</button>
+            </form>
+            <div style="text-align: center; margin-top: 24px; color: #94a3b8; font-size: 0.85rem;">
+                <p><strong style="color: #1e293b;">ProFlux Labs</strong></p>
+                <p>📧 jason@profluxlabs.com · 📍 Los Angeles, CA</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <img src="/logo.png" alt="ProFlux Labs">
+                    <p>AI-powered lead management built specifically for roofing companies. Capture every lead, close more jobs.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <a href="#features">Features</a>
+                    <a href="#how-it-works">How It Works</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Legal</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Get Started</h4>
+                    <a href="https://cal.com/profluxlabs/demo">Book a Demo</a>
+                    <a href="mailto:jason@profluxlabs.com">Email Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 ProFlux Labs. All rights reserved.</span>
+                <span>Built in Los Angeles, CA 🌴</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Sticky nav
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>

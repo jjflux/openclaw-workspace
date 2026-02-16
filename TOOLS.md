@@ -6,6 +6,14 @@ Skills define _how_ tools work. This file is for _your_ specifics — the stuff 
 - **Flux email:** jjflux11@gmail.com (also connected to Jason's Etsy)
 - **GHL:** pending setup — will be added as staff at jjflux11@gmail.com
 
+## ElevenLabs
+- **Account:** jwhite1130@gmail.com (Creator plan, $11/mo)
+- **API Key:** sk_d847992247a41802be7ef2d11ce33b69875898d9789f457b
+- **Jason Voice ID:** oejgi8QLDumvPyphDxgg
+- **Voice Name:** Jason White
+- **Model:** eleven_multilingual_v2
+- **Settings:** stability 0.5 / similarity_boost 0.75
+
 ## What Goes Here
 
 Things like:

@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>SoundFlow — TikTok Sound Player</title>
+<meta name="description" content="Play your TikTok saved sounds continuously like a playlist">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0a0a0a;--bg2:#141414;--bg3:#1e1e1e;--accent:#fe2c55;--accent2:#25f4ee;--text:#fff;--text2:#aaa;--text3:#666;--radius:12px}
+html,body{height:100%;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);overflow:hidden;-webkit-tap-highlight-color:transparent}
+button{background:none;border:none;color:var(--text);cursor:pointer;font-family:inherit}
+input{font-family:inherit}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--text3);border-radius:2px}
+
+.app{display:flex;flex-direction:column;height:100%;max-width:500px;margin:0 auto}
+.header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 8px;flex-shrink:0}
+.header h1{font-size:22px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header-actions{display:flex;gap:8px}
+.header-actions button{width:36px;height:36px;border-radius:50%;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:16px}
+
+.add-section{padding:8px 20px;flex-shrink:0}
+.add-bar{display:flex;gap:8px}
+.add-bar input{flex:1;background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius);padding:12px 16px;color:var(--text);font-size:14px;outline:none;transition:border .2s}
+.add-bar input:focus{border-color:var(--accent)}
+.add-bar button{background:var(--accent);border-radius:var(--radius);padding:0 20px;font-weight:600;font-size:14px;white-space:nowrap;transition:opacity .2s}
+.add-bar button:active{opacity:.7}
+.add-hint{font-size:11px;color:var(--text3);margin-top:6px;padding:0 4px}
+
+.playlist{flex:1;overflow-y:auto;padding:8px 20px 8px}
+.playlist-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;color:var(--text3);text-align:center;gap:12px;padding:40px}
+.playlist-empty .icon{font-size:48px;opacity:.5}
+.playlist-empty p{font-size:14px;line-height:1.6}
+
+.track{display:flex;align-items:center;gap:12px;padding:12px;border-radius:var(--radius);transition:background .15s;cursor:pointer;position:relative}
+.track:hover,.track.active{background:var(--bg2)}
+.track.active{border-left:3px solid var(--accent)}
+.track.playing .track-idx{color:var(--accent)}
+.track-idx{width:24px;text-align:center;font-size:12px;color:var(--text3);flex-shrink:0}
+.track.playing .track-idx::after{content:'♫';font-size:14px}
+.track.playing .track-idx span{display:none}
+.track-info{flex:1;min-width:0}
+.track-title{font-size:14px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track-sub{font-size:12px;color:var(--text3);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.track-dur{font-size:12px;color:var(--text3);flex-shrink:0}
+.track-rm{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;opacity:0;transition:opacity .15s;flex-shrink:0;color:var(--text3)}
+.track:hover .track-rm{opacity:1}
+.track-rm:hover{background:rgba(254,44,85,.2);color:var(--accent)}
+
+.player{flex-shrink:0;background:var(--bg2);border-top:1px solid var(--bg3);padding:12px 20px 20px;backdrop-filter:blur(20px)}
+.player-info{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.player-thumb{width:40px;height:40px;border-radius:8px;background:var(--bg3);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.player-meta{flex:1;min-width:0}
+.player-title{font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.player-artist{font-size:11px;color:var(--text3)}
+.progress-wrap{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.progress-time{font-size:10px;color:var(--text3);min-width:32px;text-align:center}
+.progress-bar{flex:1;height:4px;background:var(--bg3);border-radius:2px;cursor:pointer;position:relative}
+.progress-fill{height:100%;background:var(--accent);border-radius:2px;width:0%;transition:width .1s linear}
+.progress-bar:hover .progress-fill{height:6px;margin-top:-1px}
+.controls{display:flex;align-items:center;justify-content:center;gap:16px}
+.controls button{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;transition:all .15s}
+.controls button:active{transform:scale(.9)}
+.btn-play{width:48px!important;height:48px!important;background:var(--accent)!important;font-size:20px!important}
+.btn-shuffle.active,.btn-repeat.active{color:var(--accent)}
+.volume-wrap{display:flex;align-items:center;gap:8px;margin-top:8px}
+.volume-wrap button{font-size:16px;width:28px}
+.volume-bar{flex:1;height:4px;background:var(--bg3);border-radius:2px;cursor:pointer;position:relative}
+.volume-fill{height:100%;background:var(--accent2);border-radius:2px;width:80%}
+
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:100;display:none;align-items:flex-end;justify-content:center}
+.modal-bg.open{display:flex}
+.modal{background:var(--bg2);border-radius:20px 20px 0 0;width:100%;max-width:500px;max-height:70vh;overflow-y:auto;padding:24px 20px}
+.modal h2{font-size:18px;margin-bottom:16px}
+.modal p{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:12px}
+.modal code{background:var(--bg3);padding:2px 6px;border-radius:4px;font-size:12px}
+.modal .close-modal{position:absolute;top:16px;right:16px;font-size:20px}
+
+/* Loading spinner on add button */
+.add-bar button.loading{pointer-events:none;opacity:.6}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:16px;height:16px;border:2px solid transparent;border-top-color:var(--text);border-radius:50%;animation:spin .6s linear infinite}
+
+/* Toast */
+.toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--bg3);color:var(--text);padding:10px 20px;border-radius:var(--radius);font-size:13px;z-index:200;opacity:0;transition:opacity .3s;pointer-events:none}
+.toast.show{opacity:1}
+
+@media(min-width:500px){
+  .app{border-left:1px solid var(--bg3);border-right:1px solid var(--bg3)}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="header">
+    <h1>SoundFlow</h1>
+    <div class="header-actions">
+      <button onclick="showHelp()" title="Help">?</button>
+      <button onclick="clearPlaylist()" title="Clear all">🗑</button>
+    </div>
+  </div>
+
+  <div class="add-section">
+    <div class="add-bar">
+      <input id="urlInput" type="url" placeholder="Paste TikTok video URL or direct audio URL" enterkeyhint="done">
+      <button id="addBtn" onclick="addSound()">Add</button>
+    </div>
+    <div class="add-hint">Supports TikTok video URLs and direct audio/video file URLs</div>
+  </div>
+
+  <div class="playlist" id="playlist"></div>
+
+  <div class="player">
+    <div class="player-info">
+      <div class="player-thumb">♫</div>
+      <div class="player-meta">
+        <div class="player-title" id="pTitle">No sound playing</div>
+        <div class="player-artist" id="pArtist">Add sounds to get started</div>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <span class="progress-time" id="pCur">0:00</span>
+      <div class="progress-bar" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-time" id="pDur">0:00</span>
+    </div>
+    <div class="controls">
+      <button class="btn-shuffle" id="btnShuffle" onclick="toggleShuffle()" title="Shuffle">🔀</button>
+      <button onclick="prevTrack()" title="Previous">⏮</button>
+      <button class="btn-play" id="btnPlay" onclick="togglePlay()" title="Play">▶</button>
+      <button onclick="nextTrack()" title="Next">⏭</button>
+      <button class="btn-repeat" id="btnRepeat" onclick="toggleRepeat()" title="Repeat">🔁</button>
+    </div>
+    <div class="volume-wrap">
+      <button onclick="toggleMute()">🔊</button>
+      <div class="volume-bar" id="volumeBar">
+        <div class="volume-fill" id="volumeFill"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal-bg" id="helpModal">
+  <div class="modal">
+    <h2>How to use SoundFlow</h2>
+    <p><strong>Option 1 — TikTok Video URLs:</strong><br>
+    Paste a TikTok video URL (e.g. <code>https://www.tiktok.com/@user/video/123...</code> or <code>https://vm.tiktok.com/xxx</code>). SoundFlow will attempt to extract the audio using third-party services.</p>
+    <p><strong>Option 2 — Direct Audio URLs:</strong><br>
+    If extraction fails, you can use any direct audio/video URL (.mp3, .m4a, .mp4, etc). Use a TikTok downloader site to get the direct URL, then paste it here.</p>
+    <p><strong>Recommended workflow:</strong><br>
+    1. Copy TikTok video link (Share → Copy Link)<br>
+    2. Paste here — auto-extraction will be attempted<br>
+    3. If it fails, use <a href="https://snaptik.app" target="_blank" style="color:var(--accent2)">snaptik.app</a> or <a href="https://ssstik.io" target="_blank" style="color:var(--accent2)">ssstik.io</a> to get a direct download link<br>
+    4. Paste the direct media URL instead</p>
+    <p><strong>Note:</strong> TikTok sound/music page URLs (<code>/music/...</code>) are not directly supported — use video URLs from that sound's page instead.</p>
+    <p style="color:var(--text3);font-size:11px;margin-top:16px">Your playlist is saved locally in your browser. No data leaves your device except API calls to extract audio.</p>
+    <button onclick="helpModal.classList.remove('open')" style="width:100%;padding:12px;background:var(--accent);border-radius:var(--radius);font-weight:600;margin-top:8px">Got it</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<audio id="audio" preload="auto"></audio>
+
+<script>
+const audio = document.getElementById('audio');
+const playlist = document.getElementById('playlist');
+const helpModal = document.getElementById('helpModal');
+
+let tracks = JSON.parse(localStorage.getItem('sf_tracks') || '[]');
+let currentIdx = -1;
+let isPlaying = false;
+let isShuffle = false;
+let repeatMode = 0; // 0=off, 1=all, 2=one
+let volume = parseFloat(localStorage.getItem('sf_volume') || '0.8');
+let shuffleOrder = [];
+
+audio.volume = volume;
+document.getElementById('volumeFill').style.width = (volume * 100) + '%';
+
+// ===== EXTRACTION =====
+const EXTRACTORS = [
+  {
+    name: 'tikwm',
+    async extract(url) {
+      const r = await fetch('https://www.tikwm.com/api/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: 'url=' + encodeURIComponent(url)
+      });
+      const d = await r.json();
+      if (d.code === 0 && d.data) {
+        return {
+          audioUrl: d.data.music ? ('https://www.tikwm.com' + d.data.music) : null,
+          videoUrl: d.data.play ? ('https://www.tikwm.com' + d.data.play) : null,
+          title: d.data.title || 'TikTok Sound',
+          author: d.data.author?.nickname || d.data.author?.unique_id || '',
+          duration: d.data.duration || 0,
+          musicTitle: d.data.music_info?.title || ''
+        };
+      }
+      return null;
+    }
+  }
+];
+
+async function extractAudio(url) {
+  for (const ext of EXTRACTORS) {
+    try {
+      const result = await ext.extract(url);
+      if (result && (result.audioUrl || result.videoUrl)) return result;
+    } catch(e) {
+      console.warn(`${ext.name} failed:`, e);
+    }
+  }
+  return null;
+}
+
+function isTikTokUrl(url) {
+  return /tiktok\.com/i.test(url) || /vm\.tiktok/i.test(url);
+}
+
+function isDirectMedia(url) {
+  return /\.(mp3|mp4|m4a|ogg|wav|webm|aac)(\?.*)?$/i.test(url) || 
+         /audio|video|media|cdn/i.test(url);
+}
+
+// ===== ADD SOUND =====
+async function addSound() {
+  const input = document.getElementById('urlInput');
+  const btn = document.getElementById('addBtn');
+  let url = input.value.trim();
+  if (!url) return;
+
+  // Validate URL
+  try { new URL(url); } catch { return toast('Please enter a valid URL'); }
+
+  btn.innerHTML = '<span class="spinner"></span>';
+  btn.classList.add('loading');
+
+  try {
+    if (isTikTokUrl(url)) {
+      const result = await extractAudio(url);
+      if (result) {
+        const track = {
+          id: Date.now().toString(36),
+          title: result.musicTitle || result.title || 'TikTok Sound',
+          artist: result.author || 'TikTok',
+          url: result.audioUrl || result.videoUrl,
+          originalUrl: url,
+          duration: result.duration
+        };
+        tracks.push(track);
+        save();
+        render();
+        input.value = '';
+        toast('Sound added!');
+      } else {
+        toast('Extraction failed — try a direct audio URL instead (see ? for help)');
+      }
+    } else {
+      // Treat as direct URL
+      const track = {
+        id: Date.now().toString(36),
+        title: decodeURIComponent(url.split('/').pop().split('?')[0]).substring(0, 60) || 'Sound',
+        artist: new URL(url).hostname,
+        url: url,
+        originalUrl: url,
+        duration: 0
+      };
+      tracks.push(track);
+      save();
+      render();
+      input.value = '';
+      toast('Sound added!');
+    }
+  } catch(e) {
+    console.error(e);
+    toast('Error: ' + e.message);
+  }
+
+  btn.innerHTML = 'Add';
+  btn.classList.remove('loading');
+}
+
+// Enter key
+document.getElementById('urlInput').addEventListener('keydown', e => {
+  if (e.key === 'Enter') addSound();
+});
+
+// ===== PLAYLIST =====
+function save() {
+  localStorage.setItem('sf_tracks', JSON.stringify(tracks));
+}
+
+function render() {
+  if (tracks.length === 0) {
+    playlist.innerHTML = '<div class="playlist-empty"><div class="icon">🎵</div><p>No sounds yet<br>Paste a TikTok video URL above<br>to start building your playlist</p></div>';
+    return;
+  }
+  playlist.innerHTML = tracks.map((t, i) => `
+    <div class="track ${i === currentIdx ? 'active' : ''} ${i === currentIdx && isPlaying ? 'playing' : ''}" onclick="playIdx(${i})">
+      <div class="track-idx"><span>${i + 1}</span></div>
+      <div class="track-info">
+        <div class="track-title">${esc(t.title)}</div>
+        <div class="track-sub">${esc(t.artist)}</div>
+      </div>
+      <div class="track-dur">${t.duration ? fmtTime(t.duration) : ''}</div>
+      <button class="track-rm" onclick="event.stopPropagation();removeTrack(${i})" title="Remove">✕</button>
+    </div>
+  `).join('');
+}
+
+function removeTrack(i) {
+  if (i === currentIdx) { audio.pause(); currentIdx = -1; isPlaying = false; updatePlayBtn(); }
+  else if (i < currentIdx) currentIdx--;
+  tracks.splice(i, 1);
+  save();
+  render();
+  updatePlayerInfo();
+}
+
+function clearPlaylist() {
+  if (tracks.length === 0) return;
+  if (!confirm('Clear entire playlist?')) return;
+  audio.pause();
+  tracks = [];
+  currentIdx = -1;
+  isPlaying = false;
+  save();
+  render();
+  updatePlayerInfo();
+  updatePlayBtn();
+}
+
+// ===== PLAYBACK =====
+function playIdx(i) {
+  if (i < 0 || i >= tracks.length) return;
+  currentIdx = i;
+  audio.src = tracks[i].url;
+  audio.play().then(() => { isPlaying = true; updatePlayBtn(); render(); }).catch(e => {
+    toast('Playback failed — URL may be expired or blocked');
+    console.error(e);
+  });
+  updatePlayerInfo();
+  render();
+}
+
+function togglePlay() {
+  if (tracks.length === 0) return;
+  if (currentIdx === -1) return playIdx(0);
+  if (isPlaying) { audio.pause(); isPlaying = false; }
+  else { audio.play().catch(()=>{}); isPlaying = true; }
+  updatePlayBtn();
+  render();
+}
+
+function nextTrack() {
+  if (tracks.length === 0) return;
+  if (isShuffle) {
+    if (shuffleOrder.length === 0) buildShuffle();
+    const next = shuffleOrder.shift();
+    playIdx(next);
+  } else {
+    const next = currentIdx + 1;
+    if (next >= tracks.length) {
+      if (repeatMode >= 1) playIdx(0);
+      else { isPlaying = false; updatePlayBtn(); }
+    } else playIdx(next);
+  }
+}
+
+function prevTrack() {
+  if (tracks.length === 0) return;
+  if (audio.currentTime > 3) { audio.currentTime = 0; return; }
+  const prev = currentIdx - 1;
+  if (prev < 0) playIdx(tracks.length - 1);
+  else playIdx(prev);
+}
+
+function toggleShuffle() {
+  isShuffle = !isShuffle;
+  document.getElementById('btnShuffle').classList.toggle('active', isShuffle);
+  if (isShuffle) buildShuffle();
+  toast(isShuffle ? 'Shuffle on' : 'Shuffle off');
+}
+
+function buildShuffle() {
+  shuffleOrder = tracks.map((_, i) => i).filter(i => i !== currentIdx);
+  for (let i = shuffleOrder.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffleOrder[i], shuffleOrder[j]] = [shuffleOrder[j], shuffleOrder[i]];
+  }
+}
+
+function toggleRepeat() {
+  repeatMode = (repeatMode + 1) % 3;
+  const btn = document.getElementById('btnRepeat');
+  btn.classList.toggle('active', repeatMode > 0);
+  btn.textContent = repeatMode === 2 ? '🔂' : '🔁';
+  toast(['Repeat off', 'Repeat all', 'Repeat one'][repeatMode]);
+}
+
+audio.addEventListener('ended', () => {
+  if (repeatMode === 2) { audio.currentTime = 0; audio.play(); return; }
+  nextTrack();
+});
+
+audio.addEventListener('timeupdate', () => {
+  if (!audio.duration) return;
+  document.getElementById('pCur').textContent = fmtTime(audio.currentTime);
+  document.getElementById('pDur').textContent = fmtTime(audio.duration);
+  document.getElementById('progressFill').style.width = (audio.currentTime / audio.duration * 100) + '%';
+  // Update track duration if we didn't have it
+  if (currentIdx >= 0 && !tracks[currentIdx].duration && audio.duration) {
+    tracks[currentIdx].duration = Math.round(audio.duration);
+    save();
+    render();
+  }
+});
+
+// Seeking
+document.getElementById('progressBar').addEventListener('click', e => {
+  if (!audio.duration) return;
+  const pct = e.offsetX / e.currentTarget.offsetWidth;
+  audio.currentTime = pct * audio.duration;
+});
+
+// Volume
+document.getElementById('volumeBar').addEventListener('click', e => {
+  volume = Math.max(0, Math.min(1, e.offsetX / e.currentTarget.offsetWidth));
+  audio.volume = volume;
+  document.getElementById('volumeFill').style.width = (volume * 100) + '%';
+  localStorage.setItem('sf_volume', volume);
+});
+
+function toggleMute() {
+  audio.muted = !audio.muted;
+}
+
+function updatePlayBtn() {
+  document.getElementById('btnPlay').textContent = isPlaying ? '⏸' : '▶';
+}
+
+function updatePlayerInfo() {
+  if (currentIdx >= 0 && currentIdx < tracks.length) {
+    document.getElementById('pTitle').textContent = tracks[currentIdx].title;
+    document.getElementById('pArtist').textContent = tracks[currentIdx].artist;
+  } else {
+    document.getElementById('pTitle').textContent = 'No sound playing';
+    document.getElementById('pArtist').textContent = 'Add sounds to get started';
+  }
+}
+
+// ===== UTILS =====
+function fmtTime(s) {
+  s = Math.floor(s);
+  const m = Math.floor(s / 60);
+  return m + ':' + String(s % 60).padStart(2, '0');
+}
+
+function esc(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toast._t);
+  toast._t = setTimeout(() => t.classList.remove('show'), 2500);
+}
+
+function showHelp() {
+  helpModal.classList.add('open');
+}
+helpModal.addEventListener('click', e => { if (e.target === helpModal) helpModal.classList.remove('open'); });
+
+// Media Session API
+if ('mediaSession' in navigator) {
+  navigator.mediaSession.setActionHandler('play', togglePlay);
+  navigator.mediaSession.setActionHandler('pause', togglePlay);
+  navigator.mediaSession.setActionHandler('previoustrack', prevTrack);
+  navigator.mediaSession.setActionHandler('nexttrack', nextTrack);
+  audio.addEventListener('play', () => {
+    if (currentIdx >= 0) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: tracks[currentIdx].title,
+        artist: tracks[currentIdx].artist,
+        album: 'SoundFlow'
+      });
+    }
+  });
+}
+
+// Service Worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+// Init
+render();
+</script>
+</body>
+</html>
