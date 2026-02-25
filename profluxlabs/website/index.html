@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProFlux Labs — AI Receptionist for Small Businesses</title>
-    <meta name="description" content="24/7 AI Receptionist that never misses a call. Books appointments, qualifies leads, and follows up automatically. $295/month.">
+    <title>ProFlux Labs — Professional AI Receptionist Service</title>
+    <meta name="description" content="24/7 AI Receptionist for small businesses. Books appointments, qualifies leads, follows up automatically. $295/month with 2-week free trial.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -31,14 +31,6 @@
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
-        }
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
         }
         .reveal {
             opacity: 0;
@@ -210,14 +202,14 @@
             opacity: 0.8;
         }
 
-        /* Trust Bar */
-        .trust-bar {
+        /* Industries */
+        .industries-bar {
             background: var(--white);
             border-bottom: 1px solid #e2e8f0;
             padding: 32px 24px;
             text-align: center;
         }
-        .trust-bar p {
+        .industries-bar p {
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -225,17 +217,25 @@
             font-weight: 600;
             margin-bottom: 16px;
         }
-        .trust-items {
+        .industries-grid {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 40px;
+            gap: 32px;
             flex-wrap: wrap;
             color: var(--text-muted);
             font-size: 0.95rem;
             font-weight: 500;
         }
-        .trust-items span { display: flex; align-items: center; gap: 8px; }
+        .industry-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
 
         /* Pricing Hero */
         .pricing-hero {
@@ -488,7 +488,7 @@
             .steps::before { display: none; }
             .section-header h2 { font-size: 1.8rem; }
             .cta-section h2 { font-size: 1.8rem; }
-            .trust-items { gap: 20px; }
+            .industries-grid { gap: 16px; }
             .demo-phone { font-size: 1.5rem; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
@@ -514,49 +514,53 @@
     <!-- Hero -->
     <header class="hero">
         <div class="hero-content">
-            <div class="hero-badge">🤖 AI Receptionist</div>
+            <div class="hero-badge">🤖 Professional AI Receptionist</div>
             <h1>Never Miss Another <span>Customer Call</span></h1>
-            <p>24/7 AI Receptionist that answers calls, qualifies leads, and books appointments automatically.</p>
+            <p>24/7 AI Receptionist that answers every call, qualifies leads, and books appointments automatically.</p>
             <div class="hero-buttons">
-                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book a Demo →</a>
-                <a href="tel:4482286211" class="btn btn-secondary">📞 Call Our AI Now</a>
+                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book Free Demo →</a>
+                <a href="tel:4482286211" class="btn btn-secondary">📞 Try Our AI Now</a>
             </div>
             <div class="demo-box">
-                <h3>Try Our AI Receptionist</h3>
+                <h3>Experience Our AI Receptionist</h3>
                 <div class="demo-phone">(448) 228-6211</div>
-                <p>Call now and experience "Emma" at Apex Roofing</p>
+                <p>Call now and talk to "Emma" at our demo company</p>
             </div>
         </div>
     </header>
 
-    <!-- Trust -->
-    <div class="trust-bar">
-        <p>Complete AI Receptionist Solution</p>
-        <div class="trust-items">
-            <span>📞 24/7 Phone Answering</span>
-            <span>📅 Appointment Booking</span>
-            <span>📱 SMS & Email Follow-up</span>
-            <span>📊 Lead Management</span>
-            <span>⚡ 2-Week Free Trial</span>
+    <!-- Industries -->
+    <div class="industries-bar">
+        <p>Perfect for Service-Based Businesses</p>
+        <div class="industries-grid">
+            <div class="industry-item">🏠 Roofing</div>
+            <div class="industry-item">🔧 HVAC</div>
+            <div class="industry-item">🚿 Plumbing</div>
+            <div class="industry-item">🦷 Dental</div>
+            <div class="industry-item">⚖️ Legal</div>
+            <div class="industry-item">💅 Med Spas</div>
+            <div class="industry-item">💇 Salons</div>
+            <div class="industry-item">🔨 Contractors</div>
         </div>
     </div>
 
     <!-- Pricing -->
     <section class="pricing-hero" id="pricing">
         <div class="pricing-card reveal">
-            <div class="price-badge">Professional AI Receptionist</div>
+            <div class="price-badge">Complete AI Receptionist</div>
             <div class="price">$295</div>
             <div class="price-period">per month</div>
             <ul class="price-features">
-                <li>24/7 AI phone answering</li>
-                <li>Lead qualification & booking</li>
-                <li>SMS & email automation</li>
+                <li>24/7 professional phone answering</li>
+                <li>Smart lead qualification</li>
+                <li>Automatic appointment booking</li>
+                <li>SMS & email follow-up automation</li>
+                <li>Custom scripts for your industry</li>
                 <li>CRM integration & tracking</li>
-                <li>Custom voice & scripts</li>
-                <li>Complete setup & support</li>
-                <li>2-week free trial</li>
+                <li>Complete setup & ongoing support</li>
+                <li><strong>2-week free trial</strong></li>
             </ul>
-            <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;">Get Started →</a>
+            <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;">Start Free Trial →</a>
         </div>
     </section>
 
@@ -565,38 +569,38 @@
         <div class="section-header reveal">
             <span class="section-label">Features</span>
             <h2>Your Perfect AI Receptionist</h2>
-            <p>Professional, intelligent, and never takes a sick day.</p>
+            <p>Professional, intelligent, and customized for your industry.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card reveal reveal-delay-1">
                 <div class="feature-icon">📞</div>
-                <h3>24/7 Phone Answering</h3>
-                <p>Professional AI receptionist answers every call with your business name and custom greeting.</p>
+                <h3>24/7 Professional Answering</h3>
+                <p>Your AI receptionist answers every call with your business name, custom greeting, and industry knowledge.</p>
             </div>
             <div class="feature-card reveal reveal-delay-2">
                 <div class="feature-icon">🎯</div>
                 <h3>Smart Lead Qualification</h3>
-                <p>Asks the right questions to identify hot prospects and gather essential information.</p>
+                <p>Asks the right questions to identify hot prospects, understands urgency, and gathers essential contact details.</p>
             </div>
             <div class="feature-card reveal reveal-delay-3">
                 <div class="feature-icon">📅</div>
-                <h3>Appointment Booking</h3>
-                <p>Books appointments directly into your calendar with customer details and preferences.</p>
+                <h3>Automatic Booking</h3>
+                <p>Books appointments directly into your calendar with customer preferences and detailed notes from the conversation.</p>
             </div>
             <div class="feature-card reveal reveal-delay-1">
                 <div class="feature-icon">📱</div>
                 <h3>SMS Follow-up</h3>
-                <p>Instant text confirmations, reminders, and follow-up messages to every caller.</p>
+                <p>Instant text confirmations, appointment reminders, and professional follow-up messages to every caller.</p>
             </div>
             <div class="feature-card reveal reveal-delay-2">
                 <div class="feature-icon">📧</div>
                 <h3>Email Automation</h3>
-                <p>Professional email sequences with estimates, company info, and nurture campaigns.</p>
+                <p>Professional email sequences with service information, estimates, and nurture campaigns for warm prospects.</p>
             </div>
             <div class="feature-card reveal reveal-delay-3">
                 <div class="feature-icon">📊</div>
-                <h3>Business Intelligence</h3>
-                <p>Real-time reporting on calls, bookings, and revenue from your AI receptionist.</p>
+                <h3>Complete Reporting</h3>
+                <p>Real-time dashboard showing calls received, appointments booked, and revenue generated by your AI receptionist.</p>
             </div>
         </div>
     </section>
@@ -605,24 +609,24 @@
     <section class="section how-it-works">
         <div class="section-header reveal">
             <span class="section-label">How It Works</span>
-            <h2>Up and Running in 3 Steps</h2>
-            <p>We handle everything so you can focus on your business.</p>
+            <h2>Professional Setup in 3 Steps</h2>
+            <p>We handle all the technical setup so you can focus on your business.</p>
         </div>
         <div class="steps">
             <div class="step reveal reveal-delay-1">
                 <div class="step-number">1</div>
-                <h3>Book a Demo</h3>
-                <p>15-minute call to understand your business and customize your AI receptionist.</p>
+                <h3>Free Consultation</h3>
+                <p>15-minute call to understand your business, customers, and customize your AI receptionist's personality.</p>
             </div>
             <div class="step reveal reveal-delay-2">
                 <div class="step-number">2</div>
-                <h3>We Set Everything Up</h3>
-                <p>Custom scripts, voice training, CRM integration — all done for you in 24-48 hours.</p>
+                <h3>Complete Setup</h3>
+                <p>We create custom scripts, train the AI voice, integrate with your systems — everything done professionally.</p>
             </div>
             <div class="step reveal reveal-delay-3">
                 <div class="step-number">3</div>
-                <h3>Start Getting Results</h3>
-                <p>Your AI receptionist starts answering calls and booking appointments immediately.</p>
+                <h3>Go Live & Grow</h3>
+                <p>Your AI receptionist starts answering calls immediately. Watch bookings increase and never miss opportunities.</p>
             </div>
         </div>
     </section>
@@ -631,12 +635,12 @@
     <section class="cta-section" id="demo">
         <div class="cta-content reveal">
             <h2>Ready to Never Miss a Call Again?</h2>
-            <p>See how our AI Receptionist can transform your business in just 15 minutes.</p>
+            <p>See how our AI Receptionist can transform your business. Book a demo or try our live demo line.</p>
             <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
-                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book Your Demo →</a>
+                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book Free Demo →</a>
                 <a href="tel:4482286211" class="btn btn-secondary">📞 Call (448) 228-6211</a>
             </div>
-            <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 16px;">Try our live demo — call now and talk to "Emma" at Apex Roofing</p>
+            <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 16px;">Call our demo line to experience "Emma" — your future AI receptionist</p>
         </div>
     </section>
 
@@ -644,13 +648,13 @@
     <section class="section" id="contact" style="padding: 80px 24px;">
         <div class="section-header reveal">
             <span class="section-label">Contact</span>
-            <h2>Start Your Free Trial</h2>
-            <p>Fill out the form below for a free consultation and 2-week trial.</p>
+            <h2>Start Your Free Trial Today</h2>
+            <p>Fill out the form below and we'll set up your custom AI receptionist with a 2-week free trial.</p>
         </div>
         <div class="reveal" style="max-width: 500px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 20px; padding: 16px; background: #f1f5f9; border-radius: 12px; border: 1px solid #e2e8f0;">
                 <h3 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">Jason White</h3>
-                <p style="font-size: 0.95rem; color: #64748b; font-weight: 500;">d/b/a ProFlux Labs — AI Receptionist Services</p>
+                <p style="font-size: 0.95rem; color: #64748b; font-weight: 500;">d/b/a ProFlux Labs — Professional AI Receptionist Services</p>
                 <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">By submitting this form, you are contacting <strong style="color:#0f172a;">Jason White d/b/a ProFlux Labs</strong></p>
             </div>
             <form name="sms-optin" method="POST" data-netlify="true" action="/success.html" style="display: flex; flex-direction: column; gap: 16px;">
@@ -683,7 +687,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <img src="/logo.png" alt="ProFlux Labs">
-                    <p>Professional AI Receptionist services for small businesses. Never miss another customer call.</p>
+                    <p>Professional AI Receptionist services for small businesses across all industries. Never miss another customer call.</p>
                 </div>
             </div>
             <div class="footer-bottom">
