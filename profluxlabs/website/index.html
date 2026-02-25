@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ProFlux Labs — AI-Powered Lead Management for Roofers</title>
-    <meta name="description" content="ProFlux Labs helps roofing companies capture every call, text, and inquiry automatically. Never miss another $10,000 job.">
+    <title>ProFlux Labs — AI Receptionist for Small Businesses</title>
+    <meta name="description" content="24/7 AI Receptionist that never misses a call. Books appointments, qualifies leads, and follows up automatically. $295/month.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -40,10 +40,6 @@
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-8px); }
         }
-        @keyframes countUp {
-            from { opacity: 0; transform: scale(0.5); }
-            to { opacity: 1; transform: scale(1); }
-        }
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -56,8 +52,6 @@
         .reveal-delay-1 { transition-delay: 0.1s; }
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
-        .reveal-delay-4 { transition-delay: 0.4s; }
-        .reveal-delay-5 { transition-delay: 0.5s; }
 
         /* Nav */
         .nav {
@@ -116,18 +110,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 60%),
-                        radial-gradient(ellipse at 80% 50%, rgba(59,130,246,0.08) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        /* Grid pattern overlay */
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                              linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
-            background-size: 60px 60px;
+            background: radial-gradient(ellipse at 50% 0%, rgba(249,115,22,0.12) 0%, transparent 60%);
             pointer-events: none;
         }
         .hero-content { position: relative; z-index: 1; }
@@ -202,20 +185,32 @@
             background: rgba(255,255,255,0.15);
             transform: translateY(-2px);
         }
-        .hero-proof {
-            margin-top: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 24px;
-            flex-wrap: wrap;
-            opacity: 0.7;
-            font-size: 0.9rem;
+        .demo-box {
+            background: rgba(249,115,22,0.1);
+            border: 2px solid rgba(249,115,22,0.3);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 40px auto 0;
+            max-width: 400px;
             animation: fadeIn 1s ease 1s both;
         }
-        .hero-proof span { display: flex; align-items: center; gap: 6px; }
+        .demo-box h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: var(--orange);
+        }
+        .demo-phone {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin: 8px 0;
+            letter-spacing: 0.05em;
+        }
+        .demo-box p {
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
 
-        /* Logos / Trust Bar */
+        /* Trust Bar */
         .trust-bar {
             background: var(--white);
             border-bottom: 1px solid #e2e8f0;
@@ -241,6 +236,60 @@
             font-weight: 500;
         }
         .trust-items span { display: flex; align-items: center; gap: 8px; }
+
+        /* Pricing Hero */
+        .pricing-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 80px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--orange);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 400px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(249,115,22,0.1);
+        }
+        .price-badge {
+            background: var(--orange);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .price-period {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .price-features {
+            text-align: left;
+            margin: 24px 0;
+        }
+        .price-features li {
+            list-style: none;
+            padding: 6px 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .price-features li::before {
+            content: '✅';
+            font-size: 1rem;
+        }
 
         /* Section shared */
         .section { padding: 100px 24px; }
@@ -315,43 +364,6 @@
             line-height: 1.7;
         }
 
-        /* Stats */
-        .stats-section {
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-            color: white;
-            padding: 80px 24px;
-            position: relative;
-            overflow: hidden;
-        }
-        .stats-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 30% 50%, rgba(249,115,22,0.1) 0%, transparent 50%);
-            pointer-events: none;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-        .stat-card { text-align: center; }
-        .stat-number {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--orange);
-            line-height: 1;
-            margin-bottom: 8px;
-        }
-        .stat-label {
-            font-size: 1rem;
-            opacity: 0.8;
-        }
-
         /* How it works */
         .how-it-works { background: var(--bg-light); }
         .steps {
@@ -403,34 +415,6 @@
             margin: 0 auto;
         }
 
-        /* Testimonial */
-        .testimonial-section { background: var(--white); }
-        .testimonial-card {
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 48px;
-            background: var(--bg-light);
-            border-radius: 20px;
-            border: 1px solid #e2e8f0;
-        }
-        .testimonial-stars { font-size: 1.5rem; margin-bottom: 20px; color: #fbbf24; }
-        .testimonial-card blockquote {
-            font-size: 1.2rem;
-            font-style: italic;
-            line-height: 1.8;
-            color: var(--text);
-            margin-bottom: 24px;
-        }
-        .testimonial-author {
-            font-weight: 700;
-            color: var(--navy);
-        }
-        .testimonial-role {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
         /* CTA */
         .cta-section {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
@@ -462,10 +446,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-        .cta-section .btn-primary {
-            font-size: 1.15rem;
-            padding: 18px 44px;
-        }
 
         /* Footer */
         footer {
@@ -488,30 +468,12 @@
         }
         .footer-brand img { height: 36px; margin-bottom: 12px; }
         .footer-brand p { max-width: 300px; font-size: 0.9rem; line-height: 1.7; }
-        .footer-links h4 {
-            color: #e2e8f0;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 16px;
-        }
-        .footer-links a {
-            display: block;
-            color: #94a3b8;
-            text-decoration: none;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            transition: color 0.2s;
-        }
-        .footer-links a:hover { color: #fff; }
         .footer-bottom {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             padding-top: 24px;
             font-size: 0.85rem;
-            flex-wrap: wrap;
-            gap: 12px;
         }
 
         /* Mobile */
@@ -521,16 +483,13 @@
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1.05rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
-            .hero-proof { flex-direction: column; gap: 12px; }
             .features-grid { grid-template-columns: 1fr; max-width: 400px; }
-            .stats-grid { grid-template-columns: 1fr; gap: 30px; }
             .steps { grid-template-columns: 1fr; max-width: 320px; margin: 0 auto; }
             .steps::before { display: none; }
             .section-header h2 { font-size: 1.8rem; }
             .cta-section h2 { font-size: 1.8rem; }
-            .footer-top { flex-direction: column; }
-            .footer-bottom { flex-direction: column; text-align: center; }
             .trust-items { gap: 20px; }
+            .demo-phone { font-size: 1.5rem; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
             .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -545,8 +504,8 @@
             <a href="/"><img src="/logo.png" alt="ProFlux Labs"></a>
             <div class="nav-links">
                 <a href="#features">Features</a>
-                <a href="#how-it-works">How It Works</a>
-                <a href="#contact">Contact</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#demo">Try Demo</a>
                 <a href="https://cal.com/profluxlabs/demo" class="nav-cta">Book Demo</a>
             </div>
         </div>
@@ -555,172 +514,161 @@
     <!-- Hero -->
     <header class="hero">
         <div class="hero-content">
-            <div class="hero-badge">🚀 Built for Roofing Companies</div>
-            <h1>Stop Losing Leads to <span>Voicemail</span></h1>
-            <p>AI-powered follow-up that captures every call, text, and inquiry — automatically. Never miss another $10,000 job.</p>
+            <div class="hero-badge">🤖 AI Receptionist</div>
+            <h1>Never Miss Another <span>Customer Call</span></h1>
+            <p>24/7 AI Receptionist that answers calls, qualifies leads, and books appointments automatically.</p>
             <div class="hero-buttons">
-                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book a Free Demo →</a>
-                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book a Demo →</a>
+                <a href="tel:4482286211" class="btn btn-secondary">📞 Call Our AI Now</a>
             </div>
-            <div class="hero-proof">
-                <span>✅ No contracts</span>
-                <span>⚡ Setup in 24 hours</span>
-                <span>📈 5-10 extra jobs/month</span>
+            <div class="demo-box">
+                <h3>Try Our AI Receptionist</h3>
+                <div class="demo-phone">(448) 228-6211</div>
+                <p>Call now and experience "Emma" at Apex Roofing</p>
             </div>
         </div>
     </header>
 
     <!-- Trust -->
     <div class="trust-bar">
-        <p>Trusted technology</p>
+        <p>Complete AI Receptionist Solution</p>
         <div class="trust-items">
-            <span>🔒 TCPA Compliant</span>
-            <span>📱 SMS &amp; Email</span>
-            <span>🤖 AI-Powered</span>
-            <span>⭐ Google Reviews</span>
-            <span>📊 Real-Time Analytics</span>
+            <span>📞 24/7 Phone Answering</span>
+            <span>📅 Appointment Booking</span>
+            <span>📱 SMS & Email Follow-up</span>
+            <span>📊 Lead Management</span>
+            <span>⚡ 2-Week Free Trial</span>
         </div>
     </div>
+
+    <!-- Pricing -->
+    <section class="pricing-hero" id="pricing">
+        <div class="pricing-card reveal">
+            <div class="price-badge">Professional AI Receptionist</div>
+            <div class="price">$295</div>
+            <div class="price-period">per month</div>
+            <ul class="price-features">
+                <li>24/7 AI phone answering</li>
+                <li>Lead qualification & booking</li>
+                <li>SMS & email automation</li>
+                <li>CRM integration & tracking</li>
+                <li>Custom voice & scripts</li>
+                <li>Complete setup & support</li>
+                <li>2-week free trial</li>
+            </ul>
+            <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;">Get Started →</a>
+        </div>
+    </section>
 
     <!-- Features -->
     <section class="section" id="features">
         <div class="section-header reveal">
             <span class="section-label">Features</span>
-            <h2>Everything You Need to Close More Jobs</h2>
-            <p>From first contact to five-star review — we automate the entire customer journey.</p>
+            <h2>Your Perfect AI Receptionist</h2>
+            <p>Professional, intelligent, and never takes a sick day.</p>
         </div>
         <div class="features-grid">
             <div class="feature-card reveal reveal-delay-1">
-                <div class="feature-icon">📱</div>
-                <h3>Missed Call Text-Back</h3>
-                <p>Every missed call gets an instant text reply so you never lose a lead to voicemail again.</p>
+                <div class="feature-icon">📞</div>
+                <h3>24/7 Phone Answering</h3>
+                <p>Professional AI receptionist answers every call with your business name and custom greeting.</p>
             </div>
             <div class="feature-card reveal reveal-delay-2">
-                <div class="feature-icon">⚡</div>
-                <h3>Automated Follow-Up</h3>
-                <p>Smart text and email sequences that nurture leads from inquiry to booked estimate — hands-free.</p>
+                <div class="feature-icon">🎯</div>
+                <h3>Smart Lead Qualification</h3>
+                <p>Asks the right questions to identify hot prospects and gather essential information.</p>
             </div>
             <div class="feature-card reveal reveal-delay-3">
                 <div class="feature-icon">📅</div>
-                <h3>Online Booking</h3>
-                <p>Customers book estimates directly from your texts. No phone tag, no back-and-forth.</p>
+                <h3>Appointment Booking</h3>
+                <p>Books appointments directly into your calendar with customer details and preferences.</p>
             </div>
             <div class="feature-card reveal reveal-delay-1">
-                <div class="feature-icon">⭐</div>
-                <h3>Review Requests</h3>
-                <p>Automatically ask happy customers for Google reviews after every completed job.</p>
+                <div class="feature-icon">📱</div>
+                <h3>SMS Follow-up</h3>
+                <p>Instant text confirmations, reminders, and follow-up messages to every caller.</p>
             </div>
             <div class="feature-card reveal reveal-delay-2">
-                <div class="feature-icon">📊</div>
-                <h3>Lead Tracking</h3>
-                <p>See every lead, every stage, every dollar in one dashboard. Know exactly what's working.</p>
+                <div class="feature-icon">📧</div>
+                <h3>Email Automation</h3>
+                <p>Professional email sequences with estimates, company info, and nurture campaigns.</p>
             </div>
             <div class="feature-card reveal reveal-delay-3">
-                <div class="feature-icon">🔔</div>
-                <h3>Appointment Reminders</h3>
-                <p>Reduce no-shows with automated text reminders before every scheduled estimate.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Stats -->
-    <section class="stats-section">
-        <div class="stats-grid">
-            <div class="stat-card reveal reveal-delay-1">
-                <div class="stat-number">78%</div>
-                <div class="stat-label">of customers hire the first roofer who responds</div>
-            </div>
-            <div class="stat-card reveal reveal-delay-2">
-                <div class="stat-number">5-10</div>
-                <div class="stat-label">extra jobs per month from recovered leads</div>
-            </div>
-            <div class="stat-card reveal reveal-delay-3">
-                <div class="stat-number">24/7</div>
-                <div class="stat-label">automated responses — nights, weekends, holidays</div>
+                <div class="feature-icon">📊</div>
+                <h3>Business Intelligence</h3>
+                <p>Real-time reporting on calls, bookings, and revenue from your AI receptionist.</p>
             </div>
         </div>
     </section>
 
     <!-- How it works -->
-    <section class="section how-it-works" id="how-it-works">
+    <section class="section how-it-works">
         <div class="section-header reveal">
             <span class="section-label">How It Works</span>
-            <h2>Up and Running in 3 Simple Steps</h2>
-            <p>We handle the tech so you can focus on what you do best — roofing.</p>
+            <h2>Up and Running in 3 Steps</h2>
+            <p>We handle everything so you can focus on your business.</p>
         </div>
         <div class="steps">
             <div class="step reveal reveal-delay-1">
                 <div class="step-number">1</div>
-                <h3>Sign Up</h3>
-                <p>Book a quick demo call. We'll learn about your business and build your custom plan.</p>
+                <h3>Book a Demo</h3>
+                <p>15-minute call to understand your business and customize your AI receptionist.</p>
             </div>
             <div class="step reveal reveal-delay-2">
                 <div class="step-number">2</div>
-                <h3>We Set Up</h3>
-                <p>Our team configures everything — automations, messaging, booking — all done for you.</p>
+                <h3>We Set Everything Up</h3>
+                <p>Custom scripts, voice training, CRM integration — all done for you in 24-48 hours.</p>
             </div>
             <div class="step reveal reveal-delay-3">
                 <div class="step-number">3</div>
-                <h3>You Profit</h3>
-                <p>Start capturing leads instantly. More calls answered, more estimates booked, more revenue.</p>
+                <h3>Start Getting Results</h3>
+                <p>Your AI receptionist starts answering calls and booking appointments immediately.</p>
             </div>
         </div>
     </section>
 
-    <!-- Testimonial -->
-    <section class="section testimonial-section">
-        <div class="section-header reveal">
-            <span class="section-label">Results</span>
-            <h2>Built for Roofers Who Want to Grow</h2>
-        </div>
-        <div class="testimonial-card reveal">
-            <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-            <blockquote>"We were losing calls every weekend. Now every missed call gets a text back in seconds. We've picked up at least 6 extra jobs a month just from that alone."</blockquote>
-            <div class="testimonial-author">— Roofing Company Owner</div>
-            <div class="testimonial-role">Los Angeles, CA</div>
-        </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="cta-section">
+    <!-- Demo CTA -->
+    <section class="cta-section" id="demo">
         <div class="cta-content reveal">
-            <h2>Ready to Stop Losing Money?</h2>
-            <p>See how ProFlux Labs can help your roofing business capture more leads in just 15 minutes.</p>
-            <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book Your Free Demo →</a>
+            <h2>Ready to Never Miss a Call Again?</h2>
+            <p>See how our AI Receptionist can transform your business in just 15 minutes.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px;">
+                <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary">Book Your Demo →</a>
+                <a href="tel:4482286211" class="btn btn-secondary">📞 Call (448) 228-6211</a>
+            </div>
+            <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 16px;">Try our live demo — call now and talk to "Emma" at Apex Roofing</p>
         </div>
     </section>
 
-    <!-- Contact / Opt-In Form -->
+    <!-- Contact Form -->
     <section class="section" id="contact" style="padding: 80px 24px;">
         <div class="section-header reveal">
             <span class="section-label">Contact</span>
-            <h2>Get a Free Consultation</h2>
-            <p>Fill out the form below and we'll reach out to discuss how we can help your roofing business.</p>
+            <h2>Start Your Free Trial</h2>
+            <p>Fill out the form below for a free consultation and 2-week trial.</p>
         </div>
         <div class="reveal" style="max-width: 500px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 20px; padding: 16px; background: #f1f5f9; border-radius: 12px; border: 1px solid #e2e8f0;">
                 <h3 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">Jason White</h3>
-                <p style="font-size: 0.95rem; color: #64748b; font-weight: 500;">d/b/a ProFlux Labs — AI-Powered Lead Management for Roofers</p>
+                <p style="font-size: 0.95rem; color: #64748b; font-weight: 500;">d/b/a ProFlux Labs — AI Receptionist Services</p>
                 <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">By submitting this form, you are contacting <strong style="color:#0f172a;">Jason White d/b/a ProFlux Labs</strong></p>
             </div>
-            <form action="https://cal.com/profluxlabs/demo" method="get" style="display: flex; flex-direction: column; gap: 16px;">
+            <form name="sms-optin" method="POST" data-netlify="true" action="/success.html" style="display: flex; flex-direction: column; gap: 16px;">
+                <input type="hidden" name="sms_consent" value="yes">
+                <input type="hidden" name="consent_timestamp" id="consent_timestamp">
                 <input type="text" name="name" placeholder="Your Name" required style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
                 <input type="email" name="email" placeholder="Email Address" required style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
                 <input type="tel" name="phone" placeholder="Phone Number" required style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
+                <input type="text" name="business_type" placeholder="Business Type (roofing, HVAC, dental, etc.)" style="padding: 14px 18px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#f97316'" onblur="this.style.borderColor='#e2e8f0'">
                 <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #64748b; cursor: pointer;">
                     <input type="checkbox" required style="margin-top: 3px; accent-color: #f97316;">
                     I agree to the <a href="/terms.html" style="color: #f97316; text-decoration: underline;">Terms of Service</a> and <a href="/privacy.html" style="color: #f97316; text-decoration: underline;">Privacy Policy</a> provided by ProFlux Labs.
                 </label>
                 <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #64748b; cursor: pointer;">
-                    <input type="checkbox" required style="margin-top: 3px; accent-color: #f97316;">
-                    I agree to receive SMS/text messages from Jason White d/b/a ProFlux Labs at the phone number provided, including: appointment confirmations, appointment reminders, follow-up messages, promotional offers, and customer service communications. You may receive up to 10 messages per month. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help.
+                    <input type="checkbox" name="sms_optin" style="margin-top: 3px; accent-color: #f97316;">
+                    (Optional) I agree to receive SMS/text messages from Jason White d/b/a ProFlux Labs at the phone number provided. Msg & data rates may apply. Reply STOP to opt out.
                 </label>
-                <div style="font-size: 0.8rem; color: #64748b; margin: 4px 0 0 0; line-height: 1.5; background: #f8fafc; padding: 12px; border-radius: 8px; border: 1px solid #e2e8f0;">
-                    <p style="margin-bottom: 6px;"><strong style="color: #0f172a;">Message Types:</strong> By opting in, you may receive the following types of SMS messages from Jason White d/b/a ProFlux Labs: appointment confirmations, appointment reminders, follow-up messages, promotional offers, and customer service communications.</p>
-                    <p style="margin-bottom: 6px;"><strong style="color: #0f172a;">Frequency:</strong> Up to 10 messages per month.</p>
-                    <p><strong style="color: #0f172a;">Opt-Out:</strong> Reply STOP to unsubscribe at any time. Reply HELP for assistance. Message and data rates may apply.</p>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;">Get Started →</button>
+                <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;" onclick="document.getElementById('consent_timestamp').value = new Date().toISOString();">Start Free Trial →</button>
             </form>
             <div style="text-align: center; margin-top: 24px; color: #94a3b8; font-size: 0.85rem;">
                 <p><strong style="color: #1e293b;">ProFlux Labs</strong></p>
@@ -735,28 +683,11 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <img src="/logo.png" alt="ProFlux Labs">
-                    <p>AI-powered lead management built specifically for roofing companies. Capture every lead, close more jobs.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Company</h4>
-                    <a href="#features">Features</a>
-                    <a href="#how-it-works">How It Works</a>
-                    <a href="#contact">Contact</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Legal</h4>
-                    <a href="/privacy.html">Privacy Policy</a>
-                    <a href="/terms.html">Terms of Service</a>
-                </div>
-                <div class="footer-links">
-                    <h4>Get Started</h4>
-                    <a href="https://cal.com/profluxlabs/demo">Book a Demo</a>
-                    <a href="mailto:jason@profluxlabs.com">Email Us</a>
+                    <p>Professional AI Receptionist services for small businesses. Never miss another customer call.</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <span>&copy; 2026 ProFlux Labs. All rights reserved.</span>
-                <span>Built in Los Angeles, CA 🌴</span>
+                <span>&copy; 2026 ProFlux Labs. All rights reserved. Built in Los Angeles, CA 🌴</span>
             </div>
         </div>
     </footer>
