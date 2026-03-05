@@ -471,6 +471,33 @@ html {
     box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
 }
 
+.lucky-number {
+    font-size: 1rem;
+    color: #ff6b6b;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff6b6b 0%, #ffd93d 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.special-mentions {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.mention {
+    background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    color: #333;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
 /* Adventures Section */
 .adventures {
     padding: 120px 0;
@@ -803,6 +830,101 @@ html {
     font-size: 1rem;
 }
 
+/* Alice Section */
+.alice-section {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    color: white;
+}
+
+.alice-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.alice-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.alice-info p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.alice-facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.fact {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 1rem;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+.fact:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+.alice-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dog-photo-placeholder {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
+}
+
+.dog-photo-placeholder:hover {
+    transform: scale(1.05);
+    border-color: rgba(255, 255, 255, 0.5);
+}
+
+.dog-photo-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.dog-photo-placeholder p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.dog-photo-placeholder small {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    text-align: center;
+}
+
 /* Love Stats Section */
 .love-stats {
     padding: 120px 0;
@@ -880,9 +1002,10 @@ html {
     background: linear-gradient(45deg, #45b7d1, #6bb6ff);
 }
 
-.photos-fill {
-    width: 95%;
-    background: linear-gradient(45deg, #f9ca24, #f0932b);
+.cuddle-fill {
+    width: 100%;
+    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+    animation: pulse-love 2s ease-in-out infinite;
 }
 
 @keyframes pulse-love {
@@ -1023,6 +1146,19 @@ html {
     line-height: 1.6;
 }
 
+.footer-extras {
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer-extras p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 0.5rem;
+    font-style: normal;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: 2rem;
@@ -1100,5 +1236,15 @@ html {
     .mirror-text {
         order: -1;
         margin-bottom: 2rem;
+    }
+    
+    .alice-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .alice-facts {
+        grid-template-columns: 1fr;
     }
 }
