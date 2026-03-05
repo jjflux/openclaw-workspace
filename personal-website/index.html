@@ -41,15 +41,15 @@
                         <div class="stat-label">Memories Made</div>
                     </div>
                     <div class="stat">
-                        <div class="stat-number">1</div>
-                        <div class="stat-label">Epic Love Story</div>
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Love Level</div>
                     </div>
                 </div>
             </div>
             <div class="hero-image">
-                <div class="image-placeholder couple-photo">
-                    <i class="fas fa-heart"></i>
-                    <p>Your Photo Here</p>
+                <div class="couple-photo-real">
+                    <img src="croatia-couple.jpg" alt="Jason & Jen in Croatia" class="couple-main-photo">
+                    <div class="photo-caption">Croatia Adventures ❤️</div>
                 </div>
             </div>
         </div>
@@ -65,9 +65,8 @@
             <div class="about-grid">
                 <div class="about-card jason-card">
                     <div class="card-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user"></i>
-                            <p>Jason's Photo</p>
+                        <div class="real-photo">
+                            <img src="jason-photo.jpg" alt="Jason" class="profile-photo">
                         </div>
                     </div>
                     <div class="card-content">
@@ -91,9 +90,8 @@
                 
                 <div class="about-card jen-card">
                     <div class="card-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-user"></i>
-                            <p>Jen's Photo</p>
+                        <div class="real-photo">
+                            <img src="jen-photo.jpg" alt="Jen" class="profile-photo">
                         </div>
                     </div>
                     <div class="card-content">
@@ -122,25 +120,81 @@
             <h2 class="section-title">Our Adventures</h2>
             <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-date">First Date</div>
+                    <div class="timeline-date">Nov 4, 2020</div>
                     <div class="timeline-content">
-                        <h3>The Beginning</h3>
-                        <p>Where it all started - that perfect first date that turned into forever.</p>
+                        <h3>The Beginning ❤️</h3>
+                        <p>Where it all started - that perfect moment when we found our person. Five amazing years and counting!</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Adventures</div>
+                    <div class="timeline-date">2021-2023</div>
                     <div class="timeline-content">
-                        <h3>Making Memories</h3>
-                        <p>From spontaneous road trips to quiet nights in, every moment becomes an adventure with the right person.</p>
+                        <h3>Adventures & Growth</h3>
+                        <p>From exploring new places to supporting each other's dreams. Every challenge made us stronger, every adventure more memorable.</p>
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Today</div>
+                    <div class="timeline-date">2024</div>
                     <div class="timeline-content">
-                        <h3>Living Our Best Life</h3>
-                        <p>Building dreams together, supporting each other's goals, and creating a love story worth sharing.</p>
+                        <h3>Croatia & Beyond</h3>
+                        <p>Traveling the world together, creating memories that will last forever. From European adventures to building our future.</p>
                     </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2026</div>
+                    <div class="timeline-content">
+                        <h3>Building Our Empire</h3>
+                        <p>Jason crushing it in soccer and AI, Jen being the most amazing support system. Together we're unstoppable!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Slideshow -->
+    <section class="slideshow-section">
+        <div class="container">
+            <h2 class="section-title">Our Journey in Pictures</h2>
+            <div class="slideshow-container">
+                <div class="slide active">
+                    <img src="croatia-couple.jpg" alt="Croatia Adventure">
+                    <div class="slide-caption">
+                        <h3>Croatia Adventures</h3>
+                        <p>Exploring beautiful Samobor together ❤️</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="shopping-photo.jpg" alt="Shopping Together">
+                    <div class="slide-caption">
+                        <h3>Shopping Adventures</h3>
+                        <p>Making every ordinary moment special</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="jen-photo.jpg" alt="Beautiful Jen">
+                    <div class="slide-caption">
+                        <h3>My Beautiful Girl</h3>
+                        <p>Jen being absolutely gorgeous as always</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="jason-photo.jpg" alt="Jason">
+                    <div class="slide-caption">
+                        <h3>Ready for Anything</h3>
+                        <p>Jason staying fit and focused</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation buttons -->
+                <button class="slide-nav prev" onclick="changeSlide(-1)">❮</button>
+                <button class="slide-nav next" onclick="changeSlide(1)">❯</button>
+                
+                <!-- Dots indicator -->
+                <div class="slide-dots">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
                 </div>
             </div>
         </div>
@@ -152,39 +206,107 @@
             <h2 class="section-title">Our Moments</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-camera"></i>
-                        <p>Memory 1</p>
+                    <div class="gallery-photo">
+                        <img src="shopping-photo.jpg" alt="Shopping Adventures" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h4>Shopping Together</h4>
+                            <p>Making memories everywhere we go</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-photo">
+                        <img src="croatia-couple.jpg" alt="Croatia Trip" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <h4>Croatia Adventures</h4>
+                            <p>Exploring the world together</p>
+                        </div>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
-                        <p>Memory 2</p>
+                        <p>Add More Photos</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
-                        <p>Memory 3</p>
+                        <p>Add More Photos</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
-                        <p>Memory 4</p>
+                        <p>Add More Photos</p>
                     </div>
                 </div>
                 <div class="gallery-item">
                     <div class="image-placeholder">
                         <i class="fas fa-camera"></i>
-                        <p>Memory 5</p>
+                        <p>Add More Photos</p>
                     </div>
                 </div>
-                <div class="gallery-item">
-                    <div class="image-placeholder">
-                        <i class="fas fa-camera"></i>
-                        <p>Memory 6</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Stats Section -->
+    <section class="love-stats">
+        <div class="container">
+            <h2 class="section-title">Our Love in Numbers</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">❤️</div>
+                    <div class="stat-value" id="love-meter">100%</div>
+                    <div class="stat-name">Love Level</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill love-fill"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📅</div>
+                    <div class="stat-value" id="months-together">0</div>
+                    <div class="stat-name">Months Together</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill months-fill"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">✈️</div>
+                    <div class="stat-value">5+</div>
+                    <div class="stat-name">Countries Explored</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill travel-fill"></div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">📸</div>
+                    <div class="stat-value">1000+</div>
+                    <div class="stat-name">Photos Together</div>
+                    <div class="stat-bar">
+                        <div class="stat-fill photos-fill"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="anniversary-countdown">
+                <h3>Next Anniversary In:</h3>
+                <div class="countdown-timer">
+                    <div class="countdown-item">
+                        <span id="countdown-days">0</span>
+                        <label>Days</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="countdown-hours">0</span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="countdown-minutes">0</span>
+                        <label>Minutes</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="countdown-seconds">0</span>
+                        <label>Seconds</label>
                     </div>
                 </div>
             </div>

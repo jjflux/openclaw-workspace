@@ -1,7 +1,7 @@
 // Days Together Counter
 function updateDaysCounter() {
-    // You can change this date to when you and Jen first got together
-    const startDate = new Date('2025-01-01'); // Change this to your actual start date
+    // Jason & Jen anniversary: November 4th, 2020
+    const startDate = new Date('2020-11-04'); // The day it all began! ❤️
     const currentDate = new Date();
     const timeDifference = currentDate - startDate;
     const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
@@ -28,6 +28,46 @@ function animateCounter(element, target, duration) {
     }
     
     updateCount();
+}
+
+// Update months together counter
+function updateMonthsCounter() {
+    const startDate = new Date('2020-11-04');
+    const currentDate = new Date();
+    const yearsDiff = currentDate.getFullYear() - startDate.getFullYear();
+    const monthsDiff = currentDate.getMonth() - startDate.getMonth();
+    const totalMonths = yearsDiff * 12 + monthsDiff;
+    
+    const monthsElement = document.getElementById('months-together');
+    if (monthsElement) {
+        animateCounter(monthsElement, totalMonths, 1500);
+    }
+}
+
+// Anniversary countdown
+function updateAnniversaryCountdown() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    let nextAnniversary = new Date(currentYear, 10, 4); // November 4th (month is 0-indexed)
+    
+    // If this year's anniversary has passed, set to next year
+    if (now > nextAnniversary) {
+        nextAnniversary = new Date(currentYear + 1, 10, 4);
+    }
+    
+    const timeDiff = nextAnniversary - now;
+    
+    if (timeDiff > 0) {
+        const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+        
+        document.getElementById('countdown-days').textContent = days;
+        document.getElementById('countdown-hours').textContent = hours;
+        document.getElementById('countdown-minutes').textContent = minutes;
+        document.getElementById('countdown-seconds').textContent = seconds;
+    }
 }
 
 // Smooth scrolling for navigation links
@@ -77,6 +117,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update days counter
     updateDaysCounter();
+    
+    // Update months counter
+    updateMonthsCounter();
+    
+    // Start anniversary countdown
+    updateAnniversaryCountdown();
+    setInterval(updateAnniversaryCountdown, 1000);
     
     // Add parallax effect to hero section
     setupParallax();
@@ -323,3 +370,47 @@ document.head.appendChild(sparkleStyleSheet);
 
 // Create sparkles periodically
 setInterval(createSparkle, 3000);
+
+// Slideshow functionality
+let slideIndex = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+    // Hide all slides
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
+    
+    // Show current slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+        dots[index].classList.add('active');
+    }
+}
+
+function changeSlide(direction) {
+    slideIndex += direction;
+    
+    if (slideIndex >= slides.length) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = slides.length - 1;
+    }
+    
+    showSlide(slideIndex);
+}
+
+function currentSlide(index) {
+    slideIndex = index - 1;
+    showSlide(slideIndex);
+}
+
+// Auto-advance slideshow
+setInterval(() => {
+    changeSlide(1);
+}, 5000);
+
+// Initialize slideshow
+if (slides.length > 0) {
+    showSlide(0);
+}
