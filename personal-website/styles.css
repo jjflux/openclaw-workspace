@@ -830,6 +830,144 @@ html {
     font-size: 1rem;
 }
 
+/* Acting Career Section */
+.acting-career {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%);
+    color: white;
+}
+
+.acting-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.acting-photos {
+    display: grid;
+    gap: 2rem;
+}
+
+.acting-main-photo,
+.costume-photo {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.acting-main-photo:hover,
+.costume-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.acting-img,
+.costume-img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.costume-photo .costume-img {
+    height: 300px;
+}
+
+.acting-badge,
+.costume-badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 20px;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    font-size: 0.9rem;
+}
+
+.acting-info h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+.acting-info p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.acting-highlights {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.highlight:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateX(10px);
+}
+
+.highlight-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.highlight-text h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.highlight-text p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.support-message {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 20px;
+    border-left: 4px solid #ff6b6b;
+    backdrop-filter: blur(10px);
+}
+
+.support-message p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+}
+
+.support-message em {
+    color: #ff6b6b;
+    font-style: normal;
+    font-weight: 600;
+}
+
 /* Alice Section */
 .alice-section {
     padding: 120px 0;
@@ -1246,5 +1384,23 @@ html {
     
     .alice-facts {
         grid-template-columns: 1fr;
+    }
+    
+    .acting-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .acting-photos {
+        order: 2;
+    }
+    
+    .acting-info {
+        order: 1;
+        text-align: center;
+    }
+    
+    .acting-highlights {
+        gap: 1rem;
     }
 }
