@@ -840,39 +840,33 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Stripe Payment Integration
+        // Stripe Payment Integration - v2.0 (cache bust)
         // Initialize Stripe with live publishable key
         const stripe = Stripe('pk_live_51SRieZ4BTW8Rra64IC4dQB4eXU6BWY96a5KwC2NwO4xniVnKJHlWr6OYeL0rgMGUPaPnCUWAKnqjr1Ncu5FcyXmK00wAwU4sHC');
         
-        // Handle subscription
-        document.getElementById('subscribe-btn').addEventListener('click', async () => {
-            const button = document.getElementById('subscribe-btn');
+        // Handle subscription - Clean v2.0
+        document.getElementById('subscribe-btn').addEventListener('click', async function() {
+            const button = this;
             button.disabled = true;
             button.textContent = 'Processing...';
             
             try {
-                // Create checkout session with live price ID
-                const { error } = await stripe.redirectToCheckout({
+                // Simple, clean Stripe checkout
+                await stripe.redirectToCheckout({
                     lineItems: [{
-                        price: 'price_1T9rmx4BTW8Rra64Vn5FD4WW', // $295/month ProFlux Labs AI Receptionist
+                        price: 'price_1T9rmx4BTW8Rra64Vn5FD4WW',
                         quantity: 1,
                     }],
                     mode: 'subscription',
                     successUrl: window.location.origin + '/success.html',
-                    cancelUrl: window.location.origin + '#pricing',
+                    cancelUrl: window.location.origin + '/#pricing',
                 });
-                
-                if (error) {
-                    console.error('Stripe error:', error);
-                    alert('Payment failed. Please try again or contact support.');
-                }
             } catch (error) {
-                console.error('Payment error:', error);
-                alert('Payment failed. Please try again or contact support.');
+                console.error('Stripe error:', error);
+                alert('Payment failed. Please contact jason@profluxlabs.com');
+                button.disabled = false;
+                button.textContent = 'Subscribe Now ($295/mo) →';
             }
-            
-            button.disabled = false;
-            button.textContent = 'Subscribe Now ($295/mo) →';
         });
     </script>
 </body>
