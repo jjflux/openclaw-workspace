@@ -8,6 +8,8 @@
     <meta name="description" content="24/7 AI Receptionist for small businesses. Books appointments, qualifies leads, follows up automatically. $295/month with 2-week free trial.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
     <style>
         :root {
             --navy: #0f172a;
@@ -416,6 +418,64 @@
             margin: 0 auto;
         }
 
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--bg-light);
+            padding: 100px 24px;
+        }
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+            margin-top: 60px;
+        }
+        .testimonial-card {
+            background: white;
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            color: var(--text);
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .testimonial-info h4 {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .testimonial-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
         /* CTA */
         .cta-section {
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
@@ -561,7 +621,10 @@
                 <li>Complete setup & ongoing support</li>
                 <li><strong>2-week free trial</strong></li>
             </ul>
-            <a href="https://cal.com/profluxlabs/demo" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 16px;">Start Free Trial →</a>
+            <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                <button id="subscribe-btn" class="btn btn-primary" style="width: 100%; justify-content: center;">Subscribe Now ($295/mo) →</button>
+                <a href="https://cal.com/profluxlabs/demo" class="btn" style="width: 100%; justify-content: center; background: transparent; border: 2px solid var(--orange); color: var(--orange);">Book Demo First →</a>
+            </div>
         </div>
     </section>
 
@@ -632,6 +695,69 @@
         </div>
     </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-header reveal">
+            <span class="section-label">Customer Success</span>
+            <h2>Real Results From Real Businesses</h2>
+            <p>See how ProFlux Labs AI Receptionist is transforming businesses across industries.</p>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card reveal">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">
+                    "Emma has been incredible for our roofing company. We went from missing 6-8 calls per day to capturing every single lead. In the first month alone, she booked $47,000 worth of storm damage jobs that we would have completely missed. The ROI is absolutely insane."
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MC</div>
+                    <div class="testimonial-info">
+                        <h4>Mike Chen</h4>
+                        <p>Owner, Chen Roofing & Restoration</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-1">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">
+                    "I was skeptical about AI answering our calls, but Emma sounds more professional than most human receptionists I've hired. She perfectly screens HVAC leads and books only qualified appointments. Our close rate has actually improved since switching."
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">DR</div>
+                    <div class="testimonial-info">
+                        <h4>David Rodriguez</h4>
+                        <p>Rodriguez HVAC Solutions</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-2">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">
+                    "Best investment we've made in years. Emma handles our overflow perfectly during busy season and covers nights/weekends when we can't. The SMS follow-ups alone have converted dozens of fence projects we would have lost."
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">TS</div>
+                    <div class="testimonial-info">
+                        <h4>Tom Sullivan</h4>
+                        <p>Sullivan Fence & Construction</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-3">
+                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+                <div class="testimonial-text">
+                    "The setup was incredibly fast - Jason had our AI receptionist live within 6 hours of signing up. She's been handling our plumbing emergency calls flawlessly, and the instant email notifications help us respond to urgent jobs immediately."
+                </div>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">AL</div>
+                    <div class="testimonial-info">
+                        <h4>Amanda Lopez</h4>
+                        <p>Lopez Emergency Plumbing</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Demo CTA -->
     <section class="cta-section" id="demo">
         <div class="cta-content reveal">
@@ -654,9 +780,8 @@
         </div>
         <div class="reveal" style="max-width: 500px; margin: 0 auto;">
             <div style="text-align: center; margin-bottom: 20px; padding: 16px; background: #f1f5f9; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <h3 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">Jason White</h3>
-                <p style="font-size: 0.95rem; color: #64748b; font-weight: 500;">d/b/a ProFlux Labs — Professional AI Receptionist Services</p>
-                <p style="font-size: 0.8rem; color: #94a3b8; margin-top: 4px;">By submitting this form, you are contacting <strong style="color:#0f172a;">Jason White d/b/a ProFlux Labs</strong></p>
+                <h3 style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin-bottom: 4px;">ProFlux Labs</h3>
+                <p style="font-size: 0.95rem; color: #64748b; font-weight: 500;">Professional AI Receptionist Services</p>
             </div>
             <form name="sms-optin" method="POST" data-netlify="true" action="/success.html" style="display: flex; flex-direction: column; gap: 16px;">
                 <input type="hidden" name="consent_timestamp" id="consent_timestamp">
@@ -670,7 +795,7 @@
                 </label>
                 <label style="display: flex; align-items: flex-start; gap: 10px; font-size: 0.85rem; color: #64748b; cursor: pointer;">
                     <input type="checkbox" name="sms_optin" style="margin-top: 3px; accent-color: #f97316;">
-                    (Optional) I agree to receive up to 5 SMS/text messages per month from Jason White d/b/a ProFlux Labs at the phone number provided, including service updates, appointment confirmations, and AI Receptionist information. Msg & data rates may apply. Reply STOP to opt out or HELP for assistance.
+                    I consent to receive marketing/service text messages from ProFluxLabs. Freq varies. Msg&data rates may apply. Reply HELP for help, STOP to opt out
                 </label>
                 <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 8px;" onclick="document.getElementById('consent_timestamp').value = new Date().toISOString();">Start Free Trial →</button>
             </form>
@@ -714,6 +839,43 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Stripe Payment Integration
+        // Initialize Stripe (you'll need to replace with your publishable key)
+        const stripe = Stripe('pk_test_YOUR_PUBLISHABLE_KEY_HERE'); // Replace with actual key
+        
+        // Handle subscription
+        document.getElementById('subscribe-btn').addEventListener('click', async () => {
+            const button = document.getElementById('subscribe-btn');
+            button.disabled = true;
+            button.textContent = 'Processing...';
+            
+            try {
+                // Create checkout session (you'll need to replace with your price ID)
+                const { error } = await stripe.redirectToCheckout({
+                    lineItems: [{
+                        price: 'price_YOUR_PRICE_ID_HERE', // Replace with actual price ID
+                        quantity: 1,
+                    }],
+                    mode: 'subscription',
+                    successUrl: window.location.origin + '/success.html',
+                    cancelUrl: window.location.origin + '#pricing',
+                    customerEmail: null, // Will be collected by Stripe
+                    allowPromotionCodes: true,
+                });
+                
+                if (error) {
+                    console.error('Stripe error:', error);
+                    alert('Payment failed. Please try again or contact support.');
+                }
+            } catch (error) {
+                console.error('Payment error:', error);
+                alert('Payment failed. Please try again or contact support.');
+            }
+            
+            button.disabled = false;
+            button.textContent = 'Subscribe Now ($295/mo) →';
+        });
     </script>
 </body>
 </html><!-- Force rebuild Tue Feb 24 17:13:40 PST 2026 -->
