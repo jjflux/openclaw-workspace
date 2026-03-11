@@ -841,8 +841,8 @@
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
         // Stripe Payment Integration
-        // Initialize Stripe (you'll need to replace with your publishable key)
-        const stripe = Stripe('pk_test_YOUR_PUBLISHABLE_KEY_HERE'); // Replace with actual key
+        // Initialize Stripe with live publishable key
+        const stripe = Stripe('pk_live_51SRieZ4BTW8Rra64IC4dQB4eXU6BWY96a5KwC2NwO4xniVnKJHlWr6OYeL0rgMGUPaPnCUWAKnqjr1Ncu5FcyXmK00wAwU4sHC');
         
         // Handle subscription
         document.getElementById('subscribe-btn').addEventListener('click', async () => {
@@ -851,10 +851,10 @@
             button.textContent = 'Processing...';
             
             try {
-                // Create checkout session (you'll need to replace with your price ID)
+                // Create checkout session with live price ID
                 const { error } = await stripe.redirectToCheckout({
                     lineItems: [{
-                        price: 'price_YOUR_PRICE_ID_HERE', // Replace with actual price ID
+                        price: 'price_1T9rmx4BTW8Rra64Vn5FD4WW', // $295/month ProFlux Labs AI Receptionist
                         quantity: 1,
                     }],
                     mode: 'subscription',
