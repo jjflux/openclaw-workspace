@@ -8,8 +8,6 @@
     <meta name="description" content="24/7 AI Receptionist for small businesses. Books appointments, qualifies leads, follows up automatically. $295/month with 2-week free trial.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <!-- Stripe -->
-    <script src="https://js.stripe.com/v3/"></script>
     <style>
         :root {
             --navy: #0f172a;
@@ -622,7 +620,7 @@
                 <li><strong>2-week free trial</strong></li>
             </ul>
             <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
-                <button id="subscribe-btn" class="btn btn-primary" style="width: 100%; justify-content: center;">Subscribe Now ($295/mo) →</button>
+                <a href="https://buy.stripe.com/test_PAYMENT_LINK_HERE" class="btn btn-primary" style="width: 100%; justify-content: center; text-decoration: none;">Subscribe Now ($295/mo) →</a>
                 <a href="https://cal.com/profluxlabs/demo" class="btn" style="width: 100%; justify-content: center; background: transparent; border: 2px solid var(--orange); color: var(--orange);">Book Demo First →</a>
             </div>
         </div>
@@ -840,34 +838,7 @@
 
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Stripe Payment Integration - v2.0 (cache bust)
-        // Initialize Stripe with live publishable key
-        const stripe = Stripe('pk_live_51SRieZ4BTW8Rra64IC4dQB4eXU6BWY96a5KwC2NwO4xniVnKJHlWr6OYeL0rgMGUPaPnCUWAKnqjr1Ncu5FcyXmK00wAwU4sHC');
-        
-        // Handle subscription - Clean v2.0
-        document.getElementById('subscribe-btn').addEventListener('click', async function() {
-            const button = this;
-            button.disabled = true;
-            button.textContent = 'Processing...';
-            
-            try {
-                // Simple, clean Stripe checkout
-                await stripe.redirectToCheckout({
-                    lineItems: [{
-                        price: 'price_1T9rmx4BTW8Rra64Vn5FD4WW',
-                        quantity: 1,
-                    }],
-                    mode: 'subscription',
-                    successUrl: window.location.origin + '/success.html',
-                    cancelUrl: window.location.origin + '/#pricing',
-                });
-            } catch (error) {
-                console.error('Stripe error:', error);
-                alert('Payment failed. Please contact jason@profluxlabs.com');
-                button.disabled = false;
-                button.textContent = 'Subscribe Now ($295/mo) →';
-            }
-        });
+        // Simple, reliable payment via Stripe Payment Links - no complex JavaScript needed!
     </script>
 </body>
 </html><!-- Force rebuild Tue Feb 24 17:13:40 PST 2026 -->
