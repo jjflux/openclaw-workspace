@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services & Pricing — ProFlux Labs</title>
+    <meta name="description" content="Complete business automation services. AI Receptionist, reputation management, lead reactivation, and more. Starting at $295/month.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --navy-light: #1e293b;
+            --orange: #f97316;
+            --orange-hover: #ea580c;
+            --orange-glow: rgba(249, 115, 22, 0.3);
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --green: #059669;
+            --blue: #2563eb;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
+            color: var(--text); 
+            line-height: 1.6; 
+            background: var(--bg-light);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--navy);
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+        .nav-link {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: var(--orange);
+        }
+        .cta-button {
+            background: var(--orange);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        .cta-button:hover {
+            background: var(--orange-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Main Content */
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .page-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--navy);
+            margin-bottom: 1rem;
+        }
+        .page-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Service Sections */
+        .service-section {
+            margin-bottom: 4rem;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--blue);
+        }
+        .services-table {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        .table-header {
+            background: var(--navy);
+            color: white;
+            display: grid;
+            grid-template-columns: 2fr 3fr 1fr;
+            padding: 1rem;
+            font-weight: 600;
+        }
+        .service-row {
+            display: grid;
+            grid-template-columns: 2fr 3fr 1fr;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            transition: background-color 0.2s ease;
+        }
+        .service-row:hover {
+            background: var(--bg-light);
+        }
+        .service-row:last-child {
+            border-bottom: none;
+        }
+        .service-name {
+            font-weight: 600;
+            color: var(--navy);
+        }
+        .service-badge {
+            display: inline-block;
+            background: #fef3c7;
+            color: #92400e;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+        .service-description {
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+        .service-price {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--blue);
+        }
+
+        /* Bundle Cards */
+        .bundles-section {
+            margin: 4rem 0;
+        }
+        .bundles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .bundle-card {
+            background: var(--navy);
+            color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+        .bundle-header {
+            padding: 2rem;
+            text-align: center;
+        }
+        .bundle-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .bundle-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--orange);
+        }
+        .bundle-subtitle {
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+        .bundle-features {
+            padding: 0 2rem 2rem;
+        }
+        .bundle-features ul {
+            list-style: none;
+        }
+        .bundle-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .bundle-features li::before {
+            content: "✓";
+            color: var(--green);
+            font-weight: bold;
+        }
+        .bundle-growth {
+            background: var(--navy-light);
+        }
+        .bundle-done {
+            background: linear-gradient(135deg, var(--navy), var(--navy-light));
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--navy);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        .contact-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .contact-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        .contact-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact-button {
+            background: var(--orange);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+        .contact-button:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+        }
+        .contact-button.secondary {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        .contact-button.secondary:hover {
+            background: white;
+            color: var(--navy);
+        }
+
+        /* Footer Note */
+        .footer-note {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #e2e8f0;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            .table-header,
+            .service-row {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            .nav-container {
+                padding: 0 1rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .main {
+                padding: 2rem 1rem;
+            }
+            .bundles-grid {
+                grid-template-columns: 1fr;
+            }
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <div class="logo">ProFlux Labs</div>
+            <nav class="nav-links">
+                <a href="/" class="nav-link">Home</a>
+                <a href="/pricing.html" class="nav-link">Pricing</a>
+                <a href="https://cal.com/profluxlabs/demo" class="cta-button">Book Demo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="page-header">
+            <h1 class="page-title">Services & Pricing</h1>
+            <p class="page-subtitle">Everything your business needs to dominate locally — calls answered, reputation built, leads reactivated.</p>
+        </div>
+
+        <!-- Core Product -->
+        <section class="service-section">
+            <h2 class="section-title">CORE PRODUCT</h2>
+            <div class="services-table">
+                <div class="table-header">
+                    <div>SERVICE</div>
+                    <div>DESCRIPTION</div>
+                    <div>PRICE</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">AI Receptionist</div>
+                        <div class="service-badge">MOST POPULAR</div>
+                    </div>
+                    <div class="service-description">24/7 AI phone agent answers calls, books jobs, handles FAQs — never miss a lead again.</div>
+                    <div class="service-price">$295/mo</div>
+                </div>
+                <div class="service-row">
+                    <div class="service-name">AI Receptionist (Annual)</div>
+                    <div class="service-description">Same AI Receptionist at 40% off — billed once per year.</div>
+                    <div class="service-price">$2,100/yr</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reputation & Reviews -->
+        <section class="service-section">
+            <h2 class="section-title">REPUTATION & REVIEWS</h2>
+            <div class="services-table">
+                <div class="table-header">
+                    <div>SERVICE</div>
+                    <div>DESCRIPTION</div>
+                    <div>PRICE</div>
+                </div>
+                <div class="service-row">
+                    <div class="service-name">Review Automation</div>
+                    <div class="service-description">Auto-sends SMS review requests after every job. More 5-stars on autopilot.</div>
+                    <div class="service-price">$75/mo</div>
+                </div>
+                <div class="service-row">
+                    <div class="service-name">Google Business Profile</div>
+                    <div class="service-description">Full GMB optimization — photos, keywords, categories, citations. Rank higher locally.</div>
+                    <div class="service-price">$150/mo</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Video Testimonials</div>
+                        <div class="service-badge">HIGH VALUE</div>
+                    </div>
+                    <div class="service-description">We coordinate real customers to film testimonials for your business. 3-pack or 5-pack.</div>
+                    <div class="service-price">From $450</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lead Reactivation -->
+        <section class="service-section">
+            <h2 class="section-title">LEAD REACTIVATION</h2>
+            <div class="services-table">
+                <div class="table-header">
+                    <div>SERVICE</div>
+                    <div>DESCRIPTION</div>
+                    <div>PRICE</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Data Reactivation Campaign</div>
+                        <div class="service-badge">ONE-TIME</div>
+                    </div>
+                    <div class="service-description">We SMS your entire past customer list to bring back old jobs. One-time blast.</div>
+                    <div class="service-price">$400</div>
+                </div>
+                <div class="service-row">
+                    <div class="service-name">Monthly Re-Engagement</div>
+                    <div class="service-description">Ongoing monthly SMS sequences to keep past customers coming back.</div>
+                    <div class="service-price">$125/mo</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Website & Content -->
+        <section class="service-section">
+            <h2 class="section-title">WEBSITE & CONTENT</h2>
+            <div class="services-table">
+                <div class="table-header">
+                    <div>SERVICE</div>
+                    <div>DESCRIPTION</div>
+                    <div>PRICE</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Website Build</div>
+                        <div class="service-badge">ONE-TIME</div>
+                    </div>
+                    <div class="service-description">Clean 5-page professional site built for local trades. Fast, mobile-friendly.</div>
+                    <div class="service-price">$750</div>
+                </div>
+                <div class="service-row">
+                    <div class="service-name">Website Maintenance</div>
+                    <div class="service-description">Ongoing updates, hosting management, and content changes.</div>
+                    <div class="service-price">$50/mo</div>
+                </div>
+                <div class="service-row">
+                    <div>
+                        <div class="service-name">Ad Creative</div>
+                        <div class="service-badge">ONE-TIME</div>
+                    </div>
+                    <div class="service-description">3-5 branded ad graphics + copy ready for Google or Meta. You run them, we make them.</div>
+                    <div class="service-price">$300</div>
+                </div>
+                <div class="service-row">
+                    <div class="service-name">Ad Creative Retainer</div>
+                    <div class="service-description">Fresh ad creative every month. New angles, new formats, keeping it current.</div>
+                    <div class="service-price">$175/mo</div>
+                </div>
+                <div class="service-row">
+                    <div class="service-name">Social Media Content</div>
+                    <div class="service-description">Branded posts using your job photos. Before/afters, promos — 2x per week.</div>
+                    <div class="service-price">$250/mo</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Bundles -->
+        <section class="bundles-section">
+            <h2 class="section-title">RECOMMENDED BUNDLES</h2>
+            <div class="bundles-grid">
+                <div class="bundle-card">
+                    <div class="bundle-header">
+                        <div class="bundle-name">⚡ STARTER</div>
+                        <div class="bundle-price">$350/mo</div>
+                        <div class="bundle-subtitle">Save $20/month vs. individual pricing</div>
+                    </div>
+                    <div class="bundle-features">
+                        <ul>
+                            <li>AI Receptionist (24/7 call answering)</li>
+                            <li>Review Automation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bundle-card bundle-growth">
+                    <div class="bundle-header">
+                        <div class="bundle-name">🚀 GROWTH</div>
+                        <div class="bundle-price">$500/mo</div>
+                        <div class="bundle-subtitle">+ $400 one-time reactivation | Save $45/month</div>
+                    </div>
+                    <div class="bundle-features">
+                        <ul>
+                            <li>AI Receptionist</li>
+                            <li>Review Automation</li>
+                            <li>Google Business Profile Optimization</li>
+                            <li>Data Reactivation Campaign (one-time)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bundle-card bundle-done">
+                    <div class="bundle-header">
+                        <div class="bundle-name">👑 DONE FOR YOU</div>
+                        <div class="bundle-price">$750/mo</div>
+                        <div class="bundle-subtitle">+ $1,150 one-time setup | Maximum growth package</div>
+                    </div>
+                    <div class="bundle-features">
+                        <ul>
+                            <li>AI Receptionist</li>
+                            <li>Review Automation</li>
+                            <li>Google Business Profile</li>
+                            <li>Video Testimonials (3-pack)</li>
+                            <li>Website Build</li>
+                            <li>Monthly Re-Engagement SMS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2 class="contact-title">Ready to Dominate Your Local Market?</h2>
+            <p class="contact-subtitle">Let's discuss which package fits your business goals. Book a 15-minute strategy call or reach out directly.</p>
+            <div class="contact-buttons">
+                <a href="https://cal.com/profluxlabs/demo" class="contact-button">Book Strategy Call</a>
+                <a href="mailto:jason@profluxlabs.com" class="contact-button secondary">Email Us</a>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p>All prices subject to change. Annual plans available for most services at a discount.<br>
+            <strong>jason@profluxlabs.com</strong> | <strong>profluxlabs.com</strong> | <em>Confidential</em></p>
+        </div>
+    </main>
+</body>
+</html>
