@@ -1,0 +1,26 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFFF00;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#7ED321;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#50E3C2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A90E2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Target/Location pin outer -->
+  <path d="M100 20 C130 20, 155 45, 155 75 C155 105, 130 130, 100 130 C70 130, 45 105, 45 75 C45 45, 70 20, 100 20 Z M100 180 L100 130" 
+        fill="url(#logoGradient)" stroke="none"/>
+  
+  <!-- Target rings -->
+  <circle cx="100" cy="75" r="35" fill="none" stroke="black" stroke-width="8"/>
+  <circle cx="100" cy="75" r="20" fill="none" stroke="black" stroke-width="6"/>
+  
+  <!-- Phone icon -->
+  <path d="M92 65 C90 65, 88 67, 88 69 L88 71 C88 75, 90 77, 94 78 C96 79, 98 81, 100 83 C102 81, 104 79, 106 78 C110 77, 112 75, 112 71 L112 69 C112 67, 110 65, 108 65 L92 65 Z" 
+        fill="black"/>
+  
+  <!-- Arrow -->
+  <path d="M120 45 L140 25 L150 35 L135 50 L145 60 L125 80 L115 70 L120 45 Z" 
+        fill="url(#logoGradient)"/>
+</svg>
