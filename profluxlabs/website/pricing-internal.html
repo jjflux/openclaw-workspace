@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - ProFlux Labs Internal</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f172a;
+            --navy-light: #1e293b;
+            --orange: #f97316;
+            --orange-hover: #ea580c;
+            --orange-glow: rgba(249, 115, 22, 0.3);
+            --text: #1e293b;
+            --text-muted: #64748b;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; color: var(--text); line-height: 1.6; overflow-x: hidden; }
+
+        /* Pricing Hero */
+        .pricing-hero {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            padding: 80px 24px;
+            text-align: center;
+            border-bottom: 1px solid #e2e8f0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .pricing-card {
+            background: white;
+            border: 2px solid var(--orange);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 20px 60px rgba(249,115,22,0.1);
+        }
+        .price-badge {
+            background: var(--orange);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--navy);
+            line-height: 1;
+        }
+        .price-period {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .price-features {
+            text-align: left;
+            margin: 24px 0;
+        }
+        .price-features li {
+            list-style: none;
+            padding: 6px 0;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .price-features li::before {
+            content: '✅';
+            font-size: 1rem;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+            box-shadow: 0 4px 20px var(--orange-glow);
+        }
+        .btn-primary:hover {
+            background: var(--orange-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(249,115,22,0.4);
+        }
+        .internal-notice {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            color: #92400e;
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Pricing -->
+    <section class="pricing-hero">
+        <div>
+            <div class="internal-notice">
+                🔒 INTERNAL PRICING PAGE - Not linked from main website
+            </div>
+            
+            <div class="pricing-card">
+                <div class="price-badge">Complete AI Receptionist - Monthly or Annual</div>
+                <div style="display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 8px;">
+                    <div style="text-align: center;">
+                        <div class="price">$295</div>
+                        <div class="price-period">per month</div>
+                    </div>
+                    <div style="text-align: center; position: relative;">
+                        <span style="position: absolute; top: -12px; right: -8px; background: #16a34a; color: white; font-size: 0.7rem; font-weight: 700; padding: 2px 6px; border-radius: 4px;">40% OFF</span>
+                        <div class="price" style="color: #16a34a;">$177</div>
+                        <div class="price-period" style="color: #16a34a;">per month<br><span style="font-size: 0.8rem;">(billed annually)</span></div>
+                    </div>
+                </div>
+                <ul class="price-features">
+                    <li>24/7 professional phone answering</li>
+                    <li>Smart lead qualification</li>
+                    <li>Automatic appointment booking</li>
+                    <li>SMS & email follow-up automation</li>
+                    <li>Custom scripts for your industry</li>
+                    <li>CRM integration & tracking</li>
+                    <li>Complete setup & ongoing support</li>
+                </ul>
+                <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 16px;">
+                    <a href="https://buy.stripe.com/fZu14g2G5cP3c7J8Tk1B600" class="btn btn-primary" style="width: 100%; justify-content: center; text-decoration: none;">Monthly Plan - $295/mo →</a>
+                    <a href="https://buy.stripe.com/aFafZacgF8yNefR7Pg1B602" class="btn" style="width: 100%; justify-content: center; background: linear-gradient(135deg, #16a34a, #15803d); color: white; text-decoration: none; position: relative;">
+                        <span style="position: absolute; top: -8px; right: -8px; background: #fbbf24; color: #1e293b; font-size: 0.75rem; font-weight: 700; padding: 2px 6px; border-radius: 6px;">SAVE 40%</span>
+                        Annual Plan - $2,124/year →
+                    </a>
+                    <a href="https://cal.com/profluxlabs/demo" class="btn" style="width: 100%; justify-content: center; background: transparent; border: 2px solid var(--orange); color: var(--orange); text-decoration: none;">Book Demo First →</a>
+                    <p style="text-align: center; font-size: 0.9rem; color: var(--text-muted); margin-top: 8px;">Annual plan saves you $1,416 per year!</p>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; color: var(--text-muted); font-size: 0.9rem;">
+                <strong>Internal Note:</strong> Use this page for reference only. Customize pricing per prospect as needed.
+            </div>
+        </div>
+    </section>
+</body>
+</html>
