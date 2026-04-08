@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFFF00;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#7ED321;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#50E3C2;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#4A90E2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2E5BFF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Location pin shape with gradient -->
+  <path d="M200 50 
+           C250 50, 290 90, 290 140 
+           C290 190, 250 230, 200 230 
+           C150 230, 110 190, 110 140 
+           C110 90, 150 50, 200 50 Z
+           M200 230 
+           L180 260 
+           L200 290 
+           L220 260 Z" 
+        fill="url(#logoGradient)" 
+        stroke="none"/>
+  
+  <!-- Target rings -->
+  <circle cx="200" cy="140" r="70" fill="none" stroke="#000" stroke-width="12" opacity="0.8"/>
+  <circle cx="200" cy="140" r="40" fill="none" stroke="#000" stroke-width="8" opacity="0.8"/>
+  <circle cx="200" cy="140" r="15" fill="#000" opacity="0.8"/>
+  
+  <!-- Phone icon in center -->
+  <path d="M185 125 
+           C182 125, 180 127, 180 130 
+           L180 135 
+           C180 142, 183 145, 190 147 
+           C195 149, 198 152, 200 155 
+           C202 152, 205 149, 210 147 
+           C217 145, 220 142, 220 135 
+           L220 130 
+           C220 127, 218 125, 215 125 
+           L185 125 Z" 
+        fill="white" 
+        stroke="none"/>
+  
+  <!-- Upward arrow -->
+  <path d="M260 80 
+           L280 60 
+           L300 80 
+           L290 90 
+           L285 85 
+           L275 95 
+           L265 85 
+           L260 90 Z" 
+        fill="url(#logoGradient)" 
+        stroke="none"/>
+  
+  <!-- Arrow shaft -->
+  <rect x="277" y="85" width="6" height="35" fill="url(#logoGradient)" rx="3"/>
+</svg>

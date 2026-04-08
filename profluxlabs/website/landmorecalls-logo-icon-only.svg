@@ -1,0 +1,36 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFFF00"/>
+      <stop offset="33%" style="stop-color:#7ED321"/>
+      <stop offset="66%" style="stop-color:#50E3C2"/>
+      <stop offset="100%" style="stop-color:#4A90E2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Main location pin shape -->
+  <path d="M100 15 
+           C135 15, 165 45, 165 80 
+           C165 115, 135 145, 100 145 
+           C65 145, 35 115, 35 80 
+           C35 45, 65 15, 100 15 Z
+           M100 145 
+           L85 165 
+           L100 185 
+           L115 165 Z" 
+        fill="url(#gradient)"/>
+  
+  <!-- Target circles -->
+  <circle cx="100" cy="80" r="45" fill="none" stroke="#000" stroke-width="6" opacity="0.7"/>
+  <circle cx="100" cy="80" r="25" fill="none" stroke="#000" stroke-width="4" opacity="0.7"/>
+  <circle cx="100" cy="80" r="8" fill="#000" opacity="0.8"/>
+  
+  <!-- Phone icon -->
+  <path d="M92 72 C90 72 88 74 88 76 L88 78 C88 82 90 84 94 85 C96 86 98 88 100 90 C102 88 104 86 106 85 C110 84 112 82 112 78 L112 76 C112 74 110 72 108 72 Z" 
+        fill="white"/>
+  
+  <!-- Arrow -->
+  <path d="M130 35 L145 20 L160 35 L152 43 L148 39 L140 47 L132 39 L128 43 Z" 
+        fill="url(#gradient)"/>
+  <rect x="142" y="39" width="4" height="20" fill="url(#gradient)" rx="2"/>
+</svg>
