@@ -51,9 +51,9 @@
             z-index: 1000;
             padding: 0 24px;
             transition: all 0.3s ease;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(74, 144, 226, 0.1);
+            border-bottom: 1px solid rgba(74, 144, 226, 0.2);
         }
         .nav.scrolled { box-shadow: var(--shadow-lg); }
         .nav-inner {
@@ -68,19 +68,19 @@
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: var(--text);
+            color: white;
             font-weight: 700;
             font-size: 1.2rem;
         }
         .nav-links { display: flex; align-items: center; gap: 32px; }
         .nav-links a {
-            color: var(--text-muted);
+            color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 500;
             transition: color 0.2s;
         }
-        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover { color: white; }
         .nav-cta {
             background: var(--primary-gradient) !important;
             color: white !important;
