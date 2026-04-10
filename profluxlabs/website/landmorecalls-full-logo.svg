@@ -1,0 +1,54 @@
+<svg viewBox="0 0 600 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFFF00"/>
+      <stop offset="33%" style="stop-color:#7ED321"/>
+      <stop offset="66%" style="stop-color:#50E3C2"/>
+      <stop offset="100%" style="stop-color:#4A90E2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo Icon (scaled from your design) -->
+  <g transform="translate(20, 20)">
+    <!-- Location pin shape with gradient -->
+    <path d="M80 15 
+             C115 15, 145 45, 145 80 
+             C145 115, 115 145, 80 145 
+             C45 145, 15 115, 15 80 
+             C15 45, 45 15, 80 15 Z
+             M80 145 
+             L65 165 
+             L80 185 
+             L95 165 Z" 
+          fill="url(#logoGradient)"/>
+    
+    <!-- Target rings -->
+    <circle cx="80" cy="80" r="45" fill="none" stroke="#000" stroke-width="8" opacity="0.8"/>
+    <circle cx="80" cy="80" r="25" fill="none" stroke="#000" stroke-width="5" opacity="0.8"/>
+    <circle cx="80" cy="80" r="10" fill="#000" opacity="0.9"/>
+    
+    <!-- Phone icon -->
+    <path d="M72 72 C70 72 68 74 68 76 L68 78 C68 82 70 84 74 85 C76 86 78 88 80 90 C82 88 84 86 86 85 C90 84 92 82 92 78 L92 76 C92 74 90 72 88 72 Z" 
+          fill="white"/>
+    
+    <!-- Arrow -->
+    <path d="M110 35 L125 20 L140 35 L132 43 L128 39 L120 47 L112 39 L108 43 Z" 
+          fill="url(#logoGradient)"/>
+    <rect x="122" y="39" width="6" height="25" fill="url(#logoGradient)" rx="3"/>
+  </g>
+  
+  <!-- Text: "Land More Calls" -->
+  <g transform="translate(200, 50)">
+    <!-- Land -->
+    <text x="0" y="35" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#0f172a" letter-spacing="-0.02em">Land</text>
+    
+    <!-- More -->
+    <text x="120" y="35" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="url(#logoGradient)" letter-spacing="-0.02em">More</text>
+    
+    <!-- Calls -->
+    <text x="240" y="35" font-family="Inter, sans-serif" font-size="42" font-weight="800" fill="#0f172a" letter-spacing="-0.02em">Calls</text>
+    
+    <!-- Tagline -->
+    <text x="0" y="70" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#64748b" letter-spacing="0.05em">NEVER MISS ANOTHER CUSTOMER CALL</text>
+  </g>
+</svg>

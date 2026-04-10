@@ -1,0 +1,51 @@
+<svg viewBox="0 0 500 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFFF00"/>
+      <stop offset="33%" style="stop-color:#7ED321"/>
+      <stop offset="66%" style="stop-color:#50E3C2"/>
+      <stop offset="100%" style="stop-color:#4A90E2"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Logo Icon -->
+  <g transform="translate(10, 10)">
+    <!-- Location pin shape -->
+    <path d="M50 5 
+             C70 5, 85 20, 85 40 
+             C85 60, 70 75, 50 75 
+             C30 75, 15 60, 15 40 
+             C15 20, 30 5, 50 5 Z
+             M50 75 
+             L42 87 
+             L50 100 
+             L58 87 Z" 
+          fill="url(#gradient)"/>
+    
+    <!-- Target rings -->
+    <circle cx="50" cy="40" r="25" fill="none" stroke="#000" stroke-width="4" opacity="0.8"/>
+    <circle cx="50" cy="40" r="15" fill="none" stroke="#000" stroke-width="3" opacity="0.8"/>
+    <circle cx="50" cy="40" r="6" fill="#000" opacity="0.9"/>
+    
+    <!-- Phone icon -->
+    <path d="M45 36 C44 36 43 37 43 38 L43 39 C43 41 44 42 46 42.5 C47 43 48 44 50 45 C52 44 53 43 54 42.5 C56 42 57 41 57 39 L57 38 C57 37 56 36 55 36 Z" 
+          fill="white"/>
+    
+    <!-- Arrow -->
+    <path d="M65 20 L75 10 L85 20 L80 25 L77 22 L72 27 L67 22 L65 25 Z" 
+          fill="url(#gradient)"/>
+    <rect x="74" y="22" width="3" height="15" fill="url(#gradient)" rx="2"/>
+  </g>
+  
+  <!-- Company Name -->
+  <text x="120" y="45" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="800" fill="#0f172a" letter-spacing="-0.01em">
+    Land 
+    <tspan fill="url(#gradient)">More</tspan>
+    <tspan fill="#0f172a"> Calls</tspan>
+  </text>
+  
+  <!-- Tagline -->
+  <text x="120" y="70" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="500" fill="#64748b" letter-spacing="0.08em">
+    NEVER MISS ANOTHER CUSTOMER CALL
+  </text>
+</svg>
