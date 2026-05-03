@@ -1,561 +1,758 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Land More Calls — Never Miss Another Customer Call</title>
-    <meta name="description" content="24/7 AI Receptionist for small businesses. Books appointments, qualifies leads, follows up automatically. Never miss a customer call again.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #4A90E2;
-            --primary-light: #50E3C2;
-            --primary-gradient: linear-gradient(135deg, #EFFF00 0%, #7ED321 30%, #50E3C2 70%, #4A90E2 100%);
-            --navy: #0f172a;
-            --navy-light: #1e293b;
-            --text: #1e293b;
-            --text-muted: #64748b;
-            --bg-light: #f8fafc;
-            --white: #ffffff;
-            --shadow-lg: 0 20px 60px rgba(74, 144, 226, 0.15);
-            --shadow-xl: 0 25px 80px rgba(74, 144, 226, 0.2);
-        }
-        
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; 
-            color: var(--text); 
-            line-height: 1.6; 
-            overflow-x: hidden; 
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Land More Calls — Never Miss Another Job</title>
+<meta name="description" content="A 24/7 phone system for contractors that captures every lead, books jobs while you work, and turns missed calls into revenue.">
 
-        /* Enhanced Logo */
-        .logo {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 12px;
-            overflow: hidden;
-        }
-        .logo svg { width: 28px; height: 28px; }
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0a0a0a;
+    --yellow: #F5A800;
+    --yellow-dark: #d49200;
+    --white: #f5f0e8;
+    --gray: #111111;
+    --gray2: #1a1a1a;
+    --gray3: #222222;
+    --muted: #666666;
+    --border: #2a2a2a;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
 
-        /* Navigation */
-        .nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            padding: 0 24px;
-            transition: all 0.3s ease;
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(74, 144, 226, 0.2);
-        }
-        .nav.scrolled { box-shadow: var(--shadow-lg); }
-        .nav-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 72px;
-        }
-        .nav-brand {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-        .nav-links { display: flex; align-items: center; gap: 32px; }
-        .nav-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        .nav-links a:hover { color: white; }
-        .nav-cta {
-            background: var(--primary-gradient) !important;
-            color: white !important;
-            padding: 12px 24px;
-            border-radius: 10px;
-            font-weight: 600 !important;
-            transition: all 0.3s !important;
-            box-shadow: var(--shadow-lg);
-        }
-        .nav-cta:hover { 
-            transform: translateY(-2px); 
-            box-shadow: var(--shadow-xl);
-        }
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+    background: rgba(10,10,10,0.97);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--white);
+  }
+  .logo span { color: var(--yellow); }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-links a {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--white); }
+  .nav-cta {
+    background: var(--yellow);
+    color: var(--black) !important;
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 800;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .nav-cta:hover { background: var(--yellow-dark) !important; }
+  .nav-mobile-cta { display: none; }
 
-        /* Hero */
-        .hero {
-            background: linear-gradient(135deg, var(--navy) 0%, #1e3a8a 50%, var(--navy) 100%);
-            color: white;
-            padding: 160px 24px 100px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 50% 0%, rgba(74,144,226,0.15) 0%, transparent 60%);
-            pointer-events: none;
-        }
-        .hero-content { position: relative; z-index: 1; max-width: 800px; margin: 0 auto; }
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(74,144,226,0.2);
-            border: 1px solid rgba(74,144,226,0.3);
-            color: var(--primary-light);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-        }
-        .hero h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            letter-spacing: -0.03em;
-        }
-        .hero h1 .gradient-text {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero p {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            margin-bottom: 40px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 18px 36px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            cursor: pointer;
-            border: none;
-        }
-        .btn-primary {
-            background: var(--primary-gradient);
-            color: white;
-            box-shadow: var(--shadow-lg);
-        }
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-xl);
-        }
-        .btn-secondary {
-            background: rgba(255,255,255,0.1);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.2);
-            backdrop-filter: blur(10px);
-        }
-        .btn-secondary:hover {
-            background: rgba(255,255,255,0.15);
-            transform: translateY(-2px);
-        }
-        .demo-box {
-            background: rgba(74,144,226,0.15);
-            border: 2px solid rgba(74,144,226,0.3);
-            border-radius: 20px;
-            padding: 30px;
-            margin: 50px auto 0;
-            max-width: 450px;
-            box-shadow: var(--shadow-lg);
-        }
-        .demo-box h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            color: var(--primary-light);
-        }
-        .demo-phone {
-            font-size: 2rem;
-            font-weight: 800;
-            margin: 12px 0;
-            letter-spacing: 0.05em;
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px 32px 80px;
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+  }
+  .hero-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 24px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--yellow);
+  }
+  .hero h1 {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 900;
+    font-size: clamp(64px, 15vw, 120px);
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+  }
+  .hero h1 .outline {
+    -webkit-text-stroke: 2px var(--white);
+    color: transparent;
+  }
+  .hero h1 .yellow { color: var(--yellow); }
+  .hero-sub {
+    font-size: 18px;
+    color: #999;
+    max-width: 480px;
+    margin-bottom: 20px;
+    line-height: 1.65;
+  }
+  .missed-bar {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid rgba(245,168,0,0.25);
+    padding: 10px 18px;
+    margin-bottom: 36px;
+    width: fit-content;
+  }
+  .missed-dot {
+    width: 7px; height: 7px;
+    background: var(--yellow);
+    border-radius: 50%;
+    animation: blink 1.8s ease-in-out infinite;
+  }
+  @keyframes blink {
+    0%,100% { opacity:1; } 50% { opacity:0.3; }
+  }
+  .missed-text {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  .missed-text span { color: var(--white); }
+  .hero-btns {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: var(--yellow-dark); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: border-color 0.2s;
+  }
+  .btn-ghost:hover { border-color: #555; }
 
-        /* Enhanced Features */
-        .features-section {
-            padding: 120px 24px;
-            background: var(--bg-light);
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 32px;
-            max-width: 1200px;
-            margin: 60px auto 0;
-        }
-        .feature-card {
-            background: var(--white);
-            border: 1px solid rgba(74,144,226,0.1);
-            border-radius: 20px;
-            padding: 40px 30px;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: var(--primary-gradient);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-        .feature-card:hover::before { transform: scaleX(1); }
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--primary-gradient);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow-lg);
-        }
-        .feature-card h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--navy);
-        }
-        .feature-card p {
-            color: var(--text-muted);
-            line-height: 1.7;
-        }
+  /* TICKER */
+  .ticker-wrap {
+    overflow: hidden;
+    background: var(--gray2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 13px 0;
+  }
+  .ticker {
+    display: flex;
+    width: max-content;
+    animation: scroll 22s linear infinite;
+  }
+  .ticker-item {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 36px;
+    white-space: nowrap;
+  }
+  .ticker-item .dot {
+    color: var(--yellow);
+    margin-left: 36px;
+  }
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
 
-        /* Enhanced section headers */
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 80px;
-        }
-        .section-label {
-            display: inline-block;
-            background: rgba(74,144,226,0.1);
-            color: var(--primary);
-            padding: 6px 20px;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 20px;
-        }
-        .section-header h2 {
-            font-size: 3rem;
-            font-weight: 800;
-            letter-spacing: -0.02em;
-            margin-bottom: 20px;
-            color: var(--navy);
-        }
-        .section-header p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-        }
+  /* STATS */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 1px solid var(--border);
+  }
+  .stat {
+    padding: 40px 24px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 60px);
+    color: var(--yellow);
+    line-height: 1;
+    display: block;
+  }
+  .stat-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 8px;
+  }
 
-        /* Enhanced testimonials */
-        .testimonials-section {
-            background: var(--white);
-            padding: 120px 24px;
-        }
-        .testimonials-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
-        }
-        .testimonial-card {
-            background: var(--bg-light);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid rgba(74,144,226,0.1);
-            transition: all 0.3s ease;
-        }
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-        .testimonial-stars {
-            color: #fbbf24;
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-        }
-        .testimonial-card video {
-            width: 100%;
-            max-width: 300px;
-            border-radius: 12px;
-            margin-bottom: 24px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+  /* SHARED SECTION STYLES */
+  .section { padding: 88px 32px; }
+  .section-alt { background: var(--gray); }
+  .eyebrow {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--yellow);
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 900;
+    font-size: clamp(40px, 8vw, 64px);
+    text-transform: uppercase;
+    line-height: 0.93;
+    margin-bottom: 52px;
+    max-width: 700px;
+  }
 
-        /* Enhanced CTA */
-        .cta-section {
-            background: var(--navy);
-            color: white;
-            padding: 120px 24px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse at 50% 100%, rgba(74,144,226,0.2) 0%, transparent 60%);
-            pointer-events: none;
-        }
+  /* PROBLEM */
+  .problem-list { display: flex; flex-direction: column; max-width: 640px; }
+  .problem-item {
+    display: flex;
+    gap: 24px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.45s ease;
+  }
+  .problem-item.vis { opacity: 1; transform: translateX(0); }
+  .p-num {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--yellow);
+    min-width: 24px;
+    padding-top: 3px;
+  }
+  .p-text { font-size: 17px; color: #aaa; line-height: 1.6; }
+  .p-text strong { color: var(--white); font-weight: 600; }
 
-        /* Mobile responsiveness */
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero-buttons { flex-direction: column; align-items: center; }
-            .features-grid { grid-template-columns: 1fr; max-width: 400px; margin: 40px auto 0; }
-            .nav-links a:not(.nav-cta) { display: none; }
-            .section-header h2 { font-size: 2rem; }
-        }
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .features-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-    </style>
+  /* HOW IT WORKS */
+  .steps { display: flex; flex-direction: column; max-width: 680px; }
+  .step {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 28px;
+    padding: 36px 0;
+    border-bottom: 1px solid var(--border);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.5s ease;
+  }
+  .step.vis { opacity: 1; transform: translateY(0); }
+  .step-n {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 900;
+    font-size: 52px;
+    color: var(--border);
+    line-height: 1;
+    transition: color 0.3s;
+  }
+  .step:hover .step-n { color: var(--yellow); }
+  .step-title {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+  .step-desc { font-size: 15px; color: #777; line-height: 1.65; }
+
+  /* PROOF */
+  .proof-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2px;
+    max-width: 680px;
+  }
+  .proof-card {
+    background: var(--black);
+    padding: 28px 28px;
+    border-left: 3px solid var(--yellow);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.45s ease;
+  }
+  .proof-card.vis { opacity: 1; transform: translateY(0); }
+  .proof-q {
+    font-size: 16px;
+    line-height: 1.65;
+    color: #bbb;
+    margin-bottom: 18px;
+    font-style: italic;
+  }
+  .proof-who {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--yellow);
+  }
+  .proof-trade { font-size: 13px; color: var(--muted); margin-top: 3px; }
+
+  /* FORM */
+  .form-wrap { max-width: 520px; }
+  .trust-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #888;
+  }
+  .trust-check {
+    color: var(--yellow);
+    font-weight: 700;
+    font-size: 13px;
+    min-width: 14px;
+  }
+  .form-group { margin-bottom: 14px; }
+  .form-label {
+    display: block;
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 7px;
+  }
+  .form-input, .form-select {
+    width: 100%;
+    background: var(--gray2);
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 16px;
+    padding: 14px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+    -webkit-appearance: none;
+    border-radius: 0;
+  }
+  .form-input:focus, .form-select:focus { border-color: var(--yellow); }
+  .form-select option { background: var(--gray2); }
+  .form-submit {
+    width: 100%;
+    background: var(--yellow);
+    color: var(--black);
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 800;
+    font-size: 17px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 18px;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: background 0.2s;
+  }
+  .form-submit:hover { background: var(--yellow-dark); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .footer-logo {
+    font-family: 'Arial Narrow', 'Impact', 'Haettenschweiler', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+  .footer-logo span { color: var(--yellow); }
+  .footer-copy { font-size: 13px; color: var(--muted); }
+  .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-family: 'Arial Narrow', 'Impact', sans-serif;
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--yellow); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-eyebrow { animation: fadeUp 0.5s ease 0.1s both; }
+  .hero h1 { animation: fadeUp 0.55s ease 0.2s both; }
+  .hero-sub { animation: fadeUp 0.55s ease 0.32s both; }
+  .missed-bar { animation: fadeUp 0.55s ease 0.44s both; }
+  .hero-btns { animation: fadeUp 0.55s ease 0.54s both; }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    nav { padding: 14px 20px; }
+    .nav-links { display: none; }
+    .nav-mobile-cta { display: block; }
+    .hero { padding: 120px 20px 60px; }
+    .section { padding: 64px 20px; }
+    .stats-row { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid var(--border); }
+    .stat:last-child { border-bottom: none; }
+    footer { padding: 24px 20px; flex-direction: column; align-items: flex-start; }
+  }
+</style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav" id="nav">
-        <div class="nav-inner">
-            <a href="/" class="nav-brand">
-                <div class="logo">
-                    <img src="logo-transparent.png" alt="Land More Calls" style="width: 100%; height: 100%; object-fit: contain;">
-                </div>
-                <span>Land More Calls</span>
-            </a>
-            <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#testimonials">Success Stories</a>
-                <a href="#demo">Try Demo</a>
-                <a href="https://cal.com/landmorecalls/demo" class="nav-cta">Book Demo</a>
-            </div>
-        </div>
-    </nav>
 
-    <!-- Hero -->
-    <header class="hero">
-        <div class="hero-content">
-            <div class="hero-badge">
-                📞 Professional AI Receptionist
-            </div>
-            <h1>Never Miss Another <span class="gradient-text">Customer Call</span></h1>
-            <p>24/7 AI Receptionist that answers every call, qualifies leads, and books appointments automatically. Land more calls, close more deals.</p>
-            <div class="hero-buttons">
-                <a href="https://cal.com/landmorecalls/demo" class="btn btn-primary">Book Free Demo →</a>
-                <a href="tel:4482286211" class="btn btn-secondary">📞 Try Our AI Now</a>
-            </div>
-            <div class="demo-box">
-                <h3>Experience Our AI Receptionist</h3>
-                <div class="demo-phone">(448) 228-6211</div>
-                <p>Call now and talk to "Emma" at our demo company</p>
-            </div>
-        </div>
-    </header>
+<nav>
+  <a href="#" class="logo">Land<span>More</span>Calls</a>
+  <div class="nav-links">
+    <a href="#how">How It Works</a>
+    <a href="#proof">Results</a>
+    <a href="#book" class="nav-cta">Book Free Call</a>
+  </div>
+  <a href="#book" class="nav-cta nav-mobile-cta">Book Free Call</a>
+</nav>
 
-    <!-- Features -->
-    <section class="features-section" id="features">
-        <div class="section-header">
-            <span class="section-label">Features</span>
-            <h2>Your Perfect AI Receptionist</h2>
-            <p>Professional, intelligent, and customized for your industry. Never miss another opportunity.</p>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">📞</div>
-                <h3>24/7 Professional Answering</h3>
-                <p>Your AI receptionist answers every call with your business name, custom greeting, and industry knowledge.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎯</div>
-                <h3>Smart Lead Qualification</h3>
-                <p>Asks the right questions to identify hot prospects, understands urgency, and gathers essential contact details.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📅</div>
-                <h3>Automatic Booking</h3>
-                <p>Books appointments directly into your calendar with customer preferences and detailed notes from the conversation.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📱</div>
-                <h3>SMS Follow-up</h3>
-                <p>Instant text confirmations, appointment reminders, and professional follow-up messages to every caller.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📧</div>
-                <h3>Email Automation</h3>
-                <p>Professional email sequences with service information, estimates, and nurture campaigns for warm prospects.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Complete Reporting</h3>
-                <p>Real-time dashboard showing calls received, appointments booked, and revenue generated by your AI receptionist.</p>
-            </div>
-        </div>
-    </section>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">For HVAC · Roofing · Plumbing · Electrical</div>
+  <h1>
+    Stop<br>
+    <span class="yellow">Losing</span><br>
+    <span class="outline">Jobs.</span>
+  </h1>
+  <p class="hero-sub">A simple system that picks up every call, books the job, and follows up automatically — so you can keep working without losing leads to your competitor.</p>
+  <div class="missed-bar">
+    <div class="missed-dot"></div>
+    <div class="missed-text"><span id="missedCount">0</span> calls missed by contractors today</div>
+  </div>
+  <div class="hero-btns">
+    <a href="#book" class="btn-primary">Book Free Call →</a>
+    <a href="#how" class="btn-ghost">See How It Works</a>
+  </div>
+</section>
 
-    <!-- Testimonials -->
-    <section class="testimonials-section" id="testimonials">
-        <div class="section-header">
-            <span class="section-label">Success Stories</span>
-            <h2>Real Results From Real Businesses</h2>
-            <p>See how Land More Calls AI Receptionist is transforming businesses across industries.</p>
-        </div>
-        <div class="testimonials-grid">
-            <!-- Rob's Video Testimonial -->
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <video controls>
-                    <source src="testimonial-video-1.mp4" type="video/mp4">
-                    <source src="testimonial-video-1.mov" type="video/quicktime">
-                    Your browser does not support the video tag.
-                </video>
-                <div style="font-size: 1.1rem; font-style: italic; margin: 20px 0; color: #555; line-height: 1.6;">
-                    "We went from 11 Google reviews to 34 in 6 weeks and booked 4 new jobs in 3 days — without me lifting a finger."
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.1rem;">R</div>
-                    <div>
-                        <h4 style="font-weight: 600; margin-bottom: 2px;">Rob</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">DC Electric, San Diego</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Scott's Video Testimonial -->
-            <div class="testimonial-card">
-                <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
-                <video controls>
-                    <source src="testimonial-video-2.mp4" type="video/mp4">
-                    <source src="testimonial-video-2.mov" type="video/quicktime">
-                    Your browser does not support the video tag.
-                </video>
-                <div style="font-size: 1.1rem; font-style: italic; margin: 20px 0; color: #555; line-height: 1.6;">
-                    "In the first week I saved two jobs from calls I would've completely missed. Over the last year we've added over $7,000 a month in revenue, just from saving jobs I couldn't answer."
-                </div>
-                <div style="display: flex; align-items: center; gap: 12px;">
-                    <div style="width: 48px; height: 48px; border-radius: 50%; background: var(--primary-gradient); display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 1.1rem;">S</div>
-                    <div>
-                        <h4 style="font-weight: 600; margin-bottom: 2px;">Scott</h4>
-                        <p style="color: var(--text-muted); font-size: 0.9rem;">North Star Plumbing, Los Angeles</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <span class="ticker-item">Roofing <span class="dot">✦</span></span>
+    <span class="ticker-item">HVAC <span class="dot">✦</span></span>
+    <span class="ticker-item">Plumbing <span class="dot">✦</span></span>
+    <span class="ticker-item">Electrical <span class="dot">✦</span></span>
+    <span class="ticker-item">Tree Service <span class="dot">✦</span></span>
+    <span class="ticker-item">Landscaping <span class="dot">✦</span></span>
+    <span class="ticker-item">Concrete <span class="dot">✦</span></span>
+    <span class="ticker-item">Painting <span class="dot">✦</span></span>
+    <span class="ticker-item">Roofing <span class="dot">✦</span></span>
+    <span class="ticker-item">HVAC <span class="dot">✦</span></span>
+    <span class="ticker-item">Plumbing <span class="dot">✦</span></span>
+    <span class="ticker-item">Electrical <span class="dot">✦</span></span>
+    <span class="ticker-item">Tree Service <span class="dot">✦</span></span>
+    <span class="ticker-item">Landscaping <span class="dot">✦</span></span>
+    <span class="ticker-item">Concrete <span class="dot">✦</span></span>
+    <span class="ticker-item">Painting <span class="dot">✦</span></span>
+  </div>
+</div>
 
-    <!-- CTA -->
-    <section class="cta-section">
-        <div style="position: relative; z-index: 1; max-width: 700px; margin: 0 auto;">
-            <h2 style="font-size: 3rem; font-weight: 800; margin-bottom: 20px;">Ready to Land More Calls?</h2>
-            <p style="font-size: 1.3rem; opacity: 0.9; margin-bottom: 40px;">
-                See how our AI Receptionist can transform your business like it did for Rob and Scott.
-            </p>
-            <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-                <a href="https://cal.com/landmorecalls/demo" class="btn btn-primary">Book Your Free Demo →</a>
-                <a href="tel:4482286211" class="btn btn-secondary">📞 Call (448) 228-6211</a>
-            </div>
-            <p style="font-size: 0.95rem; opacity: 0.7; margin-top: 20px;">
-                15-minute demo • See the AI in action • Custom setup included
-            </p>
-        </div>
-    </section>
+<!-- STATS -->
+<div class="stats-row">
+  <div class="stat">
+    <span class="stat-num" data-target="24">0</span>
+    <span class="stat-label">Hour availability</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="90">0</span>
+    <span class="stat-label">Second answer time</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num" data-target="100">0</span>
+    <span class="stat-label">% calls captured</span>
+  </div>
+</div>
 
-    <!-- Contact Form -->
-    <section style="padding: 100px 24px; background: var(--bg-light);">
-        <div style="max-width: 600px; margin: 0 auto;">
-            <div style="text-align: center; margin-bottom: 40px; padding: 30px; background: white; border-radius: 20px; box-shadow: var(--shadow-lg);">
-                <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-bottom: 15px;">
-                    <div class="logo">
-                        <img src="logo-transparent.png" alt="Land More Calls" style="width: 100%; height: 100%; object-fit: contain;">
-                    </div>
-                    <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--navy);">Land More Calls</h3>
-                </div>
-                <p style="color: var(--text-muted); font-weight: 500;">Professional AI Receptionist Services</p>
-            </div>
-            
-            <form name="sms-optin" method="POST" data-netlify="true" action="/success.html" style="background: white; padding: 40px; border-radius: 20px; box-shadow: var(--shadow-lg);">
-                <input type="hidden" name="consent_timestamp" id="consent_timestamp">
-                <div style="display: grid; gap: 20px;">
-                    <input type="text" name="name" placeholder="Your Name" required style="padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#4A90E2'" onblur="this.style.borderColor='#e2e8f0'">
-                    <input type="email" name="email" placeholder="Email Address" required style="padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#4A90E2'" onblur="this.style.borderColor='#e2e8f0'">
-                    <input type="tel" name="phone" placeholder="Phone Number" required style="padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#4A90E2'" onblur="this.style.borderColor='#e2e8f0'">
-                    <input type="text" name="business_type" placeholder="Business Type (roofing, HVAC, dental, etc.)" style="padding: 16px 20px; border: 2px solid #e2e8f0; border-radius: 12px; font-size: 1rem; font-family: inherit; outline: none; transition: border 0.2s;" onfocus="this.style.borderColor='#4A90E2'" onblur="this.style.borderColor='#e2e8f0'">
-                    
-                    <label style="display: flex; align-items: flex-start; gap: 12px; font-size: 0.9rem; color: var(--text-muted); cursor: pointer;">
-                        <input type="checkbox" required style="margin-top: 3px; accent-color: var(--primary);">
-                        I agree to the <a href="/terms.html" style="color: var(--primary); text-decoration: underline;">Land More Calls Service Agreement</a> and <a href="/privacy.html" style="color: var(--primary); text-decoration: underline;">Privacy Policy</a>
-                    </label>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; margin-top: 10px;" onclick="document.getElementById('consent_timestamp').value = new Date().toISOString();">Start Free Trial →</button>
-                </div>
-            </form>
-            
-            <div style="text-align: center; margin-top: 30px; color: var(--text-muted); font-size: 0.9rem;">
-                <p><strong style="color: var(--navy);">Land More Calls</strong></p>
-                <p>📧 jason@landmorecalls.com · 📍 Los Angeles, CA</p>
-            </div>
-        </div>
-    </section>
+<!-- PROBLEM -->
+<section class="section section-alt">
+  <div class="eyebrow">The Real Problem</div>
+  <h2 class="section-title">Sound<br>Familiar?</h2>
+  <div class="problem-list">
+    <div class="problem-item">
+      <span class="p-num">01</span>
+      <p class="p-text"><strong>Phone rings at 8pm</strong> — you're on a job or exhausted. You don't pick up. Customer calls the next guy.</p>
+    </div>
+    <div class="problem-item">
+      <span class="p-num">02</span>
+      <p class="p-text"><strong>You're on a roof, under a sink</strong> — can't answer. No callback = lost job. It happens every single day.</p>
+    </div>
+    <div class="problem-item">
+      <span class="p-num">03</span>
+      <p class="p-text"><strong>You hired someone to answer</strong> — they're slow, bad at qualifying, or just not there when it counts.</p>
+    </div>
+    <div class="problem-item">
+      <span class="p-num">04</span>
+      <p class="p-text"><strong>Happy customers don't leave reviews</strong> — unless someone follows up at exactly the right time.</p>
+    </div>
+  </div>
+</section>
 
-    <script>
-        // Sticky nav
-        const nav = document.getElementById('nav');
-        window.addEventListener('scroll', () => {
-            nav.classList.toggle('scrolled', window.scrollY > 50);
-        });
-    </script>
+<!-- HOW IT WORKS -->
+<section class="section" id="how">
+  <div class="eyebrow">How It Works</div>
+  <h2 class="section-title">Simple.<br>Fast.<br>It Just Works.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">01</div>
+      <div>
+        <div class="step-title">We Set Everything Up</div>
+        <p class="step-desc">No tech required on your end. We handle the full setup. You forward your business number and we're live. Takes about 10 minutes of your time.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">02</div>
+      <div>
+        <div class="step-title">Every Call Gets Answered</div>
+        <p class="step-desc">Instant pickup, 24 hours a day, 7 days a week. Sounds professional. Captures the lead, answers basic questions, and locks in the appointment.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">03</div>
+      <div>
+        <div class="step-title">You Get a Text Summary</div>
+        <p class="step-desc">After every call, a summary hits your phone. Who called, what they need, when they want you there. You stay in control without being glued to your phone.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">04</div>
+      <div>
+        <div class="step-title">Reviews Happen Automatically</div>
+        <p class="step-desc">After every completed job, the system texts your customer a direct link to your Google review page. Your rating climbs without you asking anyone.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section section-alt" id="proof">
+  <div class="eyebrow">What Contractors Say</div>
+  <h2 class="section-title">Real<br>Results.</h2>
+  <div class="proof-grid">
+    <a href="/rob-testimonial.html" class="proof-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+      <p class="proof-q">"We went from 11 Google reviews to 34 in 6 weeks and booked 4 new jobs in 3 days — without me lifting a finger."</p>
+      <div class="proof-who">Rob — DC Electric</div>
+      <div class="proof-trade">Electrical Contractor</div>
+    </a>
+    <a href="/scott-testimonial.html" class="proof-card" style="text-decoration:none; color:inherit; cursor:pointer;">
+      <p class="proof-q">"In the first week I saved two jobs from calls I would've missed. Over the last year we've added over $7,000 a month in revenue, just from saving jobs I couldn't answer."</p>
+      <div class="proof-who">Scott — North Star Plumbing</div>
+      <div class="proof-trade">Plumbing Contractor</div>
+    </a>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="section" id="book">
+  <div class="eyebrow">Get Started</div>
+  <h2 class="section-title">15 Minutes.<br>No Pitch.</h2>
+  <div class="form-wrap">
+    <div class="trust-list">
+      <div class="trust-item"><span class="trust-check">✓</span> Straight answer, not a sales runaround</div>
+      <div class="trust-item"><span class="trust-check">✓</span> If it's not a fit, we'll tell you</div>
+      <div class="trust-item"><span class="trust-check">✓</span> 100% money-back guarantee in the first 30 days</div>
+    </div>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" name="name" class="form-input" placeholder="John Smith" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone Number</label>
+        <input type="tel" name="phone" class="form-input" placeholder="(555) 000-0000" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" name="email" class="form-input" placeholder="you@business.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Your Trade</label>
+        <select name="trade" class="form-select" required>
+          <option value="">Select your trade...</option>
+          <option>Roofing</option>
+          <option>HVAC</option>
+          <option>Plumbing</option>
+          <option>Electrical</option>
+          <option>Tree Service</option>
+          <option>Landscaping</option>
+          <option>Concrete</option>
+          <option>Painting</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Biggest challenge right now (optional)</label>
+        <input type="text" name="challenge" class="form-input" placeholder="e.g. I miss too many calls after hours...">
+      </div>
+      <button type="submit" class="form-submit">Book My Free Call →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Land<span>More</span>Calls</div>
+  <div class="footer-copy">© 2026 LandMoreCalls.com · Built for the trades · jason@landmorecalls.com · (448) 228-6211</div>
+  <div class="footer-links">
+    <a href="/privacy.html">Privacy</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/sms-terms.html">SMS Terms</a>
+  </div>
+</footer>
+
+<script>
+  // Missed call counter
+  let c = 0;
+  const target = Math.floor(Math.random() * 600) + 300;
+  const el = document.getElementById('missedCount');
+  const t = setInterval(() => {
+    c += Math.ceil(target / 55);
+    if (c >= target) { c = target; clearInterval(t); }
+    el.textContent = c.toLocaleString();
+  }, 28);
+
+  // Stat counters
+  const statEls = document.querySelectorAll('.stat-num[data-target]');
+  const sObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const el = e.target;
+        const tgt = parseInt(el.dataset.target);
+        let cur = 0;
+        const inc = Math.ceil(tgt / 40);
+        const ti = setInterval(() => {
+          cur += inc;
+          if (cur >= tgt) { cur = tgt; clearInterval(ti); }
+          el.textContent = cur;
+        }, 28);
+        sObs.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  statEls.forEach(el => sObs.observe(el));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.problem-item, .step, .proof-card');
+  const rObs = new IntersectionObserver(entries => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('vis'), i * 70);
+        rObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => rObs.observe(el));
+
+  // Smooth scroll nav
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+</script>
 </body>
 </html>
