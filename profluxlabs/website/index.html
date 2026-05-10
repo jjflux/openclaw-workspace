@@ -113,7 +113,7 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
     .hero-left {
       display: flex;
@@ -221,8 +221,9 @@
     .hero-right {
       position: relative;
       display: flex;
-      align-items: stretch;
-      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      overflow: visible;
     }
     .hero-circle {
       position: absolute;
@@ -684,8 +685,8 @@
       .nav-links { gap: 12px; }
 
       .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 56px 24px; max-width: 100%; }
-      .hero-right { display: none; }
+      .hero-left { padding: 40px 24px 56px; max-width: 100%; order: 2; }
+      .hero-right { display: flex; justify-content: center; align-items: center; padding: 56px 24px 16px; order: 1; }
       .hero-h1 { font-size: 48px; line-height: 0.98; }
       .hero-sub { font-size: 16px; }
       .guarantee-headline { font-size: 14px; }
@@ -986,6 +987,9 @@
   .phone-scene .counter.show { opacity: 1; }
   @media (max-width: 640px) {
     .phone-scene { width: 280px; height: 510px; transform: scale(0.95); }
+  }
+  @media (max-width: 360px) {
+    .phone-scene { width: 248px; height: 460px; }
   }
 
   </style>
