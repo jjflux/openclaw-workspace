@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Free Call — LandMoreCalls</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root { --black: #0a0a0a; --yellow: #F5A800; --yellow-dark: #d49200; --white: #f5f0e8; --gray: #111111; --gray2: #1a1a1a; --muted: #666666; --border: #2a2a2a; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--black); color: var(--white); line-height: 1.5; }
+        .nav { position: sticky; top: 0; z-index: 1000; background: rgba(10,10,10,0.97); backdrop-filter: blur(20px); padding: 0 24px; border-bottom: 1px solid var(--border); }
+        .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+        .nav-links { display: flex; align-items: center; gap: 32px; }
+        .nav-links a { color: rgba(245,240,232,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--white); }
+        .page-header { padding: 60px 24px 32px; text-align: center; }
+        .page-header h1 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
+        .page-header p { color: var(--muted); font-size: 1rem; }
+        .calendar-wrap { max-width: 860px; margin: 0 auto; padding: 0 24px 80px; }
+        .calendar-wrap iframe { width: 100%; height: 700px; border: none; border-radius: 8px; background: var(--gray2); }
+        footer { background: var(--gray); border-top: 1px solid var(--border); color: var(--muted); padding: 32px 24px; text-align: center; font-size: 0.85rem; }
+        footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
+        footer a:hover { color: var(--white); }
+        .footer-links { margin-top: 12px; }
+        @media (max-width: 768px) {
+            .calendar-wrap iframe { height: 600px; }
+            .page-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="https://landmorecalls.com" style="text-decoration:none; font-family:'Inter',sans-serif; font-size:1.4rem; font-weight:800; letter-spacing:-0.02em; color:#f5f0e8;">Land<span style="color:#F5A800;">More</span>Calls</a>
+            <div class="nav-links">
+                <a href="https://landmorecalls.com">Home</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Book Your Free Call</h1>
+        <p>Pick a time that works for you — no pressure, no pitch.</p>
+    </div>
+
+    <div class="calendar-wrap">
+        <iframe src="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" allowfullscreen></iframe>
+        <p style="font-size:0.75rem; color:#666; text-align:center; margin-top:12px;">I consent to receive SMS notifications, alerts, and occasional marketing communication from LandMoreCalls. Message frequency varies. Message and data rates may apply. Text HELP to 855-578-3217 for assistance. You can reply STOP to unsubscribe at any time. View our <a href="https://landmorecalls.com/privacy" style="color:#F5A800;">Privacy Policy</a> and <a href="https://landmorecalls.com/terms" style="color:#F5A800;">Terms</a>.</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Land More Calls. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://landmorecalls.com">Home</a>
+            <a href="https://landmorecalls.com/privacy">Privacy Policy</a>
+            <a href="https://landmorecalls.com/terms">Terms</a>
+        </div>
+    </footer>
+</body>
+</html>
