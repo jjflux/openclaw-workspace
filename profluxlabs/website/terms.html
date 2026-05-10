@@ -7,29 +7,29 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        :root { --navy: #0f172a; --orange: #f97316; --text: #1e293b; --text-muted: #64748b; }
+        :root { --black: #0a0a0a; --yellow: #F5A800; --white: #f5f0e8; --gray: #111111; --gray2: #1a1a1a; --muted: #666666; --border: #2a2a2a; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); line-height: 1.8; }
-        .nav { position: sticky; top: 0; z-index: 1000; background: rgba(15,23,42,0.95); backdrop-filter: blur(20px); padding: 0 24px; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--black); color: var(--white); line-height: 1.8; }
+        .nav { position: sticky; top: 0; z-index: 1000; background: rgba(10,10,10,0.97); backdrop-filter: blur(20px); padding: 0 24px; border-bottom: 1px solid var(--border); }
         .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
         .nav img { height: 40px; }
         .nav-links { display: flex; align-items: center; gap: 32px; }
-        .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-        .nav-links a:hover { color: #fff; }
-        .nav-cta { background: var(--orange) !important; color: #fff !important; padding: 10px 24px; border-radius: 8px; font-weight: 600 !important; }
-        .page-header { background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%); color: white; padding: 120px 24px 60px; text-align: center; }
+        .nav-links a { color: rgba(245,240,232,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--white); }
+        .nav-cta { background: var(--yellow) !important; color: var(--black) !important; padding: 10px 24px; border-radius: 8px; font-weight: 700 !important; }
+        .page-header { background: linear-gradient(135deg, #0a0a0a 0%, #111111 100%); border-bottom: 1px solid var(--border); color: var(--white); padding: 120px 24px 60px; text-align: center; }
         .page-header h1 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 8px; }
-        .page-header p { opacity: 0.7; }
+        .page-header p { opacity: 0.5; color: var(--white); }
         .content { max-width: 750px; margin: 0 auto; padding: 60px 24px 80px; }
-        .content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: var(--navy); }
-        .content p { margin-bottom: 16px; color: #374151; }
-        .content ul { margin-left: 24px; margin-bottom: 16px; color: #374151; }
+        .content h2 { font-size: 1.3rem; font-weight: 700; margin-top: 40px; margin-bottom: 12px; color: var(--yellow); }
+        .content p { margin-bottom: 16px; color: rgba(245,240,232,0.8); }
+        .content ul { margin-left: 24px; margin-bottom: 16px; color: rgba(245,240,232,0.8); }
         .content li { margin-bottom: 6px; }
-        .content a { color: var(--orange); }
-        footer { background: var(--navy); color: #94a3b8; padding: 32px 24px; text-align: center; font-size: 0.85rem; }
-        footer a { color: #94a3b8; text-decoration: none; margin: 0 12px; }
-        footer a:hover { color: #fff; }
+        .content a { color: var(--yellow); }
+        footer { background: var(--gray); border-top: 1px solid var(--border); color: var(--muted); padding: 32px 24px; text-align: center; font-size: 0.85rem; }
+        footer a { color: var(--muted); text-decoration: none; margin: 0 12px; }
+        footer a:hover { color: var(--white); }
         .footer-links { margin-top: 12px; }
         @media (max-width: 768px) {
             .nav-links a:not(.nav-cta) { display: none; }
@@ -40,10 +40,10 @@
 <body>
     <nav class="nav">
         <div class="nav-inner">
-            <a href="https://landmorecalls.com"><img src="/logo.png" alt="Land More Calls"></a>
+            <a href="https://landmorecalls.com"><img src="/landmorecalls-logo-horizontal.svg" alt="LandMoreCalls"></a>
             <div class="nav-links">
                 <a href="https://landmorecalls.com">Home</a>
-                <a href="https://cal.com/landmorecalls/demo" class="nav-cta">Book Demo</a>
+                <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="nav-cta">Book Demo</a>
             </div>
         </div>
     </nav>
@@ -58,7 +58,7 @@
         <p>By accessing or using Land More Calls' services ("Services"), you agree to be bound by these Terms of Service. If you do not agree, do not use our Services.</p>
 
         <h2>2. Description of Services</h2>
-        <p>Land More Calls provides AI-powered lead management and communication automation services for roofing businesses, including but not limited to:</p>
+        <p>Land More Calls provides AI-powered lead management and communication automation services for home service contractors, including but not limited to:</p>
         <ul>
             <li>Automated missed call text-back</li>
             <li>Lead follow-up sequences</li>
@@ -104,8 +104,8 @@
         <p>For questions about this Service Agreement, contact us at:</p>
         <p><strong>Land More Calls</strong><br>
         Email: jason@landmorecalls.com<br>
-        Business Address: Los Angeles, CA<br>
-        Business Registration: Jason White d/b/a Land More Calls</p>
+        Business Address: Henderson, NV<br>
+        Business Registration: ProFlux Labs LLC d/b/a LandMoreCalls</p>
     </div>
 
     <footer>
