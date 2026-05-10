@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Facebook profile picture: 1080x1080. Displays as circle, so keep mark inside ~85% safe zone. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="LandMoreCalls">
+  <title>LandMoreCalls</title>
+  <defs>
+    <linearGradient id="lmc-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Full yellow background (will be circle-cropped by FB) -->
+  <rect x="0" y="0" width="1080" height="1080" fill="url(#lmc-bg)"/>
+
+  <!-- Centered mark scaled up. Original viewBox 256, scale 3.4x = 870. Center it. -->
+  <g transform="translate(105,105) scale(3.4)">
+    <!-- Arc arrow landing on dot -->
+    <g fill="none" stroke="#0B1220" stroke-linecap="round" stroke-linejoin="round" stroke-width="18">
+      <path d="M 36 70 Q 80 30 134 60 T 184 158"/>
+      <path d="M 168 144 L 184 158 L 198 140"/>
+    </g>
+    <circle cx="184" cy="174" r="14" fill="#0B1220"/>
+    <circle cx="184" cy="174" r="26" fill="none" stroke="#0B1220" stroke-width="6" opacity="0.6"/>
+    <circle cx="184" cy="174" r="40" fill="none" stroke="#0B1220" stroke-width="3" opacity="0.3"/>
+  </g>
+
+  <!-- Brand text below mark, inside circle safe zone -->
+  <text x="540" y="930" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif"
+        font-weight="900" font-size="92" letter-spacing="-3" fill="#0B1220">LandMoreCalls</text>
+</svg>

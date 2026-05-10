@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Facebook cover photo: 1640x624 (recommended). Mobile crops to center 640x360, so keep critical content centered. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1640 624" width="1640" height="624" role="img" aria-label="LandMoreCalls — Stop Losing Jobs">
+  <title>LandMoreCalls — Stop Losing Jobs</title>
+  <defs>
+    <linearGradient id="cover-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#0B1220"/>
+    </linearGradient>
+    <linearGradient id="cover-y" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDE047"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FDE047" stop-opacity="0.18"/>
+      <stop offset="100%" stop-color="#FDE047" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1640" height="624" fill="url(#cover-bg)"/>
+
+  <!-- Subtle yellow glow behind mark -->
+  <ellipse cx="1240" cy="312" rx="380" ry="260" fill="url(#glow)"/>
+
+  <!-- Mark on right side (won't be cropped on mobile because mobile shows center) -->
+  <g transform="translate(1080,140) scale(1.35)">
+    <rect x="0" y="0" width="256" height="256" rx="56" fill="url(#cover-y)"/>
+    <g fill="none" stroke="#0B1220" stroke-linecap="round" stroke-linejoin="round" stroke-width="16">
+      <path d="M 36 70 Q 80 30 134 60 T 184 158"/>
+      <path d="M 168 144 L 184 158 L 198 140"/>
+    </g>
+    <circle cx="184" cy="174" r="14" fill="#0B1220"/>
+    <circle cx="184" cy="174" r="26" fill="none" stroke="#0B1220" stroke-width="6" opacity="0.6"/>
+    <circle cx="184" cy="174" r="40" fill="none" stroke="#0B1220" stroke-width="3" opacity="0.3"/>
+  </g>
+
+  <!-- Wordmark + tagline (centered for mobile-safe) -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif">
+    <text x="120" y="280" font-weight="900" font-size="110" letter-spacing="-3" fill="#FFFFFF">Land<tspan fill="url(#cover-y)">More</tspan>Calls</text>
+    <text x="120" y="370" font-weight="700" font-size="42" fill="#FACC15" letter-spacing="-0.5">Stop losing jobs.</text>
+    <text x="120" y="430" font-weight="500" font-size="32" fill="#cbd5e1" letter-spacing="-0.3">A 24/7 phone system that captures every call.</text>
+    <text x="120" y="492" font-weight="800" font-size="28" fill="#FFFFFF" letter-spacing="2">LANDMORECALLS.COM</text>
+  </g>
+</svg>
