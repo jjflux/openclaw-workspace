@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DC Electric Case Study — $13K to $69K/mo | LandMore Calls</title>
+  <meta name="description" content="How a San Diego electrician went from $13K/mo to $69K/mo in 5 months. Real numbers, real screenshots, real homeowners. Built by LandMore Calls.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:        #18181A;
+      --black-shade:  #111113;
+      --card-black:   #1F1F21;
+      --card-black-2: #25252A;
+      --border-dark:  #2A2A2C;
+      --border-darker:#3A3A3C;
+      --gold:         #F0A500;
+      --gold-dark:    #C88B00;
+      --gold-soft:    rgba(240, 165, 0, 0.08);
+      --gold-edge:    rgba(240, 165, 0, 0.35);
+      --warm-white:   #FAF8F4;
+      --mid-gray:     #F0EDE8;
+      --border-light: #E8E4DE;
+      --muted-light:  #5A5552;
+      --muted-mid:    #6B6660;
+      --muted-dark:   #A09A93;
+      --text-dim:     #7A7570;
+      --red:          #E8473C;
+      --red-soft:     rgba(232, 71, 60, 0.12);
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--warm-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+    .narrow { max-width: 920px; margin: 0 auto; padding: 0 5%; }
+
+    .display { font-family: 'Oswald', sans-serif; font-weight: 700; line-height: 1.05; letter-spacing: 0.005em; }
+    .eyebrow {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── NAV (matches homepage) ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0 5%;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-top {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 18px; color: var(--warm-white);
+      letter-spacing: 0.03em; line-height: 1;
+    }
+    .logo-bottom {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 400;
+      font-size: 12px; color: var(--gold);
+      letter-spacing: 0.15em; line-height: 1;
+    }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--warm-white); text-decoration: none;
+      opacity: 0.8; transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--black) !important;
+      font-family: 'Oswald', sans-serif !important; font-weight: 600 !important;
+      font-size: 14px !important; letter-spacing: 0.08em !important;
+      padding: 10px 22px !important; opacity: 1 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-dark) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 80px 0 64px;
+      border-bottom: 1px solid var(--border-dark);
+      position: relative;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(80% 50% at 70% 0%, rgba(240,165,0,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .hero-grid {
+      display: grid; grid-template-columns: 1.05fr 0.95fr;
+      gap: 64px; align-items: start; position: relative;
+    }
+    .client-logo {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #ffffff;
+      padding: 18px 28px; border-radius: 14px;
+      margin-bottom: 24px;
+      box-shadow: 0 8px 32px -8px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.08);
+    }
+    .client-logo img {
+      height: 80px; width: auto; display: block;
+    }
+    .pill-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 14px; border-radius: 999px;
+      border: 1px solid var(--gold-edge); background: var(--gold-soft);
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .pill-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 10px var(--gold);
+    }
+    h1.hero-h {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 72px; line-height: 1.02; letter-spacing: -0.005em;
+      margin: 22px 0 24px; text-transform: uppercase;
+    }
+    h1.hero-h .gold-num { color: var(--gold); }
+    h1.hero-h .underline {
+      background-image: linear-gradient(transparent 72%, rgba(240,165,0,0.4) 72%);
+      padding-bottom: 0;
+    }
+    .hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 19px; line-height: 1.55; color: var(--muted-dark);
+      max-width: 560px;
+    }
+    .hero-sub em { font-style: normal; color: var(--warm-white); font-weight: 500; }
+    .hero-meta {
+      display: flex; flex-wrap: wrap; gap: 0; margin-top: 36px;
+      border: 1px solid var(--border-dark); border-radius: 12px; overflow: hidden;
+      background: var(--card-black);
+    }
+    .hero-meta .cell {
+      flex: 1 1 0; min-width: 140px;
+      padding: 18px 20px; border-right: 1px solid var(--border-dark);
+    }
+    .hero-meta .cell:last-child { border-right: 0; }
+    .hero-meta .k {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--text-dim);
+    }
+    .hero-meta .v {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 17px; margin-top: 6px;
+      color: var(--warm-white);
+    }
+
+    /* ── HERO VIDEO ── */
+    .video-wrap {
+      position: relative;
+      aspect-ratio: 9 / 14;
+      border-radius: 20px; overflow: hidden;
+      background: var(--black-shade);
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 30px 80px -20px rgba(0,0,0,0.7), 0 0 0 6px rgba(240,165,0,0.06);
+    }
+    .video-wrap video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .video-wrap .poster {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 16px;
+      background:
+        radial-gradient(120% 60% at 50% 20%, rgba(240,165,0,0.16), transparent 60%),
+        linear-gradient(160deg, #1a1c22 0%, #0e0f14 100%);
+      cursor: pointer; transition: opacity 0.25s;
+      z-index: 2;
+    }
+    .video-wrap .frame-stripe {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(135deg, rgba(255,255,255,0.012) 0 8px, transparent 8px 16px);
+      pointer-events: none;
+    }
+    .video-wrap.playing .poster { opacity: 0; pointer-events: none; }
+    .play-btn {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 12px rgba(240,165,0,0.18), 0 20px 40px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+    .video-wrap .poster:hover .play-btn { transform: scale(1.04); }
+    .play-btn svg { margin-left: 6px; }
+    .pin {
+      position: absolute; top: 18px; left: 18px; z-index: 3;
+      background: var(--red); color: #fff;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .pin .rec { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: blink 1.4s infinite; }
+    @keyframes blink { 50% { opacity: 0.3; } }
+    .video-caption {
+      position: absolute; bottom: 20px; left: 20px; right: 20px; z-index: 3;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      color: #fff; font-size: 13px;
+      pointer-events: none;
+    }
+    .video-caption .who {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 15px; letter-spacing: 0.02em;
+    }
+    .video-caption .who span {
+      display: block; font-family: 'DM Sans', sans-serif; font-weight: 400;
+      color: rgba(255,255,255,0.75); font-size: 12px; margin-top: 4px; letter-spacing: 0;
+    }
+    .video-caption .runtime {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.1em;
+      background: rgba(0,0,0,0.5); padding: 5px 9px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* ── TOP STATS ROW ── */
+    .topstats {
+      margin-top: 64px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid var(--border-dark);
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .topstats .stat {
+      padding: 32px 28px; border-right: 1px solid var(--border-dark);
+    }
+    .topstats .stat:last-child { border-right: 0; }
+    .topstats .stat .num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 60px; line-height: 1; letter-spacing: -0.02em;
+      color: var(--gold);
+    }
+    .topstats .stat .num small {
+      font-size: 28px; color: var(--warm-white); font-weight: 600;
+    }
+    .topstats .stat .lbl {
+      margin-top: 12px;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em;
+      color: var(--text-dim);
+    }
+
+    /* ── SECTION SCAFFOLD ── */
+    section { padding: 96px 0; border-bottom: 1px solid var(--border-dark); }
+    .section-tag {
+      display: flex; align-items: center; gap: 14px;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 24px;
+    }
+    .section-tag::before { content: ""; width: 36px; height: 1px; background: var(--gold); }
+    h2.sec {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 52px; line-height: 1.05; letter-spacing: -0.005em;
+      margin: 0 0 20px; max-width: 22ch;
+      text-transform: uppercase;
+    }
+    h2.sec em { font-style: normal; color: var(--gold); }
+    .lede {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 19px; line-height: 1.6; color: var(--muted-dark);
+      max-width: 64ch;
+    }
+    .lede strong { color: var(--warm-white); font-weight: 500; }
+    .lede em { font-style: normal; color: var(--gold); }
+    .mono-note {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    /* ── MONEY: CHART ── */
+    .chart-card {
+      margin-top: 56px; padding: 36px;
+      background: var(--card-black); border: 1px solid var(--border-dark); border-radius: 16px;
+    }
+    .chart-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 28px; flex-wrap: wrap; gap: 16px;
+    }
+    .chart-head .ttl { font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 24px; color: var(--warm-white); }
+    .chart-head .legend {
+      display: flex; gap: 24px;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted-dark);
+    }
+    .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; vertical-align: middle; }
+    .bars { display: flex; align-items: flex-end; gap: 14px; height: 320px; }
+    .bar-col {
+      flex: 1; height: 100%;
+      display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 10px;
+    }
+    .bar {
+      width: 100%; border-radius: 6px 6px 0 0;
+      position: relative;
+    }
+    .bar.before { background: #3a2725; border: 1px solid var(--red); }
+    .bar.mid    { background: #3a3122; border: 1px solid var(--gold); }
+    .bar.now    { background: linear-gradient(180deg, var(--gold), #b87617); box-shadow: 0 0 30px rgba(240,165,0,0.25); }
+    .bar .v {
+      position: absolute; top: -32px; left: 50%; transform: translateX(-50%);
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px;
+      color: var(--gold); white-space: nowrap;
+    }
+    .bar.before .v { color: var(--red); }
+    .bar.now .v { font-size: 30px; top: -36px; }
+    .bar-lbl {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text-dim); text-align: center;
+    }
+    .bar-col.now .bar-lbl { color: var(--gold); font-weight: 600; }
+    .chart-foot {
+      margin-top: 28px; padding-top: 18px;
+      border-top: 1px dashed var(--border-dark);
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .chart-foot strong { color: var(--gold); font-weight: 700; }
+
+    /* ── BEFORE / AFTER JOB MIX ── */
+    .mix-grid { margin-top: 32px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .mix-card { padding: 32px; border-radius: 16px; }
+    .mix-card.before { background: var(--card-black); border: 1px solid var(--border-dark); }
+    .mix-card.after  { background: var(--gold-soft); border: 1px solid var(--gold); }
+    .mix-card .label {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .mix-card.before .label { color: var(--red); }
+    .mix-card.after  .label { color: var(--gold); }
+    .mix-card .ticket { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+    .mix-card .ticket .num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 56px; line-height: 1; letter-spacing: -0.02em;
+    }
+    .mix-card.before .ticket .num { color: var(--red); }
+    .mix-card.after  .ticket .num { color: var(--gold); }
+    .mix-card .ticket .ticket-label { color: var(--muted-dark); font-size: 14px; }
+    .mix-card .mix-head {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 10px;
+    }
+    .mix-card .rows { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: var(--mid-gray); }
+    .mix-card .rows .row { display: flex; justify-content: space-between; gap: 12px; }
+    .mix-card .rows .row b { color: var(--warm-white); font-weight: 500; }
+    .mix-card.after .rows .row b.hi { color: var(--gold); font-weight: 600; }
+    .mix-card .source {
+      margin-top: 18px; padding-top: 18px;
+      border-top: 1px dashed var(--border-dark);
+      font-size: 13px; color: var(--muted-dark);
+    }
+    .mix-card.after .source { border-top-color: rgba(240,165,0,0.3); }
+
+    /* ── ROI STRIP ── */
+    .roi-strip {
+      margin-top: 32px;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      border: 1px solid var(--border-dark); border-radius: 12px; overflow: hidden;
+      background: var(--card-black);
+    }
+    .roi-strip .cell { padding: 24px; border-right: 1px solid var(--border-dark); }
+    .roi-strip .cell:last-child { border-right: 0; }
+    .roi-strip .k {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .roi-strip .v {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 32px; line-height: 1.05; letter-spacing: -0.01em;
+      color: var(--gold); margin-top: 8px;
+    }
+
+    /* ── BEFORE (PAIN) SECTION ── */
+    .before-sec { background: var(--black-shade); }
+    .pain-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; margin-top: 48px; align-items: start; }
+    .pain-list { display: flex; flex-direction: column; gap: 14px; }
+    .pain {
+      display: flex; gap: 16px; padding: 18px 20px;
+      border: 1px solid var(--border-dark); border-radius: 12px;
+      background: var(--card-black);
+    }
+    .pain .x {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--red-soft); color: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+    }
+    .pain h4 {
+      margin: 0 0 4px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 16px; color: var(--warm-white); letter-spacing: 0.005em;
+    }
+    .pain p { margin: 0; font-size: 14px; color: var(--muted-dark); line-height: 1.5; }
+
+    .quote-card {
+      padding: 32px;
+      border: 1px solid var(--border-dark); border-radius: 16px;
+      background: linear-gradient(180deg, var(--card-black-2) 0%, var(--card-black) 100%);
+      position: relative;
+    }
+    .quote-card .marks {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 120px; line-height: 0.5;
+      color: var(--gold); opacity: 0.22;
+      position: absolute; top: 28px; left: 22px;
+    }
+    .quote-card blockquote {
+      margin: 24px 0 0; padding-left: 0;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 22px; line-height: 1.35; color: var(--warm-white);
+    }
+    .quote-card .source { margin-top: 24px; display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--muted-dark); }
+    .avatar {
+      width: 40px; height: 40px; border-radius: 50%; background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-weight: 700; color: var(--black);
+    }
+    .quote-card .source b { color: var(--warm-white); font-family: 'Oswald', sans-serif; font-weight: 600; }
+
+    .before-shot {
+      margin-top: 48px; padding: 24px;
+      background: #ffffff; border-radius: 16px;
+      position: relative;
+    }
+    .before-shot img { border-radius: 8px; }
+    .before-shot .tag {
+      position: absolute; top: -14px; left: 28px;
+      background: var(--red); color: #fff;
+      padding: 6px 12px; border-radius: 6px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .before-shot .caption {
+      margin-top: 18px;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted-light);
+    }
+
+    /* ── SOUND FAMILIAR ── */
+    .pain-uni-grid {
+      list-style: none; padding: 0; margin: 48px 0 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    }
+
+    /* ── ADS SECTION (LIGHT INTERLUDE) ── */
+    .ads {
+      background: var(--warm-white); color: var(--black);
+    }
+    .ads .section-tag { color: var(--gold-dark); }
+    .ads .section-tag::before { background: var(--gold-dark); }
+    .ads h2.sec { color: var(--black); }
+    .ads .lede { color: var(--muted-light); }
+    .ads .lede strong { color: var(--black); }
+    .ads .lede em { color: var(--gold-dark); }
+    .ads-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; margin-top: 56px; align-items: center; }
+    .cpl-card {
+      padding: 36px;
+      background: var(--black); color: var(--warm-white);
+      border-radius: 18px; position: relative; overflow: hidden;
+    }
+    .cpl-card::before {
+      content: ""; position: absolute; top: -50%; right: -30%;
+      width: 80%; height: 200%;
+      background: radial-gradient(circle, rgba(240,165,0,0.18), transparent 60%);
+    }
+    .cpl-card .label {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); position: relative;
+    }
+    .cpl-bigwrap { display: flex; align-items: baseline; gap: 18px; margin: 14px 0 8px; position: relative; }
+    .cpl-old {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 40px; color: var(--text-dim);
+      text-decoration: line-through; text-decoration-color: rgba(232,71,60,0.7); text-decoration-thickness: 3px;
+    }
+    .cpl-new {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 96px; color: var(--gold);
+      line-height: 1; letter-spacing: -0.03em;
+    }
+    .cpl-card .caption { color: var(--muted-dark); font-size: 14px; position: relative; }
+    .ads-points ul { padding: 0; margin: 0; list-style: none; display: flex; flex-direction: column; gap: 18px; }
+    .ads-points li { display: flex; gap: 14px; align-items: flex-start; font-size: 16px; line-height: 1.5; color: #2b2b2b; }
+    .ads-points .check {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--black); color: var(--gold);
+      display: flex; align-items: center; justify-content: center; font-weight: 700;
+    }
+    .ads-points b {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 17px; color: var(--black); margin-bottom: 2px;
+      letter-spacing: 0.005em;
+    }
+
+    .cpl-strip {
+      margin-top: 56px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--border-light); border-radius: 16px; overflow: hidden; background: #fff;
+    }
+    .cpl-strip .col { padding: 32px; border-right: 1px solid var(--border-light); }
+    .cpl-strip .col:last-child { border-right: 0; }
+    .cpl-strip .col h5 {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      margin: 0 0 12px; color: var(--muted-light);
+    }
+    .cpl-strip .col .big {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 44px; line-height: 1; color: var(--black);
+    }
+    .cpl-strip .col .small { font-size: 14px; color: var(--muted-light); margin-top: 8px; line-height: 1.45; }
+    .cpl-strip .col.win { background: var(--black); color: var(--warm-white); }
+    .cpl-strip .col.win h5 { color: var(--gold); }
+    .cpl-strip .col.win .big { color: var(--gold); }
+    .cpl-strip .col.win .small { color: var(--muted-dark); }
+
+    /* ── FULL PLAY ── */
+    .play-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px; }
+    .play {
+      padding: 32px 28px; border: 1px solid var(--border-dark); border-radius: 16px;
+      background: var(--card-black);
+    }
+    .play .step {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .play h3 {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 22px; line-height: 1.2;
+      margin: 14px 0 12px; color: var(--warm-white);
+    }
+    .play p { margin: 0; color: var(--muted-dark); font-size: 15px; line-height: 1.55; }
+    .play .icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      background: rgba(240,165,0,0.12);
+      border: 1px solid rgba(240,165,0,0.3);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); margin-bottom: 20px;
+    }
+
+    /* ── RESULTS ── */
+    .results .lede { margin-bottom: 48px; }
+    .result-row {
+      display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px;
+      align-items: center; padding: 56px 0;
+      border-top: 1px dashed var(--border-dark);
+    }
+    .result-row:first-of-type { border-top: 0; }
+    .result-row.flip { grid-template-columns: 1.15fr 0.85fr; }
+    .result-row .marker {
+      display: inline-block;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .result-row h3 {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 38px; line-height: 1.1; letter-spacing: -0.005em;
+      margin: 0 0 16px; color: var(--warm-white);
+    }
+    .result-row h3 em { font-style: normal; color: var(--gold); }
+    .result-row p { color: var(--muted-dark); font-size: 16px; line-height: 1.6; margin: 0 0 14px; }
+    .result-row p strong { color: var(--warm-white); font-weight: 500; }
+    .ba { display: flex; gap: 16px; margin-top: 18px; }
+    .ba .ba-col { flex: 1; padding: 14px 16px; border-radius: 10px; border: 1px solid var(--border-dark); background: var(--card-black); }
+    .ba .ba-col .label {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 6px;
+    }
+    .ba .ba-col .v {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 22px; color: var(--warm-white);
+    }
+    .ba .ba-col.before .v { color: var(--red); text-decoration: line-through; text-decoration-thickness: 2px; }
+    .ba .ba-col.after .v { color: var(--gold); }
+    .ba .ba-col.after .label { color: var(--gold); }
+    .shot {
+      background: #ffffff; border-radius: 16px; padding: 20px;
+      border: 1px solid var(--border-dark); position: relative;
+    }
+    .shot img { border-radius: 6px; }
+    .shot .stamp {
+      position: absolute; top: -14px; right: 24px;
+      background: var(--gold); color: var(--black);
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 6px;
+    }
+    .shot.dark { background: var(--card-black); border-color: var(--border-dark); }
+    .shot.dark .stamp { background: var(--gold); }
+
+    /* ── QUOTE BAND ── */
+    .band {
+      padding: 96px 0; background: var(--gold); color: var(--black);
+      position: relative; overflow: hidden;
+      border-bottom: 1px solid var(--black);
+    }
+    .band::before {
+      content: "\201C";
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 600px; line-height: 0.8;
+      position: absolute; top: -40px; left: -30px; color: rgba(24,24,26,0.08);
+    }
+    .band blockquote {
+      margin: 0; position: relative;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 56px; line-height: 1.1; letter-spacing: -0.005em;
+      max-width: 20ch;
+    }
+    .band .who { margin-top: 32px; display: flex; align-items: center; gap: 14px; position: relative; }
+    .band .who .av {
+      width: 48px; height: 48px; border-radius: 50%;
+      background: var(--black); color: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+    }
+    .band .who .meta b { display: block; font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 18px; }
+    .band .who .meta span { font-size: 14px; color: rgba(24,24,26,0.7); }
+
+    /* ── ENGINES ── */
+    .engines-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px; }
+    .engine {
+      padding: 32px; border-radius: 18px;
+      border: 1px solid var(--border-dark); background: var(--card-black);
+    }
+    .engine.gold { border-color: var(--gold); background: var(--gold-soft); }
+    .engine .ek {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .engine h3 {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 30px; line-height: 1.1;
+      margin: 0 0 14px; color: var(--warm-white);
+    }
+    .engine p { color: var(--muted-dark); margin: 0 0 16px; }
+    .engine ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--mid-gray); }
+    .engine ul li::before { content: "→ "; color: var(--gold); margin-right: 4px; }
+
+    /* ── RISK REVERSAL / CTA ── */
+    .cta-final { padding: 120px 0; background: var(--black-shade); border-bottom: none; }
+    .cta-final h2.display {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 60px; line-height: 1.05; letter-spacing: -0.005em;
+      margin: 0 0 24px; max-width: 20ch; text-transform: uppercase;
+    }
+    .cta-final h2 em { font-style: normal; color: var(--gold); }
+    .cta-final p { color: var(--muted-dark); font-size: 19px; max-width: 60ch; line-height: 1.6; }
+    .guarantee {
+      margin-top: 40px; padding: 32px;
+      border: 2px solid var(--gold); border-radius: 16px;
+      display: flex; gap: 24px; align-items: center;
+      background: var(--gold-soft);
+      max-width: 780px;
+    }
+    .seal {
+      flex-shrink: 0; width: 96px; height: 96px; border-radius: 50%;
+      background: var(--gold); color: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 13px; text-align: center; line-height: 1.1; padding: 0 8px;
+      box-shadow: 0 0 0 6px rgba(240,165,0,0.15);
+      letter-spacing: 0.04em;
+    }
+    .guarantee h4 {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 22px; margin: 0 0 6px; color: var(--warm-white);
+      line-height: 1.2;
+    }
+    .guarantee p { margin: 0; color: var(--muted-dark); font-size: 15px; max-width: none; }
+
+    .no-pills { margin-top: 40px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 780px; }
+    .no-pills .pill {
+      padding: 18px 20px; border: 1px solid var(--border-dark); border-radius: 12px;
+      background: var(--card-black);
+    }
+    .no-pills .pill .no {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 8px;
+    }
+    .no-pills .pill .lbl {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 17px; color: var(--warm-white);
+    }
+
+    .cta-row { display: flex; align-items: center; gap: 18px; margin-top: 40px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 28px; border-radius: 10px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; border: 0; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn.primary { background: var(--gold); color: var(--black); }
+    .btn.primary:hover { background: var(--gold-dark); }
+    .btn.ghost { background: transparent; color: var(--warm-white); border: 1px solid var(--border-darker); }
+    .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn .arrow { transition: transform 0.25s; }
+    .btn:hover .arrow { transform: translateX(4px); }
+    .cta-fine { margin-top: 18px; font-size: 13px; color: var(--text-dim); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 5%; background: var(--black);
+      border-top: 1px solid var(--border-dark);
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .footer-copy { color: var(--text-dim); font-size: 13px; }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { color: var(--text-dim); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--warm-white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 980px) {
+      .hero-grid, .pain-grid, .ads-grid, .result-row, .result-row.flip, .engines-grid, .mix-grid, .pain-uni-grid { grid-template-columns: 1fr; gap: 40px; }
+      h1.hero-h { font-size: 48px; }
+      h2.sec { font-size: 36px; }
+      .topstats, .play-grid, .cpl-strip, .roi-strip, .no-pills { grid-template-columns: 1fr 1fr; }
+      .roi-strip .cell:nth-child(2), .topstats .stat:nth-child(2) { border-right: 0; }
+      .band blockquote { font-size: 38px; }
+      .cta-final h2.display { font-size: 40px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links { gap: 12px; }
+      .topstats, .play-grid, .cpl-strip, .roi-strip, .no-pills, .pain-uni-grid { grid-template-columns: 1fr; }
+      .topstats .stat, .roi-strip .cell, .cpl-strip .col, .no-pills .pill { border-right: 0; border-bottom: 1px solid var(--border-dark); }
+      .topstats .stat:last-child, .roi-strip .cell:last-child, .cpl-strip .col:last-child, .no-pills .pill:last-child { border-bottom: 0; }
+      .bars { height: 240px; }
+      .cpl-new { font-size: 72px; }
+      .play-btn { width: 72px; height: 72px; }
+      .play-btn svg { width: 28px; height: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/#services">Services</a>
+      <a href="/case-studies.html">Case Studies</a>
+      <a href="/#faq">FAQ</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="nav-cta">BOOK</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="client-logo">
+          <img src="case-studies/dc-electric-logo.png" alt="DC Electric — Powering What Matters">
+        </div>
+        <br>
+        <span class="pill-eyebrow"><span class="dot"></span>Case Study · DC Electric · San Diego, CA</span>
+        <h1 class="hero-h">
+          <span class="gold-num">$13K/mo</span> to <span class="gold-num">$69K/mo.</span><br>
+          For one San Diego<br>
+          electrician. <span class="underline">In 5 months.</span>
+        </h1>
+        <p class="hero-sub">
+          Rob was running DC Electric the way most underperforming home-service shops do — bidding Thumbtack scraps for $400 service calls, hoping someone called back. We changed the work that hit his calendar. Bigger tickets. Higher-value jobs. <em>An extra $56,000 a month in his pocket.</em>
+        </p>
+
+        <div class="hero-meta">
+          <div class="cell"><div class="k">Client</div><div class="v">DC Electric</div></div>
+          <div class="cell"><div class="k">Market</div><div class="v">San Diego, CA</div></div>
+          <div class="cell"><div class="k">Engagement</div><div class="v">5 months</div></div>
+          <div class="cell"><div class="k">Trade</div><div class="v">Residential Electrical</div></div>
+        </div>
+      </div>
+
+      <!-- Click-to-play video -->
+      <div class="video-wrap" id="videoWrap">
+        <span class="pin"><span class="rec"></span>Testimonial</span>
+        <video id="testimonialVideo" preload="metadata" playsinline>
+          <source src="testimonial-video-1.mp4?v=20260510" type="video/mp4">
+          <source src="testimonial-video-1.mov?v=20260510" type="video/quicktime">
+          Your browser does not support video playback.
+        </video>
+        <div class="poster" id="videoPoster" role="button" tabindex="0" aria-label="Play Rob's testimonial video">
+          <div class="frame-stripe"></div>
+          <div class="play-btn">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="#18181A"><path d="M7 5v14l12-7z"/></svg>
+          </div>
+          <div class="video-caption">
+            <div class="who">Rob &mdash; Owner, DC Electric<span>"My phone literally won't stop ringing."</span></div>
+            <div class="runtime">01:18</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Top stats row -->
+    <div class="topstats">
+      <div class="stat"><div class="num"><small>+</small>$56K<small>/mo</small></div><div class="lbl">Net New Revenue</div></div>
+      <div class="stat"><div class="num">14<small> → </small>42</div><div class="lbl">Qualified Jobs / Mo</div></div>
+      <div class="stat"><div class="num">5.3<small>×</small></div><div class="lbl">Monthly Revenue</div></div>
+      <div class="stat"><div class="num">$61</div><div class="lbl">Cost / Lead — San Diego</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== THE MONEY ===== -->
+<section id="money">
+  <div class="wrap">
+    <div class="section-tag">Result · The Bank Account</div>
+    <h2 class="sec">$13,000 a month → $69,000 a month. Same truck. Same Rob. <em>Completely different mix of work.</em></h2>
+    <p class="lede">Before us, Rob was billing roughly <strong>$13K a month</strong> — 14 jobs, mostly $300–$600 service calls he won by being the cheapest bid on Thumbtack. By month 5 he was billing <strong>$69K a month</strong> — 42 jobs, with panel upgrades, EV-charger installs, and whole-home rewires now making up half the calendar. That's <em>+$56,000 a month in net new revenue</em>, in one of the toughest electrical markets in the country.</p>
+
+    <!-- Revenue chart -->
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="mono-note" style="color: var(--gold); margin-bottom: 6px;">Monthly tracked revenue</div>
+          <div class="ttl">DC Electric · 5-month ramp</div>
+        </div>
+        <div class="legend">
+          <div><span class="swatch" style="background: var(--red);"></span>Before</div>
+          <div><span class="swatch" style="background: var(--gold);"></span>With LandMore Calls</div>
+        </div>
+      </div>
+      <div class="bars">
+        <div class="bar-col">
+          <div class="bar before" style="height: 18.8%;"><span class="v">$13K</span></div>
+          <div class="bar-lbl">Before<br>Month 0</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar mid" style="height: 40.6%;"><span class="v">$28K</span></div>
+          <div class="bar-lbl">Month 1</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar mid" style="height: 60.8%;"><span class="v">$42K</span></div>
+          <div class="bar-lbl">Month 2</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar mid" style="height: 75.4%;"><span class="v">$52K</span></div>
+          <div class="bar-lbl">Month 3</div>
+        </div>
+        <div class="bar-col">
+          <div class="bar mid" style="height: 88.4%;"><span class="v">$61K</span></div>
+          <div class="bar-lbl">Month 4</div>
+        </div>
+        <div class="bar-col now">
+          <div class="bar now" style="height: 100%;"><span class="v">$69K</span></div>
+          <div class="bar-lbl">Month 5<br>Now</div>
+        </div>
+      </div>
+      <div class="chart-foot">
+        <span>Source: DC Electric CRM · Booked &amp; invoiced revenue.</span>
+        <span>Cumulative new revenue, months 1–5: <strong>$216,000+</strong></span>
+      </div>
+    </div>
+
+    <!-- Before/After job mix -->
+    <div class="mix-grid">
+      <div class="mix-card before">
+        <div class="label">Before · Month 0</div>
+        <div class="ticket"><div class="num">$920</div><div class="ticket-label">avg. ticket</div></div>
+        <div class="mix-head">Job mix</div>
+        <div class="rows">
+          <div class="row"><span>Small service calls (outlets, switches, troubleshooting)</span><b>71%</b></div>
+          <div class="row"><span>Mid-ticket repairs (sub-panels, lighting circuits)</span><b>22%</b></div>
+          <div class="row"><span>High-ticket (panel upgrades, EV chargers, rewires)</span><b>7%</b></div>
+        </div>
+        <div class="source">14 jobs / mo · mostly Thumbtack &amp; Angie's</div>
+      </div>
+      <div class="mix-card after">
+        <div class="label">Now · Month 5</div>
+        <div class="ticket"><div class="num">$1,640</div><div class="ticket-label">avg. ticket</div></div>
+        <div class="mix-head">Job mix</div>
+        <div class="rows">
+          <div class="row"><span>Small service calls</span><b>34%</b></div>
+          <div class="row"><span>Mid-ticket repairs</span><b>26%</b></div>
+          <div class="row"><span>High-ticket (panel upgrades, EV, rewires)</span><b class="hi">40%</b></div>
+        </div>
+        <div class="source">42 qualified jobs / mo · majority inbound from Google</div>
+      </div>
+    </div>
+
+    <!-- ROI strip -->
+    <div class="roi-strip">
+      <div class="cell"><div class="k">Net new revenue / mo</div><div class="v">+$56,000</div></div>
+      <div class="cell"><div class="k">Avg ticket lift</div><div class="v">+78%</div></div>
+      <div class="cell"><div class="k">Qualified jobs / mo</div><div class="v">14 → 42</div></div>
+      <div class="cell"><div class="k">Total added (5 mo)</div><div class="v">$216K+</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE STORY / BEFORE ===== -->
+<section class="before-sec" id="story">
+  <div class="wrap">
+    <div class="section-tag">Before · The Treadmill</div>
+    <h2 class="sec">Rob was working harder than ever — and still chasing scraps.</h2>
+    <p class="lede">When we first met Rob, his calendar wasn't empty. It was full of <strong>the wrong jobs</strong>. The kind that come from bidding wars on lead-rental apps, where the homeowner already has three other quotes, the margin is gone before you arrive, and your "review" lives on a platform nobody searches.</p>
+
+    <div class="pain-grid">
+      <div class="pain-list">
+        <div class="pain">
+          <div class="x">✕</div>
+          <div>
+            <h4>Renting leads from Thumbtack &amp; Angie's List</h4>
+            <p>Paying $30–$80 per shared lead, then racing three other electricians to the bottom on price. Win the job, lose the margin. Lose the job, lose the lead fee anyway.</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="x">✕</div>
+          <div>
+            <h4>No brand. No moat. No repeat traffic.</h4>
+            <p>Every month, the meter reset. Nothing compounded. The minute Rob stopped paying for leads, the work stopped.</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="x">✕</div>
+          <div>
+            <h4>11 reviews. Buried at #20 on Google Maps.</h4>
+            <p>Homeowners searching "electrician near me" scrolled past DC Electric every single day. He didn't exist where it counted.</p>
+          </div>
+        </div>
+        <div class="pain">
+          <div class="x">✕</div>
+          <div>
+            <h4>Burned by two agencies before us.</h4>
+            <p>"They didn't respond. They didn't deliver. They sent me a monthly PDF I couldn't read." — direct quote from our first call with Rob.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote-card">
+        <div class="marks">"</div>
+        <blockquote>
+          To be completely honest, I was pretty skeptical before working with these guys — there are just so many agencies out there that don't do what they say.
+        </blockquote>
+        <div class="source">
+          <div class="avatar">R</div>
+          <div><b>Rob</b> &nbsp;·&nbsp; Owner, DC Electric &nbsp;·&nbsp; San Diego</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="before-shot">
+      <span class="tag">Month 0 · Buried at #20</span>
+      <img src="case-studies/maps-rank20.png" alt="DC Electric appearing at position #20 in the Google Maps pack with 11 reviews and a 3.7 rating">
+      <div class="caption">
+        <span>Search: "electrician near me" · San Diego, CA</span>
+        <span>DC ELECTRIC · 3.7 ★ · 11 reviews · Rank #20</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOUND FAMILIAR ===== -->
+<section>
+  <div class="narrow">
+    <div class="section-tag" style="justify-content: flex-start;">Sound familiar?</div>
+    <h2 class="sec" style="max-width: 24ch;">If you've ever paid an agency and gotten nothing back — you're not crazy.</h2>
+    <p class="lede">We hear the same five sentences on almost every intro call with a contractor. If two or more of these are true for you, the rest of this page is going to feel personal:</p>
+
+    <ul class="pain-uni-grid">
+      <li class="pain"><div class="x">✕</div><div><h4>"They ghosted me after the deposit cleared."</h4><p>Slack channel goes quiet by week three.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"They sent a report. I couldn't read it."</h4><p>Bounce rate, impressions, CTR — no jobs.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"They built me a pretty website that doesn't rank."</h4><p>Looks great. Generates zero calls.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"Their leads were homeowners in another state."</h4><p>Tire-kickers. Spam form fills. No callers.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"They locked me into a 12-month contract."</h4><p>And took six of those months to "ramp."</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"They didn't understand the trade."</h4><p>Couldn't tell a panel swap from a panel sub-feed.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== GOOGLE ADS / CPL ===== -->
+<section class="ads" id="ads">
+  <div class="wrap">
+    <div class="section-tag">Step 1 · Flip the switch on Google Ads</div>
+    <h2 class="sec">A $61 cost-per-lead in one of the most competitive markets in the country.</h2>
+    <p class="lede">San Diego is brutal. The average electrician running cold Google Ads here pays <strong>$140–$220 per lead</strong> — and that's just to <em>talk</em> to someone. Most of those calls are price shoppers, warranty calls, or wrong numbers.</p>
+    <p class="lede" style="margin-top: 18px;">We rebuilt Rob's account from the studs — tight geo-radius, negative-keyword armor, call-only ads on mobile, a landing page that actually loads under 2 seconds. Inside week one, the cost-per-lead dropped here:</p>
+
+    <div class="ads-grid">
+      <div class="cpl-card">
+        <div class="label">DC Electric · Google Ads · Avg CPL · Days 7–90</div>
+        <div class="cpl-bigwrap">
+          <div class="cpl-old">$182</div>
+          <div class="cpl-new">$61</div>
+        </div>
+        <div class="caption">San Diego, CA · Residential service calls · Mobile-first call ads · 30-mile service radius</div>
+      </div>
+
+      <div class="ads-points">
+        <ul>
+          <li><div class="check">✓</div><div><b>Tight geo + service-intent only</b>We cut the spray and prayed only where Rob's truck could actually be in 25 minutes.</div></li>
+          <li><div class="check">✓</div><div><b>Call-only ads on mobile</b>Because a homeowner with no power isn't filling out a form — they're dialing the first three numbers that show up.</div></li>
+          <li><div class="check">✓</div><div><b>200+ negative keywords</b>Goodbye "electrician school," "DIY breaker," and every other tire-kicker phrase eating your budget.</div></li>
+          <li><div class="check">✓</div><div><b>A landing page built for one job: book the call</b>2.1s load. One phone number. Trust bar. Done.</div></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cpl-strip">
+      <div class="col">
+        <h5>San Diego market avg.</h5>
+        <div class="big">$182</div>
+        <div class="small">Typical electrician CPL on cold Google Ads in the SD metro.</div>
+      </div>
+      <div class="col">
+        <h5>Rob — Month 1</h5>
+        <div class="big">$94</div>
+        <div class="small">Account rebuilt week 1. Negatives loaded. Geo tightened.</div>
+      </div>
+      <div class="col win">
+        <h5>Rob — Month 3 onward</h5>
+        <div class="big">$61</div>
+        <div class="small">After bid-strategy + landing page optimization stabilized.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE FULL PLAY ===== -->
+<section>
+  <div class="wrap">
+    <div class="section-tag">The Full Play</div>
+    <h2 class="sec">Paid traffic gets you leads today. The rest builds a business that runs without you paying for every call.</h2>
+    <p class="lede">Google Ads was the on-ramp — immediate calls while we did the longer work underneath. While ads were running, we stacked three more layers that compound month over month.</p>
+
+    <div class="play-grid">
+      <div class="play">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+        <div class="step">02 — Local SEO</div>
+        <h3>Climbed the Google Map Pack from #20 → #2</h3>
+        <p>GBP rebuilt from scratch. Categories fixed. Service area corrected. 47 local citations cleaned up. Schema-stamped service pages for every job Rob actually wants to book.</p>
+      </div>
+      <div class="play">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="12 2 15 9 22 9 17 14 19 22 12 17 5 22 7 14 2 9 9 9 12 2"/></svg></div>
+        <div class="step">03 — Review Engine</div>
+        <h3>11 reviews → 69 in six weeks — without Rob asking anyone</h3>
+        <p>Automated SMS + email request the moment a job invoice closes. Two-tap review link. Recovery workflow for anything under 4 stars. Rob's hands never touched it.</p>
+      </div>
+      <div class="play">
+        <div class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 17l6-6 4 4 8-8"/><polyline points="14 7 21 7 21 14"/></svg></div>
+        <div class="step">04 — Site + Tracking</div>
+        <h3>Site that ranks &amp; a phone that's tracked to the call</h3>
+        <p>New site built for speed and intent — service pages, ZIP-level location pages, technician bios. Every lead source tracked end-to-end so Rob knows which dollar made which call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section class="results" id="results">
+  <div class="wrap">
+    <div class="section-tag">After · The Switch Flipped</div>
+    <h2 class="sec">5 months in. Same truck. Same Rob. New phone problem — it won't stop.</h2>
+    <p class="lede">Every number on this page is sourced from Rob's actual GBP, ad account, and CRM. No screenshots from a stock site. No "case study" math. Here's what changed:</p>
+
+    <div class="result-row">
+      <div>
+        <span class="marker">Result 01 — Map Pack</span>
+        <h3>From the <em>bottom of page 2</em> to the <em>top three</em> of "electrician near me."</h3>
+        <p>That single jump — from rank #20 to rank #2 — is the most valuable real estate on the internet for a service business. It's the difference between being invisible and being the first call.</p>
+        <p>Every search for "electrician San Diego," "electrician near me," and 142 related terms now shows DC Electric inside the top three results. Free calls. Every day. Forever.</p>
+        <div class="ba">
+          <div class="ba-col before"><div class="label">Before</div><div class="v">#20</div></div>
+          <div class="ba-col after"><div class="label">After</div><div class="v">#2</div></div>
+        </div>
+      </div>
+      <div class="shot">
+        <span class="stamp">After · Top 3</span>
+        <img src="case-studies/maps-top3.png" alt="DC Electric ranking #2 in the Google Maps pack with 69 five-star reviews">
+      </div>
+    </div>
+
+    <div class="result-row flip">
+      <div class="shot">
+        <span class="stamp">Reviews · 11 → 69</span>
+        <img src="case-studies/reviews-before-after.png" alt="DC Electric Google Business profile before and after: 3.7 stars with 11 reviews, then 5.0 stars with 69 reviews">
+      </div>
+      <div>
+        <span class="marker">Result 02 — Reputation</span>
+        <h3>11 Google reviews → <em>69 five-star reviews</em>. Without Rob asking a single customer.</h3>
+        <p>The first 4 weeks of the review engine alone added <strong>23 fresh 5-star reviews</strong>. By week six he was at 34. By month five he was at 69 — and his star rating jumped from 3.7 to 5.0.</p>
+        <p>Reviews are the second-biggest local ranking factor after proximity. They're also the single biggest reason a homeowner picks you over the other guy. Rob now has both.</p>
+        <div class="ba">
+          <div class="ba-col before"><div class="label">Before</div><div class="v">3.7 ★ · 11</div></div>
+          <div class="ba-col after"><div class="label">After</div><div class="v">5.0 ★ · 69</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="result-row">
+      <div>
+        <span class="marker">Result 03 — First Week</span>
+        <h3>4 booked jobs in the first <em>3 days</em> the campaign was live.</h3>
+        <p>The ads went live on a Tuesday morning. By Friday at 6pm, Rob had four real homeowners on his calendar — two panel inspections, an EV-charger install, and a kitchen-circuit rewire. He texted us a screenshot of his schedule with the word "holy."</p>
+        <p>This isn't a tease. It's what happens when you put a properly-built call ad in front of homeowners who already need an electrician right now — instead of in front of people "researching" three weeks out.</p>
+        <div class="ba">
+          <div class="ba-col before"><div class="label">First-week jobs (before)</div><div class="v">~3</div></div>
+          <div class="ba-col after"><div class="label">First-week jobs (with us)</div><div class="v">4 in 3 days</div></div>
+        </div>
+      </div>
+      <div class="shot dark">
+        <div style="padding: 12px 4px;">
+          <div class="mono-note" style="margin-bottom: 18px;">Booked jobs · first 3 days live</div>
+          <div class="bars" style="height: 220px;">
+            <div class="bar-col">
+              <div class="bar mid" style="height: 25%;"><span class="v" style="font-size: 24px;">1</span></div>
+              <div class="bar-lbl">Day 1<br>Tue</div>
+            </div>
+            <div class="bar-col">
+              <div class="bar mid" style="height: 50%;"><span class="v" style="font-size: 24px;">2</span></div>
+              <div class="bar-lbl">Day 2<br>Wed</div>
+            </div>
+            <div class="bar-col now">
+              <div class="bar now" style="height: 100%;"><span class="v" style="font-size: 30px;">4</span></div>
+              <div class="bar-lbl">Day 3<br>Fri</div>
+            </div>
+          </div>
+          <div style="margin-top: 22px; padding-top: 18px; border-top: 1px dashed var(--border-dark); font-size: 13px; color: var(--muted-dark);">
+            "We booked 4 jobs in 3 days." — Rob, text message, week 1.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUOTE BAND ===== -->
+<section class="band">
+  <div class="wrap">
+    <blockquote>"We booked 4 jobs in 3 days. My phone literally won't stop ringing. These guys changed my business."</blockquote>
+    <div class="who">
+      <div class="av">R</div>
+      <div class="meta"><b>Rob</b><span>Owner, DC Electric — San Diego, CA</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TWO ENGINES ===== -->
+<section>
+  <div class="wrap">
+    <div class="section-tag">Why this stacks</div>
+    <h2 class="sec">Two engines. One feeds you today. The other feeds you forever.</h2>
+    <p class="lede">Most agencies sell you one channel and call it a strategy. We run two in parallel because each one covers the other's weakness:</p>
+
+    <div class="engines-grid">
+      <div class="engine">
+        <div class="ek">Engine A · Google Ads</div>
+        <h3>Calls on the meter, today.</h3>
+        <p>Spend a dollar, get a call. Predictable. Scalable. Turnable up or down by 5pm.</p>
+        <ul>
+          <li>$61 avg. cost-per-lead in San Diego</li>
+          <li>Mobile call-only at peak intent hours</li>
+          <li>Pause it at any moment without losing ground</li>
+        </ul>
+      </div>
+      <div class="engine gold">
+        <div class="ek">Engine B · SEO + Reviews</div>
+        <h3>Calls without the meter, forever.</h3>
+        <p>A top-3 Map Pack spot doesn't bill you per call. Once you own it, the calls come for free. Compounded by 69 five-star reviews, this becomes your unfair advantage.</p>
+        <ul>
+          <li>Rank #2 in the map pack for "electrician near me"</li>
+          <li>69 reviews — the trust signal that closes the click</li>
+          <li>Compounds every month you do nothing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RISK REVERSAL / FINAL CTA ===== -->
+<section class="cta-final" id="guarantee">
+  <div class="narrow">
+    <div class="section-tag">The Risk Reversal</div>
+    <h2 class="display">If we don't fill your calendar, <em>you don't pay us.</em></h2>
+    <p>You've been burned before. We've heard every horror story — the agency that ghosted, the contract that wouldn't let you out, the "report" that meant nothing. So we built the offer to be the opposite of all of that.</p>
+
+    <div class="guarantee">
+      <div class="seal">5 IN<br>30<br>OR FREE</div>
+      <div>
+        <h4>5 qualified booked appointments in your first 30 days — or you don't pay.</h4>
+        <p>Month-to-month. No long-term contract. Cancel any time. If we don't put five qualified, in-service-area, ready-to-book homeowners on your calendar in the first 30 days, the month's on us.</p>
+      </div>
+    </div>
+
+    <div class="no-pills">
+      <div class="pill"><div class="no">No</div><div class="lbl">Long-term contracts</div></div>
+      <div class="pill"><div class="no">No</div><div class="lbl">Setup fees</div></div>
+      <div class="pill"><div class="no">No</div><div class="lbl">PDF "reports"</div></div>
+    </div>
+
+    <div class="cta-row">
+      <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="btn primary">Book my strategy call <span class="arrow">→</span></a>
+      <a href="/case-studies.html" class="btn ghost">See another case study</a>
+    </div>
+    <div class="cta-fine">30-minute call · No pitch deck · We'll audit your GBP live on the call.</div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <span class="footer-copy">© 2026 LandMore Calls. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Click-to-play video
+  (function() {
+    const wrap = document.getElementById('videoWrap');
+    const poster = document.getElementById('videoPoster');
+    const video = document.getElementById('testimonialVideo');
+    if (!wrap || !poster || !video) return;
+
+    function play() {
+      wrap.classList.add('playing');
+      video.setAttribute('controls', '');
+      video.play().catch(() => {});
+    }
+    poster.addEventListener('click', play);
+    poster.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+  })();
+</script>
+
+</body>
+</html>

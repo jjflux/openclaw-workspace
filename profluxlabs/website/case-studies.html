@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Studies — Real Contractor Results | LandMore Calls</title>
+  <meta name="description" content="Real numbers from real contractors. See how home-service businesses use LandMore Calls to fill their calendars with qualified, ready-to-pay homeowners.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:        #18181A;
+      --black-shade:  #111113;
+      --card-black:   #1F1F21;
+      --card-black-2: #25252A;
+      --border-dark:  #2A2A2C;
+      --border-darker:#3A3A3C;
+      --gold:         #F0A500;
+      --gold-dark:    #C88B00;
+      --gold-soft:    rgba(240, 165, 0, 0.08);
+      --gold-edge:    rgba(240, 165, 0, 0.35);
+      --warm-white:   #FAF8F4;
+      --mid-gray:     #F0EDE8;
+      --muted-dark:   #A09A93;
+      --text-dim:     #7A7570;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--warm-white);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 0 5%; }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0 5%;
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-top {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 18px; color: var(--warm-white);
+      letter-spacing: 0.03em; line-height: 1;
+    }
+    .logo-bottom {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 400;
+      font-size: 12px; color: var(--gold);
+      letter-spacing: 0.15em; line-height: 1;
+    }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--warm-white); opacity: 0.8; transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; color: var(--gold); }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--black) !important;
+      font-family: 'Oswald', sans-serif !important; font-weight: 600 !important;
+      font-size: 14px !important; letter-spacing: 0.08em !important;
+      padding: 10px 22px !important; opacity: 1 !important;
+      border-radius: 0;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-dark) !important; }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      padding: 80px 0 56px;
+      border-bottom: 1px solid var(--border-dark);
+      position: relative;
+      text-align: left;
+    }
+    .page-hero::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(70% 60% at 50% 0%, rgba(240,165,0,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .pill-eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 8px 14px; border-radius: 999px;
+      border: 1px solid var(--gold-edge); background: var(--gold-soft);
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--gold);
+      position: relative;
+    }
+    .pill-eyebrow .dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); box-shadow: 0 0 10px var(--gold);
+    }
+    h1.page-h {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 72px; line-height: 1.02; letter-spacing: -0.005em;
+      margin: 22px 0 22px; text-transform: uppercase;
+      max-width: 18ch; position: relative;
+    }
+    h1.page-h em { font-style: normal; color: var(--gold); }
+    .page-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 20px; line-height: 1.55; color: var(--muted-dark);
+      max-width: 64ch; position: relative;
+    }
+    .page-sub strong { color: var(--warm-white); font-weight: 500; }
+
+    /* ── CASE STUDY GRID ── */
+    .cs-section { padding: 80px 0; }
+    .cs-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .cs-card {
+      display: flex; flex-direction: column;
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      border-radius: 18px; overflow: hidden;
+      position: relative;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .cs-card:hover {
+      border-color: var(--gold-edge);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px -20px rgba(240,165,0,0.18);
+    }
+    .cs-card-logo {
+      background: #ffffff;
+      padding: 32px;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 200px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .cs-card-logo img { max-height: 120px; width: auto; }
+    .cs-card-body {
+      padding: 28px 28px 32px;
+      display: flex; flex-direction: column; gap: 14px; flex: 1;
+    }
+    .cs-card-meta {
+      display: flex; gap: 16px; align-items: center;
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .cs-card-meta .sep { width: 4px; height: 4px; border-radius: 50%; background: var(--text-dim); }
+    .cs-card-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 30px; line-height: 1.05; letter-spacing: -0.005em;
+      color: var(--warm-white); text-transform: uppercase;
+    }
+    .cs-card-title em { font-style: normal; color: var(--gold); }
+    .cs-card-desc {
+      color: var(--muted-dark); font-size: 15px; line-height: 1.55;
+    }
+    .cs-card-stats {
+      display: flex; flex-wrap: wrap; gap: 0;
+      margin-top: 6px;
+      border-top: 1px dashed var(--border-dark);
+      padding-top: 18px;
+    }
+    .cs-card-stats .stat {
+      flex: 1 1 0; min-width: 110px;
+    }
+    .cs-card-stats .k {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .cs-card-stats .v {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 26px; line-height: 1; letter-spacing: -0.01em;
+      color: var(--gold); margin-top: 6px;
+    }
+    .cs-card-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      margin-top: 8px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .cs-card-link .arrow { transition: transform 0.25s; }
+    .cs-card:hover .cs-card-link .arrow { transform: translateX(6px); }
+
+    /* "More coming" placeholder */
+    .cs-coming {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 14px; text-align: center;
+      background: transparent;
+      border: 1px dashed var(--border-darker);
+      border-radius: 18px;
+      padding: 64px 32px;
+      min-height: 100%;
+    }
+    .cs-coming .mark {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold);
+    }
+    .cs-coming h3 {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 24px; color: var(--warm-white);
+      letter-spacing: 0.005em;
+    }
+    .cs-coming p { color: var(--muted-dark); font-size: 15px; max-width: 32ch; }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      padding: 96px 0;
+      background: var(--black-shade);
+      border-top: 1px solid var(--border-dark);
+      text-align: center;
+    }
+    .bottom-cta h2 {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 48px; line-height: 1.05; letter-spacing: -0.005em;
+      margin: 0 auto 18px; max-width: 22ch;
+      text-transform: uppercase;
+    }
+    .bottom-cta h2 em { font-style: normal; color: var(--gold); }
+    .bottom-cta p { color: var(--muted-dark); font-size: 18px; max-width: 50ch; margin: 0 auto 32px; line-height: 1.55; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 28px; border-radius: 10px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;
+      border: 0; cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn.primary { background: var(--gold); color: var(--black); }
+    .btn.primary:hover { background: var(--gold-dark); }
+    .btn .arrow { transition: transform 0.25s; }
+    .btn:hover .arrow { transform: translateX(4px); }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 40px 5%; background: var(--black);
+      border-top: 1px solid var(--border-dark);
+    }
+    .footer-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
+    }
+    .footer-copy { color: var(--text-dim); font-size: 13px; }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { color: var(--text-dim); font-size: 13px; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--warm-white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      h1.page-h { font-size: 48px; }
+      .cs-grid { grid-template-columns: 1fr; }
+      .bottom-cta h2 { font-size: 34px; }
+    }
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links { gap: 12px; }
+      .cs-card-logo { min-height: 160px; padding: 24px; }
+      .cs-card-logo img { max-height: 90px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/#services">Services</a>
+      <a href="/case-studies.html" class="active">Case Studies</a>
+      <a href="/#faq">FAQ</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="nav-cta">BOOK</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== PAGE HERO ===== -->
+<header class="page-hero">
+  <div class="wrap">
+    <span class="pill-eyebrow"><span class="dot"></span>Case Studies</span>
+    <h1 class="page-h">Real contractors. Real numbers. <em>No "case study" math.</em></h1>
+    <p class="page-sub">
+      Every number on these pages comes from real Google Business Profiles, real ad accounts, and real CRMs. <strong>No stock screenshots. No hypothetical ROI calculators.</strong> Just what happened when we got our hands on a contractor's lead engine.
+    </p>
+  </div>
+</header>
+
+<!-- ===== CASE STUDY GRID ===== -->
+<section class="cs-section">
+  <div class="wrap">
+    <div class="cs-grid">
+
+      <!-- DC Electric -->
+      <a class="cs-card" href="/case-study-dc-electric.html">
+        <div class="cs-card-logo">
+          <img src="case-studies/dc-electric-logo.png" alt="DC Electric — Powering What Matters">
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-card-meta">
+            <span>Residential Electrical</span>
+            <span class="sep"></span>
+            <span>San Diego, CA</span>
+            <span class="sep"></span>
+            <span>5 months</span>
+          </div>
+          <div class="cs-card-title">From <em>$13K/mo</em> to <em>$69K/mo</em> in 5 months.</div>
+          <div class="cs-card-desc">Rob was bidding Thumbtack scraps for $400 service calls. We rebuilt his lead engine — Google Ads, the map pack, and a 69-review reputation — and his average ticket nearly doubled.</div>
+          <div class="cs-card-stats">
+            <div class="stat"><div class="k">Net new revenue</div><div class="v">+$56K/mo</div></div>
+            <div class="stat"><div class="k">Map pack rank</div><div class="v">#20 → #2</div></div>
+            <div class="stat"><div class="k">Reviews</div><div class="v">11 → 69</div></div>
+          </div>
+          <span class="cs-card-link">Read the case study <span class="arrow">→</span></span>
+        </div>
+      </a>
+
+      <!-- Placeholder for second case study -->
+      <div class="cs-coming">
+        <div class="mark">Coming soon</div>
+        <h3>More case studies on the way</h3>
+        <p>We're putting together the next deep-dive. In the meantime, want to talk about your business?</p>
+        <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="btn primary" style="margin-top: 8px;">Book a call <span class="arrow">→</span></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== BOTTOM CTA ===== -->
+<section class="bottom-cta">
+  <div class="wrap">
+    <h2>Want results like <em>this</em> on your own calendar?</h2>
+    <p>30-minute strategy call. No pitch deck. We'll audit your Google Business Profile live on the call and tell you exactly where your missed calls are coming from.</p>
+    <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="btn primary">Book my strategy call <span class="arrow">→</span></a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <span class="footer-copy">© 2026 LandMore Calls. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
