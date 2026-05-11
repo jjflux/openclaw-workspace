@@ -1256,34 +1256,14 @@
       </div>
     </div>
     <div id="form-container">
-      <form id="contact-form" class="form-wrap" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html">
-        <input type="hidden" name="form-name" value="contact">
-        <div>
-          <label class="form-label">Your Name</label>
-          <input type="text" name="name" class="form-input" placeholder="John Smith" required>
+      <div class="form-wrap">
+        <div style="text-align: center; margin-bottom: 24px;">
+          <div style="font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;">Two ways to talk</div>
+          <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; color: var(--warm-white); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.1; margin: 0;">Book a call, or chat now.</h3>
         </div>
-        <div>
-          <label class="form-label">Phone Number</label>
-          <input type="tel" name="phone" class="form-input" placeholder="(555) 000-0000" required>
-        </div>
-        <div>
-          <label class="form-label">Your Trade</label>
-          <select name="trade" class="form-select" required>
-            <option value="">Select your trade…</option>
-            <option>HVAC</option>
-            <option>Roofing</option>
-            <option>Electrical</option>
-            <option>Plumbing</option>
-            <option>Other</option>
-          </select>
-        </div>
-        <div>
-          <label class="form-label">Biggest challenge right now (optional)</label>
-          <textarea name="challenge" class="form-textarea" rows="3" placeholder="e.g. I miss too many calls after hours…"></textarea>
-        </div>
-        <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="form-submit" style="display:block; text-align:center; text-decoration:none;">BOOK MY CALL →</a>
-        <p class="consent-text">I consent to receive SMS notifications, alerts, and occasional marketing communication from LandMoreCalls. Message frequency varies. Message and data rates may apply. Text HELP to 855-578-3217 for assistance. You can reply STOP to unsubscribe at any time. View our <a href="https://landmorecalls.com/privacy">Privacy Policy</a> and <a href="https://landmorecalls.com/terms">Terms</a>.</p>
-      </form>
+        <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="form-submit" style="display:block; text-align:center; text-decoration:none; margin-bottom: 18px;">BOOK MY CALL →</a>
+        <p style="text-align: center; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.6;">Or tap the chat icon in the corner — we reply within minutes during business hours.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1349,23 +1329,6 @@
     });
   }
   renderFAQ();
-
-  // ── Form — intercept, show success, post to Netlify in background ──
-  const form = document.getElementById('contact-form');
-  const formContainer = document.getElementById('form-container');
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    try {
-      await fetch('/', { method: 'POST', body: new FormData(form) });
-    } catch (_) {}
-    formContainer.innerHTML = `
-      <div class="form-success">
-        <div class="form-success-title">YOU'RE IN.</div>
-        <p class="form-success-body">We'll reach out within one business day with your custom lead plan.</p>
-      </div>
-    `;
-  });
 
   // ── Smooth scroll ──
   document.querySelectorAll('a[href^="#"]').forEach(a => {
