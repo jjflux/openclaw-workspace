@@ -189,9 +189,13 @@
       position: absolute; inset: 0;
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: 16px;
-      background:
-        radial-gradient(120% 60% at 50% 20%, rgba(240,165,0,0.16), transparent 60%),
-        linear-gradient(160deg, #1a1c22 0%, #0e0f14 100%);
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.15) 16%,
+        rgba(0,0,0,0) 32%,
+        rgba(0,0,0,0) 64%,
+        rgba(0,0,0,0.20) 82%,
+        rgba(0,0,0,0.70) 100%);
       cursor: pointer; transition: opacity 0.25s;
       z-index: 2;
     }
@@ -835,13 +839,12 @@
       <!-- Click-to-play video -->
       <div class="video-wrap" id="videoWrap">
         <span class="pin"><span class="rec"></span>Testimonial</span>
-        <video id="testimonialVideo" preload="metadata" playsinline>
+        <video id="testimonialVideo" preload="metadata" playsinline poster="case-studies/rob-poster.jpg">
           <source src="testimonial-video-1.mp4?v=20260510" type="video/mp4">
           <source src="testimonial-video-1.mov?v=20260510" type="video/quicktime">
           Your browser does not support video playback.
         </video>
         <div class="poster" id="videoPoster" role="button" tabindex="0" aria-label="Play Rob's testimonial video">
-          <div class="frame-stripe"></div>
           <div class="play-btn">
             <svg width="34" height="34" viewBox="0 0 24 24" fill="#18181A"><path d="M7 5v14l12-7z"/></svg>
           </div>
