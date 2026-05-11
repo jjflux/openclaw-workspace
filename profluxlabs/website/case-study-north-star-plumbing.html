@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>North Star Plumbing Case Study — $7K/mo from Missed Calls | LandMore Calls</title>
+  <meta name="description" content="How a Los Angeles plumber recovered $7,000/mo in missed-call revenue before spending a dollar on ads — then layered Google LSA at $38 per booked job.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:        #18181A;
+      --black-shade:  #111113;
+      --black-deep:   #0a0a0c;
+      --card-black:   #1F1F21;
+      --card-black-2: #25252A;
+      --border-dark:  #2A2A2C;
+      --border-darker:#3A3A3C;
+      --gold:         #F0A500;
+      --gold-dark:    #C88B00;
+      --gold-soft:    rgba(240, 165, 0, 0.08);
+      --gold-edge:    rgba(240, 165, 0, 0.35);
+      --warm-white:   #FAF8F4;
+      --paper:        #F5F0E8;
+      --mid-gray:     #F0EDE8;
+      --border-light: #E8E4DE;
+      --border-lighter:#E0DDD8;
+      --muted-light:  #5A5552;
+      --muted-mid:    #6B6660;
+      --muted-dark:   #A09A93;
+      --muted-very:   #C5BFB6;
+      --text-dim:     #7A7570;
+      --ink-soft:     #3A3631;
+      --red:          #C8341B;
+      --red-soft:     rgba(200, 52, 27, 0.13);
+      --green:        #1F8A4C;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--black);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    strong { font-weight: 600; }
+
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 0 5%; }
+    .narrow { max-width: 960px; margin: 0 auto; padding: 0 5%; }
+
+    /* ── NAV (matches site, dark) ── */
+    nav.top {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--black);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0 5%;
+    }
+    .nav-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-top {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 18px; color: var(--warm-white);
+      letter-spacing: 0.03em; line-height: 1;
+    }
+    .logo-bottom {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 400;
+      font-size: 12px; color: var(--gold);
+      letter-spacing: 0.15em; line-height: 1;
+    }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 500;
+      color: var(--warm-white); text-decoration: none;
+      opacity: 0.8; transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; color: var(--gold); }
+    .nav-cta {
+      background: var(--gold) !important; color: var(--black) !important;
+      font-family: 'Oswald', sans-serif !important; font-weight: 600 !important;
+      font-size: 14px !important; letter-spacing: 0.08em !important;
+      padding: 10px 22px !important; opacity: 1 !important;
+    }
+    .nav-cta:hover { background: var(--gold-dark) !important; }
+
+    /* ── HERO (light) ── */
+    .hero {
+      background: var(--warm-white);
+      padding: 56px 0 96px;
+      border-bottom: 1px solid var(--border-light);
+      position: relative; overflow: hidden;
+    }
+    .breadcrumbs {
+      max-width: 1280px; margin: 0 auto 48px;
+      padding: 0 5%;
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .breadcrumbs a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+    .breadcrumbs a:hover { color: var(--black); }
+    .breadcrumbs .sep { color: var(--muted-very); }
+    .breadcrumbs .current { color: var(--gold); }
+
+    .hero-grid {
+      max-width: 1280px; margin: 0 auto;
+      padding: 0 5%;
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      gap: 72px; align-items: center;
+    }
+    .client-logo {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: #ffffff;
+      padding: 18px 28px; border-radius: 14px;
+      margin-bottom: 26px;
+      box-shadow: 0 12px 32px -8px rgba(24,24,26,0.12), 0 0 0 1px var(--border-light);
+    }
+    .client-logo img { height: 84px; width: auto; display: block; }
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    h1.hero-h {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 116px; color: var(--black);
+      text-transform: uppercase; line-height: 0.92; letter-spacing: -0.01em;
+      margin-bottom: 32px;
+    }
+    .hero-kicker {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 28px; color: var(--black); line-height: 1.15;
+      text-transform: uppercase; letter-spacing: 0.005em;
+      margin-bottom: 22px;
+    }
+    .hero-kicker .gold { color: var(--gold); }
+    .hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; line-height: 1.75; color: var(--muted-light);
+      margin-bottom: 36px; max-width: 540px;
+    }
+    .hero-chips {
+      display: grid; grid-template-columns: repeat(4, auto);
+      gap: 24px; justify-content: start;
+    }
+    .chip { border-left: 3px solid var(--gold); padding-left: 14px; }
+    .chip .num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 28px; color: var(--black); line-height: 1;
+    }
+    .chip .label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; color: var(--text-dim);
+      margin-top: 6px; letter-spacing: 0.04em;
+      max-width: 110px; line-height: 1.3;
+    }
+
+    /* ── HERO RIGHT: PHONE STACK ── */
+    .hero-right { position: relative; }
+    .phone-frame {
+      display: flex; justify-content: center; align-items: flex-start;
+      position: relative;
+    }
+    .phone-bezel {
+      width: 360px; background: #000;
+      border-radius: 44px;
+      padding: 14px 12px 18px;
+      position: relative;
+      box-shadow: 0 24px 60px rgba(24,24,26,0.35), inset 0 0 0 2px var(--border-dark);
+    }
+    .phone-notch {
+      position: absolute; top: 22px; left: 50%; transform: translateX(-50%);
+      width: 110px; height: 28px;
+      background: #000; border-radius: 999px;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding-right: 14px; z-index: 2;
+    }
+    .phone-notch .cam {
+      width: 8px; height: 8px; border-radius: 50%; background: var(--border-dark);
+    }
+    .phone-statusbar {
+      display: flex; justify-content: space-between;
+      padding: 12px 28px 8px;
+      color: var(--warm-white);
+      font-family: 'DM Sans', sans-serif; font-size: 13px; font-weight: 600;
+    }
+    .phone-statusbar .icons {
+      display: flex; gap: 5px; align-items: center;
+    }
+    .phone-lock {
+      background: linear-gradient(180deg, var(--black) 0%, var(--black-deep) 100%);
+      border-radius: 30px;
+      padding: 52px 14px 18px;
+      min-height: 540px;
+    }
+    .phone-lock-header {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 10px; color: var(--gold);
+      letter-spacing: 0.22em; text-align: center; margin-bottom: 14px;
+    }
+    .notif-col { display: flex; flex-direction: column; gap: 8px; }
+    .notif-card {
+      backdrop-filter: blur(20px);
+      padding: 10px 12px; border-radius: 14px;
+    }
+    .notif-card.missed {
+      background: rgba(255,255,255,0.08);
+    }
+    .notif-card.booked {
+      background: rgba(240,165,0,0.16);
+      border: 1px solid rgba(240,165,0,0.35);
+    }
+    .notif-row {
+      display: flex; gap: 10px; align-items: flex-start;
+    }
+    .notif-icon {
+      width: 22px; height: 22px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Sans', sans-serif; font-weight: 700;
+      flex-shrink: 0;
+    }
+    .notif-icon.missed { background: var(--red); color: var(--warm-white); font-size: 12px; }
+    .notif-icon.booked { background: var(--gold); color: var(--black); font-size: 13px; }
+    .notif-title {
+      font-family: 'DM Sans', sans-serif; font-weight: 600;
+      font-size: 12px; color: var(--warm-white); line-height: 1.2;
+    }
+    .notif-body {
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      color: var(--muted-dark); margin-top: 2px; line-height: 1.3;
+    }
+    .notif-time {
+      font-family: 'DM Sans', sans-serif; font-size: 10px;
+      color: var(--text-dim); white-space: nowrap;
+    }
+    .phone-summary {
+      margin-top: 14px; padding: 12px 14px;
+      background: rgba(240,165,0,0.92); border-radius: 14px;
+      display: flex; align-items: center; gap: 14px;
+    }
+    .phone-summary-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 48px; color: var(--black); line-height: 0.9;
+    }
+    .phone-summary-label {
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      color: var(--black); font-weight: 500; line-height: 1.35;
+    }
+    .hero-stamp {
+      position: absolute; bottom: -28px; right: -10px;
+      width: 168px; height: 168px;
+      background: var(--gold);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      transform: rotate(-7deg);
+      box-shadow: 0 14px 36px rgba(24,24,26,0.25);
+      z-index: 5;
+    }
+    .hero-stamp .stamp-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 44px; color: var(--black); line-height: 0.9;
+    }
+    .hero-stamp .stamp-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; color: var(--black);
+      letter-spacing: 0.18em; margin-top: 8px;
+      text-transform: uppercase; text-align: center;
+    }
+
+    /* ── WATCH SCOTT VIDEO SECTION ── */
+    .video-sec {
+      background: var(--black);
+      padding: 88px 0;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .video-sec-head {
+      max-width: 1280px; margin: 0 auto 40px;
+      padding: 0 5%;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .video-sec-eyebrow {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .video-sec-head h2 {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 44px; color: var(--warm-white); line-height: 1.05;
+      text-transform: uppercase; letter-spacing: -0.005em;
+      max-width: 18ch;
+    }
+    .video-sec-head h2 em { font-style: normal; color: var(--gold); }
+    .video-sec-head .meta {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--text-dim); text-align: right;
+    }
+    .video-sec-head .meta span { color: var(--muted-dark); }
+
+    .video-wrap {
+      max-width: 1080px; margin: 0 auto;
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-radius: 16px; overflow: hidden;
+      background: var(--black-shade);
+      border: 1px solid var(--border-dark);
+      box-shadow: 0 40px 100px -20px rgba(0,0,0,0.7), 0 0 0 6px rgba(240,165,0,0.06);
+    }
+    .video-wrap video {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .video-wrap .pin {
+      position: absolute; top: 18px; left: 18px; z-index: 3;
+      background: var(--red); color: #fff;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 5px 10px; border-radius: 6px;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .video-wrap .pin .rec { width: 7px; height: 7px; border-radius: 50%; background: #fff; animation: blink 1.4s infinite; }
+    @keyframes blink { 50% { opacity: 0.3; } }
+    .video-wrap .poster {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 16px;
+      background: linear-gradient(to bottom,
+        rgba(0,0,0,0.55) 0%,
+        rgba(0,0,0,0.15) 16%,
+        rgba(0,0,0,0) 32%,
+        rgba(0,0,0,0) 64%,
+        rgba(0,0,0,0.20) 82%,
+        rgba(0,0,0,0.70) 100%);
+      cursor: pointer; transition: opacity 0.25s;
+      z-index: 2;
+    }
+    .video-wrap.playing .poster { opacity: 0; pointer-events: none; }
+    .play-btn {
+      width: 88px; height: 88px; border-radius: 50%;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 0 0 12px rgba(240,165,0,0.18), 0 20px 40px rgba(0,0,0,0.4);
+      transition: transform 0.2s;
+    }
+    .video-wrap .poster:hover .play-btn { transform: scale(1.04); }
+    .play-btn svg { margin-left: 6px; }
+    .video-caption {
+      position: absolute; bottom: 20px; left: 24px; right: 24px; z-index: 3;
+      display: flex; justify-content: space-between; align-items: flex-end;
+      color: #fff; pointer-events: none;
+    }
+    .video-caption .who {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 16px; letter-spacing: 0.02em;
+    }
+    .video-caption .who span {
+      display: block; font-family: 'DM Sans', sans-serif; font-weight: 400;
+      color: rgba(255,255,255,0.75); font-size: 12px; margin-top: 4px; letter-spacing: 0;
+    }
+    .video-caption .runtime {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 11px; letter-spacing: 0.1em;
+      background: rgba(0,0,0,0.5); padding: 5px 9px; border-radius: 6px;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    /* ── THE PROBLEM SECTION ── */
+    .problem {
+      background: var(--warm-white); padding: 112px 0 96px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .section-label {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.18em; color: var(--gold);
+      margin-bottom: 18px; text-transform: uppercase;
+    }
+    .problem-grid {
+      display: grid; grid-template-columns: 1.05fr 1fr; gap: 64px; align-items: start;
+    }
+    h2.section-h {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 56px; color: var(--black);
+      text-transform: uppercase; line-height: 1.0; letter-spacing: -0.005em;
+      margin-bottom: 32px;
+    }
+    .problem-p {
+      font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.75;
+      color: var(--ink-soft); margin-bottom: 18px; max-width: 540px;
+    }
+    .problem-p strong { color: var(--black); }
+    .day-box {
+      background: var(--black); padding: 32px 32px 28px;
+      border-top: 3px solid var(--gold);
+    }
+    .day-box-label {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px;
+      color: var(--gold); letter-spacing: 0.22em;
+      margin-bottom: 22px; text-transform: uppercase;
+    }
+    .day-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+    .day-list li {
+      display: flex; gap: 14px; font-family: 'DM Sans', sans-serif;
+      font-size: 14px; color: var(--muted-very); line-height: 1.55;
+    }
+    .day-list li .bullet {
+      width: 22px; height: 22px; background: var(--red-soft); color: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 700;
+      flex-shrink: 0; margin-top: 1px;
+    }
+    .day-list li strong { color: var(--warm-white); }
+    .day-list li em { font-style: normal; color: var(--muted-dark); font-weight: 500; }
+    .day-list .loss { color: var(--red); font-weight: 600; }
+
+    /* ── PHASE BANNER ── */
+    .phase-banner {
+      background: var(--black-shade); padding: 88px 0 72px;
+    }
+    .phase-row { display: flex; align-items: center; gap: 20px; margin-bottom: 28px; }
+    .phase-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--gold); letter-spacing: 0.32em;
+    }
+    .phase-bar { flex: 1; height: 1px; background: var(--border-dark); }
+    .phase-label {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.18em; color: var(--muted-dark); margin-bottom: 18px; text-transform: uppercase;
+    }
+    .phase-h2 {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 76px;
+      color: var(--warm-white); text-transform: uppercase;
+      line-height: 0.96; letter-spacing: -0.005em; margin-bottom: 26px;
+      max-width: 1080px;
+    }
+    .phase-sub {
+      font-family: 'DM Sans', sans-serif; font-size: 18px; line-height: 1.7;
+      color: var(--muted-dark); max-width: 760px;
+    }
+
+    /* ── LEAD LOCK EXPLAINER ── */
+    .leadlock { background: var(--warm-white); padding: 96px 0; }
+    .h3-display {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 60px;
+      color: var(--black); text-transform: uppercase;
+      line-height: 0.98; letter-spacing: -0.005em; margin-bottom: 22px;
+    }
+    .lede {
+      font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.75;
+      color: var(--muted-light); margin-bottom: 48px; max-width: 780px;
+    }
+    .lede strong { color: var(--black); }
+    .ll-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    }
+    .ll-card {
+      background: var(--mid-gray); padding: 36px 28px;
+      display: flex; flex-direction: column; gap: 18px;
+      min-height: 240px;
+    }
+    .ll-card.alt { background: var(--black); }
+    .ll-card.alt .ll-title { color: var(--warm-white); }
+    .ll-card.alt .ll-body { color: var(--muted-dark); }
+    .ll-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px;
+      color: var(--black); text-transform: uppercase;
+      letter-spacing: 0.02em; line-height: 1.15;
+    }
+    .ll-body {
+      font-family: 'DM Sans', sans-serif; font-size: 14px; line-height: 1.65;
+      color: var(--muted-light);
+    }
+
+    /* ── WEEK ONE ── */
+    .week-one { background: var(--paper); padding: 96px 0; }
+    .save-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+      margin-bottom: 40px; margin-top: 56px;
+    }
+    .save-card {
+      background: var(--warm-white); padding: 28px 30px;
+      border-top: 3px solid var(--gold);
+    }
+    .save-header {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .save-tag {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px;
+      color: var(--gold); letter-spacing: 0.22em;
+    }
+    .save-time {
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 14px;
+      color: var(--text-dim); letter-spacing: 0.06em;
+    }
+    .save-zip {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 26px;
+      color: var(--black); text-transform: uppercase;
+      line-height: 1.1; margin-bottom: 12px;
+    }
+    .save-problem {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.6;
+      color: var(--ink-soft); margin-bottom: 22px;
+    }
+    .save-split { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 22px; }
+    .save-before, .save-after {
+      padding: 14px;
+    }
+    .save-before { background: rgba(200,52,27,0.06); border-left: 2px solid var(--red); }
+    .save-after  { background: rgba(31,138,76,0.06); border-left: 2px solid var(--green); }
+    .save-small-label {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 10px;
+      color: var(--muted-light); letter-spacing: 0.16em;
+      margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+    }
+    .save-small-label .x { color: var(--red); }
+    .save-small-label .check { color: var(--green); }
+    .save-small-body {
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      line-height: 1.55; color: var(--ink-soft);
+    }
+    .save-footer {
+      display: flex; justify-content: space-between; align-items: baseline;
+      border-top: 1px solid var(--border-light); padding-top: 16px;
+    }
+    .save-footer-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px;
+      color: var(--text-dim); letter-spacing: 0.18em;
+    }
+    .save-footer-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 36px;
+      color: var(--gold); line-height: 1;
+    }
+    .kpi-row {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      border-top: 1px solid #D8D2C7; padding-top: 32px;
+    }
+    .kpi-pill { display: flex; align-items: baseline; gap: 20px; }
+    .kpi-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 52px;
+      color: var(--black); line-height: 0.95;
+    }
+    .kpi-label {
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      color: var(--muted-light); line-height: 1.4; max-width: 200px;
+    }
+
+    /* ── YEAR ONE MATH (dark chart) ── */
+    .year-math { background: var(--black); padding: 112px 0; }
+    .year-math .section-label { color: var(--gold); }
+    .year-math .h3-display { color: var(--warm-white); }
+    .year-math .lede { color: var(--muted-dark); }
+    .year-math .lede strong { color: var(--warm-white); }
+    .chart-card {
+      background: var(--black-shade); padding: 40px;
+      border: 1px solid var(--border-dark);
+    }
+    .chart-head {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 32px; flex-wrap: wrap; gap: 16px;
+    }
+    .chart-head-label {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--warm-white); letter-spacing: 0.16em;
+    }
+    .chart-head-unit {
+      font-family: 'DM Sans', sans-serif; font-size: 12px;
+      color: var(--text-dim); margin-top: 6px;
+    }
+    .chart-legend { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .chart-legend .swatch {
+      display: inline-block; width: 14px; height: 14px; background: var(--gold);
+    }
+    .chart-legend-text {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted-dark);
+    }
+    .chart-legend-text.dim { color: var(--text-dim); margin-left: 18px; }
+    .chart-area {
+      position: relative; height: 320px; margin-bottom: 36px;
+      padding-left: 56px;
+    }
+    .chart-grid {
+      position: absolute; inset: 0; padding-left: 56px;
+      display: flex; flex-direction: column-reverse; justify-content: space-between;
+    }
+    .chart-grid-line {
+      border-top: 1px dashed var(--border-dark); position: relative; height: 0;
+    }
+    .chart-grid-label {
+      position: absolute; left: -52px; top: -7px;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted-light);
+    }
+    .chart-target {
+      position: absolute; left: 56px; right: 0; bottom: 87.5%;
+      border-top: 1px dashed var(--gold); opacity: 0.55;
+    }
+    .chart-bars {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      height: 100%; gap: 8px; position: relative;
+    }
+    .ym-bar-col {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      height: 100%; justify-content: flex-end;
+    }
+    .ym-bar {
+      width: 70%; background: linear-gradient(180deg, var(--gold) 0%, var(--gold-dark) 100%);
+      position: relative; min-height: 4px;
+    }
+    .ym-bar-num {
+      position: absolute; top: -22px;
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px;
+      color: var(--gold); letter-spacing: 0.04em;
+      left: 50%; transform: translateX(-50%); white-space: nowrap;
+    }
+    .ym-bar-x {
+      margin-top: 10px; font-family: 'DM Sans', sans-serif;
+      font-size: 11px; color: var(--text-dim); letter-spacing: 0.06em;
+    }
+    .chart-totals {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+      border-top: 1px solid var(--border-dark); padding-top: 32px;
+    }
+    .tot-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px;
+      color: var(--text-dim); letter-spacing: 0.18em; margin-bottom: 10px;
+    }
+    .tot-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      line-height: 0.95; color: var(--warm-white); font-size: 40px;
+    }
+    .tot-num.big { font-size: 56px; color: var(--gold); }
+
+    /* ── SCOTT QUOTE ── */
+    .scott-quote { background: var(--warm-white); padding: 96px 0; }
+    .quote-box {
+      max-width: 1000px; margin: 0 auto;
+      border-top: 3px solid var(--gold);
+      background: #ffffff; padding: 52px 60px;
+      box-shadow: 0 1px 0 var(--border-light);
+    }
+    .quote-q {
+      font-family: 'DM Sans', sans-serif; font-size: 22px; line-height: 1.6;
+      color: var(--black); font-style: italic; margin-bottom: 22px;
+    }
+    .quote-attribution {
+      display: flex; align-items: center; gap: 16px;
+      margin-top: 28px; padding-top: 28px;
+      border-top: 1px solid var(--border-light);
+    }
+    .quote-avatar {
+      width: 56px; height: 56px; background: var(--black); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 24px; color: var(--gold);
+    }
+    .quote-name {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 19px;
+      color: var(--black); letter-spacing: 0.03em; text-transform: uppercase;
+    }
+    .quote-role {
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      color: var(--text-dim); margin-top: 4px;
+    }
+    .quote-rating { text-align: right; margin-left: auto; }
+    .quote-stars {
+      font-family: 'DM Sans', sans-serif; font-size: 22px;
+      color: var(--gold); letter-spacing: 0.05em;
+    }
+    .quote-rating-label {
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      color: var(--text-dim); margin-top: 4px; letter-spacing: 0.06em;
+    }
+
+    /* ── LSA EXPLAINER ── */
+    .lsa { background: var(--warm-white); padding: 96px 0; }
+    .lsa-row {
+      display: grid; grid-template-columns: 1fr 1.05fr; gap: 64px; align-items: start;
+      margin-top: 12px;
+    }
+    .col-header {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 14px;
+      color: var(--black); letter-spacing: 0.18em;
+      margin-bottom: 22px; padding-bottom: 14px;
+      border-bottom: 2px solid var(--black);
+    }
+    .lsa-list { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 18px; }
+    .lsa-list li {
+      display: flex; gap: 14px; font-family: 'DM Sans', sans-serif;
+      font-size: 16px; color: var(--ink-soft); line-height: 1.65;
+    }
+    .lsa-list .check {
+      width: 22px; height: 22px; background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; margin-top: 3px;
+    }
+
+    /* ── SERP MOCK ── */
+    .serp {
+      background: #FFFFFF; border: 1px solid var(--border-lighter);
+      box-shadow: 0 12px 32px rgba(24,24,26,0.10);
+    }
+    .serp-address {
+      background: var(--mid-gray); padding: 10px 14px;
+      display: flex; align-items: center; gap: 6px;
+      border-bottom: 1px solid var(--border-lighter);
+    }
+    .serp-address .dot {
+      width: 10px; height: 10px; border-radius: 50%; background: var(--muted-very);
+    }
+    .serp-address .bar {
+      flex: 1; margin-left: 12px; background: var(--warm-white);
+      border: 1px solid var(--border-lighter); padding: 5px 10px;
+      font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--muted-light);
+    }
+    .serp-search { display: flex; align-items: center; gap: 16px; padding: 20px 22px 14px; }
+    .serp-google {
+      font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 26px;
+      letter-spacing: -0.02em;
+    }
+    .serp-query {
+      flex: 1; border: 1px solid var(--border-lighter); border-radius: 22px;
+      padding: 8px 18px;
+      font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--ink-soft);
+    }
+    .serp-lsa-label {
+      font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+      color: var(--text-dim); letter-spacing: 0.18em;
+      padding: 8px 22px 4px;
+    }
+    .lsa-card {
+      margin: 0 14px 8px; padding: 14px 16px;
+      border: 2px solid var(--gold); background: #FFFFFF; position: relative;
+    }
+    .lsa-card.dim {
+      border: 1px solid var(--border-light); background: var(--warm-white); opacity: 0.7;
+      padding: 12px 16px;
+    }
+    .lsa-top { display: flex; align-items: center; gap: 12px; }
+    .lsa-logo {
+      width: 38px; height: 38px; background: var(--black); color: var(--gold);
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 18px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .lsa-logo.dim { background: var(--text-dim); }
+    .lsa-name {
+      font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px;
+      color: var(--black);
+    }
+    .lsa-name.dim { color: var(--text-dim); }
+    .lsa-meta {
+      font-family: 'DM Sans', sans-serif; font-size: 11px;
+      color: var(--muted-light); margin-top: 2px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .lsa-meta .rating { font-weight: 600; color: var(--black); }
+    .lsa-meta .sep-dot { color: var(--muted-very); }
+    .g-badge {
+      display: flex; align-items: center; gap: 6px;
+      font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 700;
+      color: #34A853; letter-spacing: 0.04em;
+      background: #E8F5E9; padding: 4px 8px;
+    }
+    .lsa-services { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .lsa-services .tag {
+      background: var(--mid-gray); padding: 3px 9px;
+      font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 600;
+      color: var(--ink-soft); letter-spacing: 0.02em;
+    }
+
+    /* ── CPL COMPARISON (dark) ── */
+    .cpl { background: var(--black-shade); padding: 112px 0; }
+    .cpl .section-label { color: var(--gold); }
+    .cpl .h3-display { color: var(--warm-white); }
+    .cpl .lede { color: var(--muted-dark); }
+    .cpl .lede strong { color: var(--warm-white); }
+    .cpl-chart-wrap {
+      background: var(--black); padding: 40px;
+      border: 1px solid var(--border-dark);
+      margin-bottom: 56px;
+    }
+    .cpl-legend {
+      display: flex; flex-wrap: wrap; gap: 28px;
+      margin-bottom: 36px; padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .cpl-legend-item { display: flex; align-items: center; gap: 10px; }
+    .cpl-legend-swatch { width: 18px; height: 12px; display: inline-block; }
+    .cpl-legend-text {
+      font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--muted-dark);
+    }
+    .cpl-bars { display: flex; flex-direction: column; gap: 20px; }
+    .cpl-row {
+      display: grid; grid-template-columns: 260px 1fr; gap: 28px; align-items: center;
+    }
+    .cpl-name-main {
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 16px;
+      color: var(--warm-white); text-transform: uppercase; letter-spacing: 0.02em;
+      line-height: 1.15;
+    }
+    .cpl-name-note {
+      font-family: 'DM Sans', sans-serif; font-size: 12px;
+      color: var(--text-dim); margin-top: 6px; line-height: 1.5;
+    }
+    .cpl-track {
+      position: relative; height: 34px; background: rgba(255,255,255,0.04);
+    }
+    .cpl-fill {
+      height: 100%; display: flex; align-items: center; justify-content: flex-end;
+      padding-right: 14px;
+    }
+    .cpl-fill.dark { background: var(--ink-soft); }
+    .cpl-fill.gold { background: linear-gradient(90deg, var(--gold), var(--gold-dark)); }
+    .cpl-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 18px;
+      color: var(--warm-white); letter-spacing: 0.02em;
+    }
+    .cpl-benchmark {
+      position: absolute; top: -4px; bottom: -4px;
+      width: 0; border-left: 1px dashed var(--gold);
+      left: 20%;
+    }
+    .qual-row {
+      display: flex; align-items: center; gap: 12px; margin-top: 8px;
+    }
+    .qual-label {
+      font-family: 'DM Sans', sans-serif; font-size: 10px;
+      color: var(--text-dim); letter-spacing: 0.12em;
+      text-transform: uppercase; min-width: 90px;
+    }
+    .qual-bar {
+      flex: 1; height: 4px; background: rgba(255,255,255,0.06); max-width: 240px;
+    }
+    .qual-fill { display: block; height: 100%; }
+    .qual-fill.dark { background: var(--muted-light); }
+    .qual-fill.gold { background: var(--gold); }
+    .qual-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px;
+      color: var(--muted-dark); letter-spacing: 0.04em;
+    }
+    .cpl-scale {
+      display: grid; grid-template-columns: 260px 1fr; gap: 28px; margin-top: 24px;
+    }
+    .cpl-scale-track { position: relative; height: 28px; }
+    .cpl-tick { position: absolute; top: 0; transform: translateX(-50%); }
+    .cpl-tick-mark { width: 1px; height: 8px; background: var(--border-darker); }
+    .cpl-tick-label {
+      font-family: 'DM Sans', sans-serif; font-size: 11px; margin-top: 6px;
+      white-space: nowrap; color: var(--text-dim);
+    }
+    .cpl-tick.benchmark .cpl-tick-label { color: var(--gold); font-weight: 700; }
+
+    .cpl-summary-row {
+      display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 24px; align-items: stretch;
+    }
+    .cpl-summary-big {
+      background: var(--gold); padding: 32px 32px 28px;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .cpl-summary-label {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px;
+      color: var(--black); letter-spacing: 0.22em; margin-bottom: 14px;
+    }
+    .cpl-summary-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 86px;
+      color: var(--black); line-height: 0.9; letter-spacing: -0.015em;
+    }
+    .cpl-summary-sub {
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      color: var(--black); margin-top: 12px; font-weight: 500;
+    }
+    .cpl-summary-small {
+      background: var(--black); padding: 28px 28px 24px;
+      border-top: 2px solid var(--gold);
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .cpl-summary-label-light {
+      font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 11px;
+      color: var(--text-dim); letter-spacing: 0.18em;
+      margin-bottom: 12px; text-transform: uppercase;
+    }
+    .cpl-summary-num-light {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 40px;
+      color: var(--gold); line-height: 0.95;
+    }
+    .cpl-summary-sub-light {
+      font-family: 'DM Sans', sans-serif; font-size: 12px;
+      color: var(--muted-dark); margin-top: 10px; line-height: 1.5;
+    }
+
+    /* ── STACKED IMPACT ── */
+    .stacked { background: var(--warm-white); padding: 112px 0; }
+    .stacked-inner { max-width: 1100px; margin: 0 auto; padding: 0 5%; }
+    .layer { padding: 32px; display: block; }
+    .layer-base { background: var(--border-lighter); border-left: 6px solid var(--text-dim); }
+    .layer-one  { background: var(--gold); border-left: 6px solid var(--black); margin-top: 4px; padding: 32px; color: var(--black); }
+    .layer-two  { background: var(--black); border-left: 6px solid var(--gold); margin-top: 4px; padding: 40px 32px; color: var(--warm-white); }
+    .layer-head {
+      display: flex; justify-content: space-between; align-items: baseline;
+      margin-bottom: 10px; flex-wrap: wrap; gap: 12px;
+    }
+    .layer-tag {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 13px;
+      letter-spacing: 0.18em;
+    }
+    .layer-val {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 40px;
+      line-height: 1;
+    }
+    .layer-body {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.6;
+      opacity: 0.9;
+    }
+    .layer-total {
+      background: #FFFFFF; border: 2px solid var(--black);
+      padding: 36px 36px 32px; margin-top: 20px; position: relative;
+    }
+    .layer-total-label {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 12px;
+      color: var(--gold); letter-spacing: 0.22em; margin-bottom: 14px;
+    }
+    .layer-total-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 86px;
+      color: var(--black); line-height: 0.9; letter-spacing: -0.01em;
+    }
+    .layer-total-sub {
+      font-family: 'DM Sans', sans-serif; font-size: 15px; line-height: 1.6;
+      color: var(--ink-soft); margin-top: 14px;
+    }
+
+    /* ── NUMBERS TABLE ── */
+    .numbers { background: var(--black); padding: 96px 0; }
+    .numbers-inner { max-width: 1000px; margin: 0 auto; padding: 0 5%; }
+    .numbers-label {
+      font-family: 'Oswald', sans-serif; font-size: 16px; font-weight: 700;
+      letter-spacing: 0.16em; color: var(--warm-white);
+      margin-bottom: 32px; text-transform: uppercase;
+      border-bottom: 3px solid var(--gold); padding-bottom: 14px; display: inline-block;
+    }
+    .numbers-table { width: 100%; border-collapse: collapse; }
+    .numbers-table th {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 11px;
+      color: var(--text-dim); letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 14px 20px; border-bottom: 1px solid var(--border-dark);
+    }
+    .numbers-table th.after { color: var(--gold); text-align: right; }
+    .numbers-table th.before { text-align: right; }
+    .numbers-table td.label {
+      font-family: 'DM Sans', sans-serif; font-size: 15px;
+      color: var(--border-light); padding: 20px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .numbers-table td.before {
+      font-family: 'DM Sans', sans-serif; font-size: 15px;
+      color: var(--text-dim); padding: 20px;
+      border-bottom: 1px solid var(--border-dark); text-align: right;
+    }
+    .numbers-table td.after {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 22px;
+      color: var(--gold); padding: 20px;
+      border-bottom: 1px solid var(--border-dark); text-align: right;
+    }
+
+    /* ── SOUND FAMILIAR (CTA bridge) ── */
+    .sound-fam { background: var(--warm-white); padding: 96px 0; }
+    .sf-grid {
+      list-style: none; padding: 0; margin: 48px 0 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    }
+    .sf-grid .pain {
+      display: flex; gap: 16px; padding: 18px 20px;
+      border: 1px solid var(--border-light); border-radius: 12px;
+      background: #fff;
+    }
+    .sf-grid .pain .x {
+      flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--red-soft); color: var(--red);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700;
+    }
+    .sf-grid .pain h4 {
+      margin: 0 0 4px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 16px; color: var(--black); letter-spacing: 0.005em;
+    }
+    .sf-grid .pain p {
+      margin: 0; font-size: 14px; color: var(--muted-light); line-height: 1.5;
+    }
+
+    /* ── FINAL CTA ── */
+    .final-cta { background: var(--black-shade); padding: 120px 0; }
+    .final-grid {
+      display: grid; grid-template-columns: 1.15fr 1fr; gap: 80px;
+      align-items: center;
+    }
+    .final-h2 {
+      font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 60px;
+      color: var(--warm-white); text-transform: uppercase;
+      line-height: 0.98; letter-spacing: -0.005em;
+    }
+    .final-h2 em { font-style: normal; color: var(--gold); }
+    .final-copy {
+      font-family: 'DM Sans', sans-serif; font-size: 17px; line-height: 1.75;
+      color: var(--muted-dark); margin-bottom: 28px;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 18px 28px; border-radius: 10px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn.primary { background: var(--gold); color: var(--black); }
+    .btn.primary:hover { background: var(--gold-dark); }
+    .btn.ghost { background: transparent; color: var(--warm-white); border: 1px solid var(--border-darker); margin-left: 14px; }
+    .btn.ghost:hover { border-color: var(--gold); color: var(--gold); }
+    .btn .arrow { transition: transform 0.25s; }
+    .btn:hover .arrow { transform: translateX(4px); }
+    .guarantee-row {
+      display: flex; align-items: center; gap: 12px; margin-top: 24px;
+    }
+    .guarantee-row .text {
+      font-family: 'DM Sans', sans-serif; font-size: 13px;
+      color: var(--muted-dark); font-style: italic;
+    }
+
+    /* ── FOOTER ── */
+    footer.page-footer {
+      padding: 40px 5%; background: var(--black);
+      border-top: 1px solid var(--border-dark);
+    }
+    .footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 24px; flex-wrap: wrap;
+    }
+    .footer-copy { color: var(--text-dim); font-size: 13px; }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { color: var(--text-dim); font-size: 13px; text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--warm-white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1100px) {
+      h1.hero-h { font-size: 80px; }
+      .phase-h2, .h3-display { font-size: 52px; }
+      h2.section-h { font-size: 44px; }
+    }
+    @media (max-width: 980px) {
+      .hero-grid, .problem-grid, .ll-grid, .save-grid, .kpi-row, .chart-totals, .lsa-row, .cpl-summary-row, .final-grid, .sf-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-right { display: flex; justify-content: center; }
+      .hero-stamp { right: 20px; }
+      h1.hero-h { font-size: 64px; }
+      .phase-h2 { font-size: 44px; }
+      h2.section-h, .h3-display { font-size: 38px; }
+      .final-h2 { font-size: 44px; }
+      .video-sec-head h2 { font-size: 32px; }
+      .layer-val, .cpl-summary-num, .layer-total-num { font-size: 56px; }
+      .cpl-row { grid-template-columns: 1fr; gap: 12px; }
+      .cpl-scale { grid-template-columns: 1fr; }
+      .cpl-summary-row { grid-template-columns: 1fr 1fr; }
+      .hero-chips { grid-template-columns: repeat(2, auto); }
+    }
+    @media (max-width: 640px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links { gap: 12px; }
+      .phone-bezel { width: 300px; }
+      .hero-stamp { width: 130px; height: 130px; right: 0; bottom: -20px; }
+      .hero-stamp .stamp-num { font-size: 32px; }
+      .ll-grid, .save-grid, .kpi-row, .chart-totals, .cpl-summary-row, .sf-grid { grid-template-columns: 1fr; }
+      .save-split { grid-template-columns: 1fr; }
+      .quote-box { padding: 32px 24px; }
+      .quote-q { font-size: 17px; }
+      .stacked-inner { padding: 0 5%; }
+      .layer-total-num { font-size: 48px; }
+      .layer-val { font-size: 36px; }
+      .cpl-summary-num { font-size: 60px; }
+      .video-wrap { aspect-ratio: 4 / 3; }
+      .play-btn { width: 72px; height: 72px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="top">
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/#services">Services</a>
+      <a href="/case-studies.html" class="active">Case Studies</a>
+      <a href="/#faq">FAQ</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="nav-cta">BOOK</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="breadcrumbs">
+    <a href="/">Home</a>
+    <span class="sep">/</span>
+    <a href="/case-studies.html">Case Studies</a>
+    <span class="sep">/</span>
+    <span class="current">North Star Plumbing</span>
+  </div>
+
+  <div class="hero-grid">
+    <div>
+      <div class="client-logo">
+        <img src="case-studies/north-star-plumbing-logo.png" alt="North Star Plumbing">
+      </div>
+      <div class="hero-eyebrow">Case Study · Plumbing · Los Angeles</div>
+      <h1 class="hero-h">North Star<br>Plumbing.</h1>
+      <p class="hero-kicker">$0 in ads. <span class="gold">+$7,000/mo</span> in saved jobs.<br>Then we turned the faucet on.</p>
+      <p class="hero-sub">Scott was drowning in calls — on a job, hands full, watching his phone buzz into voicemail. We installed the Lead Lock System in under a day. Before he spent a single dollar on advertising, we'd already added $84,000 a year in revenue from calls he was missing. Then we layered Google LSA.</p>
+      <div class="hero-chips">
+        <div class="chip"><div class="num">&lt; 1 day</div><div class="label">To install + go live</div></div>
+        <div class="chip"><div class="num">2</div><div class="label">Saved jobs in week 1</div></div>
+        <div class="chip"><div class="num">+$7K</div><div class="label">Revenue / month, year 1</div></div>
+        <div class="chip"><div class="num">$0</div><div class="label">Spent on ads (phase 1)</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="phone-frame">
+        <div class="phone-bezel">
+          <div class="phone-notch"><span class="cam"></span></div>
+          <div class="phone-statusbar">
+            <span>9:41</span>
+            <span class="icons">
+              <svg width="16" height="10" viewBox="0 0 16 10" fill="#FAF8F4"><rect x="0" y="6" width="3" height="4"/><rect x="4" y="4" width="3" height="6"/><rect x="8" y="2" width="3" height="8"/><rect x="12" y="0" width="3" height="10"/></svg>
+              <svg width="20" height="10" viewBox="0 0 20 10" fill="none"><rect x="0.5" y="0.5" width="16" height="9" rx="2" stroke="#FAF8F4"/><rect x="17.5" y="3" width="2" height="4" fill="#FAF8F4"/><rect x="2" y="2" width="13" height="6" fill="#FAF8F4"/></svg>
+            </span>
+          </div>
+          <div class="phone-lock">
+            <div class="phone-lock-header">NORTH STAR PLUMBING · LIVE</div>
+            <div class="notif-col">
+              <div class="notif-card missed">
+                <div class="notif-row">
+                  <div class="notif-icon missed">✕</div>
+                  <div style="flex:1;">
+                    <div class="notif-title">Missed call</div>
+                    <div class="notif-body">Burst pipe — Sherman Oaks</div>
+                  </div>
+                  <div class="notif-time">7:42 AM</div>
+                </div>
+              </div>
+              <div class="notif-card booked">
+                <div class="notif-row">
+                  <div class="notif-icon booked">✓</div>
+                  <div style="flex:1;">
+                    <div class="notif-title">Job booked by AI</div>
+                    <div class="notif-body">Mrs. Alvarez · scheduled 11:30 AM</div>
+                  </div>
+                  <div class="notif-time">7:43 AM</div>
+                </div>
+              </div>
+              <div class="notif-card missed">
+                <div class="notif-row">
+                  <div class="notif-icon missed">✕</div>
+                  <div style="flex:1;">
+                    <div class="notif-title">Missed call</div>
+                    <div class="notif-body">Water heater out — Pasadena</div>
+                  </div>
+                  <div class="notif-time">11:08 AM</div>
+                </div>
+              </div>
+              <div class="notif-card booked">
+                <div class="notif-row">
+                  <div class="notif-icon booked">✓</div>
+                  <div style="flex:1;">
+                    <div class="notif-title">Job booked by AI</div>
+                    <div class="notif-body">D. Park · scheduled Wed 2 PM</div>
+                  </div>
+                  <div class="notif-time">11:09 AM</div>
+                </div>
+              </div>
+              <div class="notif-card missed">
+                <div class="notif-row">
+                  <div class="notif-icon missed">✕</div>
+                  <div style="flex:1;">
+                    <div class="notif-title">Missed call</div>
+                    <div class="notif-body">Clogged main — Highland Park</div>
+                  </div>
+                  <div class="notif-time">1:54 PM</div>
+                </div>
+              </div>
+              <div class="notif-card booked">
+                <div class="notif-row">
+                  <div class="notif-icon booked">✓</div>
+                  <div style="flex:1;">
+                    <div class="notif-title">Job booked by AI</div>
+                    <div class="notif-body">J. Romero · scheduled today 4 PM</div>
+                  </div>
+                  <div class="notif-time">1:55 PM</div>
+                </div>
+              </div>
+            </div>
+            <div class="phone-summary">
+              <div class="phone-summary-num">3</div>
+              <div class="phone-summary-label">Jobs booked today<br>while Scott was under a sink</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-stamp">
+        <div class="stamp-num">+$84K</div>
+        <div class="stamp-label">Year 1 · Saves Only</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== WATCH SCOTT (VIDEO) ===== -->
+<section class="video-sec">
+  <div class="video-sec-head">
+    <div>
+      <div class="video-sec-eyebrow">In his own words</div>
+      <h2>Hear it <em>straight from Scott.</em></h2>
+    </div>
+    <div class="meta">
+      <span>Owner · North Star Plumbing</span><br>
+      Los Angeles, CA
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="video-wrap" id="videoWrap">
+      <span class="pin"><span class="rec"></span>Testimonial</span>
+      <video id="testimonialVideo" preload="metadata" playsinline poster="case-studies/scott-poster.jpg">
+        <source src="testimonial-video-2.mp4?v=20260510" type="video/mp4">
+        <source src="testimonial-video-2.mov?v=20260510" type="video/quicktime">
+        Your browser does not support video playback.
+      </video>
+      <div class="poster" id="videoPoster" role="button" tabindex="0" aria-label="Play Scott's testimonial video">
+        <div class="play-btn">
+          <svg width="34" height="34" viewBox="0 0 24 24" fill="#18181A"><path d="M7 5v14l12-7z"/></svg>
+        </div>
+        <div class="video-caption">
+          <div class="who">Scott — Owner, North Star Plumbing<span>"They set everything up for me in less than a day."</span></div>
+          <div class="runtime">01:42</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== THE PROBLEM ===== -->
+<section class="problem" id="story">
+  <div class="wrap">
+    <div class="section-label">The Problem Scott Brought Us</div>
+    <div class="problem-grid">
+      <div>
+        <h2 class="section-h">"I was literally drowning<br>in calls while on the job."</h2>
+        <p class="problem-p">Scott runs a plumbing operation in Los Angeles. Hands-on guy. Good with copper, better with people. Bad with bandwidth.</p>
+        <p class="problem-p">His phone never stopped buzzing — and that was the problem. Mid-job, elbows in a P-trap, gloves wet, no chance to pick up. By the time he wiped down and called back, the homeowner had already moved on to the next plumber on the list.</p>
+        <p class="problem-p"><strong>He didn't need more leads. He was losing the ones he already had.</strong></p>
+      </div>
+      <div class="day-box">
+        <div class="day-box-label">A Normal Day for Scott — Before</div>
+        <ul class="day-list">
+          <li><span class="bullet">✕</span><div><strong>7:14 AM</strong> · Call from Sherman Oaks. Burst pipe. Scott's already wrenching in Eagle Rock. <em>Missed.</em></div></li>
+          <li><span class="bullet">✕</span><div><strong>10:30 AM</strong> · Voicemail from Pasadena. Water heater out. Wants today. <em>Listened at 5pm. Gone.</em></div></li>
+          <li><span class="bullet">✕</span><div><strong>2:08 PM</strong> · Three back-to-back calls during a slab job. <em>None returned.</em></div></li>
+          <li><span class="bullet">✕</span><div><strong>6:45 PM</strong> · Finally home. Eight missed calls. <em>Two left messages. Zero answered when he called back.</em></div></li>
+          <li><span class="bullet">✕</span><div><strong>End of day</strong> · Revenue lost: <span class="loss">at least $1,400 in jobs, gone.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHASE 1 BANNER ===== -->
+<section class="phase-banner">
+  <div class="wrap">
+    <div class="phase-row">
+      <div class="phase-num">PHASE 01</div>
+      <div class="phase-bar"></div>
+    </div>
+    <div class="phase-label">Step One · Stop the Bleed</div>
+    <h2 class="phase-h2">Before a single dollar in marketing,<br>we plugged the holes in his phone.</h2>
+    <p class="phase-sub">A plumber drowning in calls doesn't need more leads — he needs the ones he already has. Phase 1 of every Lead Lock install: turn missed calls into booked jobs, automatically, in under a day.</p>
+  </div>
+</section>
+
+<!-- ===== LEAD LOCK EXPLAINER ===== -->
+<section class="leadlock" id="leadlock">
+  <div class="wrap">
+    <div class="section-label">The Lead Lock System · Installed in Under a Day</div>
+    <h3 class="h3-display">Zero ad spend.<br>We just stopped the leaks.</h3>
+    <p class="lede">Before we touched a single ad dollar, we did the boring math: Scott was already paying for these leads — in trucks, tools, gas, and his time. Every call going to voicemail was money he'd already earned and lost. We installed four things on day one.</p>
+    <div class="ll-grid">
+      <div class="ll-card">
+        <svg width="46" height="46" viewBox="0 0 36 36" fill="none"><path d="M8 6 H14 L17 13 L13 16 C15 20 18 23 22 25 L25 21 L32 24 V30 C32 31 31 32 30 32 C18 32 6 20 6 8 C6 7 7 6 8 6 Z" stroke="#F0A500" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <div class="ll-title">AI Receptionist</div>
+        <div class="ll-body">Answers Scott's line in two rings — 24/7. Qualifies the homeowner, books the job, texts him the address.</div>
+      </div>
+      <div class="ll-card alt">
+        <svg width="46" height="46" viewBox="0 0 36 36" fill="none"><rect x="6" y="9" width="24" height="22" stroke="#F0A500" stroke-width="1.8"/><path d="M6 16 H30 M12 5 V12 M24 5 V12" stroke="#F0A500" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <div class="ll-title">Live Calendar Routing</div>
+        <div class="ll-body">Pulls from his real schedule. Doesn't double-book. Knows the difference between an emergency and a quote.</div>
+      </div>
+      <div class="ll-card">
+        <svg width="46" height="46" viewBox="0 0 36 36" fill="none"><path d="M18 4 L30 8 V18 C30 25 24 30 18 32 C12 30 6 25 6 18 V8 Z" stroke="#F0A500" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 18 L16 22 L24 13" stroke="#F0A500" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="ll-title">Spam + Tire-Kicker Filter</div>
+        <div class="ll-body">Auto-screens out warranty robocalls, neighbor leads, and people just price-shopping for parts.</div>
+      </div>
+      <div class="ll-card alt">
+        <svg width="46" height="46" viewBox="0 0 36 36" fill="none"><circle cx="10" cy="22" r="5" stroke="#F0A500" stroke-width="1.8"/><circle cx="26" cy="22" r="5" stroke="#F0A500" stroke-width="1.8"/><path d="M10 22 H26" stroke="#F0A500" stroke-width="1.8"/></svg>
+        <div class="ll-title">Voicemail Killer</div>
+        <div class="ll-body">Anything Scott can't take live now becomes a confirmed job before the homeowner hangs up.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== WEEK ONE ===== -->
+<section class="week-one">
+  <div class="wrap">
+    <div class="section-label">Week 1 · Two Saved Jobs</div>
+    <h3 class="h3-display">Day three.<br>Scott got a screenshot that changed his mind.</h3>
+    <p class="lede">By Wednesday of week one, the system had already paid for itself twice over — without sending a single homeowner to his calendar from advertising. Just from picking up the phone when he couldn't.</p>
+
+    <div class="save-grid">
+      <div class="save-card">
+        <div class="save-header">
+          <span class="save-tag">Save #1 · Tuesday</span>
+          <span class="save-time">2:47 PM</span>
+        </div>
+        <div class="save-zip">Sherman Oaks · 91403</div>
+        <div class="save-problem">Burst supply line under the kitchen sink. Water shut off. Homeowner panicking.</div>
+        <div class="save-split">
+          <div class="save-before">
+            <div class="save-small-label"><span class="x">✕</span> Before Lead Lock</div>
+            <div class="save-small-body">Would've gone to voicemail. Scott was on a slab leak in Pasadena.</div>
+          </div>
+          <div class="save-after">
+            <div class="save-small-label"><span class="check">✓</span> After, Same Day</div>
+            <div class="save-small-body">AI receptionist booked emergency visit for 6:15 PM. Confirmed via text. Scott rolled up at 6:09 PM.</div>
+          </div>
+        </div>
+        <div class="save-footer">
+          <span class="save-footer-label">Job Ticket</span>
+          <span class="save-footer-num">$580</span>
+        </div>
+      </div>
+      <div class="save-card">
+        <div class="save-header">
+          <span class="save-tag">Save #2 · Wednesday</span>
+          <span class="save-time">11:08 AM</span>
+        </div>
+        <div class="save-zip">Highland Park · 90042</div>
+        <div class="save-problem">Water heater dead. Family of four. Wants same-day quote and a new install.</div>
+        <div class="save-split">
+          <div class="save-before">
+            <div class="save-small-label"><span class="x">✕</span> Before Lead Lock</div>
+            <div class="save-small-body">Scott was 40 minutes from done on a re-pipe. Phone on the dash, ringing.</div>
+          </div>
+          <div class="save-after">
+            <div class="save-small-label"><span class="check">✓</span> After, Same Day</div>
+            <div class="save-small-body">AI captured the call, qualified it (electric → wants tankless), booked Thursday AM.</div>
+          </div>
+        </div>
+        <div class="save-footer">
+          <span class="save-footer-label">Job Ticket</span>
+          <span class="save-footer-num">$2,340</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-row">
+      <div class="kpi-pill"><div class="kpi-num">$2,920</div><div class="kpi-label">Recovered in week 1 · two jobs</div></div>
+      <div class="kpi-pill"><div class="kpi-num">0</div><div class="kpi-label">Dollars spent on advertising</div></div>
+      <div class="kpi-pill"><div class="kpi-num">100%</div><div class="kpi-label">Calls answered (was ~58%)</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== YEAR ONE MATH ===== -->
+<section class="year-math">
+  <div class="wrap">
+    <div class="section-label">Year 1 · Lead Lock Only · Zero Ad Spend</div>
+    <h3 class="h3-display">+$7,000 / month.<br>Every month. From his own missed calls.</h3>
+    <p class="lede">Once the system settled in, Scott was adding seven grand a month in revenue that already belonged to him — recovered jobs from calls he physically couldn't take. That's <strong>$84,000 a year</strong> we found inside his existing phone, before he bought a single click.</p>
+
+    <div class="chart-card">
+      <div class="chart-head">
+        <div>
+          <div class="chart-head-label">Monthly Recovered Revenue · North Star Plumbing</div>
+          <div class="chart-head-unit">USD · thousands · recovered from missed calls</div>
+        </div>
+        <div class="chart-legend">
+          <span class="swatch"></span>
+          <span class="chart-legend-text">Saved-job revenue · no ads</span>
+          <span class="chart-legend-text dim">Steady-state target: $7K/mo</span>
+        </div>
+      </div>
+      <div class="chart-area">
+        <div class="chart-grid">
+          <div class="chart-grid-line"><span class="chart-grid-label">$0K</span></div>
+          <div class="chart-grid-line"><span class="chart-grid-label">$2K</span></div>
+          <div class="chart-grid-line"><span class="chart-grid-label">$4K</span></div>
+          <div class="chart-grid-line"><span class="chart-grid-label">$6K</span></div>
+          <div class="chart-grid-line"><span class="chart-grid-label">$8K</span></div>
+        </div>
+        <div class="chart-target"></div>
+        <div class="chart-bars">
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 36%;"><div class="ym-bar-num">$2.9K</div></div><div class="ym-bar-x">M1</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 57.5%;"><div class="ym-bar-num">$4.6K</div></div><div class="ym-bar-x">M2</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 72.5%;"><div class="ym-bar-num">$5.8K</div></div><div class="ym-bar-x">M3</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 80%;"><div class="ym-bar-num">$6.4K</div></div><div class="ym-bar-x">M4</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 86.3%;"><div class="ym-bar-num">$6.9K</div></div><div class="ym-bar-x">M5</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 87.5%;"><div class="ym-bar-num">$7.0K</div></div><div class="ym-bar-x">M6</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 90%;"><div class="ym-bar-num">$7.2K</div></div><div class="ym-bar-x">M7</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 87.5%;"><div class="ym-bar-num">$7.0K</div></div><div class="ym-bar-x">M8</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 88.8%;"><div class="ym-bar-num">$7.1K</div></div><div class="ym-bar-x">M9</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 91.3%;"><div class="ym-bar-num">$7.3K</div></div><div class="ym-bar-x">M10</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 88.8%;"><div class="ym-bar-num">$7.1K</div></div><div class="ym-bar-x">M11</div></div>
+          <div class="ym-bar-col"><div class="ym-bar" style="height: 90%;"><div class="ym-bar-num">$7.2K</div></div><div class="ym-bar-x">M12</div></div>
+        </div>
+      </div>
+      <div class="chart-totals">
+        <div><div class="tot-label">Year 1 Recovered</div><div class="tot-num big">$84,000</div></div>
+        <div><div class="tot-label">Ad Spend</div><div class="tot-num">$0</div></div>
+        <div><div class="tot-label">New Hires to Support</div><div class="tot-num">0</div></div>
+        <div><div class="tot-label">Hours / Week from Scott</div><div class="tot-num">&lt;2</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCOTT QUOTE ===== -->
+<section class="scott-quote">
+  <div class="wrap" style="max-width: 1080px;">
+    <div class="section-label">In Scott's Words</div>
+    <div class="quote-box">
+      <svg width="40" height="30" viewBox="0 0 36 24" fill="#F0A500" style="margin-bottom: 24px;">
+        <path d="M0 24V14.4C0 6.4 5.2 1.6 15.6 0l1.6 2.8C12 4.4 9.2 7.2 8.8 11.2H14V24H0zm18 0V14.4C18 6.4 23.2 1.6 33.6 0L35.2 2.8C30 4.4 27.2 7.2 26.8 11.2H32V24H18z"/>
+      </svg>
+      <p class="quote-q">"Before working with these guys, I was literally drowning in calls while I was on the job. I'd be on the job, too busy to pick up the phone, and by the end of the day, everyone who called me had already moved on to the next guy."</p>
+      <p class="quote-q">"They set everything up for me in less than a day. In the first week I saved two jobs from calls I would've completely missed. Over the last year we've added over $7,000 a month in revenue, just from saving jobs I couldn't answer."</p>
+      <p class="quote-q">"If you're a plumber sick of losing jobs to voicemail, give them a call. It's the easiest decision I've made for my business."</p>
+      <div class="quote-attribution">
+        <div class="quote-avatar">S</div>
+        <div>
+          <div class="quote-name">Scott — North Star Plumbing</div>
+          <div class="quote-role">Owner · Plumber · Los Angeles, CA</div>
+        </div>
+        <div class="quote-rating">
+          <div class="quote-stars">★★★★★</div>
+          <div class="quote-rating-label">5 / 5 · verified client</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PHASE 2 BANNER ===== -->
+<section class="phase-banner">
+  <div class="wrap">
+    <div class="phase-row">
+      <div class="phase-num">PHASE 02</div>
+      <div class="phase-bar"></div>
+    </div>
+    <div class="phase-label">Step Two · Open the Faucet</div>
+    <h2 class="phase-h2">Now we could safely spend money.<br>Hello, Google LSA.</h2>
+    <p class="phase-sub">With every inbound call answered, qualified, and booked, every paid lead would actually convert. We layered Google Local Service Ads — pay-per-booked-job — and tuned it to the Los Angeles plumbing market.</p>
+  </div>
+</section>
+
+<!-- ===== LSA EXPLAINER ===== -->
+<section class="lsa" id="lsa">
+  <div class="wrap">
+    <div class="section-label">Phase 2 · Google LSA · The Faucet Turns On</div>
+    <h3 class="h3-display">Once the bucket stopped leaking,<br>we turned on the faucet.</h3>
+    <p class="lede">Three months in, Scott's phone was finally working for him — not against him. Every call was answered, every job was booked, every voicemail was a thing of the past. <strong>Now it was safe to spend money.</strong> We layered Google Local Service Ads — the green "Guaranteed by Google" badge at the top of every plumber search in Los Angeles.</p>
+    <div class="lsa-row">
+      <div>
+        <div class="col-header">Why LSA, not Regular Ads</div>
+        <ul class="lsa-list">
+          <li><span class="check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4 L4 7 L9 1" stroke="#18181A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>You pay per <strong>booked job</strong>, not per click. No more $90 tire-kicker clicks.</span></li>
+          <li><span class="check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4 L4 7 L9 1" stroke="#18181A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>The green badge sits <strong>above</strong> Google Ads and the map pack — first eyeballs, first calls.</span></li>
+          <li><span class="check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4 L4 7 L9 1" stroke="#18181A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Every dispute-worthy lead (wrong service, out-of-area, no answer) we credit back. Scott pays for what books.</span></li>
+          <li><span class="check"><svg width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4 L4 7 L9 1" stroke="#18181A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Calls land in the same AI receptionist Lead Lock is already running. <strong>No new chaos.</strong></span></li>
+        </ul>
+      </div>
+      <div>
+        <div class="serp">
+          <div class="serp-address">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <div class="bar">google.com/search?q=plumber+los+angeles</div>
+          </div>
+          <div class="serp-search">
+            <div class="serp-google">
+              <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
+            </div>
+            <div class="serp-query">plumber los angeles</div>
+          </div>
+          <div class="serp-lsa-label">SPONSORED · LOCAL SERVICES</div>
+          <div class="lsa-card">
+            <div class="lsa-top">
+              <div class="lsa-logo">N</div>
+              <div style="flex:1;">
+                <div class="lsa-name">North Star Plumbing</div>
+                <div class="lsa-meta">
+                  <span class="rating">★ 4.9 (147)</span>
+                  <span class="sep-dot">·</span>
+                  <span>Open 24 / 7</span>
+                  <span class="sep-dot">·</span>
+                  <span>Los Angeles</span>
+                </div>
+              </div>
+              <div class="g-badge">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2 L20 5 V12 C20 17 16 21 12 22 C8 21 4 17 4 12 V5 Z" fill="#34A853"/><path d="M8.5 12 L11 14.5 L15.5 9.5" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+                <span>Google Guaranteed</span>
+              </div>
+            </div>
+            <div class="lsa-services">
+              <span class="tag">Drain cleaning</span>
+              <span class="tag">Water heater</span>
+              <span class="tag">Leak repair</span>
+              <span class="tag">Emergency · 24h</span>
+            </div>
+          </div>
+          <div class="lsa-card dim">
+            <div class="lsa-top">
+              <div class="lsa-logo dim">R</div>
+              <div style="flex:1;">
+                <div class="lsa-name dim">Rooter Bros LA</div>
+                <div class="lsa-meta"><span>★ 4.6 (88)</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="lsa-card dim">
+            <div class="lsa-top">
+              <div class="lsa-logo dim">V</div>
+              <div style="flex:1;">
+                <div class="lsa-name dim">Valley Plumbing Pros</div>
+                <div class="lsa-meta"><span>★ 4.4 (51)</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CPL COMPARISON ===== -->
+<section class="cpl" id="cpl">
+  <div class="wrap">
+    <div class="section-label">Los Angeles · Plumbing · Cost Per Qualified Lead</div>
+    <h3 class="h3-display">What "good" looks like<br>in the LA plumbing market.</h3>
+    <p class="lede">Scott's competitors are paying $80–$160 per qualified lead, and most of those leads are shared, half-cold, or showed up at 11 PM with nobody to answer. A <strong>good cost per booked job for a Los Angeles plumber is anything under $60</strong> — and that's being generous. Here's where every channel actually lands.</p>
+
+    <div class="cpl-chart-wrap">
+      <div class="cpl-legend">
+        <div class="cpl-legend-item"><span class="cpl-legend-swatch" style="background: var(--gold);"></span><span class="cpl-legend-text">Our LSA program</span></div>
+        <div class="cpl-legend-item"><span class="cpl-legend-swatch" style="background: var(--ink-soft);"></span><span class="cpl-legend-text">Other LA plumbing channels</span></div>
+        <div class="cpl-legend-item"><span class="cpl-legend-swatch" style="background: transparent; border-top: 1px dashed var(--gold); height: 2px;"></span><span class="cpl-legend-text">"Good" LA benchmark · $60 / booked job</span></div>
+      </div>
+
+      <div class="cpl-bars">
+        <!-- Direct mail -->
+        <div class="cpl-row">
+          <div>
+            <div class="cpl-name-main">Direct mail / door hangers</div>
+            <div class="cpl-name-note">Spray and pray. Most never call.</div>
+          </div>
+          <div>
+            <div class="cpl-track">
+              <div class="cpl-fill dark" style="width: 96.7%;"><div class="cpl-num">$290</div></div>
+              <div class="cpl-benchmark"></div>
+            </div>
+            <div class="qual-row"><span class="qual-label">Qualified-rate</span><span class="qual-bar"><span class="qual-fill dark" style="width: 18%;"></span></span><span class="qual-num">18%</span></div>
+          </div>
+        </div>
+        <!-- Google Search Ads -->
+        <div class="cpl-row">
+          <div>
+            <div class="cpl-name-main">Generic Google Search Ads</div>
+            <div class="cpl-name-note">$60+ per click, half of them shopping for parts.</div>
+          </div>
+          <div>
+            <div class="cpl-track">
+              <div class="cpl-fill dark" style="width: 55%;"><div class="cpl-num">$165</div></div>
+              <div class="cpl-benchmark"></div>
+            </div>
+            <div class="qual-row"><span class="qual-label">Qualified-rate</span><span class="qual-bar"><span class="qual-fill dark" style="width: 32%;"></span></span><span class="qual-num">32%</span></div>
+          </div>
+        </div>
+        <!-- Yelp -->
+        <div class="cpl-row">
+          <div>
+            <div class="cpl-name-main">Yelp Ads</div>
+            <div class="cpl-name-note">Pay per click. Reviews hostage. LA = brutal.</div>
+          </div>
+          <div>
+            <div class="cpl-track">
+              <div class="cpl-fill dark" style="width: 47.3%;"><div class="cpl-num">$142</div></div>
+              <div class="cpl-benchmark"></div>
+            </div>
+            <div class="qual-row"><span class="qual-label">Qualified-rate</span><span class="qual-bar"><span class="qual-fill dark" style="width: 28%;"></span></span><span class="qual-num">28%</span></div>
+          </div>
+        </div>
+        <!-- Angi -->
+        <div class="cpl-row">
+          <div>
+            <div class="cpl-name-main">Angi / HomeAdvisor (shared)</div>
+            <div class="cpl-name-note">Same lead sold to 3-4 plumbers.</div>
+          </div>
+          <div>
+            <div class="cpl-track">
+              <div class="cpl-fill dark" style="width: 29.3%;"><div class="cpl-num">$88</div></div>
+              <div class="cpl-benchmark"></div>
+            </div>
+            <div class="qual-row"><span class="qual-label">Qualified-rate</span><span class="qual-bar"><span class="qual-fill dark" style="width: 22%;"></span></span><span class="qual-num">22%</span></div>
+          </div>
+        </div>
+        <!-- Facebook -->
+        <div class="cpl-row">
+          <div>
+            <div class="cpl-name-main">Facebook / Instagram</div>
+            <div class="cpl-name-note">Interruption. Low intent. Slow to book.</div>
+          </div>
+          <div>
+            <div class="cpl-track">
+              <div class="cpl-fill dark" style="width: 24.7%;"><div class="cpl-num">$74</div></div>
+              <div class="cpl-benchmark"></div>
+            </div>
+            <div class="qual-row"><span class="qual-label">Qualified-rate</span><span class="qual-bar"><span class="qual-fill dark" style="width: 19%;"></span></span><span class="qual-num">19%</span></div>
+          </div>
+        </div>
+        <!-- LSA (highlighted) -->
+        <div class="cpl-row">
+          <div>
+            <div class="cpl-name-main" style="color: var(--gold);">Google LSA (managed by us)</div>
+            <div class="cpl-name-note">Pay per booked job. Disputed leads credited back.</div>
+          </div>
+          <div>
+            <div class="cpl-track">
+              <div class="cpl-fill gold" style="width: 12.7%;"><div class="cpl-num">$38</div></div>
+              <div class="cpl-benchmark"></div>
+            </div>
+            <div class="qual-row"><span class="qual-label">Qualified-rate</span><span class="qual-bar"><span class="qual-fill gold" style="width: 71%;"></span></span><span class="qual-num">71%</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cpl-scale">
+        <div></div>
+        <div class="cpl-scale-track">
+          <div class="cpl-tick" style="left: 0;"><div class="cpl-tick-mark"></div><div class="cpl-tick-label">$0</div></div>
+          <div class="cpl-tick benchmark" style="left: 20%;"><div class="cpl-tick-mark"></div><div class="cpl-tick-label">$60 · good</div></div>
+          <div class="cpl-tick" style="left: 40%;"><div class="cpl-tick-mark"></div><div class="cpl-tick-label">$120</div></div>
+          <div class="cpl-tick" style="left: 60%;"><div class="cpl-tick-mark"></div><div class="cpl-tick-label">$180</div></div>
+          <div class="cpl-tick" style="left: 80%;"><div class="cpl-tick-mark"></div><div class="cpl-tick-label">$240</div></div>
+          <div class="cpl-tick" style="left: 100%;"><div class="cpl-tick-mark"></div><div class="cpl-tick-label">$300</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cpl-summary-row">
+      <div class="cpl-summary-big">
+        <div class="cpl-summary-label">Scott's LSA CPL</div>
+        <div class="cpl-summary-num">$38</div>
+        <div class="cpl-summary-sub">per booked plumbing job, Los Angeles</div>
+      </div>
+      <div class="cpl-summary-small">
+        <div class="cpl-summary-label-light">vs. LA market average</div>
+        <div class="cpl-summary-num-light">$112</div>
+        <div class="cpl-summary-sub-light">across all paid channels</div>
+      </div>
+      <div class="cpl-summary-small">
+        <div class="cpl-summary-label-light">vs. what Scott was paying</div>
+        <div class="cpl-summary-num-light">$0 → $38</div>
+        <div class="cpl-summary-sub-light">he wasn't advertising before us</div>
+      </div>
+      <div class="cpl-summary-small">
+        <div class="cpl-summary-label-light">Lead-to-job close rate</div>
+        <div class="cpl-summary-num-light">71%</div>
+        <div class="cpl-summary-sub-light">thanks to the AI receptionist already in place</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STACKED IMPACT ===== -->
+<section class="stacked">
+  <div class="stacked-inner">
+    <div class="section-label">Stacked Monthly Impact · Today</div>
+    <h3 class="h3-display">The lid stopped leaking.<br>Then we opened the faucet.</h3>
+    <div style="margin-top: 48px;">
+      <div class="layer layer-base">
+        <div class="layer-head">
+          <span class="layer-tag" style="color: var(--muted-light);">Baseline · Before Us</span>
+          <span class="layer-val" style="color: var(--black);">~$24K / mo</span>
+        </div>
+        <div class="layer-body" style="color: var(--muted-light);">Scott's organic word-of-mouth revenue — minus everything he was losing to voicemail.</div>
+      </div>
+      <div class="layer layer-one">
+        <div class="layer-head">
+          <span class="layer-tag">+ Lead Lock System</span>
+          <span class="layer-val">+$7K / mo</span>
+        </div>
+        <div class="layer-body">Recovered jobs from missed calls. <strong>$0 spent on advertising.</strong> Pure margin.</div>
+      </div>
+      <div class="layer layer-two">
+        <div class="layer-head">
+          <span class="layer-tag" style="color: var(--gold);">+ Google LSA Layer</span>
+          <span class="layer-val" style="color: var(--gold);">+$17K / mo</span>
+        </div>
+        <div class="layer-body">~36 booked jobs/mo at $38 CPL · 71% close rate · ~$480 average ticket. <strong style="color: var(--warm-white);">$1,360 ad spend.</strong></div>
+      </div>
+      <div class="layer-total">
+        <div class="layer-total-label">Total Monthly Revenue Today</div>
+        <div class="layer-total-num">$48K / mo</div>
+        <div class="layer-total-sub">Two-times baseline. One plumber. One phone. One AI receptionist.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NUMBERS TABLE ===== -->
+<section class="numbers">
+  <div class="numbers-inner">
+    <div class="numbers-label">North Star Plumbing · Before / After · 12 Months</div>
+    <table class="numbers-table">
+      <thead>
+        <tr>
+          <th style="text-align: left;">Metric</th>
+          <th class="before">Before</th>
+          <th class="after">After</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">Calls answered</td><td class="before">~58% (voicemail)</td><td class="after">100% (24/7 AI)</td></tr>
+        <tr><td class="label">Saved jobs from missed calls</td><td class="before">0 / month</td><td class="after">~15 / month</td></tr>
+        <tr><td class="label">Revenue from saves alone</td><td class="before">$0</td><td class="after">+$7,000 / mo</td></tr>
+        <tr><td class="label">Cost per booked job (paid)</td><td class="before">— (no ads)</td><td class="after">$38 (LSA)</td></tr>
+        <tr><td class="label">LSA-driven booked jobs</td><td class="before">—</td><td class="after">~36 / month</td></tr>
+        <tr><td class="label">Total monthly revenue</td><td class="before">~$24K</td><td class="after">~$48K</td></tr>
+        <tr><td class="label">Ad spend</td><td class="before">$0</td><td class="after">$1,360 / mo</td></tr>
+        <tr><td class="label">Hours Scott spends on the phone</td><td class="before">2–3 / day</td><td class="after">&lt;2 / week</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== SOUND FAMILIAR (CTA bridge) ===== -->
+<section class="sound-fam">
+  <div class="narrow">
+    <div class="section-label">Sound familiar?</div>
+    <h2 class="section-h" style="max-width: 24ch;">If Scott's day sounds like yours — you're not alone.</h2>
+    <p class="lede">We hear the same five sentences on almost every intro call with a plumber, electrician, or HVAC owner. If two or more of these are true for you, you already know what to do next:</p>
+    <ul class="sf-grid">
+      <li class="pain"><div class="x">✕</div><div><h4>"My phone never stops, but I can't pick it up."</h4><p>Hands wet, on a job, watching it ring out.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"By the time I call back, they've moved on."</h4><p>Three plumbers later. You're #4. Game over.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"Voicemail is where revenue goes to die."</h4><p>Eight missed calls today. Two left messages.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"I tried Angi. I tried Yelp. Tire-kickers."</h4><p>Shared leads, hostage reviews, no actual jobs.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"I don't have time to hire a receptionist."</h4><p>And one human can't cover 24/7 anyway.</p></div></li>
+      <li class="pain"><div class="x">✕</div><div><h4>"I want LSA but I'd just miss those calls too."</h4><p>Paying for booked jobs you'd never answer? Brutal.</p></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="final-cta" id="cta">
+  <div class="wrap">
+    <div class="final-grid">
+      <div>
+        <div class="section-label">Your turn</div>
+        <h2 class="final-h2">You're a plumber.<br>Your phone is leaking jobs.<br><em>We fix that first.</em></h2>
+      </div>
+      <div>
+        <p class="final-copy">We'll install the Lead Lock System on your line the way we did for Scott — usually under a day. You'll start saving missed-call jobs in week one. Once the leak's plugged, we'll layer Google LSA and chase real ROI. No long contracts. No fluff.</p>
+        <div>
+          <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="btn primary">Book my strategy call <span class="arrow">→</span></a>
+          <a href="/case-studies.html" class="btn ghost">See another case study</a>
+        </div>
+        <div class="guarantee-row">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2 L20 5 V12 C20 17 16 21 12 22 C8 21 4 17 4 12 V5 Z" stroke="#F0A500" stroke-width="2" stroke-linejoin="round" />
+            <path d="M8.5 12 L11 14.5 L15.5 9.5" stroke="#F0A500" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <span class="text">5 qualified appointments in 30 days — or you don't pay.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="page-footer">
+  <div class="footer-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <span class="footer-copy">© 2026 LandMore Calls. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Click-to-play video
+  (function() {
+    const wrap = document.getElementById('videoWrap');
+    const poster = document.getElementById('videoPoster');
+    const video = document.getElementById('testimonialVideo');
+    if (!wrap || !poster || !video) return;
+    function play() {
+      wrap.classList.add('playing');
+      video.setAttribute('controls', '');
+      video.play().catch(() => {});
+    }
+    poster.addEventListener('click', play);
+    poster.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); play(); }
+    });
+  })();
+</script>
+
+</body>
+</html>
