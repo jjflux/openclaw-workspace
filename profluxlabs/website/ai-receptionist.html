@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Receptionist — LandMore Calls</title>
+  <meta name="description" content="Never miss another call. Our AI receptionist answers instantly 24/7, qualifies every lead, and sends you a full summary after every call.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:        #18181A;
+      --black-shade:  #111113;
+      --card-black:   #1F1F21;
+      --border-dark:  #2A2A2C;
+      --border-darker:#3A3A3C;
+      --gold:         #F0A500;
+      --gold-dark:    #C88B00;
+      --warm-white:   #FAF8F4;
+      --mid-gray:     #F0EDE8;
+      --border-light: #E8E4DE;
+      --muted-light:  #5A5552;
+      --muted-mid:    #6B6660;
+      --muted-dark:   #A09A93;
+      --text-dim:     #7A7570;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--warm-white);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--black);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 0 5%;
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-top {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      color: var(--warm-white);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+    .logo-bottom {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      line-height: 1;
+    }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--warm-white);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nav-links a:hover { opacity: 1; }
+    .nav-links a.active { opacity: 1; color: var(--gold); }
+    .nav-cta {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+      font-family: 'Oswald', sans-serif !important;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      letter-spacing: 0.08em !important;
+      padding: 10px 22px !important;
+      opacity: 1 !important;
+      transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--gold-dark) !important; }
+
+    /* ── CONTACT STRIP ── */
+    .contact-strip {
+      background: var(--black-shade);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 18px 5%;
+    }
+    .contact-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .contact-strip-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .contact-strip-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      letter-spacing: 0.03em;
+      color: var(--warm-white);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .contact-strip-link:hover { color: var(--gold); }
+    .contact-strip-link svg { flex-shrink: 0; }
+    .contact-strip-divider {
+      width: 1px;
+      height: 18px;
+      background: var(--border-dark);
+    }
+    @media (max-width: 640px) {
+      .contact-strip-inner { gap: 12px; }
+      .contact-strip-divider { display: none; }
+      .contact-strip-link { font-size: 14px; }
+    }
+
+    /* ── AI RECEPTIONIST SECTION (themed to match site) ── */
+    #ai-receptionist {
+      background: var(--black);
+      padding: 88px 5%;
+    }
+    #ai-receptionist * { box-sizing: border-box; }
+    .ar-inner { max-width: 1200px; margin: 0 auto; }
+
+    .ar-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+    .ar-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(48px, 8vw, 88px);
+      text-transform: uppercase;
+      line-height: 0.95;
+      color: var(--warm-white);
+      margin-bottom: 24px;
+    }
+    .ar-title .yellow { color: var(--gold); }
+    .ar-title .outline {
+      -webkit-text-stroke: 2px var(--warm-white);
+      color: transparent;
+    }
+    .ar-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      color: var(--muted-dark);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 56px;
+    }
+
+    /* GRID */
+    .ar-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 64px;
+    }
+    .ar-feature {
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      padding: 36px 32px;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .ar-feature:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .ar-feature-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(240,165,0,0.1);
+      border: 1px solid rgba(240,165,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+    .ar-feature-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      color: var(--warm-white);
+      margin-bottom: 10px;
+    }
+    .ar-feature-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      color: var(--muted-dark);
+      line-height: 1.7;
+    }
+
+    /* DEMO CARD */
+    .ar-demo {
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      border-top: 3px solid var(--gold);
+      padding: 52px 44px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .ar-demo::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(240,165,0,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .ar-demo-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(240,165,0,0.1);
+      border: 1px solid rgba(240,165,0,0.25);
+      padding: 6px 14px;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+    .ar-demo-dot {
+      width: 7px;
+      height: 7px;
+      background: var(--gold);
+      border-radius: 50%;
+      animation: ardot 1.8s ease-in-out infinite;
+    }
+    @keyframes ardot {
+      0%,100% { opacity:1; } 50% { opacity:0.3; }
+    }
+    .ar-demo-tag-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .ar-demo-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(32px, 4vw, 46px);
+      text-transform: uppercase;
+      line-height: 0.98;
+      color: var(--warm-white);
+      margin-bottom: 18px;
+    }
+    .ar-demo-desc {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      color: var(--muted-dark);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .ar-phone-display {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .ar-phone-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      flex-shrink: 0;
+      animation: phonePulse 2s ease-in-out infinite;
+    }
+    @keyframes phonePulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(240,165,0,0.4); }
+      50% { box-shadow: 0 0 0 14px rgba(240,165,0,0); }
+    }
+    .ar-phone-number {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      line-height: 1;
+    }
+    .ar-phone-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--muted-mid);
+      margin-top: 6px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .ar-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 16px 32px;
+      text-decoration: none;
+      transition: background 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+    .ar-cta:hover { background: var(--gold-dark); }
+
+    .ar-after { display: flex; flex-direction: column; gap: 16px; }
+    .ar-after-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 13px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted-mid);
+      margin-bottom: 4px;
+    }
+    .ar-after-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 20px 22px;
+      background: var(--black);
+      border: 1px solid var(--border-dark);
+    }
+    .ar-after-num {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 28px;
+      color: var(--border-darker);
+      line-height: 1;
+      min-width: 32px;
+    }
+    .ar-after-text { font-family: 'DM Sans', sans-serif; }
+    .ar-after-text strong {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      color: var(--warm-white);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+    .ar-after-text span {
+      font-size: 14px;
+      color: var(--muted-dark);
+      line-height: 1.55;
+    }
+
+    /* CUSTOMIZATION STRIP */
+    .ar-custom {
+      margin-top: 48px;
+      padding: 36px 32px;
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      border-left: 3px solid var(--gold);
+    }
+    .ar-custom-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: var(--warm-white);
+      margin-bottom: 24px;
+      letter-spacing: 0.03em;
+    }
+    .ar-custom-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .ar-custom-item { display: flex; align-items: center; gap: 12px; }
+    .ar-check {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 15px;
+      min-width: 16px;
+    }
+    .ar-custom-item span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      color: var(--muted-dark);
+    }
+
+    /* ── BOTTOM CTA ── */
+    .bottom-cta {
+      background: var(--warm-white);
+      padding: 88px 5%;
+      text-align: center;
+    }
+    .bottom-cta-inner { max-width: 720px; margin: 0 auto; }
+    .bottom-cta h3 {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: clamp(36px, 5vw, 56px);
+      color: var(--black);
+      text-transform: uppercase;
+      line-height: 1.02;
+      margin-bottom: 20px;
+    }
+    .bottom-cta p {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      color: var(--muted-light);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .bottom-cta .btn-primary {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--black);
+      font-family: 'Oswald', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      letter-spacing: 0.1em;
+      padding: 18px 36px;
+      text-decoration: none;
+      transition: background 0.2s;
+      text-transform: uppercase;
+    }
+    .bottom-cta .btn-primary:hover { background: var(--gold-dark); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--warm-white);
+      padding: 36px 5%;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-inner .logo-top { color: var(--black); }
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted-mid);
+    }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--muted-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-legal a:hover { color: var(--gold); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .ar-grid { grid-template-columns: 1fr; }
+      .ar-demo { grid-template-columns: 1fr; gap: 36px; padding: 36px 28px; }
+      .ar-custom-grid { grid-template-columns: 1fr; }
+      #ai-receptionist { padding: 64px 5%; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { gap: 18px; }
+      .nav-links a:not(.nav-cta) { font-size: 14px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="/ai-receptionist" class="active">AI Receptionist</a>
+      <a href="/#services">Services</a>
+      <a href="/case-studies">Case Studies</a>
+      <a href="/#faq">FAQ</a>
+      <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="nav-cta">BOOK</a>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTACT STRIP -->
+<div class="contact-strip">
+  <div class="contact-strip-inner">
+    <span class="contact-strip-label">Questions? Get in touch:</span>
+    <a href="tel:+19494236249" class="contact-strip-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </svg>
+      949-423-6249
+    </a>
+    <span class="contact-strip-divider"></span>
+    <a href="mailto:landmorecalls@gmail.com" class="contact-strip-link">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F0A500" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </svg>
+      landmorecalls@gmail.com
+    </a>
+  </div>
+</div>
+
+<!-- AI RECEPTIONIST SECTION -->
+<section id="ai-receptionist">
+  <div class="ar-inner">
+
+    <!-- Header -->
+    <div class="ar-eyebrow">AI Receptionist</div>
+    <h1 class="ar-title">
+      Your Phone.<br>
+      <span class="yellow">Answered.</span><br>
+      <span class="outline">Always.</span>
+    </h1>
+    <p class="ar-sub">Never miss another call. Our AI answers instantly, handles any question, qualifies every lead — then sends you a full summary so you know exactly who called and what they need.</p>
+
+    <!-- Features Grid -->
+    <div class="ar-grid">
+      <div class="ar-feature">
+        <div class="ar-feature-icon">🕐</div>
+        <div class="ar-feature-title">24/7 — No Days Off</div>
+        <p class="ar-feature-desc">Calls at 11pm, Sunday morning, holidays — every single one gets answered instantly. No voicemail, no missed opportunity.</p>
+      </div>
+      <div class="ar-feature">
+        <div class="ar-feature-icon">🎙️</div>
+        <div class="ar-feature-title">Any Voice. Any Name.</div>
+        <p class="ar-feature-desc">Choose any voice, any name, any personality. Set it up to sound exactly like your business — customers won't know the difference.</p>
+      </div>
+      <div class="ar-feature">
+        <div class="ar-feature-icon">💬</div>
+        <div class="ar-feature-title">Answers Any Question</div>
+        <p class="ar-feature-desc">Train it with your services, pricing, availability — anything. It handles objections, answers FAQs, and qualifies leads automatically.</p>
+      </div>
+      <div class="ar-feature">
+        <div class="ar-feature-icon">📲</div>
+        <div class="ar-feature-title">Instant Summary Sent to You</div>
+        <p class="ar-feature-desc">After every call you get a full text and email summary — who called, what they need, what was said. You're always in the loop.</p>
+      </div>
+    </div>
+
+    <!-- Demo Card -->
+    <div class="ar-demo">
+      <div>
+        <div class="ar-demo-tag">
+          <div class="ar-demo-dot"></div>
+          <span class="ar-demo-tag-text">Live Demo — Call Now</span>
+        </div>
+        <div class="ar-demo-title">Hear It<br>For Yourself.</div>
+        <p class="ar-demo-desc">Call the number below right now. Talk to our AI receptionist live — ask it anything. See exactly what your customers will experience.</p>
+
+        <div class="ar-phone-display">
+          <div class="ar-phone-icon">📞</div>
+          <div>
+            <div class="ar-phone-number">(448) 228-6211</div>
+            <div class="ar-phone-label">Tap to call the live demo</div>
+          </div>
+        </div>
+
+        <a href="tel:+14482286211" class="ar-cta">Call The Demo Now →</a>
+      </div>
+
+      <div>
+        <div class="ar-after-title">What happens after the call</div>
+        <div class="ar-after">
+          <div class="ar-after-item">
+            <div class="ar-after-num">01</div>
+            <div class="ar-after-text">
+              <strong>AI answers instantly</strong>
+              <span>No rings, no waiting, no voicemail. Picked up in under 2 seconds every time.</span>
+            </div>
+          </div>
+          <div class="ar-after-item">
+            <div class="ar-after-num">02</div>
+            <div class="ar-after-text">
+              <strong>Lead gets qualified</strong>
+              <span>It asks the right questions, captures their info, and determines if they're serious.</span>
+            </div>
+          </div>
+          <div class="ar-after-item">
+            <div class="ar-after-num">03</div>
+            <div class="ar-after-text">
+              <strong>You get the summary</strong>
+              <span>Full text + email summary hits your phone immediately. Who called, what they need, next steps.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customization Strip -->
+    <div class="ar-custom">
+      <div class="ar-custom-title">Fully Customizable — Built Around Your Business</div>
+      <div class="ar-custom-grid">
+        <div class="ar-custom-item"><span class="ar-check">✓</span><span>Any voice and name you choose</span></div>
+        <div class="ar-custom-item"><span class="ar-check">✓</span><span>Custom questions and answers</span></div>
+        <div class="ar-custom-item"><span class="ar-check">✓</span><span>Text + email summary after every call</span></div>
+        <div class="ar-custom-item"><span class="ar-check">✓</span><span>Handles objections automatically</span></div>
+        <div class="ar-custom-item"><span class="ar-check">✓</span><span>Books appointments directly</span></div>
+        <div class="ar-custom-item"><span class="ar-check">✓</span><span>Works with your existing number</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <h3>Ready to stop missing calls?</h3>
+    <p>Get the AI receptionist set up on your business in 24–48 hours. We handle everything — voice, script, integration with your existing number.</p>
+    <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="btn-primary">Book A Demo</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <a href="/" class="logo">
+      <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <rect width="32" height="32" fill="#F0A500"/>
+        <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+        <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+      </svg>
+      <div>
+        <span class="logo-top">LANDMORE</span>
+        <span class="logo-bottom">CALLS</span>
+      </div>
+    </a>
+    <span class="footer-copy">© 2026 LandMore Calls. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a0261ae205bf889c6847a77" data-source="WEB_USER"></script>
+</body>
+</html>
