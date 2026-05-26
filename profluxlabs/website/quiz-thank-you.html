@@ -251,6 +251,29 @@
       line-height: 1.5;
     }
 
+    /* ── BOOK NOW CTA (hero) ── */
+    .ty-book-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-top: 28px;
+      padding: 18px 28px;
+      background: var(--gold); color: var(--black);
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 16px; letter-spacing: 0.10em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.18s;
+    }
+    .ty-book-btn:hover { background: var(--gold-dark); }
+    .ty-book-btn .arrow { transition: transform 0.25s; }
+    .ty-book-btn:hover .arrow { transform: translateX(4px); }
+    .ty-book-fine {
+      display: block;
+      margin-top: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      color: var(--text-dim);
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 32px 5%;
@@ -306,6 +329,8 @@
     <p class="ty-lede">
       We got your info. A senior strategist will personally review your service area, pull the demand numbers, and call you within <strong>one business day</strong> with a custom lead plan — built around what your crew can actually handle.
     </p>
+    <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="ty-book-btn">Book my strategy call now <span class="arrow">→</span></a>
+    <span class="ty-book-fine">Or wait for our team to reach out — your choice.</span>
   </div>
 </section>
 
