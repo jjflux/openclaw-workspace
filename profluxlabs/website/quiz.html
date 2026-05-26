@@ -454,6 +454,7 @@
   const STORAGE_KEY = 'lmc_quiz_funnel_v2';
   const SUBMISSION_KEY = 'lmc_quiz_submission_v1';
   const TOTAL_STEPS = 4;
+  const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/8dOEl9xwsgblbRkPXvrL/webhook-trigger/bf40f5b0-9545-4b3d-82e9-6f4d9394fb4c';
 
   const DQ_COPY = {
     role: {
@@ -613,13 +614,19 @@
       source: 'quiz_v1',
     };
 
-    /* Post to Netlify forms in the background */
-    try {
+    /* Fire both destinations in parallel — GHL webhook is primary, Netlify Forms is backup */
+    const postGhl = fetch(GHL_WEBHOOK_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    }).catch(() => {});
+    const postNetlify = (() => {
       const fd = new FormData();
       fd.append('form-name', 'quiz');
       Object.keys(payload).forEach(k => fd.append(k, payload[k]));
-      await fetch('/', { method: 'POST', body: new URLSearchParams(fd) });
-    } catch {}
+      return fetch('/', { method: 'POST', body: new URLSearchParams(fd) }).catch(() => {});
+    })();
+    await Promise.allSettled([postGhl, postNetlify]);
 
     /* Persist submission for the thank-you page to render */
     try {
