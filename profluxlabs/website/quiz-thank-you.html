@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#FAF8F4">
+  <title>You're In — LandMore Calls</title>
+  <meta name="description" content="Your lead audit submission was received. Here's what happens next.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:        #18181A;
+      --black-shade:  #111113;
+      --card-black:   #1F1F21;
+      --border-dark:  #2A2A2C;
+      --gold:         #F0A500;
+      --gold-dark:    #C88B00;
+      --gold-soft:    rgba(240,165,0,0.08);
+      --warm-white:   #FAF8F4;
+      --paper:        #F5F0E8;
+      --mid-gray:     #F0EDE8;
+      --border-light: #E8E4DE;
+      --border-lighter:#E0DDD8;
+      --muted-light:  #5A5552;
+      --muted-dark:   #A09A93;
+      --text-dim:     #7A7570;
+      --ink-soft:     #3A3631;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--warm-white);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      font-size: 16px; line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+    strong { font-weight: 600; }
+
+    .wrap { max-width: 720px; margin: 0 auto; padding: 0 5%; }
+
+    /* ── HEAD BAR ── */
+    .ty-headbar {
+      max-width: 720px; margin: 0 auto;
+      padding: 22px 5%;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-top {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 18px; color: var(--black);
+      letter-spacing: 0.03em; line-height: 1;
+    }
+    .logo-bottom {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 400;
+      font-size: 12px; color: var(--gold);
+      letter-spacing: 0.15em; line-height: 1;
+    }
+    .back-link {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--muted-dark);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--black); }
+
+    /* ── HERO ── */
+    .ty-hero {
+      background: var(--warm-white);
+      padding: 32px 0 56px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .ty-check {
+      width: 64px; height: 64px;
+      background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 22px;
+    }
+    .ty-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.18em; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .ty-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 64px; line-height: 0.94;
+      letter-spacing: -0.005em; text-transform: uppercase;
+      color: var(--black); margin-bottom: 22px;
+    }
+    @media (max-width: 560px) { .ty-title { font-size: 48px; } }
+    .ty-lede {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; line-height: 1.75;
+      color: var(--ink-soft); max-width: 580px;
+    }
+
+    /* ── SECTIONS ── */
+    .ty-section { padding: 64px 0; border-bottom: 1px solid var(--border-light); }
+    .ty-section--dark {
+      background: var(--black); color: var(--warm-white);
+      border-bottom-color: var(--border-dark);
+    }
+    .ty-section--shade { background: var(--paper); }
+    .section-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.18em; color: var(--gold);
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 36px; line-height: 1.0;
+      letter-spacing: -0.005em; text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    @media (max-width: 560px) { .section-title { font-size: 28px; } }
+
+    /* ── STEPS ── */
+    .ty-steps {
+      display: flex; flex-direction: column; gap: 24px;
+    }
+    .ty-step {
+      display: grid; grid-template-columns: 60px 1fr; gap: 18px;
+      padding: 22px 0;
+      border-top: 1px solid var(--border-light);
+    }
+    .ty-step:first-child { border-top: none; padding-top: 0; }
+    .ty-step-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 28px; line-height: 1;
+      color: var(--gold); letter-spacing: -0.005em;
+    }
+    .ty-step-when {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--muted-light);
+      margin-bottom: 8px;
+    }
+    .ty-step-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 22px; line-height: 1.15;
+      text-transform: uppercase; margin-bottom: 8px;
+      color: var(--black);
+    }
+    .ty-step-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; line-height: 1.65;
+      color: var(--ink-soft);
+    }
+
+    /* DARK section overrides */
+    .ty-section--dark .section-eyebrow { color: var(--gold); }
+    .ty-section--dark .section-title { color: var(--warm-white); }
+    .ty-section--dark .ty-step { border-top-color: var(--border-dark); }
+    .ty-section--dark .ty-step-title { color: var(--warm-white); }
+    .ty-section--dark .ty-step-text { color: var(--muted-dark); }
+    .ty-section--dark .ty-step-when { color: var(--text-dim); }
+
+    /* ── PREP / BULLETS ── */
+    .ty-prep {
+      display: flex; flex-direction: column; gap: 14px;
+      margin-bottom: 40px;
+    }
+    .ty-prep-item {
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .ty-prep-chip {
+      width: 22px; height: 22px;
+      background: var(--gold);
+      flex-shrink: 0; margin-top: 2px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ty-prep-text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; line-height: 1.6;
+    }
+    .ty-prep-text strong { display: block; color: var(--warm-white); margin-bottom: 2px; }
+    .ty-prep-text span { color: var(--muted-dark); font-size: 14px; }
+    .ty-section:not(.ty-section--dark) .ty-prep-text strong { color: var(--black); }
+    .ty-section:not(.ty-section--dark) .ty-prep-text span { color: var(--muted-light); }
+
+    /* ── RECAP ── */
+    .ty-recap {
+      border: 1px solid var(--border-dark);
+      background: var(--black-shade);
+      margin-top: 16px;
+    }
+    .ty-recap-hd {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-dark);
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 12px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted-dark);
+    }
+    .ty-recap-hd a { color: var(--gold); }
+    .ty-recap-rows { display: flex; flex-direction: column; }
+    .ty-recap-row {
+      display: grid; grid-template-columns: 130px 1fr; gap: 18px;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border-dark);
+    }
+    .ty-recap-row:last-child { border-bottom: none; }
+    .ty-recap-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--text-dim);
+      align-self: center;
+    }
+    .ty-recap-val {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px; line-height: 1.4;
+      color: var(--warm-white); font-weight: 500;
+    }
+
+    /* ── CONTACT ── */
+    .ty-contact {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    @media (max-width: 560px) { .ty-contact { grid-template-columns: 1fr; } }
+    .ty-contact-card {
+      background: #fff;
+      border: 1px solid var(--border-light);
+      padding: 24px;
+    }
+    .ty-contact-label {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .ty-contact-value {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 22px; color: var(--black);
+      text-decoration: none; transition: color 0.2s;
+      margin-bottom: 8px; letter-spacing: 0.005em;
+    }
+    .ty-contact-value:hover { color: var(--gold); }
+    .ty-contact-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--muted-light);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 32px 5%;
+      border-top: 1px solid var(--border-light);
+      background: var(--warm-white);
+    }
+    .footer-inner {
+      max-width: 720px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      gap: 20px; flex-wrap: wrap;
+    }
+    .footer-copy {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--text-dim);
+    }
+    .footer-links { display: flex; gap: 18px; }
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; color: var(--text-dim);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--black); }
+  </style>
+</head>
+<body>
+
+<div class="ty-headbar">
+  <a href="/" class="logo">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" fill="#F0A500"/>
+      <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+      <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+      <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+    </svg>
+    <div>
+      <span class="logo-top">LANDMORE</span>
+      <span class="logo-bottom">CALLS</span>
+    </div>
+  </a>
+  <a href="/" class="back-link">← Back to home</a>
+</div>
+
+<!-- HERO -->
+<section class="ty-hero">
+  <div class="wrap">
+    <div class="ty-check" aria-hidden="true">
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none">
+        <path d="M5 12.5 L10 17.5 L19 7.5" stroke="#18181A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="ty-eyebrow">Application received</div>
+    <h1 class="ty-title">You're in,<br><span id="firstName">there</span>.</h1>
+    <p class="ty-lede">
+      We got your info. A senior strategist will personally review your service area, pull the demand numbers, and call you within <strong>one business day</strong> with a custom lead plan — built around what your crew can actually handle.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT HAPPENS NEXT -->
+<section class="ty-section">
+  <div class="wrap">
+    <div class="section-eyebrow">What happens next</div>
+    <h2 class="section-title">Here's the play.</h2>
+
+    <div class="ty-steps">
+      <div class="ty-step">
+        <div class="ty-step-num">01</div>
+        <div>
+          <div class="ty-step-when">Right now</div>
+          <h3 class="ty-step-title">Check your email.</h3>
+          <p class="ty-step-text">
+            We just sent a confirmation to <strong id="emailRef">your inbox</strong> with a Calendly link to lock in your strategy call. <strong>Whitelist us</strong> so it doesn't land in spam — that's the #1 reason contractors miss this step.
+          </p>
+        </div>
+      </div>
+
+      <div class="ty-step">
+        <div class="ty-step-num">02</div>
+        <div>
+          <div class="ty-step-when">Within 1 business day</div>
+          <h3 class="ty-step-title">Answer the phone.</h3>
+          <p class="ty-step-text">
+            Expect a call from a <strong>local number</strong> ending in our area code. We'll spend 20 minutes asking about your jobs, your ticket size, and what's broken right now. No sales pitch on call one — we either fit you or we don't.
+          </p>
+        </div>
+      </div>
+
+      <div class="ty-step">
+        <div class="ty-step-num">03</div>
+        <div>
+          <div class="ty-step-when">Day 2 onward</div>
+          <h3 class="ty-step-title">We launch your campaign.</h3>
+          <p class="ty-step-text">
+            If we're a fit, we run the Lead Lock System on your service area. Real qualified jobs start hitting your calendar within the first week. <strong>Month-to-month. No long-term contracts. No setup fees.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BEFORE THE CALL -->
+<section class="ty-section ty-section--dark">
+  <div class="wrap">
+    <div class="section-eyebrow">Before the call</div>
+    <h2 class="section-title">Bring these three numbers.</h2>
+
+    <div class="ty-prep">
+      <div class="ty-prep-item">
+        <div class="ty-prep-chip" aria-hidden="true">
+          <svg width="11" height="9" viewBox="0 0 10 8" fill="none">
+            <path d="M1 4L3.5 6.5L9 1" stroke="#18181A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="ty-prep-text">
+          <strong>Your average ticket</strong>
+          <span>Whatever job type is most common for you. Ballpark is fine.</span>
+        </div>
+      </div>
+      <div class="ty-prep-item">
+        <div class="ty-prep-chip" aria-hidden="true">
+          <svg width="11" height="9" viewBox="0 0 10 8" fill="none">
+            <path d="M1 4L3.5 6.5L9 1" stroke="#18181A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="ty-prep-text">
+          <strong>Your close rate on hot leads</strong>
+          <span>Out of every 10 quotes you give, how many turn into a booked job? Rough is fine.</span>
+        </div>
+      </div>
+      <div class="ty-prep-item">
+        <div class="ty-prep-chip" aria-hidden="true">
+          <svg width="11" height="9" viewBox="0 0 10 8" fill="none">
+            <path d="M1 4L3.5 6.5L9 1" stroke="#18181A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="ty-prep-text">
+          <strong>How many jobs your crew can take</strong>
+          <span>Per week, max. We won't send more leads than you can install — that's how guys end up overwhelmed.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RECAP -->
+    <div class="ty-recap" aria-label="Your submission" id="recap" hidden>
+      <div class="ty-recap-hd">
+        <span>Your submission</span>
+        <a href="/quiz.html">Edit</a>
+      </div>
+      <div class="ty-recap-rows" id="recapRows"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="ty-section ty-section--shade">
+  <div class="wrap">
+    <div class="section-eyebrow">Need us sooner?</div>
+    <h2 class="section-title">Two ways to reach us.</h2>
+
+    <div class="ty-contact">
+      <div class="ty-contact-card">
+        <div class="ty-contact-label">Email us</div>
+        <a href="mailto:intake@landmorecalls.com" class="ty-contact-value" style="font-size: 17px;">intake@landmorecalls.com</a>
+        <div class="ty-contact-sub">Reference the email address you used so we can find your file.</div>
+      </div>
+      <div class="ty-contact-card">
+        <div class="ty-contact-label">Chat with us</div>
+        <a href="#" onclick="document.querySelector('iframe')?.contentDocument || null; return false;" class="ty-contact-value" style="font-size: 17px;">Tap the chat bubble →</a>
+        <div class="ty-contact-sub">Look for the chat icon in the corner. Real human, fast reply during business hours.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-copy">© 2026 LandMore Calls. All rights reserved.</span>
+    <div class="footer-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const ROLE_LABEL = {
+    owner: 'Owner / decision-maker',
+    employee: 'Employee',
+    research: 'Researching',
+  };
+  const REVENUE_LABEL = {
+    lt_10k: 'Under $10K / mo',
+    '10_30k': '$10K – $30K / mo',
+    '30_75k': '$30K – $75K / mo',
+    '75k_plus': '$75K+ / mo',
+  };
+
+  let data = null;
+  try {
+    const raw = sessionStorage.getItem('lmc_quiz_submission_v1') || localStorage.getItem('lmc_quiz_submission_v1');
+    if (raw) data = JSON.parse(raw);
+  } catch {}
+
+  if (data && data.name) {
+    const first = (data.name || '').trim().split(/\s+/)[0] || 'there';
+    document.getElementById('firstName').textContent = first;
+  }
+  if (data && data.email) {
+    document.getElementById('emailRef').textContent = data.email;
+  }
+  if (data) {
+    const rows = [
+      ['Name',        data.name || ''],
+      ['Business',    data.business || ''],
+      ['Phone',       data.phone || ''],
+      ['Email',       data.email || ''],
+      ['Role',        ROLE_LABEL[data.role] || data.role || ''],
+      ['Revenue',     REVENUE_LABEL[data.revenue] || data.revenue || ''],
+      ['Service Area', data.service_area || ''],
+    ].filter(r => r[1]);
+    if (rows.length) {
+      document.getElementById('recap').hidden = false;
+      document.getElementById('recapRows').innerHTML = rows.map(r =>
+        '<div class="ty-recap-row"><div class="ty-recap-label">' + r[0] + '</div><div class="ty-recap-val">' + r[1].replace(/[<>&]/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;'}[c])) + '</div></div>'
+      ).join('');
+    }
+  }
+})();
+</script>
+
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a0261ae205bf889c6847a77" data-source="WEB_USER"></script>
+
+</body>
+</html>

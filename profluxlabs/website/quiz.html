@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#18181A">
+  <title>Free Lead Audit — LandMore Calls</title>
+  <meta name="description" content="2-minute qualifier. Tell us about your business and we'll send a custom lead plan within one business day.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --black:        #18181A;
+      --black-shade:  #111113;
+      --card-black:   #1F1F21;
+      --border-dark:  #2A2A2C;
+      --border-darker:#3A3A3C;
+      --gold:         #F0A500;
+      --gold-dark:    #C88B00;
+      --gold-soft:    rgba(240,165,0,0.08);
+      --gold-edge:    rgba(240,165,0,0.35);
+      --warm-white:   #FAF8F4;
+      --mid-gray:     #F0EDE8;
+      --border-light: #E8E4DE;
+      --muted-light:  #5A5552;
+      --muted-dark:   #A09A93;
+      --text-dim:     #7A7570;
+      --red:          #C8341B;
+      --ease:         cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html, body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--black);
+      color: var(--warm-white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    button { font-family: inherit; cursor: pointer; }
+    input { font-family: inherit; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── PAGE SHELL ── */
+    .funnel {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      background: var(--black);
+    }
+
+    /* ── HEADER ── */
+    .fheader {
+      position: sticky; top: 0; z-index: 50;
+      background: var(--black);
+      border-bottom: 1px solid var(--border-dark);
+      padding: 14px 20px;
+    }
+    .fheader-inner {
+      max-width: 640px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr auto 1fr;
+      align-items: center; gap: 12px;
+    }
+    .fback {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: none; border: none; padding: 4px 0;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px; font-weight: 500;
+      color: var(--text-dim); letter-spacing: 0.02em;
+      transition: color 0.2s var(--ease); white-space: nowrap;
+    }
+    .fback:hover { color: var(--gold); }
+    .fback[hidden] { visibility: hidden; pointer-events: none; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-top {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 18px; color: var(--warm-white);
+      letter-spacing: 0.03em; line-height: 1;
+    }
+    .logo-bottom {
+      display: block;
+      font-family: 'Oswald', sans-serif; font-weight: 400;
+      font-size: 12px; color: var(--gold);
+      letter-spacing: 0.15em; line-height: 1;
+    }
+    .fcount {
+      justify-self: end;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.18em;
+      text-transform: uppercase; white-space: nowrap;
+      color: var(--text-dim);
+    }
+    .fcount strong { color: var(--gold); font-weight: 700; }
+
+    /* ── PROGRESS BAR ── */
+    .fprogress {
+      display: flex; gap: 6px;
+      padding: 0 20px;
+      max-width: 640px; margin: 14px auto 0;
+      width: 100%;
+    }
+    .fprogress-cell {
+      flex: 1; height: 4px;
+      background: var(--border-dark);
+      transition: background 0.35s var(--ease);
+    }
+    .fprogress-cell.is-done,
+    .fprogress-cell.is-current { background: var(--gold); }
+
+    /* ── MAIN ── */
+    .fmain {
+      flex: 1;
+      display: flex; flex-direction: column;
+      padding: 32px 20px 24px;
+    }
+    .fstep {
+      max-width: 560px; width: 100%;
+      margin: 0 auto;
+      display: flex; flex-direction: column;
+      gap: 28px;
+      animation: stepIn 0.35s var(--ease) both;
+    }
+    @keyframes stepIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .fstep[hidden] { display: none; }
+
+    .feyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.18em; color: var(--gold);
+      text-transform: uppercase;
+    }
+    .fquestion {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 36px; line-height: 1.02;
+      letter-spacing: -0.005em; text-transform: uppercase;
+    }
+    @media (min-width: 560px) { .fquestion { font-size: 44px; } }
+    .fsub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; line-height: 1.6;
+      color: var(--muted-dark); max-width: 460px;
+    }
+
+    /* ── OPTION BUTTONS ── */
+    .foptions {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .foption {
+      display: flex; align-items: center; gap: 16px;
+      width: 100%;
+      padding: 20px 22px;
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px; font-weight: 500;
+      color: var(--warm-white);
+      transition: all 0.18s var(--ease);
+      position: relative;
+    }
+    .foption:hover {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+      transform: translateY(-1px);
+    }
+    .foption.is-selected {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+    }
+    .foption-bullet {
+      width: 22px; height: 22px;
+      border: 1.5px solid var(--border-darker);
+      border-radius: 50%;
+      flex-shrink: 0; position: relative;
+      transition: all 0.18s var(--ease);
+    }
+    .foption.is-selected .foption-bullet {
+      background: var(--gold); border-color: var(--gold);
+    }
+    .foption-bullet::after {
+      content: ""; position: absolute; inset: 0; margin: auto;
+      width: 8px; height: 8px;
+      background: var(--black); border-radius: 50%;
+      opacity: 0; transform: scale(0.5);
+      transition: all 0.18s var(--ease);
+    }
+    .foption.is-selected .foption-bullet::after {
+      opacity: 1; transform: scale(1);
+    }
+    .foption-label { flex: 1; line-height: 1.3; }
+    .foption-meta {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--text-dim);
+      margin-top: 4px; display: block;
+    }
+    .foption-arrow {
+      color: var(--text-dim);
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 18px;
+      transition: all 0.18s var(--ease);
+    }
+    .foption:hover .foption-arrow,
+    .foption.is-selected .foption-arrow {
+      color: var(--gold);
+      transform: translateX(2px);
+    }
+
+    /* ── TEXT INPUTS ── */
+    .ffield {
+      display: flex; flex-direction: column; gap: 8px;
+    }
+    .flabel {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+    .finput {
+      width: 100%; padding: 18px;
+      background: var(--card-black);
+      border: 1px solid var(--border-dark);
+      color: var(--warm-white);
+      font-size: 16px; font-weight: 500;
+      outline: none; border-radius: 0;
+      -webkit-appearance: none;
+      transition: border-color 0.18s var(--ease);
+    }
+    .finput::placeholder { color: var(--text-dim); }
+    .finput:focus { border-color: var(--gold); }
+    .finput[aria-invalid="true"] { border-color: var(--red); }
+    .ffields-grid {
+      display: flex; flex-direction: column; gap: 16px;
+    }
+
+    /* ── CTA ── */
+    .fcta {
+      width: 100%; padding: 20px 24px;
+      background: var(--gold); color: var(--black);
+      border: none;
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 17px; letter-spacing: 0.10em;
+      text-transform: uppercase;
+      transition: background 0.18s var(--ease), opacity 0.18s var(--ease);
+      display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .fcta:hover:not(:disabled) { background: var(--gold-dark); }
+    .fcta:disabled { opacity: 0.4; cursor: not-allowed; }
+    .fcta-arrow { font-size: 20px; line-height: 1; }
+
+    /* ── CONSENT (SMS / TCPA) ── */
+    .fconsent {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px; line-height: 1.55;
+      color: var(--text-dim); margin-top: -8px;
+    }
+    .fconsent a { color: var(--muted-dark); text-decoration: underline; }
+    .fconsent a:hover { color: var(--gold); }
+
+    /* ── DISQUALIFIED ── */
+    .fdq {
+      text-align: center;
+      border-top: 3px solid var(--text-dim);
+      background: var(--card-black);
+      padding: 44px 28px;
+      display: flex; flex-direction: column; gap: 14px; align-items: center;
+    }
+    .fdq-title {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 32px; line-height: 1.02; text-transform: uppercase;
+    }
+    .fdq-body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px; line-height: 1.7;
+      color: var(--muted-dark); max-width: 380px;
+    }
+    .fdq-restart {
+      margin-top: 8px;
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold);
+      border: none; border-bottom: 1px solid var(--gold);
+      background: none; padding: 4px 0;
+    }
+
+    /* ── SMALL SCREENS ── */
+    @media (max-width: 380px) {
+      .fquestion { font-size: 30px; }
+      .foption { padding: 18px; font-size: 15px; }
+      .fcta { font-size: 16px; padding: 18px 22px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Netlify needs a static form on the page to detect submissions at build time -->
+<form name="quiz" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field">
+  <input name="role"><input name="revenue"><input name="service_area">
+  <input name="name"><input name="business"><input type="tel" name="phone"><input type="email" name="email">
+</form>
+
+<div class="funnel">
+  <header class="fheader">
+    <div class="fheader-inner">
+      <button type="button" class="fback" id="backBtn" hidden aria-label="Go back">← Back</button>
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" fill="#F0A500"/>
+          <path d="M8 22 C8 14 14 8 22 8" stroke="#18181A" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <circle cx="22" cy="22" r="3.5" fill="#18181A"/>
+          <circle cx="8" cy="8" r="3.5" fill="#18181A"/>
+        </svg>
+        <div>
+          <span class="logo-top">LANDMORE</span>
+          <span class="logo-bottom">CALLS</span>
+        </div>
+      </a>
+      <div class="fcount" id="stepCount">Step <strong>1</strong> of 4</div>
+    </div>
+    <div class="fprogress" id="progress" role="progressbar" aria-valuemax="4">
+      <div class="fprogress-cell is-current"></div>
+      <div class="fprogress-cell"></div>
+      <div class="fprogress-cell"></div>
+      <div class="fprogress-cell"></div>
+    </div>
+  </header>
+
+  <main class="fmain">
+
+    <!-- STEP 1: ROLE -->
+    <div class="fstep" data-step="1">
+      <div class="feyebrow">Step 1 / 4 · Qualifier</div>
+      <h1 class="fquestion">Are you the owner or decision-maker at a concrete coating business?</h1>
+      <p class="fsub">We only work with owners who can say yes to a marketing plan — so we make sure first.</p>
+      <div class="foptions" data-key="role">
+        <button type="button" class="foption" data-value="owner" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">Yes, I own or run it</span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="employee" data-qualifies="false">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">No, I work for one</span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="research" data-qualifies="false">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">No, I'm just researching</span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 2: REVENUE -->
+    <div class="fstep" data-step="2" hidden>
+      <div class="feyebrow">Step 2 / 4 · Qualifier</div>
+      <h1 class="fquestion">What's your average monthly revenue?</h1>
+      <p class="fsub">Helps us size the lead plan to what your crew can actually handle right now.</p>
+      <div class="foptions" data-key="revenue">
+        <button type="button" class="foption" data-value="lt_10k" data-qualifies="false">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">Under $10K<span class="foption-meta">Pre-launch / side hustle</span></span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="10_30k" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">$10K – $30K<span class="foption-meta">Solo or 2-truck shop</span></span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="30_75k" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">$30K – $75K<span class="foption-meta">Growing 3–5 person crew</span></span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="75k_plus" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">$75K+<span class="foption-meta">Established multi-crew</span></span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 3: SERVICE AREA -->
+    <form class="fstep" data-step="3" hidden id="serviceForm" novalidate>
+      <div class="feyebrow">Step 3 / 4 · Qualifier</div>
+      <h1 class="fquestion">What's your service area?</h1>
+      <p class="fsub">Cities, counties, or ZIPs you cover. The more specific, the better we can map demand.</p>
+      <div class="ffield">
+        <label class="flabel" for="service-area">Service area</label>
+        <input id="service-area" type="text" class="finput" name="service_area"
+          placeholder="City or ZIP code(s) you cover" autocomplete="off" required>
+      </div>
+      <button type="submit" class="fcta" id="serviceCta" disabled>
+        Continue <span class="fcta-arrow">→</span>
+      </button>
+    </form>
+
+    <!-- STEP 4: CONTACT -->
+    <form class="fstep" data-step="4" hidden id="contactForm" novalidate>
+      <div class="feyebrow">Step 4 / 4 · Final step</div>
+      <h1 class="fquestion">Where should we send your leads?</h1>
+      <p class="fsub">We'll review your service area and call you within one business day with a custom plan — no obligation.</p>
+      <div class="ffields-grid">
+        <div class="ffield">
+          <label class="flabel" for="c-name">Full name</label>
+          <input id="c-name" type="text" class="finput" name="name"
+            placeholder="Your full name" autocomplete="name" required>
+        </div>
+        <div class="ffield">
+          <label class="flabel" for="c-biz">Business name</label>
+          <input id="c-biz" type="text" class="finput" name="business"
+            placeholder="Your business name" autocomplete="organization" required>
+        </div>
+        <div class="ffield">
+          <label class="flabel" for="c-phone">Phone</label>
+          <input id="c-phone" type="tel" class="finput" name="phone"
+            placeholder="(555) 555-5555" autocomplete="tel" inputmode="tel" required>
+        </div>
+        <div class="ffield">
+          <label class="flabel" for="c-email">Email</label>
+          <input id="c-email" type="email" class="finput" name="email"
+            placeholder="you@business.com" autocomplete="email" inputmode="email" required>
+        </div>
+      </div>
+      <p class="fconsent">By submitting, you authorize <strong>LandMore Calls</strong> (a brand of ProFlux Labs LLC) to call &amp; text the number above for informational and marketing messages. Msg &amp; data rates may apply. Reply STOP to unsubscribe. View our <a href="/privacy.html">Privacy Policy</a> and <a href="/terms.html">Terms</a>.</p>
+      <button type="submit" class="fcta" id="contactCta">
+        Get My Lead Plan <span class="fcta-arrow">→</span>
+      </button>
+    </form>
+
+    <!-- DISQUALIFIED -->
+    <div class="fstep" data-step="dq" hidden>
+      <div class="fdq">
+        <div class="feyebrow" style="color: var(--text-dim);">Not a fit right now</div>
+        <h1 class="fdq-title" id="dqTitle">Thanks for stopping by.</h1>
+        <p class="fdq-body" id="dqBody">We only work directly with owners and decision-makers. If that changes, come back anytime.</p>
+        <button type="button" class="fdq-restart" id="dqRestart">← Start over</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+(function() {
+  const STORAGE_KEY = 'lmc_quiz_funnel_v2';
+  const SUBMISSION_KEY = 'lmc_quiz_submission_v1';
+  const TOTAL_STEPS = 4;
+
+  const DQ_COPY = {
+    role: {
+      title: "Thanks for stopping by.",
+      body: "We only work directly with owners and decision-makers at concrete coating businesses. If that changes, come back anytime.",
+    },
+    revenue: {
+      title: "We're not your fit yet.",
+      body: "Most of our wins come from shops doing $10K+/month who are ready to scale crew hours. We'd waste your money before $10K — keep building, then come back.",
+    },
+  };
+
+  const state = loadState();
+
+  const steps = document.querySelectorAll('.fstep');
+  const progressCells = document.querySelectorAll('.fprogress-cell');
+  const stepCount = document.getElementById('stepCount');
+  const backBtn = document.getElementById('backBtn');
+  const progressEl = document.getElementById('progress');
+
+  function loadState() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const p = JSON.parse(raw);
+        return {
+          step: p.step || 1,
+          answers: Object.assign({ role:null, revenue:null, service_area:'', name:'', business:'', phone:'', email:'' }, p.answers || {}),
+          disqualified: p.disqualified || null,
+        };
+      }
+    } catch {}
+    return { step: 1, answers: { role:null, revenue:null, service_area:'', name:'', business:'', phone:'', email:'' }, disqualified: null };
+  }
+
+  function saveState() {
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch {}
+  }
+
+  function renderStep() {
+    const isDq = !!state.disqualified;
+    steps.forEach(s => {
+      const id = s.dataset.step;
+      const show = isDq ? id === 'dq' : (parseInt(id, 10) === state.step);
+      s.hidden = !show;
+    });
+    if (isDq) {
+      document.getElementById('dqTitle').textContent = DQ_COPY[state.disqualified].title;
+      document.getElementById('dqBody').textContent = DQ_COPY[state.disqualified].body;
+      progressEl.style.visibility = 'hidden';
+      stepCount.style.visibility = 'hidden';
+    } else {
+      progressEl.style.visibility = '';
+      stepCount.style.visibility = '';
+      progressCells.forEach((c, i) => {
+        c.classList.remove('is-done', 'is-current');
+        if (i + 1 < state.step) c.classList.add('is-done');
+        else if (i + 1 === state.step) c.classList.add('is-current');
+      });
+      stepCount.innerHTML = 'Step <strong>' + state.step + '</strong> of ' + TOTAL_STEPS;
+    }
+    backBtn.hidden = !(isDq || state.step > 1);
+    rehydrateSelection();
+    if (state.step === 3 && !isDq) {
+      const inp = document.getElementById('service-area');
+      inp.value = state.answers.service_area || '';
+      checkServiceArea();
+      setTimeout(() => inp.focus(), 50);
+    }
+    if (state.step === 4 && !isDq) {
+      ['name','business','phone','email'].forEach(k => {
+        const el = document.getElementById({name:'c-name',business:'c-biz',phone:'c-phone',email:'c-email'}[k]);
+        if (el) el.value = state.answers[k] || '';
+      });
+    }
+    saveState();
+  }
+
+  function rehydrateSelection() {
+    document.querySelectorAll('.foption').forEach(b => {
+      const key = b.parentElement.dataset.key;
+      const val = b.dataset.value;
+      b.classList.toggle('is-selected', state.answers[key] === val);
+    });
+  }
+
+  /* SINGLE-SELECT auto-advance */
+  document.querySelectorAll('.foptions').forEach(group => {
+    const key = group.dataset.key;
+    group.querySelectorAll('.foption').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const value = btn.dataset.value;
+        const qualifies = btn.dataset.qualifies === 'true';
+        state.answers[key] = value;
+        rehydrateSelection();
+        if (!qualifies) {
+          setTimeout(() => { state.disqualified = key; renderStep(); }, 220);
+        } else {
+          setTimeout(() => { state.step += 1; renderStep(); }, 220);
+        }
+      });
+    });
+  });
+
+  /* STEP 3 — service area */
+  const serviceForm = document.getElementById('serviceForm');
+  const serviceInput = document.getElementById('service-area');
+  const serviceCta = document.getElementById('serviceCta');
+  function checkServiceArea() {
+    const v = (serviceInput.value || '').trim();
+    serviceCta.disabled = v.length < 2;
+  }
+  serviceInput.addEventListener('input', () => {
+    state.answers.service_area = serviceInput.value;
+    checkServiceArea();
+    saveState();
+  });
+  serviceForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if ((serviceInput.value || '').trim().length < 2) return;
+    state.step = 4;
+    renderStep();
+  });
+
+  /* STEP 4 — contact */
+  const contactForm = document.getElementById('contactForm');
+  ['c-name','c-biz','c-phone','c-email'].forEach(id => {
+    const el = document.getElementById(id);
+    const key = { 'c-name':'name', 'c-biz':'business', 'c-phone':'phone', 'c-email':'email' }[id];
+    el.addEventListener('input', () => {
+      state.answers[key] = el.value;
+      el.setAttribute('aria-invalid', 'false');
+      saveState();
+    });
+  });
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const a = state.answers;
+    const errs = {};
+    if (!a.name || a.name.trim().length < 2) errs['c-name'] = true;
+    if (!a.business || a.business.trim().length < 2) errs['c-biz'] = true;
+    const phoneDigits = (a.phone || '').replace(/\D/g, '');
+    if (phoneDigits.length < 10) errs['c-phone'] = true;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(a.email || '')) errs['c-email'] = true;
+    Object.keys(errs).forEach(id => document.getElementById(id).setAttribute('aria-invalid', 'true'));
+    if (Object.keys(errs).length) {
+      document.getElementById(Object.keys(errs)[0]).focus();
+      return;
+    }
+
+    const payload = {
+      role: a.role, revenue: a.revenue, service_area: a.service_area,
+      name: a.name.trim(), business: a.business.trim(),
+      phone: a.phone.trim(), email: a.email.trim().toLowerCase(),
+      submitted_at: new Date().toISOString(),
+      source: 'quiz_v1',
+    };
+
+    /* Post to Netlify forms in the background */
+    try {
+      const fd = new FormData();
+      fd.append('form-name', 'quiz');
+      Object.keys(payload).forEach(k => fd.append(k, payload[k]));
+      await fetch('/', { method: 'POST', body: new URLSearchParams(fd) });
+    } catch {}
+
+    /* Persist submission for the thank-you page to render */
+    try {
+      sessionStorage.setItem(SUBMISSION_KEY, JSON.stringify(payload));
+      localStorage.setItem(SUBMISSION_KEY, JSON.stringify(payload));
+      localStorage.removeItem(STORAGE_KEY);
+    } catch {}
+    window.location.href = '/quiz-thank-you.html';
+  });
+
+  /* BACK */
+  backBtn.addEventListener('click', () => {
+    if (state.disqualified) { state.disqualified = null; renderStep(); return; }
+    if (state.step > 1) { state.step -= 1; renderStep(); }
+  });
+
+  /* DQ RESTART */
+  document.getElementById('dqRestart').addEventListener('click', () => {
+    state.step = 1;
+    state.answers = { role:null, revenue:null, service_area:'', name:'', business:'', phone:'', email:'' };
+    state.disqualified = null;
+    renderStep();
+  });
+
+  renderStep();
+})();
+</script>
+
+</body>
+</html>
