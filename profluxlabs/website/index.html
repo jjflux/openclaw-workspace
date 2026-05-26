@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LandMore Calls — More Jobs. Less Chasing.</title>
-  <meta name="description" content="AI-powered lead management for HVAC, roofing, electrical, and plumbing contractors. Get qualified, ready-to-pay homeowners straight to your phone.">
+  <meta name="description" content="Qualified, ready-to-pay homeowners straight to your phone. We deliver in-market leads to home-service contractors who can close the work.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -992,6 +992,82 @@
     .phone-scene { width: 248px; height: 460px; }
   }
 
+  /* ── HOW IT WORKS ── */
+  .how-section {
+    background: var(--black);
+    padding: 112px 5%;
+    border-top: 1px solid var(--border-dark);
+    border-bottom: 1px solid var(--border-dark);
+  }
+  .how-section .section-inner {
+    max-width: 1200px; margin: 0 auto;
+  }
+  .how-eyebrow {
+    font-family: 'DM Sans', sans-serif; font-weight: 600;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .how-h2 {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: 56px; line-height: 1.0;
+    letter-spacing: -0.005em; text-transform: uppercase;
+    color: var(--warm-white); margin-bottom: 18px;
+  }
+  .how-lede {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 17px; line-height: 1.7;
+    color: var(--muted-dark);
+    max-width: 540px; margin-bottom: 64px;
+  }
+  .how-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 0; position: relative;
+  }
+  .how-steps::before {
+    content: ""; position: absolute;
+    top: 95px; left: 12.5%; right: 12.5%;
+    height: 2px;
+    background: var(--gold);
+    opacity: 0.22; z-index: 0;
+  }
+  .how-step { position: relative; padding: 0 24px; z-index: 1; }
+  .how-step-num {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: 13px; letter-spacing: 0.18em;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .how-step-icon {
+    width: 76px; height: 76px;
+    background: var(--black-shade);
+    border: 2px solid var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 28px;
+    color: var(--gold);
+  }
+  .how-step h3 {
+    font-family: 'Oswald', sans-serif; font-weight: 700;
+    font-size: 22px; text-transform: uppercase;
+    color: var(--warm-white); letter-spacing: 0.01em;
+    line-height: 1.15; margin-bottom: 12px;
+  }
+  .how-step p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; line-height: 1.65;
+    color: var(--muted-dark); margin: 0;
+  }
+  @media (max-width: 900px) {
+    .how-steps { grid-template-columns: 1fr 1fr; gap: 40px 24px; }
+    .how-steps::before { display: none; }
+    .how-h2 { font-size: 44px; }
+    .how-step { padding: 0; }
+  }
+  @media (max-width: 560px) {
+    .how-section { padding: 80px 5%; }
+    .how-steps { grid-template-columns: 1fr; gap: 32px; }
+    .how-h2 { font-size: 34px; }
+    .how-step-icon { width: 64px; height: 64px; margin-bottom: 20px; }
+  }
+
   </style>
 </head>
 <body>
@@ -1024,18 +1100,18 @@
 <!-- HERO — DARK -->
 <section class="hero">
   <div class="hero-left">
-    <div class="hero-eyebrow">HVAC · Roofing · Electrical</div>
+    <div class="hero-eyebrow">For Home Service Pros</div>
     <h1 class="hero-h1">
       TIRED OF<br>
       <span class="gold">TIRE-KICKERS</span><br>
       ON THE PHONE?
     </h1>
     <p class="hero-sub">
-      You've been burned by marketing guys before — we get it. We don't sell clicks or leads. We deliver <strong>qualified, ready-to-pay homeowners</strong> straight to your phone. HVAC, roofers, electricians only.
+      You've been burned by marketing guys before — we get it. We deliver <strong>qualified, ready-to-pay homeowners</strong> straight to your phone.
     </p>
     <div class="cta-row">
       <a href="/quiz" class="btn-primary">GET MORE LEADS</a>
-      <a href="#faq" class="btn-ghost">HOW IT WORKS</a>
+      <a href="#how-it-works" class="btn-ghost">HOW IT WORKS</a>
     </div>
   </div>
   <div class="hero-right">
@@ -1103,6 +1179,69 @@
     </div>
   </div>
 </div>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="how-section">
+  <div class="section-inner">
+    <div class="how-eyebrow">How It Works</div>
+    <h2 class="how-h2">From your area<br>to your phone, ringing.</h2>
+    <p class="how-lede">Four steps. No middlemen, no shared leads, no waiting weeks for "ramp time." Built for contractors who can close work, not click reports.</p>
+
+    <div class="how-steps">
+      <div class="how-step">
+        <div class="how-step-num">Step 01</div>
+        <div class="how-step-icon">
+          <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="14" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="18" r="8" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="18" r="2" fill="currentColor"/>
+          </svg>
+        </div>
+        <h3>We Target Your Area</h3>
+        <p>We map the highest-converting zip codes in your service radius — where homeowners are actively searching for what you do, with the budget to pay for it.</p>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">Step 02</div>
+        <div class="how-step-icon">
+          <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+            <path d="M5 7 H31 L21 18 V29 L15 31 V18 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+          </svg>
+        </div>
+        <h3>We Qualify Every Lead</h3>
+        <p>A specialized qualification system filters out tire-kickers, renters, price-shoppers, and people three months out. Only ready-to-hire homeowners with money make it through.</p>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">Step 03</div>
+        <div class="how-step-icon">
+          <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+            <rect x="11" y="4" width="14" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
+            <line x1="11" y1="9" x2="25" y2="9" stroke="currentColor" stroke-width="2"/>
+            <line x1="11" y1="27" x2="25" y2="27" stroke="currentColor" stroke-width="2"/>
+            <circle cx="18" cy="29.5" r="0.8" fill="currentColor"/>
+            <path d="M28 13 Q31 15 31 18 Q31 21 28 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.7"/>
+            <path d="M30 10 Q34 13 34 18 Q34 23 30 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.35"/>
+          </svg>
+        </div>
+        <h3>Calls Hit Your Phone</h3>
+        <p>The moment a qualified homeowner is identified, the call routes straight to your phone — automatically. No middleman, no shared leads, no waiting.</p>
+      </div>
+
+      <div class="how-step">
+        <div class="how-step-num">Step 04</div>
+        <div class="how-step-icon">
+          <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
+            <circle cx="18" cy="18" r="14" stroke="currentColor" stroke-width="2"/>
+            <path d="M11 18 L16 23 L25 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <h3>You Close The Job</h3>
+        <p>Show up, give the quote, do the work. We handle the lead engine. You handle the truck — and the deposit.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES -->
 <section id="services" class="services-section">
@@ -1236,7 +1375,7 @@
           <div style="font-family: 'Oswald', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.18em; color: var(--gold); text-transform: uppercase; margin-bottom: 10px;">Two ways to start</div>
           <h3 style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 28px; color: var(--warm-white); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.1; margin: 0;">Get your custom lead plan.</h3>
         </div>
-        <a href="/quiz" class="form-submit" style="display:block; text-align:center; text-decoration:none; margin-bottom: 18px;">TAKE THE 2-MIN AUDIT →</a>
+        <a href="/quiz" class="form-submit" style="display:block; text-align:center; text-decoration:none; margin-bottom: 18px;">START BOOKING JOBS NOW →</a>
         <p style="text-align: center; font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--text-dim); line-height: 1.6;">Or tap the chat icon in the corner — we reply within minutes during business hours.</p>
       </div>
     </div>
@@ -1270,13 +1409,13 @@
   // ── FAQ accordion ──
   const faqData = [
     { q: "I've been burned by marketing agencies before. Why are you different?",
-      a: "Because we don't get paid to send you garbage leads — we get paid when you book real jobs. Most agencies sell traffic. We sell qualified homeowners ready to hire. Big difference." },
+      a: "Most agencies sell traffic, impressions, or generic shared leads. We sell qualified, in-market homeowners — real people, real budgets, ready to hire. Most agencies hand you a list. We hand you a phone that's ringing." },
     { q: "How fast will I see actual jobs?",
       a: "Most clients land their first paying jobs in 7–14 days. Not clicks, not impressions — money in the bank." },
     { q: "What does 'qualified' actually mean?",
-      a: "Real homeowner. In your service area. Has the budget. Wants the work done now — not in six months 'when they get around to it.' If they don't fit, you don't pay for them." },
+      a: "Real homeowner. In your service area. Has the budget. Wants the work done now — not in six months 'when they get around to it.' Our qualification filters do that work before the call ever hits your phone." },
     { q: "What trades do you work with?",
-      a: "HVAC, roofing, electrical, plumbing. That's it. We know your customers, your seasons, and what makes a hot lead in your market." },
+      a: "HVAC, roofing, electrical, plumbing, garage doors, and other home-service trades. If you serve homeowners with a real need and a real budget, we can fill your calendar." },
     { q: "How much does this cost?",
       a: "Depends on your market and how much volume you want. No cookie-cutter packages. We'll show you the numbers — and your projected ROI — before you spend a dollar." },
   ];
