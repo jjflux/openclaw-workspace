@@ -303,7 +303,7 @@
 <!-- Netlify needs a static form on the page to detect submissions at build time -->
 <form name="quiz" data-netlify="true" netlify-honeypot="bot-field" hidden>
   <input name="bot-field">
-  <input name="role"><input name="revenue"><input name="service_area">
+  <input name="concrete_owner"><input name="revenue"><input name="lead_capacity"><input name="service_area">
   <input name="name"><input name="business"><input type="tel" name="phone"><input type="email" name="email">
 </form>
 
@@ -323,10 +323,11 @@
           <span class="logo-bottom">CALLS</span>
         </div>
       </a>
-      <div class="fcount" id="stepCount">Step <strong>1</strong> of 4</div>
+      <div class="fcount" id="stepCount">Step <strong>1</strong> of 5</div>
     </div>
-    <div class="fprogress" id="progress" role="progressbar" aria-valuemax="4">
+    <div class="fprogress" id="progress" role="progressbar" aria-valuemax="5">
       <div class="fprogress-cell is-current"></div>
+      <div class="fprogress-cell"></div>
       <div class="fprogress-cell"></div>
       <div class="fprogress-cell"></div>
       <div class="fprogress-cell"></div>
@@ -335,25 +336,20 @@
 
   <main class="fmain">
 
-    <!-- STEP 1: ROLE -->
+    <!-- STEP 1: CONCRETE OWNER -->
     <div class="fstep" data-step="1">
-      <div class="feyebrow">Step 1 / 4 · Qualifier</div>
-      <h1 class="fquestion">Are you the owner or decision-maker at a concrete coating business?</h1>
+      <div class="feyebrow">Step 1 / 5 · Qualifier</div>
+      <h1 class="fquestion">Do you own a concrete coating business?</h1>
       <p class="fsub">We only work with owners who can say yes to a marketing plan — so we make sure first.</p>
-      <div class="foptions" data-key="role">
-        <button type="button" class="foption" data-value="owner" data-qualifies="true">
+      <div class="foptions" data-key="concrete_owner">
+        <button type="button" class="foption" data-value="yes" data-qualifies="true">
           <span class="foption-bullet" aria-hidden="true"></span>
-          <span class="foption-label">Yes, I own or run it</span>
+          <span class="foption-label">Yes, I own one</span>
           <span class="foption-arrow" aria-hidden="true">→</span>
         </button>
-        <button type="button" class="foption" data-value="employee" data-qualifies="false">
+        <button type="button" class="foption" data-value="no" data-qualifies="false">
           <span class="foption-bullet" aria-hidden="true"></span>
-          <span class="foption-label">No, I work for one</span>
-          <span class="foption-arrow" aria-hidden="true">→</span>
-        </button>
-        <button type="button" class="foption" data-value="research" data-qualifies="false">
-          <span class="foption-bullet" aria-hidden="true"></span>
-          <span class="foption-label">No, I'm just researching</span>
+          <span class="foption-label">No</span>
           <span class="foption-arrow" aria-hidden="true">→</span>
         </button>
       </div>
@@ -361,51 +357,80 @@
 
     <!-- STEP 2: REVENUE -->
     <div class="fstep" data-step="2" hidden>
-      <div class="feyebrow">Step 2 / 4 · Qualifier</div>
+      <div class="feyebrow">Step 2 / 5 · Qualifier</div>
       <h1 class="fquestion">What's your average monthly revenue?</h1>
       <p class="fsub">Helps us size the lead plan to what your crew can actually handle right now.</p>
       <div class="foptions" data-key="revenue">
-        <button type="button" class="foption" data-value="lt_10k" data-qualifies="false">
+        <button type="button" class="foption" data-value="lt_30k" data-qualifies="true">
           <span class="foption-bullet" aria-hidden="true"></span>
-          <span class="foption-label">Under $10K<span class="foption-meta">Pre-launch / side hustle</span></span>
-          <span class="foption-arrow" aria-hidden="true">→</span>
-        </button>
-        <button type="button" class="foption" data-value="10_30k" data-qualifies="true">
-          <span class="foption-bullet" aria-hidden="true"></span>
-          <span class="foption-label">$10K – $30K<span class="foption-meta">Solo or 2-truck shop</span></span>
+          <span class="foption-label">Under $30K<span class="foption-meta">Solo / just getting started</span></span>
           <span class="foption-arrow" aria-hidden="true">→</span>
         </button>
         <button type="button" class="foption" data-value="30_75k" data-qualifies="true">
           <span class="foption-bullet" aria-hidden="true"></span>
-          <span class="foption-label">$30K – $75K<span class="foption-meta">Growing 3–5 person crew</span></span>
+          <span class="foption-label">$30K – $75K<span class="foption-meta">Growing 2–3 person crew</span></span>
           <span class="foption-arrow" aria-hidden="true">→</span>
         </button>
-        <button type="button" class="foption" data-value="75k_plus" data-qualifies="true">
+        <button type="button" class="foption" data-value="75_200k" data-qualifies="true">
           <span class="foption-bullet" aria-hidden="true"></span>
-          <span class="foption-label">$75K+<span class="foption-meta">Established multi-crew</span></span>
+          <span class="foption-label">$75K – $200K<span class="foption-meta">Established multi-crew shop</span></span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="200k_plus" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">$200K+<span class="foption-meta">Regional operator</span></span>
           <span class="foption-arrow" aria-hidden="true">→</span>
         </button>
       </div>
     </div>
 
-    <!-- STEP 3: SERVICE AREA -->
-    <form class="fstep" data-step="3" hidden id="serviceForm" novalidate>
-      <div class="feyebrow">Step 3 / 4 · Qualifier</div>
+    <!-- STEP 3: LEAD CAPACITY -->
+    <div class="fstep" data-step="3" hidden>
+      <div class="feyebrow">Step 3 / 5 · Qualifier</div>
+      <h1 class="fquestion">How many leads can you handle per month?</h1>
+      <p class="fsub">No point sending you more than your crew can actually book and close.</p>
+      <div class="foptions" data-key="lead_capacity">
+        <button type="button" class="foption" data-value="lt_30" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">Less than 30 leads</span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="30_50" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">30 to 50 leads</span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="50_100" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">50 to 100 leads</span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="foption" data-value="100_plus" data-qualifies="true">
+          <span class="foption-bullet" aria-hidden="true"></span>
+          <span class="foption-label">100+ leads</span>
+          <span class="foption-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- STEP 4: SERVICE AREA -->
+    <form class="fstep" data-step="4" hidden id="serviceForm" novalidate>
+      <div class="feyebrow">Step 4 / 5 · Qualifier</div>
       <h1 class="fquestion">What's your service area?</h1>
-      <p class="fsub">Cities, counties, or ZIPs you cover. The more specific, the better we can map demand.</p>
+      <p class="fsub">Enter the city or ZIP code(s) you cover — the more specific, the better we can map demand.</p>
       <div class="ffield">
         <label class="flabel" for="service-area">Service area</label>
         <input id="service-area" type="text" class="finput" name="service_area"
-          placeholder="City or ZIP code(s) you cover" autocomplete="off" required>
+          placeholder="Enter your city or ZIP code" autocomplete="off" required>
       </div>
       <button type="submit" class="fcta" id="serviceCta" disabled>
         Continue <span class="fcta-arrow">→</span>
       </button>
     </form>
 
-    <!-- STEP 4: CONTACT -->
-    <form class="fstep" data-step="4" hidden id="contactForm" novalidate>
-      <div class="feyebrow">Step 4 / 4 · Final step</div>
+    <!-- STEP 5: CONTACT -->
+    <form class="fstep" data-step="5" hidden id="contactForm" novalidate>
+      <div class="feyebrow">Step 5 / 5 · Final step</div>
       <h1 class="fquestion">Where should we send your leads?</h1>
       <p class="fsub">We'll review your service area and call you within one business day with a custom plan — no obligation.</p>
       <div class="ffields-grid">
@@ -441,7 +466,7 @@
       <div class="fdq">
         <div class="feyebrow" style="color: var(--text-dim);">Not a fit right now</div>
         <h1 class="fdq-title" id="dqTitle">Thanks for stopping by.</h1>
-        <p class="fdq-body" id="dqBody">We only work directly with owners and decision-makers. If that changes, come back anytime.</p>
+        <p class="fdq-body" id="dqBody">We only work directly with owners of concrete coating businesses. If that changes, come back anytime.</p>
         <button type="button" class="fdq-restart" id="dqRestart">← Start over</button>
       </div>
     </div>
@@ -451,20 +476,24 @@
 
 <script>
 (function() {
-  const STORAGE_KEY = 'lmc_quiz_funnel_v2';
-  const SUBMISSION_KEY = 'lmc_quiz_submission_v1';
-  const TOTAL_STEPS = 4;
+  const STORAGE_KEY = 'lmc_quiz_funnel_v3';
+  const SUBMISSION_KEY = 'lmc_quiz_submission_v2';
+  const TOTAL_STEPS = 5;
   const GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/8dOEl9xwsgblbRkPXvrL/webhook-trigger/bf40f5b0-9545-4b3d-82e9-6f4d9394fb4c';
 
   const DQ_COPY = {
-    role: {
+    concrete_owner: {
       title: "Thanks for stopping by.",
-      body: "We only work directly with owners and decision-makers at concrete coating businesses. If that changes, come back anytime.",
+      body: "We only work directly with owners of concrete coating businesses. If that changes, come back anytime.",
     },
-    revenue: {
-      title: "We're not your fit yet.",
-      body: "Most of our wins come from shops doing $10K+/month who are ready to scale crew hours. We'd waste your money before $10K — keep building, then come back.",
-    },
+  };
+
+  const DEFAULT_ANSWERS = {
+    concrete_owner: null,
+    revenue: null,
+    lead_capacity: null,
+    service_area: '',
+    name: '', business: '', phone: '', email: '',
   };
 
   const state = loadState();
@@ -482,12 +511,12 @@
         const p = JSON.parse(raw);
         return {
           step: p.step || 1,
-          answers: Object.assign({ role:null, revenue:null, service_area:'', name:'', business:'', phone:'', email:'' }, p.answers || {}),
+          answers: Object.assign({}, DEFAULT_ANSWERS, p.answers || {}),
           disqualified: p.disqualified || null,
         };
       }
     } catch {}
-    return { step: 1, answers: { role:null, revenue:null, service_area:'', name:'', business:'', phone:'', email:'' }, disqualified: null };
+    return { step: 1, answers: Object.assign({}, DEFAULT_ANSWERS), disqualified: null };
   }
 
   function saveState() {
@@ -518,13 +547,13 @@
     }
     backBtn.hidden = !(isDq || state.step > 1);
     rehydrateSelection();
-    if (state.step === 3 && !isDq) {
+    if (state.step === 4 && !isDq) {
       const inp = document.getElementById('service-area');
       inp.value = state.answers.service_area || '';
       checkServiceArea();
       setTimeout(() => inp.focus(), 50);
     }
-    if (state.step === 4 && !isDq) {
+    if (state.step === 5 && !isDq) {
       ['name','business','phone','email'].forEach(k => {
         const el = document.getElementById({name:'c-name',business:'c-biz',phone:'c-phone',email:'c-email'}[k]);
         if (el) el.value = state.answers[k] || '';
@@ -559,7 +588,7 @@
     });
   });
 
-  /* STEP 3 — service area */
+  /* STEP 4 — service area */
   const serviceForm = document.getElementById('serviceForm');
   const serviceInput = document.getElementById('service-area');
   const serviceCta = document.getElementById('serviceCta');
@@ -575,11 +604,11 @@
   serviceForm.addEventListener('submit', (e) => {
     e.preventDefault();
     if ((serviceInput.value || '').trim().length < 2) return;
-    state.step = 4;
+    state.step = 5;
     renderStep();
   });
 
-  /* STEP 4 — contact */
+  /* STEP 5 — contact */
   const contactForm = document.getElementById('contactForm');
   ['c-name','c-biz','c-phone','c-email'].forEach(id => {
     const el = document.getElementById(id);
@@ -607,11 +636,16 @@
     }
 
     const payload = {
-      role: a.role, revenue: a.revenue, service_area: a.service_area,
-      name: a.name.trim(), business: a.business.trim(),
-      phone: a.phone.trim(), email: a.email.trim().toLowerCase(),
+      concrete_owner: a.concrete_owner,
+      revenue: a.revenue,
+      lead_capacity: a.lead_capacity,
+      service_area: a.service_area,
+      name: a.name.trim(),
+      business: a.business.trim(),
+      phone: a.phone.trim(),
+      email: a.email.trim().toLowerCase(),
       submitted_at: new Date().toISOString(),
-      source: 'quiz_v1',
+      source: 'quiz_v2',
     };
 
     /* Fire both destinations in parallel — GHL webhook is primary, Netlify Forms is backup */
@@ -628,7 +662,7 @@
     })();
     await Promise.allSettled([postGhl, postNetlify]);
 
-    /* Persist submission for the thank-you page to render */
+    /* Persist submission for the thank-you page to render + prefill the embedded calendar */
     try {
       sessionStorage.setItem(SUBMISSION_KEY, JSON.stringify(payload));
       localStorage.setItem(SUBMISSION_KEY, JSON.stringify(payload));
@@ -646,7 +680,7 @@
   /* DQ RESTART */
   document.getElementById('dqRestart').addEventListener('click', () => {
     state.step = 1;
-    state.answers = { role:null, revenue:null, service_area:'', name:'', business:'', phone:'', email:'' };
+    state.answers = Object.assign({}, DEFAULT_ANSWERS);
     state.disqualified = null;
     renderStep();
   });

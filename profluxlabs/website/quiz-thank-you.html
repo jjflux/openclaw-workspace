@@ -274,6 +274,54 @@
       color: var(--text-dim);
     }
 
+    /* ── EMBEDDED CALENDAR ── */
+    .ty-calendar-section {
+      background: var(--warm-white);
+      padding: 24px 0 64px;
+    }
+    .ty-calendar-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .ty-calendar-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px; font-weight: 600;
+      letter-spacing: 0.18em; color: var(--gold);
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .ty-calendar-h {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 32px; line-height: 1.04; letter-spacing: -0.005em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+    .ty-calendar-frame {
+      width: 100%;
+      height: 760px;
+      border: none;
+      border-radius: 12px;
+      background: var(--card-black);
+      box-shadow: 0 24px 60px -20px rgba(24,24,26,0.20);
+      display: block;
+    }
+    .ty-calendar-cap {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: 16px;
+      line-height: 1.55;
+    }
+    @media (max-width: 640px) {
+      .ty-calendar-frame { height: 680px; }
+      .ty-calendar-h { font-size: 24px; }
+    }
+
     /* ── FOOTER ── */
     footer {
       padding: 32px 5%;
@@ -329,8 +377,20 @@
     <p class="ty-lede">
       We got your info. A senior strategist will personally review your service area, pull the demand numbers, and call you within <strong>one business day</strong> with a custom lead plan — built around what your crew can actually handle.
     </p>
-    <a href="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" class="ty-book-btn">Book my strategy call now <span class="arrow">→</span></a>
-    <span class="ty-book-fine">Or wait for our team to reach out — your choice.</span>
+  </div>
+</section>
+
+<!-- EMBEDDED BOOKING CALENDAR -->
+<section class="ty-calendar-section">
+  <div class="ty-calendar-wrap">
+    <div class="ty-calendar-eyebrow">Lock in your strategy call</div>
+    <h2 class="ty-calendar-h">Pick a time below.</h2>
+    <iframe id="bookingIframe"
+      class="ty-calendar-frame"
+      src="https://api.leadconnectorhq.com/widget/bookings/demo-jakob"
+      allowfullscreen
+      title="Book your LandMore Calls strategy call"></iframe>
+    <p class="ty-calendar-cap">Your info is already filled in — just pick a slot. You'll get a confirmation email with the call details.</p>
   </div>
 </section>
 
@@ -345,9 +405,9 @@
         <div class="ty-step-num">01</div>
         <div>
           <div class="ty-step-when">Right now</div>
-          <h3 class="ty-step-title">Check your email.</h3>
+          <h3 class="ty-step-title">Pick your time.</h3>
           <p class="ty-step-text">
-            We just sent a confirmation to <strong id="emailRef">your inbox</strong> with a Calendly link to lock in your strategy call. <strong>Whitelist us</strong> so it doesn't land in spam — that's the #1 reason contractors miss this step.
+            Use the calendar above to lock in your strategy call — your info is already filled in. Once booked, we'll send a confirmation to <strong id="emailRef">your inbox</strong>. <strong>Whitelist us</strong> so it doesn't land in spam.
           </p>
         </div>
       </div>
@@ -464,21 +524,22 @@
 
 <script>
 (function() {
-  const ROLE_LABEL = {
-    owner: 'Owner / decision-maker',
-    employee: 'Employee',
-    research: 'Researching',
-  };
   const REVENUE_LABEL = {
-    lt_10k: 'Under $10K / mo',
-    '10_30k': '$10K – $30K / mo',
+    lt_30k: 'Under $30K / mo',
     '30_75k': '$30K – $75K / mo',
-    '75k_plus': '$75K+ / mo',
+    '75_200k': '$75K – $200K / mo',
+    '200k_plus': '$200K+ / mo',
+  };
+  const LEAD_CAPACITY_LABEL = {
+    lt_30: 'Less than 30 / mo',
+    '30_50': '30 – 50 / mo',
+    '50_100': '50 – 100 / mo',
+    '100_plus': '100+ / mo',
   };
 
   let data = null;
   try {
-    const raw = sessionStorage.getItem('lmc_quiz_submission_v1') || localStorage.getItem('lmc_quiz_submission_v1');
+    const raw = sessionStorage.getItem('lmc_quiz_submission_v2') || localStorage.getItem('lmc_quiz_submission_v2');
     if (raw) data = JSON.parse(raw);
   } catch {}
 
@@ -489,15 +550,31 @@
   if (data && data.email) {
     document.getElementById('emailRef').textContent = data.email;
   }
+
+  /* Prefill the embedded GHL booking iframe with the contact info we just collected */
+  if (data) {
+    const iframe = document.getElementById('bookingIframe');
+    if (iframe) {
+      try {
+        const url = new URL(iframe.src);
+        const nameParts = (data.name || '').trim().split(/\s+/);
+        if (nameParts[0]) url.searchParams.set('first_name', nameParts[0]);
+        if (nameParts.length > 1) url.searchParams.set('last_name', nameParts.slice(1).join(' '));
+        if (data.email) url.searchParams.set('email', data.email);
+        if (data.phone) url.searchParams.set('phone', data.phone);
+        iframe.src = url.toString();
+      } catch (_) {}
+    }
+  }
   if (data) {
     const rows = [
-      ['Name',        data.name || ''],
-      ['Business',    data.business || ''],
-      ['Phone',       data.phone || ''],
-      ['Email',       data.email || ''],
-      ['Role',        ROLE_LABEL[data.role] || data.role || ''],
-      ['Revenue',     REVENUE_LABEL[data.revenue] || data.revenue || ''],
-      ['Service Area', data.service_area || ''],
+      ['Name',          data.name || ''],
+      ['Business',      data.business || ''],
+      ['Phone',         data.phone || ''],
+      ['Email',         data.email || ''],
+      ['Revenue',       REVENUE_LABEL[data.revenue] || data.revenue || ''],
+      ['Lead Capacity', LEAD_CAPACITY_LABEL[data.lead_capacity] || data.lead_capacity || ''],
+      ['Service Area',  data.service_area || ''],
     ].filter(r => r[1]);
     if (rows.length) {
       document.getElementById('recap').hidden = false;

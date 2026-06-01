@@ -47,7 +47,7 @@
     </div>
 
     <div class="calendar-wrap">
-        <iframe src="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" allowfullscreen></iframe>
+        <iframe id="bookingIframe" src="https://api.leadconnectorhq.com/widget/bookings/demo-jakob" allowfullscreen></iframe>
         <p style="font-size:0.75rem; color:#f5f0e8; text-align:center; margin-top:12px;">I consent to receive SMS notifications, alerts, and occasional marketing communication from LandMoreCalls. Message frequency varies. Message and data rates may apply. Text HELP to 855-578-3217 for assistance. You can reply STOP to unsubscribe at any time. View our <a href="https://landmorecalls.com/privacy" style="color:#F5A800;">Privacy Policy</a> and <a href="https://landmorecalls.com/terms" style="color:#F5A800;">Terms</a>.</p>
     </div>
 
@@ -60,6 +60,38 @@
         </div>
     </footer>
 
+<script>
+/* If this page was reached from the quiz, the contact info is in the querystring.
+   Pre-fill it into the GHL booking widget and personalize the header. */
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const iframe = document.getElementById('bookingIframe');
+  const header = document.querySelector('.page-header h1');
+  const sub = document.querySelector('.page-header p');
+
+  const PREFILL_KEYS = ['first_name', 'last_name', 'email', 'phone'];
+  const hasPrefill = PREFILL_KEYS.some(k => params.get(k));
+
+  if (hasPrefill && iframe) {
+    try {
+      const iframeUrl = new URL(iframe.src);
+      PREFILL_KEYS.forEach(k => {
+        const v = params.get(k);
+        if (v) iframeUrl.searchParams.set(k, v);
+      });
+      iframe.src = iframeUrl.toString();
+    } catch (_) {}
+  }
+
+  const firstName = (params.get('first_name') || '').replace(/[<>&"']/g, '').trim();
+  if (firstName && header) {
+    header.textContent = "You're in, " + firstName + " — pick your time.";
+  }
+  if (firstName && sub) {
+    sub.textContent = "Your info's already in. Just pick a slot below and we'll handle the rest.";
+  }
+})();
+</script>
 <script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a0261ae205bf889c6847a77" data-source="WEB_USER"></script>
 </body>
 </html>
