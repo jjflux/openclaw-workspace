@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're Booked — Land More Calls</title>
+<meta name="description" content="Your discovery call is confirmed. Here's what happens next.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- ============================================================
+     META PIXEL — base code (same ID as the funnel page)
+     Optional: this page also fires a "Schedule" event to mark an
+     actual booking (stronger signal than Lead). See setup guide.
+     ============================================================ -->
+<script>
+var META_PIXEL_ID = ''; /* <-- paste the SAME Meta Pixel ID as epoxy.html */
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+  fbq('track', 'Schedule', { content_name:'Epoxy Discovery Call Booked' }); /* actual booking */
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1E7BF5; --blue-dark:#1667D6; --blue-tint:#F4F7FC;
+    --navy:#0D1230; --navy-blue:#4FA0FF; --navy-body:#AEB6D0;
+    --ink:#0B0D12; --muted:#5A6273; --muted-2:#8A93A6; --muted-3:#9AA3B5;
+    --border:#E4E8F0; --border-2:#EDF0F6;
+    --green:#129E6A; --green-tint:#E7F6EF;
+    --display:'Nunito',system-ui,sans-serif; --body:'Source Sans 3',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;background:#EEF1F6;-webkit-font-smoothing:antialiased;}
+  body{font-family:var(--body);color:var(--ink);}
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{color:var(--blue-dark);}
+
+  .page{max-width:680px;margin:32px auto;background:#fff;border:1px solid #E1E6F0;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(13,18,48,0.12);}
+  .accent-bar{height:5px;background:var(--green);}
+  .topbar{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px 20px;border-bottom:1px solid var(--border-2);}
+  .logo-mark{width:20px;height:20px;border-radius:6px;background:var(--blue);}
+  .logo-word{font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:-.01em;}
+
+  .hero{background:var(--blue-tint);padding:44px 46px 40px;text-align:center;}
+  .badge-circle{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:800;margin:0 auto 16px;font-family:var(--display);background:var(--green-tint);color:var(--green);}
+  .eyebrow{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--green);margin:0 0 10px;}
+  .h1{font-family:var(--display);font-weight:900;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance;}
+  .sub{font-size:16px;line-height:1.6;color:var(--muted);margin:0 auto;max-width:440px;}
+
+  .next{padding:38px 46px 44px;}
+  .next-title{font-family:var(--display);font-weight:900;font-size:20px;text-align:center;margin:0 0 24px;}
+  .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;}
+  .step-num{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--display);font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .step h4{font-family:var(--display);font-weight:800;font-size:16px;margin:4px 0 4px;}
+  .step p{font-size:14.5px;line-height:1.55;color:var(--muted);margin:0;}
+  .soft-note{background:var(--blue-tint);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:14px;color:var(--muted);text-align:center;margin-top:8px;}
+  .soft-note b{color:var(--ink);font-family:var(--display);}
+
+  .footer{padding:24px 46px 28px;border-top:1px solid var(--border-2);text-align:center;}
+  .footer .logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;}
+  .footer .logo-mark{width:16px;height:16px;border-radius:5px;}
+  .footer .logo-word{font-size:15px;}
+  .footer p{font-size:12.5px;color:var(--muted-2);margin:0 0 4px;}
+  .footer .fine{font-size:12px;color:#AAB2C0;margin:0;}
+
+  @media (max-width:640px){
+    .page{margin:0;border:none;border-radius:0;box-shadow:none;}
+    .hero,.next,.footer{padding-left:20px;padding-right:20px;}
+    .h1{font-size:26px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="topbar">
+    <span class="logo-mark"></span>
+    <span class="logo-word">Land More Calls</span>
+  </div>
+
+  <section class="hero">
+    <div class="badge-circle">&#10003;</div>
+    <p class="eyebrow">Discovery Call Confirmed</p>
+    <h1 class="h1">You&rsquo;re Booked<span id="ty-name"></span>.</h1>
+    <p class="sub">Your discovery call is locked in. Check your email for the calendar invite and call details — add it to your calendar so you don&rsquo;t miss it.</p>
+  </section>
+
+  <section class="next">
+    <h3 class="next-title">What Happens Next</h3>
+    <div class="step"><div class="step-num">1</div><div><h4>Check your email + phone</h4><p>You&rsquo;ll get a confirmation with the meeting link and a reminder before the call. Whitelist us so it doesn&rsquo;t land in spam.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h4>Show up to your 15-minute call</h4><p>We&rsquo;ll map out exactly how many qualified, ready-to-buy garage floor appointments we can put on your calendar this month.</p></div></div>
+    <div class="step" style="margin-bottom:16px"><div class="step-num">3</div><div><h4>Only pay per shown appointment</h4><p>No retainers. No contracts. You only pay when a qualified homeowner actually shows up.</p></div></div>
+    <div class="soft-note"><b>Running late or need to reschedule?</b> Use the link in your confirmation email — no problem at all.</div>
+  </section>
+
+  <footer class="footer">
+    <div class="logo-row"><span class="logo-mark"></span><span class="logo-word">Land More Calls</span></div>
+    <p>&copy; 2026 Land More Calls — done-for-you appointments for concrete coating contractors.</p>
+    <p class="fine"><a href="/privacy.html">Privacy Policy</a> &middot; <a href="/terms.html">Terms</a> &middot; Not affiliated with Meta Platforms, Inc.</p>
+  </footer>
+</div>
+
+<script>
+/* Personalize the headline if GHL passes ?first_name= on the redirect */
+(function(){
+  var p = new URLSearchParams(location.search);
+  var first = (p.get('first_name') || p.get('firstName') || '').replace(/[<>&"']/g,'').trim();
+  if(first){ document.getElementById('ty-name').textContent = ', ' + first; }
+})();
+</script>
+</body>
+</html>

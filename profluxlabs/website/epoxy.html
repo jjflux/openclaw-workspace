@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qualified Garage Floor Jobs — Land More Calls</title>
+<meta name="description" content="Qualified, ready-to-buy garage floor jobs booked straight onto your calendar. You only pay when the homeowner shows up. No retainers, no contracts.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- ============================================================
+     META PIXEL — base code
+     Paste your pixel ID below (replace YOUR_PIXEL_ID). Until you do,
+     the pixel is inert and the conditional Lead event is a safe no-op.
+     See EPOXY-FUNNEL-SETUP.md → "Meta Pixel".
+     ============================================================ -->
+<script>
+/* eslint-disable */
+var META_PIXEL_ID = ''; /* <-- paste your Meta Pixel ID here, e.g. '1234567890123456' */
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView'); /* PageView only — the Lead event fires later, on qualify */
+}
+</script>
+<!-- End Meta Pixel base code -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     DESIGN TOKENS  (from design handoff — blue / Nunito)
+     ============================================================ */
+  :root{
+    --blue:#1E7BF5; --blue-dark:#1667D6; --blue-tint:#F4F7FC; --blue-soft:#F6FAFF;
+    --navy:#0D1230; --navy-blue:#4FA0FF; --navy-body:#AEB6D0;
+    --ink:#0B0D12; --muted:#5A6273; --muted-2:#8A93A6; --muted-3:#9AA3B5;
+    --border:#E4E8F0; --border-2:#EDF0F6; --field-border:#D8DEEA; --radio-border:#C7D0E0;
+    --green:#129E6A; --green-tint:#E7F6EF; --info-tint:#E9F1FE; --amber:#F5A623; --err:#D64550;
+    --display:'Nunito',system-ui,sans-serif; --body:'Source Sans 3',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;background:#EEF1F6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-family:var(--body);color:var(--ink);}
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{color:var(--blue-dark);}
+
+  .page{max-width:680px;margin:32px auto;background:#fff;border:1px solid #E1E6F0;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(13,18,48,0.12);}
+  .accent-bar{height:5px;background:var(--blue);}
+
+  .topbar{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px 20px;border-bottom:1px solid var(--border-2);}
+  .logo-mark{width:20px;height:20px;border-radius:6px;background:var(--blue);}
+  .logo-word{font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:-.01em;}
+
+  .hero{background:var(--blue-tint);padding:32px 46px 38px;text-align:center;}
+  .eyebrow{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.09em;text-transform:uppercase;margin:0 0 12px;}
+  .h1{font-family:var(--display);font-weight:900;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance;}
+  .hl{color:var(--blue);text-decoration:underline;text-decoration-thickness:3px;text-underline-offset:3px;}
+  .subhead{font-family:var(--display);font-weight:800;font-style:italic;font-size:18px;margin:0 0 5px;}
+  .micro{font-size:15px;color:var(--muted);margin:0;}
+
+  .form-wrap{max-width:520px;margin:22px auto 0;text-align:left;}
+  .form-card{background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:0 16px 40px rgba(13,18,48,0.12);padding:24px;}
+  .prog-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+  .prog-label{font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--blue);}
+  .prog-secure{font-size:12px;color:var(--muted-3);}
+  .track{height:6px;border-radius:999px;background:#E9EDF5;overflow:hidden;margin-bottom:18px;}
+  .fill{height:100%;background:var(--blue);border-radius:999px;transition:width .3s ease;}
+  .form-h{font-family:var(--display);font-weight:900;font-size:19px;line-height:1.25;margin:0 0 16px;}
+  .q-label{font-family:var(--display);font-weight:800;font-size:16px;margin:0 0 2px;}
+  .q-sub{font-size:13px;color:var(--muted-2);margin:0 0 13px;}
+
+  .opt{position:relative;display:flex;align-items:center;justify-content:space-between;width:100%;background:#fff;border:1.5px solid var(--field-border);border-radius:12px;padding:15px 16px;cursor:pointer;margin-bottom:10px;text-align:left;font:inherit;transition:border-color .15s,background .15s;}
+  .opt:hover{border-color:var(--blue);background:var(--blue-soft);}
+  .opt-label{font-family:var(--display);font-weight:800;font-size:17px;color:var(--ink);}
+  .opt-sub{font-weight:400;font-size:13px;color:var(--muted-2);}
+  .radio{width:22px;height:22px;border-radius:50%;border:2px solid var(--radio-border);flex:none;display:flex;align-items:center;justify-content:center;}
+  .radio-dot{width:11px;height:11px;border-radius:50%;background:var(--blue);display:none;}
+  .opt.selected{border-color:var(--blue);box-shadow:0 0 0 4px rgba(30,123,245,0.12);}
+  .opt.selected .radio-dot{display:block;}
+
+  .field{margin-bottom:13px;}
+  .field label{display:block;font-family:var(--display);font-weight:700;font-size:13px;margin-bottom:5px;}
+  .field input{width:100%;height:52px;padding:0 14px;border:1.5px solid var(--field-border);border-radius:10px;font-size:16px;font-family:var(--body);color:var(--ink);background:#fff;outline:none;}
+  .field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(30,123,245,0.15);}
+  .err{font-size:13px;color:var(--err);margin:6px 0 0;}
+
+  .cta{display:block;width:100%;background:var(--blue);border:none;border-radius:12px;padding:15px 18px;text-align:center;cursor:pointer;box-shadow:0 12px 26px rgba(30,123,245,0.32);margin-top:16px;transition:background .15s;font:inherit;}
+  .cta:hover{background:var(--blue-dark);}
+  .cta-label{display:block;font-family:var(--display);font-weight:800;font-size:20px;color:#fff;line-height:1.15;}
+  .cta-cap{display:block;font-size:12.5px;color:rgba(255,255,255,.9);margin-top:2px;}
+  .link-btn{background:none;border:none;color:var(--muted);font-family:var(--body);font-size:14px;cursor:pointer;padding:10px;margin:6px auto 0;display:block;text-decoration:underline;}
+  .reassure{font-size:12.5px;color:var(--muted-2);text-align:center;margin:14px 0 0;}
+
+  .badge-circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;margin:0 auto 12px;font-family:var(--display);}
+  .badge-green{background:var(--green-tint);color:var(--green);}
+  .badge-info{background:var(--info-tint);color:var(--blue);}
+  .result-h{font-family:var(--display);font-weight:900;font-size:21px;margin:0 0 6px;text-align:center;}
+  .result-p{font-size:15px;line-height:1.55;color:var(--muted);margin:0 0 16px;text-align:center;}
+  .soft-note{background:var(--blue-tint);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--muted);text-align:center;}
+
+  /* Live GHL calendar iframe */
+  .cal-frame{width:100%;height:720px;border:1px solid var(--border);border-radius:12px;background:#F7F9FC;display:block;}
+
+  .how{background:var(--navy);padding:44px 46px 46px;}
+  .how-eyebrow{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--navy-blue);text-align:center;margin:0 0 8px;}
+  .how-title{font-family:var(--display);font-weight:900;font-size:25px;color:#fff;text-align:center;margin:0 0 26px;text-wrap:balance;}
+  .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:22px;}
+  .step-num{width:38px;height:38px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--display);font-weight:800;font-size:18px;display:flex;align-items:center;justify-content:center;flex:none;}
+  .step h4{font-family:var(--display);font-weight:800;font-size:18px;color:#fff;margin:3px 0 4px;}
+  .step p{font-size:15px;line-height:1.5;color:var(--navy-body);margin:0;}
+  .cta-anchor{display:block;width:100%;max-width:440px;margin:6px auto 0;background:var(--blue);border-radius:12px;padding:15px 20px;text-align:center;box-shadow:0 12px 26px rgba(30,123,245,0.32);transition:background .15s;}
+  .cta-anchor:hover{background:var(--blue-dark);}
+  .cta-anchor .cta-label{color:#fff;font-size:22px;}
+  .cta-anchor .cta-cap{color:rgba(255,255,255,.88);}
+
+  .proof{background:#fff;padding:44px 46px 40px;}
+  .proof-title{font-family:var(--display);font-weight:900;font-size:26px;text-align:center;margin:0 0 6px;}
+  .proof-sub{font-size:15px;color:var(--muted);text-align:center;margin:0 0 24px;}
+  .masonry{column-count:2;column-gap:14px;}
+  .proof-card{break-inside:avoid;margin:0 0 14px;border:1px solid #E7EBF2;border-radius:14px;overflow:hidden;}
+  .proof-img{background-image:repeating-linear-gradient(135deg,#EEF2F8 0 11px,#F6F8FC 11px 22px);display:flex;align-items:center;justify-content:center;}
+  .proof-img span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:var(--muted-3);background:#fff;padding:5px 9px;border-radius:6px;border:1px solid #E7EBF2;}
+  .proof-img img{width:100%;display:block;}
+  .proof-cap{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;}
+  .proof-cap b{font-family:var(--display);font-weight:800;font-size:13px;}
+  .stars{color:var(--amber);font-size:13px;letter-spacing:1px;}
+
+  .footer{padding:24px 46px 28px;border-top:1px solid var(--border-2);text-align:center;}
+  .footer .logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;}
+  .footer .logo-mark{width:16px;height:16px;border-radius:5px;}
+  .footer .logo-word{font-size:15px;}
+  .footer p{font-size:12.5px;color:var(--muted-2);margin:0 0 4px;}
+  .footer .fine{font-size:12px;color:#AAB2C0;margin:0;}
+
+  .hidden{display:none;}
+
+  @media (max-width:640px){
+    .page{margin:0;border:none;border-radius:0;box-shadow:none;}
+    .hero,.how,.proof,.footer{padding-left:20px;padding-right:20px;}
+    .h1{font-size:26px;}
+    .masonry{column-count:1;}
+    .cal-frame{height:640px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Netlify backup form (static, hidden) — captures a copy of every submission -->
+<form name="epoxy" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input name="bot-field">
+  <input name="name"><input name="phone"><input name="email">
+  <input name="monthly_revenue"><input name="qualified"><input name="lead_type">
+  <input name="utm_source"><input name="utm_medium"><input name="utm_campaign">
+  <input name="utm_content"><input name="utm_term"><input name="fbclid">
+</form>
+
+<div class="page">
+  <div class="accent-bar"></div>
+
+  <div class="topbar">
+    <span class="logo-mark"></span>
+    <span class="logo-word">Land More Calls</span>
+  </div>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero">
+    <p class="eyebrow">For Concrete Coating Contractors</p>
+    <h1 class="h1">Qualified, <span class="hl">Ready-To-Buy Garage Floor Jobs</span> — Booked Straight Onto Your Calendar. You Only <span class="hl">Pay When The Homeowner Shows Up</span>.</h1>
+    <p class="subhead">No retainers. No contracts. No upfront costs.</p>
+    <p class="micro">Answer 2 quick questions to check availability in your area.</p>
+
+    <div class="form-wrap" id="form-a">
+      <div class="form-card">
+
+        <!-- STEP 1: BUSINESS SIZE / REVENUE -->
+        <div id="step-1">
+          <div class="prog-row"><span class="prog-label">Step 1 Of 2</span><span class="prog-secure">&#128274; Private &amp; Secure</span></div>
+          <div class="track"><div class="fill" style="width:50%"></div></div>
+          <h3 class="form-h">Fill Out The Application Below And Schedule A Discovery Call</h3>
+          <div class="q-label">What Is The Size Of Your Business?</div>
+          <div class="q-sub">Estimated Monthly Revenue</div>
+
+          <button class="opt" data-revenue="0-25" onclick="selectRevenue('0-25')">
+            <span><span class="opt-label" data-rev-label="0-25">$0 – $25k</span> <span class="opt-sub">/ Month</span></span>
+            <span class="radio"><span class="radio-dot"></span></span>
+          </button>
+          <button class="opt" data-revenue="25-50" onclick="selectRevenue('25-50')">
+            <span><span class="opt-label" data-rev-label="25-50">$25k – $50k</span> <span class="opt-sub">/ Month</span></span>
+            <span class="radio"><span class="radio-dot"></span></span>
+          </button>
+          <button class="opt" data-revenue="50+" onclick="selectRevenue('50+')">
+            <span><span class="opt-label" data-rev-label="50+">$50k+</span> <span class="opt-sub">/ Month</span></span>
+            <span class="radio"><span class="radio-dot"></span></span>
+          </button>
+
+          <p class="err hidden" id="rev-err">Choose An Option To Continue.</p>
+          <button class="cta" onclick="goToStep2()">
+            <span class="cta-label">Continue &rarr;</span>
+            <span class="cta-cap">Takes 30 Seconds &middot; No Obligation</span>
+          </button>
+        </div>
+
+        <!-- STEP 2: CONTACT DETAILS -->
+        <div id="step-2" class="hidden">
+          <div class="prog-row"><span class="prog-label">Step 2 Of 2</span><span class="prog-secure">&#128274; Private &amp; Secure</span></div>
+          <div class="track"><div class="fill" style="width:100%"></div></div>
+          <h3 class="form-h">Almost There — Your Contact Details</h3>
+          <div class="field"><label for="f-name">Full Name</label><input id="f-name" type="text" placeholder="e.g. James Carter" autocomplete="name"></div>
+          <div class="field"><label for="f-phone">Phone Number</label><input id="f-phone" type="tel" inputmode="tel" placeholder="(555) 123-4567" autocomplete="tel"></div>
+          <div class="field"><label for="f-email">Email Address</label><input id="f-email" type="email" placeholder="you@company.com" autocomplete="email"></div>
+          <p class="err hidden" id="contact-err">Please Fill In All Three Fields To Continue.</p>
+          <button class="cta" onclick="submitForm()">
+            <span class="cta-label">See My Availability &rarr;</span>
+            <span class="cta-cap">Open Times Shown Instantly</span>
+          </button>
+          <button class="link-btn" onclick="setStep(1)">&larr; Back</button>
+          <p class="reassure" style="margin-top:12px">By submitting you agree to be contacted by phone, text &amp; email. Reply STOP to opt out. <a href="/privacy.html">Privacy</a> &middot; <a href="/terms.html">Terms</a>.</p>
+        </div>
+
+        <!-- RESULT: QUALIFIED -->
+        <div id="result-qualified" class="hidden">
+          <div class="badge-circle badge-green">&#10003;</div>
+          <h3 class="result-h">You&rsquo;re A Great Fit, <span id="q-firstname">there</span>.</h3>
+          <p class="result-p">Pick a time below for your 15-minute discovery call. We&rsquo;ll map out exactly how many qualified appointments we can book onto your calendar.</p>
+
+          <!-- Live GoHighLevel calendar. src is set by JS (with prefilled name/email/phone). -->
+          <iframe id="ghl-calendar" class="cal-frame" src="" title="Book your discovery call" scrolling="no"></iframe>
+        </div>
+
+        <!-- RESULT: UNQUALIFIED -->
+        <div id="result-unqualified" class="hidden">
+          <div class="badge-circle badge-info">&#10003;</div>
+          <h3 class="result-h">Thanks, <span id="u-firstname">there</span> — You&rsquo;re On Our Radar.</h3>
+          <p class="result-p">Our done-for-you appointment system is built for established coating crews doing <span id="thresh-label">$25k</span>+ per month. We&rsquo;ve saved your details and a member of our team will reach out personally to see how we can help you get there.</p>
+          <div class="soft-note">No appointment booked yet — we&rsquo;ll be in touch by phone.</div>
+          <button class="link-btn" onclick="setStep(2)">&larr; Change My Answer</button>
+        </div>
+
+      </div>
+      <p class="reassure">No Retainers &middot; No Contracts &middot; Pay Only When They Show</p>
+    </div>
+  </section>
+
+  <!-- ============================ HOW IT WORKS ============================ -->
+  <section class="how">
+    <p class="how-eyebrow">How Our Process Works</p>
+    <h2 class="how-title">Simple, proven, and pay-per-result</h2>
+    <div class="step"><div class="step-num">1</div><div><h4>Answer 2 quick questions</h4><p>Tell us the size of your business and where to reach you. Under 30 seconds, no obligation.</p></div></div>
+    <div class="step"><div class="step-num">2</div><div><h4>Book your discovery call</h4><p>Pick a time that suits you. We&rsquo;ll show you how many qualified appointments we can put on your calendar this month.</p></div></div>
+    <div class="step" style="margin-bottom:28px"><div class="step-num">3</div><div><h4>Only pay per shown appointment</h4><p>We book qualified homeowners straight onto your calendar. You only pay when one actually shows up — never any upfront cost.</p></div></div>
+    <a class="cta-anchor" href="#form-a"><span class="cta-label">Check Availability</span><span class="cta-cap">Yes! Put qualified appointments on my calendar</span></a>
+  </section>
+
+  <!-- ============================ TESTIMONIALS ============================ -->
+  <section class="proof">
+    <h2 class="proof-title">Real wins from real coating crews</h2>
+    <p class="proof-sub">Straight from the group chat — no scripts, no actors.</p>
+    <div class="masonry">
+      <!-- TODO: replace each .proof-img placeholder with a real <img src="case-studies/..."> -->
+      <div class="proof-card"><div class="proof-img" style="height:260px"><span>text-message screenshot</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
+      <div class="proof-card"><div class="proof-img" style="height:300px"><span>client selfie</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
+      <div class="proof-card"><div class="proof-img" style="height:240px"><span>text-message screenshot</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
+      <div class="proof-card"><div class="proof-img" style="height:290px"><span>job-site before / after</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
+      <div class="proof-card"><div class="proof-img" style="height:250px"><span>5-star text message</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
+      <div class="proof-card"><div class="proof-img" style="height:300px"><span>client selfie</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
+    </div>
+    <a class="cta-anchor" href="#form-a" style="margin-top:14px"><span class="cta-label">Check Availability</span><span class="cta-cap">Yes! Put qualified appointments on my calendar</span></a>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="footer">
+    <div class="logo-row"><span class="logo-mark"></span><span class="logo-word">Land More Calls</span></div>
+    <p>&copy; 2026 Land More Calls — done-for-you appointments for concrete coating contractors.</p>
+    <p class="fine"><a href="/privacy.html">Privacy Policy</a> &middot; <a href="/terms.html">Terms</a> &middot; Not affiliated with Meta Platforms, Inc.</p>
+  </footer>
+</div>
+
+<script>
+/* ============================================================================
+   CONFIG — fill these in (see EPOXY-FUNNEL-SETUP.md). Everything works with
+   placeholders: unset pixel = no-op, unset webhook = Netlify-only save.
+   ============================================================================ */
+var CURRENCY = '$';                              // '$' | '£' | '€' — drives revenue labels
+var QUALIFY_UNQUALIFIED_VALUE = '0-25';          // the ONE band that is unqualified
+var GHL_WEBHOOK_URL = '';                        // <-- paste your GHL inbound webhook URL
+var GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/bookings/demo-jakob'; // <-- your calendar embed URL
+
+/* ============================================================================
+   UTM / click-id capture — read from URL, persist across the 2 steps
+   ============================================================================ */
+var TRACKING_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+function captureTracking(){
+  var p = new URLSearchParams(location.search);
+  var saved = {};
+  try { saved = JSON.parse(sessionStorage.getItem('lmc_epoxy_utm') || '{}'); } catch(e){}
+  TRACKING_KEYS.forEach(function(k){ var v = p.get(k); if(v) saved[k] = v; });
+  try { sessionStorage.setItem('lmc_epoxy_utm', JSON.stringify(saved)); } catch(e){}
+  return saved;
+}
+var tracking = captureTracking();
+
+/* ============================================================================
+   STATE + RENDER
+   ============================================================================ */
+var state = { step:1, revenue:'', result:null };
+function money(n){ return CURRENCY + n; }
+
+function applyCurrency(){
+  var labels = { '0-25': money('0')+' – '+money('25k'), '25-50': money('25k')+' – '+money('50k'), '50+': money('50k')+'+' };
+  document.querySelectorAll('[data-rev-label]').forEach(function(el){ el.textContent = labels[el.getAttribute('data-rev-label')]; });
+  document.getElementById('thresh-label').textContent = money('25k');
+}
+
+function setStep(n){
+  state.step = n; state.result = null;
+  ['step-1','step-2','result-qualified','result-unqualified'].forEach(function(id){ document.getElementById(id).classList.add('hidden'); });
+  document.getElementById('step-'+n).classList.remove('hidden');
+  hideErrors();
+}
+
+function selectRevenue(v){
+  state.revenue = v;
+  document.querySelectorAll('.opt').forEach(function(b){ b.classList.toggle('selected', b.getAttribute('data-revenue')===v); });
+  document.getElementById('rev-err').classList.add('hidden');
+}
+
+function goToStep2(){
+  if(!state.revenue){ document.getElementById('rev-err').classList.remove('hidden'); return; }
+  setStep(2);
+}
+
+function submitForm(){
+  var name  = document.getElementById('f-name').value.trim();
+  var phone = document.getElementById('f-phone').value.trim();
+  var email = document.getElementById('f-email').value.trim();
+  if(!name || !phone || !email){ document.getElementById('contact-err').classList.remove('hidden'); return; }
+  document.getElementById('contact-err').classList.add('hidden');
+
+  var qualified = state.revenue !== QUALIFY_UNQUALIFIED_VALUE;
+  var firstName = name.split(/\s+/)[0] || 'there';
+  var contact = {
+    name:name, phone:phone, email:email,
+    monthly_revenue:state.revenue,
+    qualified: qualified ? 'yes' : 'no',
+    lead_type:'epoxy_funnel'
+  };
+  TRACKING_KEYS.forEach(function(k){ if(tracking[k]) contact[k] = tracking[k]; });
+
+  // (1) ALWAYS save to GoHighLevel + Netlify backup (qualified OR not). No pixel here.
+  saveToGoHighLevel(contact);
+  saveToNetlify(contact);
+
+  ['step-1','step-2','result-qualified','result-unqualified'].forEach(function(id){ document.getElementById(id).classList.add('hidden'); });
+
+  if(qualified){
+    // (2) QUALIFIED ONLY — fire the Meta pixel Lead event, then reveal the live calendar.
+    fireLeadPixel(contact);
+    document.getElementById('q-firstname').textContent = firstName;
+    loadCalendar(name, phone, email);
+    document.getElementById('result-qualified').classList.remove('hidden');
+    state.result = 'qualified';
+  } else {
+    // UNQUALIFIED — no pixel. Graceful follow-up screen.
+    document.getElementById('u-firstname').textContent = firstName;
+    document.getElementById('result-unqualified').classList.remove('hidden');
+    state.result = 'unqualified';
+  }
+  try { window.scrollTo({ top:0, behavior:'smooth' }); } catch(e){}
+}
+
+function hideErrors(){ document.getElementById('rev-err').classList.add('hidden'); document.getElementById('contact-err').classList.add('hidden'); }
+
+/* Build the calendar iframe URL with prefilled contact + tracking, then load it */
+function loadCalendar(name, phone, email){
+  var frame = document.getElementById('ghl-calendar');
+  if(!frame) return;
+  try {
+    var url = new URL(GHL_CALENDAR_BASE);
+    var parts = name.split(/\s+/);
+    url.searchParams.set('first_name', parts[0] || '');
+    if(parts.length>1) url.searchParams.set('last_name', parts.slice(1).join(' '));
+    url.searchParams.set('email', email);
+    url.searchParams.set('phone', phone);
+    TRACKING_KEYS.forEach(function(k){ if(tracking[k]) url.searchParams.set(k, tracking[k]); });
+    frame.src = url.toString();
+  } catch(e){ frame.src = GHL_CALENDAR_BASE; }
+}
+
+/* ============================================================================
+   INTEGRATIONS
+   ============================================================================ */
+
+// Save/upsert into GoHighLevel via inbound webhook. Fires for qualified AND
+// unqualified (tag by contact.qualified). Does NOT fire the pixel.
+function saveToGoHighLevel(contact){
+  if(!GHL_WEBHOOK_URL){ console.log('[GHL] webhook not set — skipping (Netlify backup still saves)', contact); return; }
+  try {
+    fetch(GHL_WEBHOOK_URL, {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(Object.assign({ submitted_at:new Date().toISOString(), source:'epoxy_lp_v1' }, contact))
+    }).catch(function(){});
+  } catch(e){}
+}
+
+// Backup copy into Netlify Forms (always).
+function saveToNetlify(contact){
+  try {
+    var fd = new URLSearchParams();
+    fd.append('form-name','epoxy');
+    Object.keys(contact).forEach(function(k){ fd.append(k, contact[k]); });
+    fetch('/', { method:'POST', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: fd.toString() }).catch(function(){});
+  } catch(e){}
+}
+
+// Meta pixel Lead event — QUALIFIED ONLY (>= 25k). No-op until you install the pixel.
+function fireLeadPixel(contact){
+  if(window.fbq){
+    fbq('track', 'Lead', { content_name:'Epoxy Qualified Application', content_category: contact.monthly_revenue });
+  } else {
+    console.log('[PIXEL] Lead (qualified) — pixel not installed yet', contact.monthly_revenue);
+  }
+}
+
+/* Init */
+applyCurrency();
+setStep(1);
+</script>
+</body>
+</html>
