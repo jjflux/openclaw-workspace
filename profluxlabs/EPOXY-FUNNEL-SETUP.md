@@ -55,16 +55,14 @@ This is where the lead gets saved. **Make a NEW webhook for this funnel** (don't
 
 **Important:** the webhook fires for BOTH qualified and unqualified leads (you asked to still be able to work the unqualified ones manually). The pixel is what's conditional, not the save.
 
-### 2. GoHighLevel calendar embed — `GHL_CALENDAR_BASE`
+### 2. GoHighLevel calendar embed — `GHL_CALENDAR_BASE` ✅ DONE
 
-The calendar that shows inline after someone qualifies. Right now it defaults to your existing `demo-jakob` booking widget so it works immediately, but you probably want a **dedicated "Epoxy Discovery Call" calendar** so those bookings are separate.
+Your real Epoxy Discovery Call calendar is already wired in:
+`https://api.leadconnectorhq.com/widget/booking/vlhhAVmm0RnenlMMEoRm`
 
-- In GHL: **Calendars → + Create Calendar** (15-min discovery call)
-- Get its embed/booking URL (looks like `https://api.leadconnectorhq.com/widget/bookings/YOUR-SLUG`)
-- Paste it into `GHL_CALENDAR_BASE` in `epoxy.html`
-- **Set the calendar's post-booking redirect** to `https://landmorecalls.com/epoxy-thank-you` (Calendar settings → Confirmation → Redirect to URL). That's how people land on the thank-you page after booking.
+GHL's `form_embed.js` auto-resize script is included, so the calendar sizes itself to its content (no scrollbars/cutoff). The funnel prefills it with the name/phone/email they just typed and passes the UTMs through — so booking is one click and attribution survives.
 
-The funnel automatically prefills the calendar with the name/phone/email they just typed, plus passes the UTMs through — so booking is one click and attribution survives.
+**One thing left to do in GHL:** set the calendar's post-booking redirect to `https://landmorecalls.com/epoxy-thank-you` — **Calendars → (your calendar) → Settings → Confirmation → Redirect to URL / "On Booking, redirect to"**. That's how people land on the thank-you page (and fire the `Schedule` pixel event) after they book.
 
 ### 3. Meta Pixel — `META_PIXEL_ID`
 
@@ -121,8 +119,8 @@ Meta auto-fills the `{{...}}` per ad. The funnel captures whatever's in the URL,
 
 - [ ] Create GHL workflow + inbound webhook → paste URL into `GHL_WEBHOOK_URL`
 - [ ] Map webhook fields + add the qualified/unqualified tags in the workflow
-- [ ] Create the Epoxy Discovery Call calendar → paste URL into `GHL_CALENDAR_BASE`
-- [ ] Set that calendar's redirect to `/epoxy-thank-you`
+- [x] ~~Create the Epoxy Discovery Call calendar → paste URL into `GHL_CALENDAR_BASE`~~ (done — calendar `vlhhAVmm0RnenlMMEoRm` wired in)
+- [ ] Set that calendar's post-booking redirect to `/epoxy-thank-you`
 - [ ] Paste Meta Pixel ID into BOTH `epoxy.html` and `epoxy-thank-you.html`
 - [ ] In Meta Events Manager, confirm `Lead` and `Schedule` show up after a test run
 - [ ] Add UTM params to your ad links (or Meta URL parameters box)

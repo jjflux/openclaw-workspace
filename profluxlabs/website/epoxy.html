@@ -228,8 +228,9 @@ if (META_PIXEL_ID) {
           <h3 class="result-h">You&rsquo;re A Great Fit, <span id="q-firstname">there</span>.</h3>
           <p class="result-p">Pick a time below for your 15-minute discovery call. We&rsquo;ll map out exactly how many qualified appointments we can book onto your calendar.</p>
 
-          <!-- Live GoHighLevel calendar. src is set by JS (with prefilled name/email/phone). -->
-          <iframe id="ghl-calendar" class="cal-frame" src="" title="Book your discovery call" scrolling="no"></iframe>
+          <!-- Live GoHighLevel calendar. src is set by JS (with prefilled name/email/phone).
+               The id carries the calendar's GHL id so form_embed.js auto-resizes it. -->
+          <iframe id="vlhhAVmm0RnenlMMEoRm_lp" class="cal-frame" src="" title="Book your discovery call" scrolling="no"></iframe>
         </div>
 
         <!-- RESULT: UNQUALIFIED -->
@@ -288,7 +289,7 @@ if (META_PIXEL_ID) {
 var CURRENCY = '$';                              // '$' | '£' | '€' — drives revenue labels
 var QUALIFY_UNQUALIFIED_VALUE = '0-25';          // the ONE band that is unqualified
 var GHL_WEBHOOK_URL = '';                        // <-- paste your GHL inbound webhook URL
-var GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/bookings/demo-jakob'; // <-- your calendar embed URL
+var GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/booking/vlhhAVmm0RnenlMMEoRm'; // Epoxy Discovery Call calendar
 
 /* ============================================================================
    UTM / click-id capture — read from URL, persist across the 2 steps
@@ -377,7 +378,7 @@ function hideErrors(){ document.getElementById('rev-err').classList.add('hidden'
 
 /* Build the calendar iframe URL with prefilled contact + tracking, then load it */
 function loadCalendar(name, phone, email){
-  var frame = document.getElementById('ghl-calendar');
+  var frame = document.querySelector('.cal-frame');
   if(!frame) return;
   try {
     var url = new URL(GHL_CALENDAR_BASE);
@@ -430,5 +431,8 @@ function fireLeadPixel(contact){
 applyCurrency();
 setStep(1);
 </script>
+
+<!-- GoHighLevel iframe auto-resize (sizes the calendar to its content, no scrollbars) -->
+<script src="https://link.msgsndr.com/js/form_embed.js" type="text/javascript"></script>
 </body>
 </html>
