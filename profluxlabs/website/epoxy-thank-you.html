@@ -4,13 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>You're Booked — Land More Calls</title>
-<meta name="description" content="Your discovery call is confirmed. Here's what happens next.">
+<meta name="description" content="Your discovery call is scheduled. Complete these quick steps before our call.">
 <meta name="robots" content="noindex, nofollow">
 
 <!-- ============================================================
      META PIXEL — base code (same ID as the funnel page)
-     Optional: this page also fires a "Schedule" event to mark an
-     actual booking (stronger signal than Lead). See setup guide.
+     Fires a "Schedule" event here to mark an actual booking.
      ============================================================ -->
 <script>
 var META_PIXEL_ID = ''; /* <-- paste the SAME Meta Pixel ID as epoxy.html */
@@ -22,20 +21,20 @@ if (META_PIXEL_ID) {
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', META_PIXEL_ID);
   fbq('track', 'PageView');
-  fbq('track', 'Schedule', { content_name:'Epoxy Discovery Call Booked' }); /* actual booking */
+  fbq('track', 'Schedule', { content_name:'Epoxy Discovery Call Booked' });
 }
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,800;1,900&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
     --blue:#1E7BF5; --blue-dark:#1667D6; --blue-tint:#F4F7FC;
     --navy:#0D1230; --navy-blue:#4FA0FF; --navy-body:#AEB6D0;
     --ink:#0B0D12; --muted:#5A6273; --muted-2:#8A93A6; --muted-3:#9AA3B5;
-    --border:#E4E8F0; --border-2:#EDF0F6;
-    --green:#129E6A; --green-tint:#E7F6EF;
+    --border:#E4E8F0; --border-2:#EDF0F6; --field-border:#D8DEEA;
+    --green:#129E6A; --green-tint:#E7F6EF; --amber:#F5A623; --err:#D64550;
     --display:'Nunito',system-ui,sans-serif; --body:'Source Sans 3',system-ui,sans-serif;
   }
   *{box-sizing:border-box;}
@@ -50,21 +49,59 @@ if (META_PIXEL_ID) {
   .logo-mark{width:20px;height:20px;border-radius:6px;background:var(--blue);}
   .logo-word{font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:-.01em;}
 
-  .hero{background:var(--blue-tint);padding:44px 46px 40px;text-align:center;}
-  .badge-circle{width:66px;height:66px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:34px;font-weight:800;margin:0 auto 16px;font-family:var(--display);background:var(--green-tint);color:var(--green);}
-  .eyebrow{font-family:var(--display);font-weight:800;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:var(--green);margin:0 0 10px;}
-  .h1{font-family:var(--display);font-weight:900;font-size:30px;line-height:1.1;letter-spacing:-.01em;margin:0 0 12px;text-wrap:balance;}
-  .sub{font-size:16px;line-height:1.6;color:var(--muted);margin:0 auto;max-width:440px;}
+  /* Hero */
+  .hero{background:var(--blue-tint);padding:40px 46px 34px;text-align:center;}
+  .badge-circle{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 16px;font-family:var(--display);background:var(--green-tint);color:var(--green);}
+  .h1{font-family:var(--display);font-weight:900;font-size:29px;line-height:1.08;letter-spacing:-.01em;margin:0 0 10px;text-transform:uppercase;text-wrap:balance;}
+  .h1-sub{font-family:var(--display);font-weight:900;font-size:22px;line-height:1.15;margin:0;text-wrap:balance;}
+  .h1-sub .hl{color:var(--blue);}
 
-  .next{padding:38px 46px 44px;}
-  .next-title{font-family:var(--display);font-weight:900;font-size:20px;text-align:center;margin:0 0 24px;}
-  .step{display:flex;gap:14px;align-items:flex-start;margin-bottom:20px;}
-  .step-num{width:36px;height:36px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--display);font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center;flex:none;}
-  .step h4{font-family:var(--display);font-weight:800;font-size:16px;margin:4px 0 4px;}
-  .step p{font-size:14.5px;line-height:1.55;color:var(--muted);margin:0;}
-  .soft-note{background:var(--blue-tint);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:14px;color:var(--muted);text-align:center;margin-top:8px;}
+  /* Steps */
+  .steps{padding:34px 46px 12px;}
+  .rule{border:0;border-top:2px solid var(--ink);margin:0 0 26px;}
+  .step{margin-bottom:30px;}
+  .step-tag{font-family:var(--display);font-weight:900;font-size:18px;text-align:center;margin:0 0 4px;}
+  .step-tag .n{color:var(--blue);}
+  .step-desc{font-family:var(--display);font-weight:800;font-style:italic;font-size:16px;line-height:1.5;color:var(--ink);text-align:center;margin:0 auto 18px;max-width:520px;}
+  .checklist{max-width:440px;margin:0 auto 4px;padding:0;list-style:none;}
+  .checklist li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border-2);font-size:15.5px;color:var(--ink);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .tick{width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:14px;font-weight:800;font-family:var(--display);display:flex;align-items:center;justify-content:center;flex:none;}
+  .checklist b{font-family:var(--display);font-weight:800;}
+
+  /* Google-calendar invite mock */
+  .cal-card{max-width:480px;margin:18px auto 0;background:#F1F3F6;border-radius:14px;padding:18px 20px;font-family:'Source Sans 3',Arial,sans-serif;}
+  .cal-when{font-size:13px;font-weight:700;color:#3c4043;margin:0 0 6px;}
+  .cal-title{font-size:20px;font-weight:700;color:#202124;line-height:1.2;margin:0 0 14px;}
+  .cal-row{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#3c4043;margin-bottom:9px;}
+  .cal-ic{width:18px;height:18px;flex:none;color:#5f6368;}
+  .cal-row .org{color:#5f6368;}
+  .cal-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;position:relative;}
+  .cal-btn{font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;background:#E3EAF3;color:#1a56c4;border:none;}
+  .cal-btn.yes{background:#1967D2;color:#fff;position:relative;box-shadow:0 0 0 3px rgba(214,69,80,.9),0 0 0 5px rgba(214,69,80,.35);}
+  .cal-note{font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--muted-2);text-align:center;margin:9px 0 0;font-style:italic;}
+
+  .soft-note{background:var(--blue-tint);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:14.5px;color:var(--muted);text-align:center;max-width:480px;margin:0 auto;}
   .soft-note b{color:var(--ink);font-family:var(--display);}
 
+  /* Social proof (navy band) */
+  .proof{background:var(--navy);padding:40px 40px 44px;margin-top:20px;}
+  .proof-title{font-family:var(--display);font-weight:900;font-size:25px;color:#fff;text-align:center;text-transform:uppercase;line-height:1.12;margin:0 0 6px;text-wrap:balance;}
+  .proof-sub{font-size:14.5px;color:var(--navy-body);text-align:center;margin:0 0 26px;}
+  .vids{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .vidcard{position:relative;border-radius:14px;overflow:hidden;background:#000;border:2px solid rgba(255,255,255,.08);aspect-ratio:3/4;cursor:pointer;}
+  .vidcard video{width:100%;height:100%;object-fit:cover;display:block;background:#000;}
+  .vidcard .poster{position:absolute;inset:0;z-index:2;display:flex;align-items:flex-end;justify-content:center;padding:16px;
+    background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,0) 40%,rgba(0,0,0,.65) 100%);
+    transition:opacity .2s;}
+  .vidcard.playing .poster{opacity:0;pointer-events:none;}
+  .vidcard .play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.4);}
+  .vidcard .play svg{margin-left:4px;}
+  .vidcard .who{position:relative;z-index:3;color:#fff;font-family:var(--display);font-weight:800;font-size:13.5px;text-align:center;line-height:1.25;text-shadow:0 1px 4px rgba(0,0,0,.6);}
+  .vidcard .who span{display:block;font-family:var(--body);font-weight:400;font-size:11.5px;color:rgba(255,255,255,.85);margin-top:2px;}
+  .proof-stars{color:var(--amber);text-align:center;font-size:15px;letter-spacing:2px;margin:18px 0 0;}
+
+  /* Footer */
   .footer{padding:24px 46px 28px;border-top:1px solid var(--border-2);text-align:center;}
   .footer .logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;}
   .footer .logo-mark{width:16px;height:16px;border-radius:5px;}
@@ -74,8 +111,12 @@ if (META_PIXEL_ID) {
 
   @media (max-width:640px){
     .page{margin:0;border:none;border-radius:0;box-shadow:none;}
-    .hero,.next,.footer{padding-left:20px;padding-right:20px;}
-    .h1{font-size:26px;}
+    .hero,.steps,.footer{padding-left:20px;padding-right:20px;}
+    .proof{padding-left:18px;padding-right:18px;}
+    .h1{font-size:24px;}
+    .h1-sub{font-size:19px;}
+    .vids{grid-template-columns:1fr;gap:14px;}
+    .vidcard{aspect-ratio:16/10;}
   }
 </style>
 </head>
@@ -87,21 +128,84 @@ if (META_PIXEL_ID) {
     <span class="logo-word">Land More Calls</span>
   </div>
 
+  <!-- HERO -->
   <section class="hero">
     <div class="badge-circle">&#10003;</div>
-    <p class="eyebrow">Discovery Call Confirmed</p>
-    <h1 class="h1">You&rsquo;re Booked<span id="ty-name"></span>.</h1>
-    <p class="sub">Your discovery call is locked in. Check your email for the calendar invite and call details — add it to your calendar so you don&rsquo;t miss it.</p>
+    <h1 class="h1">Your Discovery Call<br>Is Scheduled<span id="ty-name"></span>!</h1>
+    <p class="h1-sub"><span class="hl">Important:</span> Before our call, complete these steps.</p>
   </section>
 
-  <section class="next">
-    <h3 class="next-title">What Happens Next</h3>
-    <div class="step"><div class="step-num">1</div><div><h4>Check your email + phone</h4><p>You&rsquo;ll get a confirmation with the meeting link and a reminder before the call. Whitelist us so it doesn&rsquo;t land in spam.</p></div></div>
-    <div class="step"><div class="step-num">2</div><div><h4>Show up to your 15-minute call</h4><p>We&rsquo;ll map out exactly how many qualified, ready-to-buy garage floor appointments we can put on your calendar this month.</p></div></div>
-    <div class="step" style="margin-bottom:16px"><div class="step-num">3</div><div><h4>Only pay per shown appointment</h4><p>No retainers. No contracts. You only pay when a qualified homeowner actually shows up.</p></div></div>
-    <div class="soft-note"><b>Running late or need to reschedule?</b> Use the link in your confirmation email — no problem at all.</div>
+  <!-- STEPS -->
+  <section class="steps">
+    <hr class="rule">
+
+    <div class="step">
+      <p class="step-tag"><span class="n">Step 1:</span> Confirm Your Slot</p>
+      <p class="step-desc">Open your email inbox, press &ldquo;Add to Calendar,&rdquo; then press &ldquo;Yes&rdquo; to confirm your slot.</p>
+      <ul class="checklist">
+        <li><span class="tick">1</span><div>Open your <b>email inbox</b> (check spam/promotions if you don&rsquo;t see it).</div></li>
+        <li><span class="tick">2</span><div>Open the calendar invite and press <b>&ldquo;Add to Calendar.&rdquo;</b></div></li>
+        <li><span class="tick">3</span><div>Press <b>&ldquo;Yes&rdquo;</b> to confirm your slot &mdash; see below.</div></li>
+      </ul>
+
+      <!-- Google Calendar invite visual -->
+      <div class="cal-card">
+        <p class="cal-when">Tomorrow &middot; 5:30 &ndash; 5:45 PM</p>
+        <p class="cal-title">&#128640;&#128176; <span id="cal-name">Your</span> Discovery Call with LandMoreCalls</p>
+        <div class="cal-row">
+          <svg class="cal-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.686-7-11a7 7 0 1114 0c0 5.314-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span>We&rsquo;ll call you at the number you provided</span>
+        </div>
+        <div class="cal-row">
+          <svg class="cal-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>
+          <span class="org">jakob@LandMoreCalls.com &middot; Organizer</span>
+        </div>
+        <div class="cal-btns">
+          <span class="cal-btn yes">Yes &#9662;</span>
+          <span class="cal-btn">Directions</span>
+          <span class="cal-btn">Propose a new time</span>
+        </div>
+      </div>
+      <p class="cal-note">&uarr; Tap the blue &ldquo;Yes&rdquo; button in your invite to lock it in.</p>
+    </div>
+
+    <div class="step">
+      <p class="step-tag"><span class="n">Step 2:</span> Save Our Number</p>
+      <p class="step-desc">Our team will reach out to confirm the call via text.</p>
+      <div class="soft-note">Please reply to confirm and <b>save our number</b> so you don&rsquo;t miss us. We&rsquo;ll call you at the time of your appointment.</div>
+    </div>
   </section>
 
+  <!-- SOCIAL PROOF -->
+  <section class="proof">
+    <h2 class="proof-title">See What Contractors<br>Have To Say&hellip;</h2>
+    <p class="proof-sub">Real wins from real crews &mdash; no scripts, no actors.</p>
+    <div class="vids">
+      <div class="vidcard" data-video>
+        <video preload="none" playsinline poster="case-studies/rob-poster.jpg">
+          <source src="testimonial-video-1.mp4" type="video/mp4">
+          <source src="testimonial-video-1.mov" type="video/quicktime">
+        </video>
+        <div class="poster">
+          <div class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0D1230"><path d="M7 5v14l12-7z"/></svg></div>
+          <div class="who">Rob &mdash; DC Electric<span>&ldquo;My phone won&rsquo;t stop ringing.&rdquo;</span></div>
+        </div>
+      </div>
+      <div class="vidcard" data-video>
+        <video preload="none" playsinline poster="case-studies/scott-poster.jpg">
+          <source src="testimonial-video-2.mp4" type="video/mp4">
+          <source src="testimonial-video-2.mov" type="video/quicktime">
+        </video>
+        <div class="poster">
+          <div class="play"><svg width="24" height="24" viewBox="0 0 24 24" fill="#0D1230"><path d="M7 5v14l12-7z"/></svg></div>
+          <div class="who">Scott &mdash; North Star Plumbing<span>&ldquo;Set up in less than a day.&rdquo;</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+  </section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="logo-row"><span class="logo-mark"></span><span class="logo-word">Land More Calls</span></div>
     <p>&copy; 2026 Land More Calls — done-for-you appointments for concrete coating contractors.</p>
@@ -110,12 +214,26 @@ if (META_PIXEL_ID) {
 </div>
 
 <script>
-/* Personalize the headline if GHL passes ?first_name= on the redirect */
+/* Personalize the headline + calendar mock if GHL passes ?first_name= on redirect */
 (function(){
   var p = new URLSearchParams(location.search);
   var first = (p.get('first_name') || p.get('firstName') || '').replace(/[<>&"']/g,'').trim();
-  if(first){ document.getElementById('ty-name').textContent = ', ' + first; }
+  if(first){
+    document.getElementById('ty-name').textContent = ', ' + first;
+    document.getElementById('cal-name').textContent = first + "'s";
+  }
 })();
+
+/* Click-to-play video testimonials */
+document.querySelectorAll('.vidcard[data-video]').forEach(function(card){
+  var video = card.querySelector('video');
+  function play(){
+    card.classList.add('playing');
+    video.setAttribute('controls','');
+    video.play().catch(function(){});
+  }
+  card.addEventListener('click', function(){ if(!card.classList.contains('playing')) play(); });
+});
 </script>
 </body>
 </html>
