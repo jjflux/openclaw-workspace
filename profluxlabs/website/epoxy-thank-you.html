@@ -69,17 +69,9 @@ if (META_PIXEL_ID) {
   .checklist .tick{width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:14px;font-weight:800;font-family:var(--display);display:flex;align-items:center;justify-content:center;flex:none;}
   .checklist b{font-family:var(--display);font-weight:800;}
 
-  /* Google-calendar invite mock */
-  .cal-card{max-width:480px;margin:18px auto 0;background:#F1F3F6;border-radius:14px;padding:18px 20px;font-family:'Source Sans 3',Arial,sans-serif;}
-  .cal-when{font-size:13px;font-weight:700;color:#3c4043;margin:0 0 6px;}
-  .cal-title{font-size:20px;font-weight:700;color:#202124;line-height:1.2;margin:0 0 14px;}
-  .cal-row{display:flex;align-items:center;gap:10px;font-size:13.5px;color:#3c4043;margin-bottom:9px;}
-  .cal-ic{width:18px;height:18px;flex:none;color:#5f6368;}
-  .cal-row .org{color:#5f6368;}
-  .cal-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;position:relative;}
-  .cal-btn{font-size:13px;font-weight:600;padding:8px 16px;border-radius:20px;background:#E3EAF3;color:#1a56c4;border:none;}
-  .cal-btn.yes{background:#1967D2;color:#fff;position:relative;box-shadow:0 0 0 3px rgba(214,69,80,.9),0 0 0 5px rgba(214,69,80,.35);}
-  .cal-note{font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--muted-2);text-align:center;margin:9px 0 0;font-style:italic;}
+  /* Confirm-slot photo */
+  .cal-photo{display:block;max-width:520px;width:100%;margin:18px auto 0;border-radius:14px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(13,18,48,.12);}
+  .cal-note{font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--muted-2);text-align:center;margin:10px 0 0;font-style:italic;}
 
   .soft-note{background:var(--blue-tint);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:14.5px;color:var(--muted);text-align:center;max-width:480px;margin:0 auto;}
   .soft-note b{color:var(--ink);font-family:var(--display);}
@@ -148,24 +140,8 @@ if (META_PIXEL_ID) {
         <li><span class="tick">3</span><div>Press <b>&ldquo;Yes&rdquo;</b> to confirm your slot &mdash; see below.</div></li>
       </ul>
 
-      <!-- Google Calendar invite visual -->
-      <div class="cal-card">
-        <p class="cal-when">Tomorrow &middot; 5:30 &ndash; 5:45 PM</p>
-        <p class="cal-title">&#128640;&#128176; <span id="cal-name">Your</span> Discovery Call with LandMoreCalls</p>
-        <div class="cal-row">
-          <svg class="cal-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.686-7-11a7 7 0 1114 0c0 5.314-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-          <span>We&rsquo;ll call you at the number you provided</span>
-        </div>
-        <div class="cal-row">
-          <svg class="cal-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 016-6h4a6 6 0 016 6v1"/></svg>
-          <span class="org">jakob@LandMoreCalls.com &middot; Organizer</span>
-        </div>
-        <div class="cal-btns">
-          <span class="cal-btn yes">Yes &#9662;</span>
-          <span class="cal-btn">Directions</span>
-          <span class="cal-btn">Propose a new time</span>
-        </div>
-      </div>
+      <!-- Google Calendar invite screenshot -->
+      <img class="cal-photo" src="case-studies/calendar-confirm.png" alt="Google Calendar invite for your LandMore Calls discovery call — press the blue Yes button to confirm">
       <p class="cal-note">&uarr; Tap the blue &ldquo;Yes&rdquo; button in your invite to lock it in.</p>
     </div>
 
@@ -220,7 +196,6 @@ if (META_PIXEL_ID) {
   var first = (p.get('first_name') || p.get('firstName') || '').replace(/[<>&"']/g,'').trim();
   if(first){
     document.getElementById('ty-name').textContent = ', ' + first;
-    document.getElementById('cal-name').textContent = first + "'s";
   }
 })();
 
