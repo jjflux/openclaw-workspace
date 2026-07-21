@@ -121,14 +121,16 @@ if (META_PIXEL_ID) {
   .proof{background:#fff;padding:44px 46px 40px;}
   .proof-title{font-family:var(--display);font-weight:900;font-size:26px;text-align:center;margin:0 0 6px;}
   .proof-sub{font-size:15px;color:var(--muted);text-align:center;margin:0 0 24px;}
-  .masonry{column-count:2;column-gap:14px;}
-  .proof-card{break-inside:avoid;margin:0 0 14px;border:1px solid #E7EBF2;border-radius:14px;overflow:hidden;}
-  .proof-img{background-image:repeating-linear-gradient(135deg,#EEF2F8 0 11px,#F6F8FC 11px 22px);display:flex;align-items:center;justify-content:center;}
-  .proof-img span{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:var(--muted-3);background:#fff;padding:5px 9px;border-radius:6px;border:1px solid #E7EBF2;}
-  .proof-img img{width:100%;display:block;}
-  .proof-cap{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;}
-  .proof-cap b{font-family:var(--display);font-weight:800;font-size:13px;}
-  .stars{color:var(--amber);font-size:13px;letter-spacing:1px;}
+
+  /* Video testimonials */
+  .vids{display:grid;grid-template-columns:1fr;gap:16px;max-width:460px;margin:0 auto;}
+  .vidcard{position:relative;border-radius:14px;overflow:hidden;background:#000;border:1px solid #E7EBF2;aspect-ratio:16/9;cursor:pointer;}
+  .vidcard video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
+  .vidcard .vposter{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;transition:opacity .2s;}
+  .vidcard.playing .vposter{opacity:0;pointer-events:none;}
+  .vidcard .vplay{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(13,18,48,.4);transition:transform .15s;}
+  .vidcard:hover .vplay{transform:scale(1.06);}
+  .vidcard .vplay svg{margin-left:4px;}
 
   .footer{padding:24px 46px 28px;border-top:1px solid var(--border-2);text-align:center;}
   .footer .logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;}
@@ -143,7 +145,6 @@ if (META_PIXEL_ID) {
     .page{margin:0;border:none;border-radius:0;box-shadow:none;}
     .hero,.how,.proof,.footer{padding-left:20px;padding-right:20px;}
     .h1{font-size:26px;}
-    .masonry{column-count:1;}
     .cal-frame{height:640px;}
   }
 </style>
@@ -261,14 +262,21 @@ if (META_PIXEL_ID) {
   <section class="proof">
     <h2 class="proof-title">Real wins from real coating crews</h2>
     <p class="proof-sub">Straight from the group chat — no scripts, no actors.</p>
-    <div class="masonry">
-      <!-- TODO: replace each .proof-img placeholder with a real <img src="case-studies/..."> -->
-      <div class="proof-card"><div class="proof-img" style="height:260px"><span>text-message screenshot</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
-      <div class="proof-card"><div class="proof-img" style="height:300px"><span>client selfie</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
-      <div class="proof-card"><div class="proof-img" style="height:240px"><span>text-message screenshot</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
-      <div class="proof-card"><div class="proof-img" style="height:290px"><span>job-site before / after</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
-      <div class="proof-card"><div class="proof-img" style="height:250px"><span>5-star text message</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
-      <div class="proof-card"><div class="proof-img" style="height:300px"><span>client selfie</span></div><div class="proof-cap"><b>Verified client</b><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span></div></div>
+    <div class="vids">
+      <div class="vidcard" data-video>
+        <video preload="none" playsinline poster="case-studies/rob-thumbnail.png">
+          <source src="testimonial-video-1.mp4" type="video/mp4">
+          <source src="testimonial-video-1.mov" type="video/quicktime">
+        </video>
+        <div class="vposter"><div class="vplay"><svg width="26" height="26" viewBox="0 0 24 24" fill="#0D1230"><path d="M7 5v14l12-7z"/></svg></div></div>
+      </div>
+      <div class="vidcard" data-video>
+        <video preload="none" playsinline poster="case-studies/scott-thumbnail.png">
+          <source src="testimonial-video-2.mp4" type="video/mp4">
+          <source src="testimonial-video-2.mov" type="video/quicktime">
+        </video>
+        <div class="vposter"><div class="vplay"><svg width="26" height="26" viewBox="0 0 24 24" fill="#0D1230"><path d="M7 5v14l12-7z"/></svg></div></div>
+      </div>
     </div>
     <a class="cta-anchor" href="#form-a" style="margin-top:14px"><span class="cta-label">Check Availability</span><span class="cta-cap">Yes! Put qualified appointments on my calendar</span></a>
   </section>
@@ -426,6 +434,17 @@ function fireLeadPixel(contact){
     console.log('[PIXEL] Lead (qualified) — pixel not installed yet', contact.monthly_revenue);
   }
 }
+
+/* Click-to-play video testimonials */
+document.querySelectorAll('.vidcard[data-video]').forEach(function(card){
+  var video = card.querySelector('video');
+  card.addEventListener('click', function(){
+    if(card.classList.contains('playing')) return;
+    card.classList.add('playing');
+    video.setAttribute('controls','');
+    video.play().catch(function(){});
+  });
+});
 
 /* Init */
 applyCurrency();
