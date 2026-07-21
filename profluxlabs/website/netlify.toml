@@ -2,6 +2,10 @@
   publish = "."
   command = "echo 'No build required - static HTML'"
 
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
 [[headers]]
   for = "/*"
   [headers.values]

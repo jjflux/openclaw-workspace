@@ -364,6 +364,10 @@ function submitForm(){
     lead_type:'epoxy_funnel'
   };
   TRACKING_KEYS.forEach(function(k){ if(tracking[k]) contact[k] = tracking[k]; });
+  // Facebook match keys — stored on the GHL contact so the later "Closed/Won"
+  // Purchase event can be matched back to this ad click.
+  contact.fbp = readCookie('_fbp');
+  contact.fbc = readCookie('_fbc');
 
   // (1) ALWAYS save the contact to GoHighLevel + Netlify backup — every revenue tier,
   //     including $0-25k. (GHL still gets the `qualified` flag so you can segment.)
@@ -426,13 +430,52 @@ function saveToNetlify(contact){
   } catch(e){}
 }
 
-// Meta pixel Lead event — QUALIFIED ONLY (>= 25k). No-op until you install the pixel.
+// ── Meta tracking helpers ──
+function readCookie(name){
+  var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+  return m ? m.pop() : '';
+}
+function newEventId(){
+  try { return crypto.randomUUID(); }
+  catch(e){ return 'e' + Date.now() + '-' + Math.round(Math.random() * 1e9); }
+}
+// Send an event to our server-side Meta Conversions API relay. Shares event_id
+// with the browser pixel so Meta de-duplicates. No-ops server-side until the
+// CAPI token is configured in Netlify.
+function sendCapi(eventName, contact, eventId){
+  var body = {
+    event_name: eventName,
+    event_id: eventId,
+    event_source_url: location.href,
+    email: contact.email,
+    phone: contact.phone,
+    first_name: (contact.name || '').split(/\s+/)[0] || '',
+    last_name:  (contact.name || '').split(/\s+/).slice(1).join(' ') || '',
+    fbp: readCookie('_fbp'),
+    fbc: readCookie('_fbc'),
+    content_name: 'Epoxy Qualified Application',
+    content_category: contact.monthly_revenue
+  };
+  try {
+    fetch('/.netlify/functions/meta-capi', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body), keepalive:true
+    }).catch(function(){});
+  } catch(e){}
+}
+
+// Fire the Meta Lead event — browser pixel + server-side CAPI, de-duplicated via
+// a shared event_id. QUALIFIED ONLY (>= 25k). Both sides no-op until configured.
 function fireLeadPixel(contact){
+  var eid = newEventId();
   if(window.fbq){
-    fbq('track', 'Lead', { content_name:'Epoxy Qualified Application', content_category: contact.monthly_revenue });
+    fbq('track', 'Lead',
+      { content_name:'Epoxy Qualified Application', content_category: contact.monthly_revenue },
+      { eventID: eid });
   } else {
-    console.log('[PIXEL] Lead (qualified) — pixel not installed yet', contact.monthly_revenue);
+    console.log('[PIXEL] Lead (qualified) — browser pixel not installed yet', contact.monthly_revenue);
   }
+  sendCapi('Lead', contact, eid);
 }
 
 /* Click-to-play video testimonials */

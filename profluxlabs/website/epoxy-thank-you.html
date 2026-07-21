@@ -21,7 +21,8 @@ if (META_PIXEL_ID) {
   document,'script','https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', META_PIXEL_ID);
   fbq('track', 'PageView');
-  fbq('track', 'Schedule', { content_name:'Epoxy Discovery Call Booked' });
+  /* The "Schedule" conversion is fired from the bottom script so it can share an
+     event_id with the server-side CAPI call (Meta de-dupes the two). */
 }
 </script>
 
@@ -198,13 +199,51 @@ if (META_PIXEL_ID) {
 </div>
 
 <script>
-/* Personalize the headline + calendar mock if GHL passes ?first_name= on redirect */
+/* Personalize the headline if GHL passes ?first_name= on redirect */
 (function(){
   var p = new URLSearchParams(location.search);
   var first = (p.get('first_name') || p.get('firstName') || '').replace(/[<>&"']/g,'').trim();
   if(first){
     document.getElementById('ty-name').textContent = ', ' + first;
   }
+})();
+
+/* Fire the "Schedule" conversion (an actual booking) — browser pixel + server-side
+   CAPI, de-duplicated by a shared event_id. Both no-op until configured. */
+(function(){
+  function readCookie(name){
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : '';
+  }
+  function newEventId(){
+    try { return crypto.randomUUID(); }
+    catch(e){ return 'e' + Date.now() + '-' + Math.round(Math.random() * 1e9); }
+  }
+  var p = new URLSearchParams(location.search);
+  var eid = newEventId();
+
+  if(window.fbq){
+    fbq('track', 'Schedule', { content_name:'Epoxy Discovery Call Booked' }, { eventID: eid });
+  }
+
+  var body = {
+    event_name: 'Schedule',
+    event_id: eid,
+    event_source_url: location.href,
+    content_name: 'Epoxy Discovery Call Booked',
+    first_name: p.get('first_name') || p.get('firstName') || '',
+    last_name:  p.get('last_name')  || p.get('lastName')  || '',
+    email: p.get('email') || '',
+    phone: p.get('phone') || '',
+    fbp: readCookie('_fbp'),
+    fbc: readCookie('_fbc')
+  };
+  try {
+    fetch('/.netlify/functions/meta-capi', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body), keepalive:true
+    }).catch(function(){});
+  } catch(e){}
 })();
 
 /* Click-to-play video testimonials */
