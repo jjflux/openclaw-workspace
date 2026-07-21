@@ -205,10 +205,7 @@ if (META_PIXEL_ID) {
           </button>
 
           <p class="err hidden" id="rev-err">Choose An Option To Continue.</p>
-          <button class="cta" onclick="goToStep2()">
-            <span class="cta-label">Continue &rarr;</span>
-            <span class="cta-cap">Takes 30 Seconds</span>
-          </button>
+          <p class="cta-cap" style="text-align:center;margin-top:2px;">Takes 30 Seconds &middot; Tap an option to continue</p>
         </div>
 
         <!-- STEP 2: CONTACT DETAILS -->
@@ -341,6 +338,9 @@ function selectRevenue(v){
   state.revenue = v;
   document.querySelectorAll('.opt').forEach(function(b){ b.classList.toggle('selected', b.getAttribute('data-revenue')===v); });
   document.getElementById('rev-err').classList.add('hidden');
+  // Auto-advance to step 2 — no "Continue" click needed (cuts drop-off).
+  // Short delay lets the blue selection highlight flash so it feels intentional.
+  setTimeout(function(){ setStep(2); }, 220);
 }
 
 function goToStep2(){
