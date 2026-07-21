@@ -83,7 +83,11 @@ exports.handler = async (event) => {
     user_data,
   };
   if (d.value != null && d.value !== '') {
-    data.custom_data = { value: Number(d.value), currency: d.currency || 'USD' };
+    // Strip currency symbols / commas so "$4,600.00" → 4600
+    const numVal = Number(String(d.value).replace(/[^0-9.]/g, ''));
+    if (!isNaN(numVal) && numVal > 0) {
+      data.custom_data = { value: numVal, currency: d.currency || 'USD' };
+    }
   }
   if (d.content_name || d.content_category) {
     data.custom_data = Object.assign(data.custom_data || {}, {
