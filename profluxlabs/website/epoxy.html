@@ -98,7 +98,6 @@ if (META_PIXEL_ID) {
 
   .badge-circle{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:800;margin:0 auto 12px;font-family:var(--display);}
   .badge-green{background:var(--green-tint);color:var(--green);}
-  .badge-info{background:var(--info-tint);color:var(--blue);}
   .result-h{font-family:var(--display);font-weight:900;font-size:21px;margin:0 0 6px;text-align:center;}
   .result-p{font-size:15px;line-height:1.55;color:var(--muted);margin:0 0 16px;text-align:center;}
   .soft-note{background:var(--blue-tint);border:1px solid var(--border);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--muted);text-align:center;}
@@ -240,15 +239,6 @@ if (META_PIXEL_ID) {
           <iframe id="vlhhAVmm0RnenlMMEoRm_lp" class="cal-frame" src="" title="Book your discovery call"></iframe>
         </div>
 
-        <!-- RESULT: UNQUALIFIED -->
-        <div id="result-unqualified" class="hidden">
-          <div class="badge-circle badge-info">&#10003;</div>
-          <h3 class="result-h">Thanks, <span id="u-firstname">there</span> — You&rsquo;re On Our Radar.</h3>
-          <p class="result-p">Our done-for-you appointment system is built for established coating crews doing <span id="thresh-label">$25k</span>+ per month. We&rsquo;ve saved your details and a member of our team will reach out personally to see how we can help you get there.</p>
-          <div class="soft-note">No appointment booked yet — we&rsquo;ll be in touch by phone.</div>
-          <button class="link-btn" onclick="setStep(2)">&larr; Change My Answer</button>
-        </div>
-
       </div>
       <p class="reassure">No Retainers &middot; No Contracts &middot; Pay Only When They Show</p>
     </div>
@@ -338,12 +328,11 @@ function money(n){ return CURRENCY + n; }
 function applyCurrency(){
   var labels = { '0-25': money('0')+' – '+money('25k'), '25-50': money('25k')+' – '+money('50k'), '50+': money('50k')+'+' };
   document.querySelectorAll('[data-rev-label]').forEach(function(el){ el.textContent = labels[el.getAttribute('data-rev-label')]; });
-  document.getElementById('thresh-label').textContent = money('25k');
 }
 
 function setStep(n){
   state.step = n; state.result = null;
-  ['step-1','step-2','result-qualified','result-unqualified'].forEach(function(id){ document.getElementById(id).classList.add('hidden'); });
+  ['step-1','step-2','result-qualified'].forEach(function(id){ document.getElementById(id).classList.add('hidden'); });
   document.getElementById('step-'+n).classList.remove('hidden');
   hideErrors();
 }
@@ -376,25 +365,20 @@ function submitForm(){
   };
   TRACKING_KEYS.forEach(function(k){ if(tracking[k]) contact[k] = tracking[k]; });
 
-  // (1) ALWAYS save to GoHighLevel + Netlify backup (qualified OR not). No pixel here.
+  // (1) ALWAYS save the contact to GoHighLevel + Netlify backup — every revenue tier,
+  //     including $0-25k. (GHL still gets the `qualified` flag so you can segment.)
   saveToGoHighLevel(contact);
   saveToNetlify(contact);
 
-  ['step-1','step-2','result-qualified','result-unqualified'].forEach(function(id){ document.getElementById(id).classList.add('hidden'); });
+  // (2) Fire the Meta pixel Lead event ONLY for qualified leads ($25k+). Never for $0-25k.
+  if(qualified){ fireLeadPixel(contact); }
 
-  if(qualified){
-    // (2) QUALIFIED ONLY — fire the Meta pixel Lead event, then reveal the live calendar.
-    fireLeadPixel(contact);
-    document.getElementById('q-firstname').textContent = firstName;
-    loadCalendar(name, phone, email);
-    document.getElementById('result-qualified').classList.remove('hidden');
-    state.result = 'qualified';
-  } else {
-    // UNQUALIFIED — no pixel. Graceful follow-up screen.
-    document.getElementById('u-firstname').textContent = firstName;
-    document.getElementById('result-unqualified').classList.remove('hidden');
-    state.result = 'unqualified';
-  }
+  // (3) EVERYONE gets to book — reveal the live calendar for all revenue tiers.
+  ['step-1','step-2'].forEach(function(id){ document.getElementById(id).classList.add('hidden'); });
+  document.getElementById('q-firstname').textContent = firstName;
+  loadCalendar(name, phone, email);
+  document.getElementById('result-qualified').classList.remove('hidden');
+  state.result = 'booked';
   try { window.scrollTo({ top:0, behavior:'smooth' }); } catch(e){}
 }
 
