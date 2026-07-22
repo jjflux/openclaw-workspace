@@ -3,80 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VSL Review — Internal</title>
+<title>VSL Draft</title>
 <!-- Hidden / unlisted: not linked anywhere, kept out of search engines -->
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --black:#0d0e12; --panel:#16171d; --line:#26272e;
-    --gold:#F0A500; --white:#FAF8F4; --muted:#9AA3B5; --dim:#6b6f7a;
-  }
   *{box-sizing:border-box;margin:0;padding:0;}
-  html,body{background:var(--black);color:var(--white);font-family:'DM Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100%;}
-  .wrap{max-width:520px;margin:0 auto;padding:28px 20px 56px;}
-
-  header{text-align:center;margin-bottom:22px;}
-  .eyebrow{font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
-  h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:26px;letter-spacing:.01em;text-transform:uppercase;margin:8px 0 6px;line-height:1.1;}
-  .sub{font-size:14px;color:var(--muted);line-height:1.5;max-width:38ch;margin:0 auto;}
-
+  html,body{background:#0d0e12;color:#FAF8F4;font-family:system-ui,sans-serif;-webkit-font-smoothing:antialiased;min-height:100%;}
+  .wrap{max-width:520px;margin:0 auto;padding:32px 20px 48px;}
+  h1{font-family:'Oswald',sans-serif;font-weight:700;font-size:28px;letter-spacing:.02em;text-transform:uppercase;text-align:center;margin-bottom:22px;}
   .stage{
     position:relative;width:100%;aspect-ratio:9/16;
-    background:#000;border:1px solid var(--line);border-radius:20px;overflow:hidden;
+    background:#000;border:1px solid #26272e;border-radius:20px;overflow:hidden;
     box-shadow:0 30px 80px -24px rgba(0,0,0,.8), 0 0 0 6px rgba(240,165,0,.05);
   }
   .stage video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
-
-  .meta{
-    margin-top:20px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;
-  }
-  .chip{
-    font-family:'Oswald',sans-serif;font-weight:500;font-size:11px;letter-spacing:.12em;
-    text-transform:uppercase;color:var(--muted);
-    border:1px solid var(--line);border-radius:999px;padding:7px 14px;
-  }
-  .chip b{color:var(--gold);font-weight:600;}
-
-  .note{
-    margin-top:26px;background:var(--panel);border:1px solid var(--line);border-radius:14px;
-    padding:18px 20px;
-  }
-  .note-title{font-family:'Oswald',sans-serif;font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
-  .note p{font-size:14.5px;line-height:1.6;color:#cfd3dc;}
-
-  footer{margin-top:32px;text-align:center;font-size:12px;color:var(--dim);}
+  .runtime{text-align:center;margin-top:18px;font-family:'Oswald',sans-serif;font-weight:600;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#6b6f7a;}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <header>
-    <div class="eyebrow">Internal · For Review</div>
-    <h1>VSL Draft — Rip It Apart</h1>
-    <p class="sub">Full watch-through for feedback: hook, pacing, offer, CTA — no punches pulled.</p>
-  </header>
-
+  <h1>VSL Draft</h1>
   <div class="stage">
     <video controls preload="metadata" playsinline controlslist="nodownload">
       <source src="vsl/elias-vsl.mp4" type="video/mp4">
       Your browser can't play this video.
     </video>
   </div>
-
-  <div class="meta">
-    <span class="chip">Format · <b>Vertical VSL</b></span>
-    <span class="chip">Runtime · <b>~5:20</b></span>
-    <span class="chip">Status · <b>Draft v1</b></span>
-  </div>
-
-  <div class="note">
-    <div class="note-title">What I'm looking for</div>
-    <p>Brutal honesty. Does the first 10 seconds hook? Is the offer clear? Where does it drag or lose me? Would a $25k/mo epoxy contractor book a call after watching — and if not, where do they drop?</p>
-  </div>
-
-  <footer>LandMore Calls · confidential draft — please don't share this link.</footer>
+  <div class="runtime">Runtime · 5:20</div>
 </div>
 </body>
 </html>
