@@ -305,7 +305,7 @@ var GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/booking/vlhhAVmm
 /* ============================================================================
    UTM / click-id capture — read from URL, persist across the 2 steps
    ============================================================================ */
-var TRACKING_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+var TRACKING_KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','ad_id','placement','fbclid','gclid'];
 function captureTracking(){
   var p = new URLSearchParams(location.search);
   var saved = {};
@@ -363,7 +363,10 @@ function submitForm(){
     qualified: qualified ? 'yes' : 'no',
     lead_type:'epoxy_funnel'
   };
-  TRACKING_KEYS.forEach(function(k){ if(tracking[k]) contact[k] = tracking[k]; });
+  // Always send all tracking keys, even when empty (empty string, never omitted) —
+  // GHL's inbound webhook can only map fields it has seen in a payload. Pass through
+  // exactly as received (no trim/encode/lowercase).
+  TRACKING_KEYS.forEach(function(k){ contact[k] = (tracking[k] == null ? '' : tracking[k]); });
   // Facebook match keys — stored on the GHL contact so the later "Closed/Won"
   // Purchase event can be matched back to this ad click.
   contact.fbp = readCookie('_fbp');
