@@ -2,6 +2,23 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. It auto-loads into every Claude Code session started in this folder — so any new session instantly knows the setup below.
 
+**New session? Start here:** read this whole file, skim the "Current status & open items" below, then ask Jakob what he wants to work on. The infra (deploys, tracking, GHL) is all live — you're maintaining/extending, not building from scratch.
+
+## 📍 Current status & open items
+*(Keep this section updated as things change — it's how a fresh session knows what's pending.)*
+
+**Live & working:** epoxy funnel + thank-you page, Meta pixel + server-side CAPI (Lead/Schedule/Purchase, all tested), GHL "1. New Lead" + "Booked Appointment" + "Closed sale → Purchase" workflows, closed-won loop.
+
+**Open / pending (most useful first):**
+1. **Split the name on `epoxy.html`** — currently sends one `name` field → GHL first_name gets the full name → SMS reads "hey Firstname Lastname." Fix: send `first_name` + `last_name` separately, then map both in GHL.
+2. **GHL: scope the "Remove from Workflow"** action (in the Booked workflow) to "1. New Lead" only, not "all workflows" (preventive — avoids nuking future nurtures).
+3. **Ad optimization event** — make sure the Meta ad set optimizes for **`Lead`** (owner had to duplicate the ad set to change it). Switch to Schedule later once booking volume grows.
+4. **Decide:** should the AI-bot nurture chase unqualified ($0–25k) leads? Webhook fires for all tiers by design. Add a `qualified = yes` trigger filter only if you want to exclude them.
+5. **Optional:** map the 9 UTM keys to GHL custom fields (only for in-GHL ad-level reporting; Meta doesn't need it, GHL already captures Source/Campaign natively). Low priority.
+6. **Homepage CTAs** point to `/book.html` (moved off `/quiz` for A2P widget verification) — restore to `/quiz` post-approval if desired.
+
+**Reminder:** Claude Code has NO direct access to GoHighLevel or Meta dashboards — guide Jakob through those by hand (unless a GHL MCP gets set up).
+
 ## What this repo is
 
 This is **Flux's workspace** — an OpenClaw-style persistent-agent setup. The root holds identity/memory/protocol files for a Claude agent ("Flux") working for the human ("Jason" / Jakob). Read `AGENTS.md` for the session ritual and behavioral rules. Beyond the agent files, the real day-to-day work is the **LandMore Calls website** in `profluxlabs/website/`.
