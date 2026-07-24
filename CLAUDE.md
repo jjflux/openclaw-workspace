@@ -1,63 +1,90 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. It auto-loads into every Claude Code session started in this folder — so any new session instantly knows the setup below.
 
 ## What this repo is
 
-This is **Flux's workspace** — an OpenClaw-style persistent-agent setup, not a conventional code project. The root holds identity/memory/protocol files for a Claude agent ("Flux") who works for a human ("Jason"). The session-start ritual and behavioral rules live in `AGENTS.md` — **read it first**. This file only covers the Claude Code-specific concerns.
+This is **Flux's workspace** — an OpenClaw-style persistent-agent setup. The root holds identity/memory/protocol files for a Claude agent ("Flux") working for the human ("Jason" / Jakob). Read `AGENTS.md` for the session ritual and behavioral rules. Beyond the agent files, the real day-to-day work is the **LandMore Calls website** in `profluxlabs/website/`.
 
-Each top-level subfolder is its own independent project (static sites and a Chrome extension); there is no monorepo tooling, no shared package manager, and no root build/test commands.
+## ⚙️ How deploys work (important — no Netlify access needed)
 
-## Session-start protocol (from AGENTS.md)
+There is **no Netlify login or CLI involved.** The pipeline is pure git:
 
-Before doing anything, read in order:
+```
+edit files → git commit → git push origin main → Netlify auto-deploys from GitHub
+```
 
-1. `SOUL.md` — persona/values
-2. `USER.md` — who Jason is
-3. `memory/YYYY-MM-DD.md` for today and yesterday (raw daily logs)
-4. `MEMORY.md` — long-term curated memory **(main session only — see security note below)**
+- **GitHub remote:** `git@github.com:jjflux/openclaw-workspace.git`, branch `main`
+- **Netlify** is connected to that repo and **auto-publishes on every push to `main`.** Base directory = `profluxlabs/website`. Live at **https://landmorecalls.com**.
+- To verify a deploy, `curl` the live site (e.g. `curl -s https://landmorecalls.com/epoxy | grep ...`). The Netlify CLI is NOT installed and is not needed.
+- **Netlify env vars** (set in the Netlify dashboard, NOT in the repo): `META_PIXEL_ID`, `META_CAPI_TOKEN`. Changing them requires a redeploy to take effect.
 
-If `BOOTSTRAP.md` still exists, it's stale (`IDENTITY.md` is already populated); the protocol says to delete it once identity is set.
+## Business context
 
-## Security boundaries — important
+- **Brand:** LandMore Calls (customer-facing). **Legal entity:** ProFlux Labs LLC.
+- Lead-gen agency. Primary active offer: **epoxy flooring** contractor lead-gen (pay-per-shown-appointment, targets $25k+/mo shops). Also an older concrete-coating quiz funnel.
+- **Owner's cell** (for GHL notifications): `9254138554`
+- **Design system:** `profluxlabs/BRAND.md` (main site: gold `#F0A500` + dark, Oswald + DM Sans). The epoxy funnel uses its own blue/Nunito system.
 
-- **`MEMORY.md` is main-session-only.** Per `AGENTS.md`, do NOT load it in shared/group contexts (Discord, group chats, sessions involving other people). It contains personal context that mustn't leak.
-- **`TOOLS.md` contains live credentials** (ElevenLabs API key, voice IDs). Never paste its contents into external tools, web requests, commits to public remotes, or shared chats. Treat it as a secret store.
-- The `.gitignore` only excludes `.netlify/` — there is no broader secret-hygiene safety net. Be deliberate about what you stage.
-- Per `SOUL.md` / `AGENTS.md`: read/organize internally is free; anything that *leaves the machine* (emails, posts, deploys, external API calls beyond what's needed) requires asking first.
+## Security boundaries
 
-## Memory writing
+- **`MEMORY.md` is main-session-only** — don't load in shared/group contexts (per `AGENTS.md`).
+- **`TOOLS.md` holds live credentials** (ElevenLabs key, etc.) — never paste into external tools, commits, or shared chats.
+- The **Meta CAPI token** lives ONLY in Netlify env vars (`META_CAPI_TOKEN`) — never in the repo.
+- `.gitignore` only excludes `.netlify/` — be deliberate about what you stage.
 
-- Daily raw logs → `memory/YYYY-MM-DD.md` (create if missing). `HEARTBEAT.md` makes the **10:00 PM PT end-of-day note mandatory** — Jason explicitly requested this.
-- Curated long-term distillations → `MEMORY.md` (main session only).
-- Heartbeat state, when used, lives in `memory/heartbeat-state.json`.
+---
 
-## Subprojects
+## The website — `profluxlabs/website/`
 
-All four are static or near-static; none have a JS build pipeline.
+Plain static HTML/CSS/JS. No build step. Each `.html` is a route.
 
-### `profluxlabs/website/` — the **Land More Calls** site
-Folder name is misleading: this is the **Land More Calls** product site, not a ProFluxLabs site. ProFlux Labs is the parent agency; Land More Calls is the customer-facing brand/service. The homepage (`index.html`) title is "LandMore Calls — More Jobs. Less Chasing." and logo assets are `landmorecalls-*.svg/png`. Production domain is **landmorecalls.com**. **Note on dual branding:** the homepage and most public pages use **Land More Calls**, but `pricing.html` (and `pricing-internal.html`) are fully **ProFlux Labs**-branded — title, email (`jason@profluxlabs.com`), domain (`profluxlabs.com`), and Cal.com booking links (`cal.com/profluxlabs/demo`) all point to the agency brand. This may be intentional (B2B/internal sales page under the parent-agency brand) rather than stale. Don't auto-rebrand it without confirming intent.
+### Key pages
+- `index.html` — homepage. **CTAs currently point to `/book.html`** (temporarily moved off `/quiz` during A2P chat-widget verification; restore to `/quiz` post-approval if desired).
+- `epoxy.html` + `epoxy-thank-you.html` — **the main paid-ads funnel** (see below). Unlisted-ish (for ad traffic).
+- `quiz.html` + `quiz-thank-you.html` — concrete-coating quiz funnel (5 steps).
+- `case-studies.html`, `case-study-dc-electric.html` (Rob), `case-study-north-star-plumbing.html` (Scott).
+- `ai-receptionist.html` — partner-built page.
+- `book.html` — standalone GHL calendar embed.
+- `vsl-review-elias.html` — unlisted VSL review page (noindex), video in `vsl/`.
+- Legal: `privacy.html`, `terms.html`, `sms-signup.html`, `sms-terms.html`, `success.html`.
+- `netlify/functions/meta-capi.js` — **serverless function**, the Meta Conversions API relay (see Tracking).
 
-Plain HTML/CSS, deployed to Netlify with **base directory = `profluxlabs/website`** (set in the Netlify dashboard, since `profluxlabs/website/netlify.toml` is nested rather than at repo root). Build: `publish = "."`, no build command. Production URL: **https://landmorecalls.com**. Auto-deploys on push to `origin/main` (GitHub `jjflux/openclaw-workspace`). Multiple `*.html` files = multiple routes (pricing, terms, privacy, testimonials, sms-signup, success, etc.). Edit HTML/CSS directly; preview by opening the file in a browser.
+### The epoxy funnel (`epoxy.html`) — how it works
+- 2-step form: **Step 1** revenue qualifier (`0-25` / `25-50` / `50+`) → **Step 2** contact (name/phone/email) → on submit, the GHL calendar reveals inline.
+- **Everyone can book** (all revenue tiers see the calendar). The **Meta `Lead` pixel event fires ONLY for qualified ($25k+)** — gated by `if(qualified){ fireLeadPixel(contact); }`. The GHL webhook fires for ALL tiers (with a `qualified: yes/no` flag).
+- On submit, `saveToGoHighLevel(contact)` POSTs the full payload to the GHL inbound webhook.
+- **GHL inbound webhook (`GHL_WEBHOOK_URL`):** `https://services.leadconnectorhq.com/hooks/MAK3DATQKWj4NrGfnqSG/webhook-trigger/Q6ONO4WHKvQbRbCkejXR` → triggers the "1. New Lead" workflow.
+- **GHL calendar (`GHL_CALENDAR_BASE`):** `https://api.leadconnectorhq.com/widget/booking/vlhhAVmm0RnenlMMEoRm`. GHL's `form_embed.js` auto-resizes the iframe. Calendar's post-booking redirect is set to `/epoxy-thank-you` (fires the Schedule event).
+- **Webhook payload keys:** `name, phone, email, monthly_revenue, qualified, lead_type, fbp, fbc, utm_source, utm_medium, utm_campaign, utm_content, utm_term, ad_id, placement, fbclid, gclid, submitted_at, source`. All sent flat/top-level; tracking keys always sent (empty string if absent). See `TRACKING_KEYS` in the file.
+- **Known open item:** the funnel maps a single `name` field to GHL's First Name → contacts get full name in first_name (SMS reads "hey Firstname Lastname"). Splitting into `first_name`/`last_name` on the page is a pending refinement.
 
-### `profluxlabs/` (non-website folders)
-`outreach/`, `sales/`, `research/`, `youtube/`, `voice-training/`, `finances/`, `pricing/`, `system/`, `demo-website/` — these are **content/operations directories**, not code. Markdown docs, assets, and process notes for running the agency. Treat them as a knowledge base; don't try to "build" or "test" them.
+## Meta tracking (pixel + CAPI) — LIVE and verified
 
-### `personal-website/`
-Single-page static site (`index.html` + `styles.css` + `script.js`) with personal photo assets. No build step — open `index.html` directly.
+- **Pixel ID:** `1557942752544196` (LandMore Calls "B2B" dataset). Hardcoded in `epoxy.html` + `epoxy-thank-you.html` (`META_PIXEL_ID`). Pixel is on ONLY those two pages.
+- **Ad accounts:** `B2b` (`1250388558834327`) and `Lead gen`. Pixel connected to B2b.
+- **Server-side CAPI:** `netlify/functions/meta-capi.js` relays events to Meta. Reads `META_PIXEL_ID` + `META_CAPI_TOKEN` from Netlify env; no-ops if unset. Endpoint: `https://landmorecalls.com/.netlify/functions/meta-capi`.
+- **Events (browser pixel + CAPI, de-duplicated via shared `event_id`):**
+  - `PageView` — page load
+  - `Lead` — qualified ($25k+) form submit ONLY (gated by design)
+  - `Schedule` — on `/epoxy-thank-you` (after booking)
+  - `Purchase` — fired from GHL when a deal is marked Won (with `lead_value`)
+- CAPI value parser strips `$`/commas (`$4,600.00` → `4600`).
+- **Ad optimization:** optimize the ad set for the **`Lead`** event (not Schedule/Purchase yet — too little volume early). Switch to Schedule once booking volume is high, Purchase once deals close.
 
-### `soundflow/`
-Chrome extension (Manifest V3) that adds a floating player to TikTok's saved-sounds page. Content script + CSS injection, MutationObserver for SPA navigation, no external deps. To test:
-1. Open `chrome://extensions/`, enable Developer Mode, click "Load unpacked", select this folder.
-2. Visit TikTok → Profile → Favorites → Sounds.
+## GoHighLevel setup (owner manages in GHL dashboard — Claude Code can't access GHL directly)
 
-### `soundflow-web/`
-PWA version of soundflow — paste TikTok URLs and play extracted audio back-to-back. Static HTML/JS/CSS + `sw.js` service worker + `manifest.json`. Deployed to Netlify (`publish = "."`, no build). Honest limitation per its README: direct audio extraction is unreliable; users may need a third-party extractor like snaptik.app first.
+- **"1. New Lead" workflow** — trigger: Inbound Webhook (the epoxy URL). Actions: **Create/Update Contact** (maps `name`/`phone`/`email`) → **Update Contact Field** (maps `monthly_revenue`, `fbp`, `fbc`; UTMs NOT mapped — optional) → Create Opportunity (EPOXY pipeline) → Internal Notification (SMS to owner) → 3-min wait → SMS nurture with AI bot "Jack". The 3-min wait lets bookers get pulled out before the nurture texts fire.
+- **"Booked Appointment" workflow** — trigger: Customer Booked Appointment → CALL BOOKED internal SMS with appointment time + contact info. Has a "Remove from Workflow" action (ideally scoped to "1. New Lead" only).
+- **"Closed sale Facebook tracking webhook" workflow** — trigger: Opportunity status = **Won**, pipeline EPOXY → Custom Webhook POST to `meta-capi` with a `Purchase` event + `{{opportunity.lead_value}}`. Set the deal's $ value before marking Won.
+- **Custom fields:** Monthly Revenue, Facebook Browser ID, Facebook Click ID.
+- **EPOXY pipeline stages:** New Lead, Contacted, Scheduled, Reschedule, (Closed).
+- GHL merge fields: use `{{inboundWebhookRequest.X}}` in webhook-triggered workflows (reads the payload directly, avoids contact-record timing blanks); `{{contact.X}}` only reads reliably once the contact record exists.
+- **Note:** Claude Code has NO access to GHL or Meta dashboards — it guides the owner through those by hand. A GHL MCP could change this (not currently set up).
 
-## Conventions worth knowing
-
-- **Subprojects are siloed.** Don't introduce cross-project shared code, monorepo tooling, or a root `package.json` unless explicitly asked — the workspace is intentionally a flat collection of independent things plus agent memory.
-- **Static-first.** Default approach to new web work here is plain HTML/CSS/JS deployed to Netlify, not a framework. Don't reach for React/Next/Vite without a reason.
-- **The agent files are living documents.** `SOUL.md`, `AGENTS.md`, `TOOLS.md`, `IDENTITY.md` are meant to be edited as the persona evolves — if you change `SOUL.md`, tell the human (it's the agent's "soul").
-- **Platform formatting matters** (from AGENTS.md): no markdown tables on Discord/WhatsApp, no headers on WhatsApp, wrap Discord links in `<>` to suppress embeds.
+## Conventions
+- **Static-first.** Plain HTML/CSS/JS deployed via git push → Netlify. No frameworks without a reason.
+- **Verify deploys via `curl`** against landmorecalls.com, not Netlify tooling.
+- **Commit + push** after meaningful changes (auto-deploys). Keep commit messages descriptive.
+- Large binaries (video): compress before committing — GitHub rejects files >100MB (`vsl/elias-vsl.mp4` is an 81MB compressed example).
+- Agent files (`SOUL.md`, `AGENTS.md`, `TOOLS.md`, `IDENTITY.md`) are living documents — if you change `SOUL.md`, tell the human.
