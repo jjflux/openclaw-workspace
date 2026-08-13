@@ -191,8 +191,12 @@ if (META_PIXEL_ID) {
           <div class="q-label">What Is The Size Of Your Business?</div>
           <div class="q-sub">Estimated Monthly Revenue</div>
 
-          <button class="opt" data-revenue="0-25" onclick="selectRevenue('0-25')">
-            <span><span class="opt-label" data-rev-label="0-25">$0 – $25k</span> <span class="opt-sub">/ Month</span></span>
+          <button class="opt" data-revenue="0-10" onclick="selectRevenue('0-10')">
+            <span><span class="opt-label" data-rev-label="0-10">$0 – $10k</span> <span class="opt-sub">/ Month</span></span>
+            <span class="radio"><span class="radio-dot"></span></span>
+          </button>
+          <button class="opt" data-revenue="10-25" onclick="selectRevenue('10-25')">
+            <span><span class="opt-label" data-rev-label="10-25">$10k – $25k</span> <span class="opt-sub">/ Month</span></span>
             <span class="radio"><span class="radio-dot"></span></span>
           </button>
           <button class="opt" data-revenue="25-50" onclick="selectRevenue('25-50')">
@@ -298,7 +302,7 @@ if (META_PIXEL_ID) {
    placeholders: unset pixel = no-op, unset webhook = Netlify-only save.
    ============================================================================ */
 var CURRENCY = '$';                              // '$' | '£' | '€' — drives revenue labels
-var QUALIFY_UNQUALIFIED_VALUE = '0-25';          // the ONE band that is unqualified
+var QUALIFY_UNQUALIFIED_VALUE = '0-10';          // the ONE band that is unqualified (gate moved 25k -> 10k, 2026-08-13, per mentor)
 var GHL_WEBHOOK_URL = 'https://services.leadconnectorhq.com/hooks/MAK3DATQKWj4NrGfnqSG/webhook-trigger/Q6ONO4WHKvQbRbCkejXR'; // Epoxy "1. New Lead" workflow inbound webhook
 var GHL_CALENDAR_BASE = 'https://api.leadconnectorhq.com/widget/booking/vlhhAVmm0RnenlMMEoRm'; // Epoxy Discovery Call calendar
 
@@ -323,7 +327,7 @@ var state = { step:1, revenue:'', result:null };
 function money(n){ return CURRENCY + n; }
 
 function applyCurrency(){
-  var labels = { '0-25': money('0')+' – '+money('25k'), '25-50': money('25k')+' – '+money('50k'), '50+': money('50k')+'+' };
+  var labels = { '0-10': money('0')+' – '+money('10k'), '10-25': money('10k')+' – '+money('25k'), '25-50': money('25k')+' – '+money('50k'), '50+': money('50k')+'+' };
   document.querySelectorAll('[data-rev-label]').forEach(function(el){ el.textContent = labels[el.getAttribute('data-rev-label')]; });
 }
 
@@ -373,11 +377,11 @@ function submitForm(){
   contact.fbc = readCookie('_fbc');
 
   // (1) ALWAYS save the contact to GoHighLevel + Netlify backup — every revenue tier,
-  //     including $0-25k. (GHL still gets the `qualified` flag so you can segment.)
+  //     including $0-10k. (GHL still gets the `qualified` flag so you can segment.)
   saveToGoHighLevel(contact);
   saveToNetlify(contact);
 
-  // (2) Fire the Meta pixel Lead event ONLY for qualified leads ($25k+). Never for $0-25k.
+  // (2) Fire the Meta pixel Lead event ONLY for qualified leads ($10k+). Never for $0-10k.
   if(qualified){ fireLeadPixel(contact); }
 
   // (3) EVERYONE gets to book — reveal the live calendar for all revenue tiers.
@@ -468,7 +472,7 @@ function sendCapi(eventName, contact, eventId){
 }
 
 // Fire the Meta Lead event — browser pixel + server-side CAPI, de-duplicated via
-// a shared event_id. QUALIFIED ONLY (>= 25k). Both sides no-op until configured.
+// a shared event_id. QUALIFIED ONLY (>= 10k). Both sides no-op until configured.
 function fireLeadPixel(contact){
   var eid = newEventId();
   if(window.fbq){
