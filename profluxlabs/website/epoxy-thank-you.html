@@ -209,18 +209,40 @@ if (META_PIXEL_ID) {
 })();
 
 /* Fire the "Schedule" conversion (an actual booking) — browser pixel + server-side
-   CAPI, de-duplicated by a shared event_id. Both no-op until configured. */
+   CAPI, de-duplicated by a shared event_id. Fires ONCE PER BOOKING, not once per
+   page load: this page gets refreshed, revisited from the confirmation email, and
+   re-opened on other devices, and every load used to mint a fresh random event_id
+   Meta couldn't de-dupe (113 Schedule events vs ~35 real bookings). The event_id
+   is now DERIVED from who booked + the UTC day, so Meta collapses every repeat —
+   any device, any session — into one conversion, and localStorage suppresses the
+   re-send from this browser entirely. A rebook on a later day is a new event on
+   purpose (no-shows get rebooked). Both sides no-op until configured. */
 (function(){
   function readCookie(name){
     var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
     return m ? m.pop() : '';
   }
-  function newEventId(){
-    try { return crypto.randomUUID(); }
-    catch(e){ return 'e' + Date.now() + '-' + Math.round(Math.random() * 1e9); }
+  function hash(s){ /* djb2 — stable across devices; uniqueness, not security */
+    var h = 5381, i;
+    for (i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+    return h.toString(36);
   }
   var p = new URLSearchParams(location.search);
-  var eid = newEventId();
+  var first = p.get('first_name') || p.get('firstName') || '';
+  var last  = p.get('last_name')  || p.get('lastName')  || '';
+  var email = p.get('email') || '';
+  var phone = p.get('phone') || '';
+  /* Who booked. If GHL's redirect carried no contact params, fall back to the
+     per-browser _fbp cookie — a param-less booking still counts once per visitor
+     instead of once per load (or colliding with other visitors). */
+  var who = (email || phone || (first + ' ' + last).trim() ||
+             ('anon:' + (readCookie('_fbp') || 'nofbp'))).toLowerCase();
+  var day = new Date().toISOString().slice(0, 10);
+  var eid = 'sched-' + hash(who + '|' + day);
+
+  var already = false;
+  try { already = localStorage.getItem('schedFired:' + eid) !== null; } catch(e){}
+  if (already) return;
 
   if(window.fbq){
     fbq('track', 'Schedule', { content_name:'Epoxy Discovery Call Booked' }, { eventID: eid });
@@ -231,10 +253,10 @@ if (META_PIXEL_ID) {
     event_id: eid,
     event_source_url: location.href,
     content_name: 'Epoxy Discovery Call Booked',
-    first_name: p.get('first_name') || p.get('firstName') || '',
-    last_name:  p.get('last_name')  || p.get('lastName')  || '',
-    email: p.get('email') || '',
-    phone: p.get('phone') || '',
+    first_name: first,
+    last_name:  last,
+    email: email,
+    phone: phone,
     fbp: readCookie('_fbp'),
     fbc: readCookie('_fbc')
   };
@@ -244,6 +266,9 @@ if (META_PIXEL_ID) {
       body: JSON.stringify(body), keepalive:true
     }).catch(function(){});
   } catch(e){}
+
+  /* mark AFTER the fire attempts — if anything above threw, the next load retries */
+  try { localStorage.setItem('schedFired:' + eid, String(Date.now())); } catch(e){}
 })();
 
 /* Click-to-play video testimonials */
