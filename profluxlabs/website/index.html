@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LandMore Calls — More Jobs. Less Chasing.</title>
-  <meta name="description" content="Qualified, ready-to-pay homeowners straight to your phone. We deliver in-market leads to home-service contractors who can close the work.">
+  <title>LandMore Calls — Booked Appointments, Not Leads.</title>
+  <meta name="description" content="We generate the leads and our in-house sales team calls every one by phone. You get confirmed appointments on your calendar — not a list of names to chase.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -390,16 +390,16 @@
 
     /* ── TESTIMONIALS ── */
     .testimonials-section {
-      background: var(--black);
+      background: var(--black-shade);
       padding: 96px 5%;
     }
     .section-eyebrow {
       font-family: 'DM Sans', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.15em;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       color: var(--gold);
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       text-transform: uppercase;
     }
     .section-h2 {
@@ -417,19 +417,22 @@
       margin-top: 56px;
     }
     .testimonial-card {
-      background: var(--card-black);
+      background: #24242A;
       padding: 40px;
+      border: 1px solid var(--border-darker);
       border-top: 3px solid var(--gold);
     }
-    .quote-mark { margin-bottom: 20px; opacity: 0.6; display: block; }
+    .quote-mark { margin-bottom: 20px; opacity: 0.9; display: block; }
     .testimonial-quote {
       font-family: 'DM Sans', sans-serif;
       font-size: 17px;
       line-height: 1.75;
-      color: #E8E4DE;
+      color: var(--mid-gray);
       font-style: italic;
       margin-bottom: 28px;
     }
+    /* Featured case-study card: descriptive prose, not a pull-quote — italics hurt it */
+    .testimonial-card.featured .testimonial-quote { font-style: normal; }
     .testimonial-author { display: flex; align-items: center; gap: 14px; }
     .testimonial-avatar {
       width: 44px;
@@ -457,7 +460,7 @@
     .testimonial-role {
       font-family: 'DM Sans', sans-serif;
       font-size: 12px;
-      color: var(--muted-mid);
+      color: var(--muted-dark);
       margin-top: 2px;
     }
 
@@ -1088,7 +1091,7 @@
       </div>
     </a>
     <div class="nav-links">
-      <a href="#services">Services</a>
+      <a href="#services">What We Do</a>
       <a href="/case-studies">Case Studies</a>
       <a href="#faq">FAQ</a>
       <a href="/book.html" class="nav-cta">BOOK</a>
@@ -1101,21 +1104,21 @@
   <div class="hero-left">
     <div class="hero-eyebrow">For Home Service Pros</div>
     <h1 class="hero-h1">
-      TIRED OF<br>
-      <span class="gold">TIRE-KICKERS</span><br>
-      ON THE PHONE?
+      STOP<br>
+      <span class="gold">CHASING</span><br>
+      LEADS.
     </h1>
     <p class="hero-sub">
-      You've been burned by marketing guys before — we get it. We deliver <strong>qualified, ready-to-pay homeowners</strong> straight to your phone.
+      You've been burned by marketing guys before — we get it. We generate the leads ourselves, and <strong>our in-house sales team calls every single one</strong>. You only hear about the ones that book — as appointments on your calendar.
     </p>
     <div class="cta-row">
-      <a href="/book.html" class="btn-primary">GET MORE LEADS</a>
+      <a href="/book.html" class="btn-primary">GET BOOKED APPOINTMENTS</a>
       <a href="#how-it-works" class="btn-ghost">HOW IT WORKS</a>
     </div>
   </div>
   <div class="hero-right">
     <div class="phone-scene">
-      <div class="counter" id="phoneCounter">0 new leads</div>
+      <div class="counter" id="phoneCounter">0 appointments booked</div>
       <div class="phone" id="phoneEl">
         <div class="screen">
           <div class="wallpaper"></div>
@@ -1157,24 +1160,24 @@
 <div id="results" class="stats-bar">
   <div class="stats-grid">
     <div class="stat-cell">
+      <div class="stat-num">57</div>
+      <div class="stat-label">Appointments booked in 15 days</div>
+      <div class="stat-sub">Spartan Coatings · 10 territories</div>
+    </div>
+    <div class="stat-cell">
       <div class="stat-num">4</div>
-      <div class="stat-label">Real jobs booked in 3 days</div>
+      <div class="stat-label">Jobs booked in 3 days</div>
       <div class="stat-sub">DC Electric</div>
     </div>
     <div class="stat-cell">
-      <div class="stat-num">34</div>
-      <div class="stat-label">Google reviews in 6 weeks</div>
-      <div class="stat-sub">From 11 → 34</div>
-    </div>
-    <div class="stat-cell">
-      <div class="stat-num">3×</div>
-      <div class="stat-label">More qualified leads on autopilot</div>
-      <div class="stat-sub">Reputation engine</div>
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Called by our team first</div>
+      <div class="stat-sub">Real people, not a bot</div>
     </div>
     <div class="stat-cell">
       <div class="stat-num">0</div>
-      <div class="stat-label">Tire-kickers. Period.</div>
-      <div class="stat-sub">Qualified leads only</div>
+      <div class="stat-label">Tire-kickers on your calendar</div>
+      <div class="stat-sub">Qualified by phone</div>
     </div>
   </div>
 </div>
@@ -1183,8 +1186,8 @@
 <section id="how-it-works" class="how-section">
   <div class="section-inner">
     <div class="how-eyebrow">How It Works</div>
-    <h2 class="how-h2">From your area<br>to your phone, ringing.</h2>
-    <p class="how-lede">Four steps. No middlemen, no shared leads, no waiting weeks for "ramp time." Built for contractors who can close work, not click reports.</p>
+    <h2 class="how-h2">From your area<br>to your calendar, booked.</h2>
+    <p class="how-lede">Four steps. We fund the ads, our own sales team works every lead by phone, and what lands on your calendar is an appointment — not a name to chase. No shared leads, no middlemen, no "ramp time."</p>
 
     <div class="how-steps">
       <div class="how-step">
@@ -1196,35 +1199,34 @@
             <circle cx="18" cy="18" r="2" fill="currentColor"/>
           </svg>
         </div>
-        <h3>We Target Your Area</h3>
-        <p>We map the highest-converting zip codes in your service radius — where homeowners are actively searching for what you do, with the budget to pay for it.</p>
+        <h3>We Generate The Leads</h3>
+        <p>We run and fund the ads across your service radius — the zip codes where homeowners are actively looking for what you do, with the budget to pay for it. Our spend, not yours.</p>
       </div>
 
       <div class="how-step">
         <div class="how-step-num">Step 02</div>
         <div class="how-step-icon">
           <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
-            <path d="M5 7 H31 L21 18 V29 L15 31 V18 Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
+            <path d="M9 6 h5 l2.5 6 -3 2.5 a14 14 0 0 0 8 8 l2.5 -3 6 2.5 v5 a2.5 2.5 0 0 1 -2.5 2.5 A22 22 0 0 1 6.5 8.5 2.5 2.5 0 0 1 9 6 z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" fill="none"/>
           </svg>
         </div>
-        <h3>We Qualify Every Lead</h3>
-        <p>A specialized qualification system filters out tire-kickers, renters, price-shoppers, and people three months out. Only ready-to-hire homeowners with money make it through.</p>
+        <h3>We Call Them Ourselves</h3>
+        <p>Our in-house sales team is on the phone within minutes — real people, not a bot and not a robo-dialer. We call, text, and call again until we've had an actual conversation.</p>
       </div>
 
       <div class="how-step">
         <div class="how-step-num">Step 03</div>
         <div class="how-step-icon">
           <svg width="40" height="40" viewBox="0 0 36 36" fill="none">
-            <rect x="11" y="4" width="14" height="28" rx="2" stroke="currentColor" stroke-width="2"/>
-            <line x1="11" y1="9" x2="25" y2="9" stroke="currentColor" stroke-width="2"/>
-            <line x1="11" y1="27" x2="25" y2="27" stroke="currentColor" stroke-width="2"/>
-            <circle cx="18" cy="29.5" r="0.8" fill="currentColor"/>
-            <path d="M28 13 Q31 15 31 18 Q31 21 28 23" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.7"/>
-            <path d="M30 10 Q34 13 34 18 Q34 23 30 26" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.35"/>
+            <rect x="5" y="7" width="26" height="24" rx="2" stroke="currentColor" stroke-width="2"/>
+            <line x1="5" y1="14" x2="31" y2="14" stroke="currentColor" stroke-width="2"/>
+            <line x1="12" y1="4" x2="12" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="4" x2="24" y2="9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12.5 22 L16 25.5 L24 18" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>Calls Hit Your Phone</h3>
-        <p>The moment a qualified homeowner is identified, the call routes straight to your phone — automatically. No middleman, no shared leads, no waiting.</p>
+        <h3>We Book The Appointment</h3>
+        <p>Once we've confirmed on the phone that they're a real homeowner, in your area, with the budget and the intent — we put them straight onto your calendar at a time you're free.</p>
       </div>
 
       <div class="how-step">
@@ -1235,8 +1237,8 @@
             <path d="M11 18 L16 23 L25 13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>You Close The Job</h3>
-        <p>Show up, give the quote, do the work. We handle the lead engine. You handle the truck — and the deposit.</p>
+        <h3>You Show Up And Close</h3>
+        <p>Show up, give the quote, do the work. We handle everything up to the appointment. You handle the truck — and the deposit.</p>
       </div>
     </div>
   </div>
@@ -1246,44 +1248,44 @@
 <section id="services" class="services-section">
   <div class="section-inner">
     <div class="section-heading-block">
-      <h2 class="section-h2-xl">HERE'S WHAT YOU<br>ACTUALLY CARE ABOUT.</h2>
+      <h2 class="section-h2-xl">WE DO ONE THING.<br>BOOKED APPOINTMENTS.</h2>
     </div>
     <div class="services-grid">
-      <!-- Reputation -->
+      <!-- Lead gen — ours, not yours -->
       <div class="service-tile">
         <div class="tile-icon">
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <polygon points="18,4 21,13 31,13 23,19 26,28 18,22 10,28 13,19 5,13 15,13" stroke="#F0A500" stroke-width="2" fill="none"/>
+            <circle cx="18" cy="18" r="13" stroke="#F0A500" stroke-width="2"/>
+            <circle cx="18" cy="18" r="7" stroke="#F0A500" stroke-width="2"/>
+            <circle cx="18" cy="18" r="2" fill="#F0A500"/>
           </svg>
         </div>
-        <h3 class="tile-title">A Reputation That Sells</h3>
-        <p class="tile-body">Every happy customer gets funneled straight to your Google page. More 5-stars means higher rankings — and homeowners trusting you before they ever call.</p>
+        <h3 class="tile-title">We Generate The Leads</h3>
+        <p class="tile-body">Our ads, our budget, your service area. You never open an ad account, never write a check for a test campaign, and never wonder where the leads came from.</p>
       </div>
-      <!-- Qualified Leads — middle dark tile -->
+      <!-- The human call — middle dark tile -->
       <div class="service-tile dark">
         <div class="tile-icon">
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <rect x="4" y="6" width="28" height="20" rx="2" stroke="#F0A500" stroke-width="2"/>
-            <path d="M12 26 L14 30 M24 26 L22 30" stroke="#F0A500" stroke-width="2" stroke-linecap="round"/>
-            <path d="M10 30h16" stroke="#F0A500" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="18" cy="16" r="4" stroke="#F0A500" stroke-width="2"/>
-            <path d="M14 16c0-2.2 1.8-4 4-4" stroke="#F0A500" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M9 6 h5 l2.5 6 -3 2.5 a14 14 0 0 0 8 8 l2.5 -3 6 2.5 v5 a2.5 2.5 0 0 1 -2.5 2.5 A22 22 0 0 1 6.5 8.5 2.5 2.5 0 0 1 9 6 z" stroke="#F0A500" stroke-width="2" stroke-linejoin="round" fill="none"/>
           </svg>
         </div>
-        <h3 class="tile-title">Qualified Leads Only</h3>
-        <p class="tile-body">No tire-kickers. No price-shoppers. No renters. No wrong numbers. Real homeowners with real problems, ready to hire today.</p>
+        <h3 class="tile-title">We Call Them Ourselves</h3>
+        <p class="tile-body">An in-house sales team on the phone within minutes — not an AI, not a robo-dialer. Every homeowner gets qualified in a real conversation before they ever reach your calendar.</p>
       </div>
-      <!-- Sites -->
+      <!-- The appointment -->
       <div class="service-tile">
         <div class="tile-icon">
           <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-            <path d="M6 28 L12 20 L18 23 L26 12 L30 16" stroke="#F0A500" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-            <circle cx="30" cy="8" r="4" stroke="#F0A500" stroke-width="2"/>
-            <path d="M27 8h6M30 5v6" stroke="#F0A500" stroke-width="1.5" stroke-linecap="round"/>
+            <rect x="5" y="7" width="26" height="24" rx="2" stroke="#F0A500" stroke-width="2"/>
+            <line x1="5" y1="14" x2="31" y2="14" stroke="#F0A500" stroke-width="2"/>
+            <line x1="12" y1="4" x2="12" y2="9" stroke="#F0A500" stroke-width="2" stroke-linecap="round"/>
+            <line x1="24" y1="4" x2="24" y2="9" stroke="#F0A500" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12.5 22 L16 25.5 L24 18" stroke="#F0A500" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="tile-title">Sites That Actually Sell</h3>
-        <p class="tile-body">Most contractor websites are brochures. Yours will be a salesperson — built to turn visitors into booked jobs, not just clicks and bounces.</p>
+        <h3 class="tile-title">You Get The Appointment</h3>
+        <p class="tile-body">A confirmed homeowner, on your calendar, at a time you're actually free. No tire-kickers, no renters, no wrong numbers. Show up and close — that's your whole job.</p>
       </div>
     </div>
   </div>
@@ -1295,7 +1297,7 @@
     <div class="section-eyebrow">Real Results</div>
     <h2 class="section-h2">GUYS WHO STOPPED GETTING BURNED.</h2>
     <div class="testimonials-grid">
-      <a class="testimonial-card" href="/case-study-spartan-coatings" style="grid-column: 1 / -1; text-decoration: none; border: 1px solid rgba(240,165,0,0.35); display: block;">
+      <a class="testimonial-card featured" href="/case-study-spartan-coatings" style="grid-column: 1 / -1; text-decoration: none; border-color: rgba(240,165,0,0.45); display: block;">
         <div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #F0A500; margin-bottom: 16px;">Featured Case Study · Spartan Coatings · 20-Location Franchise</div>
         <p class="testimonial-quote">A 20-location concrete-coating franchise handed us half the map. Across 10 territories we booked <strong style="color:#F0A500; font-weight:600;">57 appointments in the first 15 days</strong> — at a 60% close rate that's ~$250 per sold job, about a <strong style="color:#F0A500; font-weight:600;">14× return</strong> on every dollar he pays us.</p>
         <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px;">
@@ -1313,7 +1315,7 @@
         <svg class="quote-mark" width="32" height="24" viewBox="0 0 36 24" fill="#F0A500">
           <path d="M0 24V14.4C0 6.4 5.2 1.6 15.6 0l1.6 2.8C12 4.4 9.2 7.2 8.8 11.2H14V24H0zm18 0V14.4C18 6.4 23.2 1.6 33.6 0L35.2 2.8C30 4.4 27.2 7.2 26.8 11.2H32V24H18z"/>
         </svg>
-        <p class="testimonial-quote">"Rob went from 11 Google reviews to 34 in 6 weeks — and booked 4 new jobs in 3 days without lifting a finger."</p>
+        <p class="testimonial-quote">"Rob booked 4 new jobs in the first 3 days — without lifting a finger. Every one of them was already on his calendar when he woke up."</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar"><span>R</span></div>
           <div>
@@ -1354,7 +1356,7 @@
     <div>
       <div class="contact-eyebrow">Get Started</div>
       <h2 class="contact-h2">BOOK.</h2>
-      <p class="contact-sub">Tell us where you're at. We'll show you what your market is worth — in real, qualified jobs — and exactly what it'd take to land them.</p>
+      <p class="contact-sub">Tell us where you're at. We'll show you what your market is worth — in booked appointments — and exactly what it'd take to fill your calendar.</p>
       <div class="contact-bullets">
         <div class="contact-bullet">
           <div class="bullet-icon">
@@ -1370,7 +1372,7 @@
               <path d="M1 4L3.5 6.5L9 1" stroke="#18181A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <span class="bullet-text">Real homeowners with real problems, ready to hire</span>
+          <span class="bullet-text">Every appointment spoken to by our team first</span>
         </div>
         <div class="contact-bullet">
           <div class="bullet-icon">
@@ -1422,15 +1424,17 @@
   // ── FAQ accordion ──
   const faqData = [
     { q: "I've been burned by marketing agencies before. Why are you different?",
-      a: "Most agencies sell traffic, impressions, or generic shared leads. We sell qualified, in-market homeowners — real people, real budgets, ready to hire. Most agencies hand you a list. We hand you a phone that's ringing." },
-    { q: "How fast will I see actual jobs?",
-      a: "Most clients land their first paying jobs in 7–14 days. Not clicks, not impressions — money in the bank." },
+      a: "Most agencies hand you a list of names and call it a lead. We hand you a calendar with appointments on it — and every one of those homeowners has already had a real phone conversation with someone on our team." },
+    { q: "Is it an AI or a real person calling my leads?",
+      a: "A real person. We have an in-house sales team that dials, texts, and dials again until they reach the homeowner. No bots, no robo-dialers, no voicemail blasts. If nobody actually talks to them, nothing lands on your calendar." },
+    { q: "Who pays for the ads?",
+      a: "We do. We generate the leads ourselves with our own budget in your service area. You never open an ad account and never fund a test campaign — that risk is ours, not yours." },
     { q: "What does 'qualified' actually mean?",
-      a: "Real homeowner. In your service area. Has the budget. Wants the work done now — not in six months 'when they get around to it.' Our qualification filters do that work before the call ever hits your phone." },
+      a: "Real homeowner. In your service area. Has the budget. Wants the work done now — not in six months 'when they get around to it.' We know because we called and asked, not because a form said so." },
     { q: "What trades do you work with?",
-      a: "HVAC, roofing, electrical, plumbing, garage doors, and other home-service trades. If you serve homeowners with a real need and a real budget, we can fill your calendar." },
+      a: "HVAC, roofing, electrical, plumbing, garage doors, concrete coatings, and other home-service trades. If you serve homeowners with a real need and a real budget, we can fill your calendar." },
     { q: "How much does this cost?",
-      a: "Depends on your market and how much volume you want. No cookie-cutter packages. We'll show you the numbers — and your projected ROI — before you spend a dollar." },
+      a: "You pay per booked appointment — not per click, not per lead, not a monthly retainer. What that costs depends on your market and how many appointments you want a week. We'll show you the numbers before you spend a dollar." },
   ];
 
   const faqList = document.getElementById('faq-list');
@@ -1470,20 +1474,20 @@
   (function() {
     const notifications = [
       { type: 'lead', icon: '📍', title: 'New Lead', body: 'Roof repair — San Diego, CA' },
-      { type: 'booked', icon: '✅', title: 'Job Booked', body: '$4,200 estimate confirmed' },
-      { type: 'captured', icon: '📞', title: 'Missed Call Captured', body: 'HVAC install — answered 24/7' },
+      { type: 'captured', icon: '📞', title: 'Qualified By Phone', body: 'Spoke with homeowner — budget confirmed' },
+      { type: 'booked', icon: '📅', title: 'Appointment Booked', body: 'Thursday 2:00 PM — roof repair' },
       { type: 'lead', icon: '📍', title: 'New Lead', body: 'AC replacement — Phoenix, AZ' },
-      { type: 'booked', icon: '✅', title: 'Job Booked', body: '$8,500 full system install' },
-      { type: 'captured', icon: '📞', title: 'Missed Call Captured', body: 'Emergency plumbing — 11:42pm' },
+      { type: 'captured', icon: '📞', title: 'Qualified By Phone', body: 'Owner, in your area, ready now' },
+      { type: 'booked', icon: '📅', title: 'Appointment Booked', body: 'Friday 9:30 AM — full system quote' },
       { type: 'lead', icon: '📍', title: 'New Lead', body: 'Water heater replacement — LA' },
-      { type: 'booked', icon: '✅', title: 'Job Booked', body: '$1,800 roof patch — booked' },
+      { type: 'captured', icon: '📞', title: 'Qualified By Phone', body: 'Reached on the 2nd dial — wants it this week' },
+      { type: 'booked', icon: '📅', title: 'Appointment Booked', body: 'Monday 11:00 AM — water heater' },
       { type: 'lead', icon: '📍', title: 'New Lead', body: 'Electrical panel upgrade — SD' },
-      { type: 'captured', icon: '📞', title: 'Missed Call Captured', body: 'HVAC tune-up — qualified lead' },
-      { type: 'booked', icon: '✅', title: 'Job Booked', body: '$12,000 roof replacement' },
-      { type: 'lead', icon: '📍', title: 'New Lead', body: 'Mini split install — Las Vegas' },
-      { type: 'booked', icon: '✅', title: 'Job Booked', body: '$3,400 furnace replacement' },
-      { type: 'captured', icon: '📞', title: 'Missed Call Captured', body: 'Tree removal — after hours' },
-      { type: 'lead', icon: '📍', title: 'New Lead', body: 'Ductwork repair — Scottsdale' },
+      { type: 'captured', icon: '📞', title: 'Qualified By Phone', body: 'Homeowner confirmed — not a renter' },
+      { type: 'booked', icon: '📅', title: 'Appointment Booked', body: 'Tuesday 4:00 PM — panel quote' },
+      { type: 'lead', icon: '📍', title: 'New Lead', body: 'Garage floor coating — Des Moines' },
+      { type: 'captured', icon: '📞', title: 'Qualified By Phone', body: '2-car garage — ready to schedule' },
+      { type: 'booked', icon: '📅', title: 'Appointment Booked', body: 'Saturday 10:00 AM — coating estimate' },
     ];
     const typeColors = { lead: '#F5A800', booked: '#34c759', captured: '#0a84ff' };
     const notifArea = document.getElementById('phoneNotifArea');
@@ -1516,9 +1520,9 @@
     function addNotification() {
       const data = notifications[notifIndex % notifications.length];
       notifIndex++;
-      totalCount++;
-      counter.textContent = `${totalCount} new lead${totalCount !== 1 ? 's' : ''}`;
-      counter.classList.add('show');
+      if (data.type === 'booked') totalCount++;
+      counter.textContent = `${totalCount} appointment${totalCount !== 1 ? 's' : ''} booked`;
+      if (totalCount > 0) counter.classList.add('show');
       buzz();
       showIsland(data);
       activeNotifs.forEach((n) => {

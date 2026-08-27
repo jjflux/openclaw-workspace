@@ -7,3 +7,9 @@
 # AI receptionist offer removed 2026-08-26 — send old links home
 /ai-receptionist.html   /   301!
 /ai-receptionist        /   301!
+
+# Pricing pages deleted 2026-08-27 — the offer is pay-per-appointment now
+/pricing.html            /   301!
+/pricing                 /   301!
+/pricing-internal.html   /   301!
+/pricing-internal        /   301!
