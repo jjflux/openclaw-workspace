@@ -9,6 +9,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Live & working:** epoxy funnel + thank-you page, Meta pixel + server-side CAPI (Lead/Schedule/Purchase, all tested), GHL "1. New Lead" + "Booked Appointment" + "Closed sale → Purchase" workflows, closed-won loop.
 
+**2026-08-26 — AI receptionist removed; Spartan case study added** (done in a separate Claude Code session on Jakob's Mac): nav link gone from index, `ai-receptionist.html` is now a redirect stub + forced 301→/ in `_redirects` (scott-testimonial also force-301s to the North Star page). New `case-study-spartan-coatings.html` (all type, no photos) + Spartan card on `/case-studies` + featured card on index testimonials. Numbers (57 appts in first 15 days / 10 of 20 territories / $150/appt / 60% close → ~$250 per sold job, ~14× at $3,500 avg ticket) — 57 came from Jakob's live lead-ops dashboard on 2026-08-26 and GROWS; refresh from lead-ops.onrender.com before editing. NOTE: a stale sibling repo `jjflux/profluxlabs-website` exists and was synced+updated the same day, but THIS repo is the only deploy source — ignore that one. `/pricing` still sells the old $295/mo receptionist offer (unlinked orphan) and the North Star case-study story still mentions the AI receptionist as part of Lead Lock — both left for Jakob to decide.
+
 **Open / pending (most useful first):**
 1. **Split the name on `epoxy.html`** — currently sends one `name` field → GHL first_name gets the full name → SMS reads "hey Firstname Lastname." Fix: send `first_name` + `last_name` separately, then map both in GHL.
 2. **GHL: scope the "Remove from Workflow"** action (in the Booked workflow) to "1. New Lead" only, not "all workflows" (preventive — avoids nuking future nurtures).

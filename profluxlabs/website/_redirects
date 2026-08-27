@@ -1,3 +1,9 @@
 # Old testimonial URLs → new case study
 /rob-testimonial.html   /case-study-dc-electric.html   301
 /rob-testimonial        /case-study-dc-electric.html   301
+/scott-testimonial.html   /case-study-north-star-plumbing.html   301!
+/scott-testimonial        /case-study-north-star-plumbing.html   301!
+
+# AI receptionist offer removed 2026-08-26 — send old links home
+/ai-receptionist.html   /   301!
+/ai-receptionist        /   301!
