@@ -9,7 +9,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Live & working:** epoxy funnel + thank-you page, Meta pixel + server-side CAPI (Lead/Schedule/Purchase, all tested), GHL "1. New Lead" + "Booked Appointment" + "Closed sale → Purchase" workflows, closed-won loop.
 
-**2026-08-26 — AI receptionist removed; Spartan case study added** (done in a separate Claude Code session on Jakob's Mac): nav link gone from index, `ai-receptionist.html` is now a redirect stub + forced 301→/ in `_redirects` (scott-testimonial also force-301s to the North Star page). New `case-study-spartan-coatings.html` (all type, no photos) + Spartan card on `/case-studies` + featured card on index testimonials. Numbers (57 appts in first 15 days / 10 of 20 territories / $150/appt / 60% close → ~$250 per sold job, ~14× at $3,500 avg ticket) — 57 came from Jakob's live lead-ops dashboard on 2026-08-26 and GROWS; refresh from lead-ops.onrender.com before editing. NOTE: a stale sibling repo `jjflux/profluxlabs-website` exists and was synced+updated the same day, but THIS repo is the only deploy source — ignore that one.
+**2026-08-26 — AI receptionist removed; franchise case study added** (done in a separate Claude Code session on Jakob's Mac): nav link gone from index, `ai-receptionist.html` is now a redirect stub + forced 301→/ in `_redirects` (scott-testimonial also force-301s to the North Star page). New franchise case study (all type, no photos) + card on `/case-studies` + featured card on index testimonials. Numbers (57 appts in first 15 days / 10 of 20 territories / $150/appt / 60% close → ~$250 per sold job, ~14× at $3,500 avg ticket) — 57 came from Jakob's live lead-ops dashboard on 2026-08-26 and GROWS; refresh from lead-ops.onrender.com before editing. NOTE: a stale sibling repo `jjflux/profluxlabs-website` exists and was synced+updated the same day, but THIS repo is the only deploy source — ignore that one.
+
+**2026-08-28 — THE FRANCHISE CASE-STUDY CLIENT IS ANONYMISED. THIS IS PERMANENT.**
+Jakob: *"he just doesn't want the word Spartan on the website"* — the client asked to be
+unnamed. **Never reintroduce the franchise's name or the operator's first name** anywhere:
+page copy, `<title>`, meta description, alt text, HTML comments, or the FILENAME.
+- `case-study-spartan-coatings.html` → **`case-study-franchise.html`**; both old paths 301 in
+  `_redirects` (**keep those forever** — the old link went out in DMs and email, and a 301 is
+  also the fastest way to get the old titled URL dropped from Google's index).
+- Client reads as "Multi-State Coating Franchise" / "the founder". Index featured card and
+  the `/case-studies` card were swept too.
+- **PRICING IS OFF THE PAGE** (Jakob, same day: *"remove how much he pays"*). No $/appointment,
+  no all-in spend, no cost-per-sold-job. What stays: 71 appointments / 18 days, 10 of 20
+  territories, ~35 jobs, ~$150K booked revenue, ~14× return, ~7% of job value. **Note the rate
+  is still back-calculable** from $150K ÷ 14× — drop the 14× and the revenue figure too if the
+  client ever objects.
+- Numbers refreshed from LIVE lead-ops 2026-08-28: 71 booked (was 57), first spend 2026-08-11
+  so 18 days, 10 markets spending (Naples/Austin/Fort Worth built but at $0). Close rate and
+  ticket now come from the client's OWN closed-won audit — **50% close, $4,279 average ticket**
+  — replacing the older 60% / $3,500, which their audit does not support. Same ~14× headline,
+  every input now defensible if a prospect challenges it. APPOINTMENT COUNT GROWS: refresh from
+  lead-ops.onrender.com before editing this page again.
 
 **2026-08-27 — THE SITE IS NOW ABOUT ONE THING: BOOKED APPOINTMENTS.** Jakob: *"design it more around only appointments. Literally make it a point to be all about appointments only. We generate the leads ourselves. We call them personally with our in-house sales team before putting them on the calendar."* So:
 

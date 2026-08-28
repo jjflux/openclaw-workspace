@@ -13,3 +13,9 @@
 /pricing                 /   301!
 /pricing-internal.html   /   301!
 /pricing-internal        /   301!
+
+# Case-study client anonymised at their request 2026-08-28 — the old slug carried
+# their name, so the URL itself had to change. Keep these forever: the old link
+# was shared in DMs and email.
+/case-study-spartan-coatings.html   /case-study-franchise.html   301!
+/case-study-spartan-coatings        /case-study-franchise.html   301!
