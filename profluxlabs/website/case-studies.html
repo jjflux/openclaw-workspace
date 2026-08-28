@@ -30,6 +30,11 @@
       /* Bright --gold is ~2.0:1 on warm-white — fine on a border, unreadable as
          small text. Gold TEXT on a light surface must use --gold-ink. */
       --gold-ink:     #8A5E00;
+      /* Large text (>=24px, or >=18.66px bold) only needs 3:1, so accent numbers on a
+         white card can run a much brighter gold than the small-text token allows.
+         #B37B00 is 3.44:1 on --warm-white; anything brighter fails. True #F0A500 is
+         1.96:1 and is never usable as text on this background. */
+      --gold-ink-lg:  #B37B00;
       --muted-light:  #5A5552;
       --border-light: #E8E4DE;
       --border-lighter:#E0DDD8;
@@ -214,13 +219,13 @@
       flex-direction: column; gap: 6px; text-align: center;
     }
     .cs-card.featured .cs-card-title { color: #1A1A1C; }
-    .cs-card.featured .cs-card-title em { color: var(--gold-ink); }
+    .cs-card.featured .cs-card-title em { color: var(--gold-ink-lg); }
     .cs-card.featured .cs-card-desc { color: var(--muted-light); }
     .cs-card.featured .cs-card-meta { color: var(--muted-light); }
     .cs-card.featured .cs-card-meta .sep { background: var(--muted-light); }
     .cs-card.featured .cs-card-stats { border-top-color: var(--border-lighter); }
     .cs-card.featured .cs-card-stats .k { color: var(--muted-light); }
-    .cs-card.featured .cs-card-stats .v { color: var(--gold-ink); }
+    .cs-card.featured .cs-card-stats .v { color: var(--gold-ink-lg); }
     .cs-card.featured .cs-card-link { color: var(--gold-ink); }
     .cs-feat-tag {
       font-family: 'Oswald', sans-serif; font-weight: 600;
