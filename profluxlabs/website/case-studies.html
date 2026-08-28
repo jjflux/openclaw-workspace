@@ -27,6 +27,12 @@
       --mid-gray:     #F0EDE8;
       --muted-dark:   #A09A93;
       --text-dim:     #7A7570;
+      /* Bright --gold is ~2.0:1 on warm-white — fine on a border, unreadable as
+         small text. Gold TEXT on a light surface must use --gold-ink. */
+      --gold-ink:     #8A5E00;
+      --muted-light:  #5A5552;
+      --border-light: #E8E4DE;
+      --border-lighter:#E0DDD8;
     }
 
     body {
@@ -197,6 +203,44 @@
       font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
       color: var(--gold);
     }
+    /* FEATURED CARD — inverted to white so it reads first on a dark page.
+       The dark version was invisible against the section behind it, which is the
+       opposite of what the lead case study should do. */
+    .cs-card.featured { background: var(--warm-white); border-color: var(--border-light); }
+    .cs-card.featured:hover { border-color: var(--gold); box-shadow: 0 22px 60px -18px rgba(0,0,0,0.45); }
+    .cs-card.featured .cs-card-logo {
+      background: var(--warm-white);
+      border-bottom: 1px solid var(--border-light);
+      flex-direction: column; gap: 6px; text-align: center;
+    }
+    .cs-card.featured .cs-card-title { color: #1A1A1C; }
+    .cs-card.featured .cs-card-title em { color: var(--gold-ink); }
+    .cs-card.featured .cs-card-desc { color: var(--muted-light); }
+    .cs-card.featured .cs-card-meta { color: var(--muted-light); }
+    .cs-card.featured .cs-card-meta .sep { background: var(--muted-light); }
+    .cs-card.featured .cs-card-stats { border-top-color: var(--border-lighter); }
+    .cs-card.featured .cs-card-stats .k { color: var(--muted-light); }
+    .cs-card.featured .cs-card-stats .v { color: var(--gold-ink); }
+    .cs-card.featured .cs-card-link { color: var(--gold-ink); }
+    .cs-feat-tag {
+      font-family: 'Oswald', sans-serif; font-weight: 600;
+      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-ink); margin-bottom: 4px;
+    }
+    .cs-feat-num {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 76px; line-height: 1; letter-spacing: -0.02em; color: #1A1A1C;
+    }
+    .cs-feat-lbl {
+      font-family: 'Oswald', sans-serif; font-weight: 500;
+      font-size: 14px; letter-spacing: 0.22em; text-transform: uppercase; color: #1A1A1C;
+    }
+    .cs-feat-roi {
+      font-family: 'Oswald', sans-serif; font-weight: 700;
+      font-size: 15px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold-ink); margin-top: 8px;
+      border-top: 1px solid var(--border-lighter); padding-top: 12px;
+    }
     .cs-card-link .arrow { transition: transform 0.25s; }
     .cs-card:hover .cs-card-link .arrow { transform: translateX(6px); }
 
@@ -320,6 +364,34 @@
   <div class="wrap">
     <div class="cs-grid">
 
+      <!-- Multi-state coating franchise — FEATURED and deliberately FIRST.
+           Client is anonymised at their request: never reintroduce their name here. -->
+      <a class="cs-card featured" href="/case-study-franchise">
+        <div class="cs-card-logo">
+          <div class="cs-feat-tag">Featured Case Study</div>
+          <div class="cs-feat-num">~$150K</div>
+          <div class="cs-feat-lbl">Pipeline booked &middot; 18 days</div>
+          <div class="cs-feat-roi">~14&times; return on spend</div>
+        </div>
+        <div class="cs-card-body">
+          <div class="cs-card-meta">
+            <span>Concrete Coatings</span>
+            <span class="sep"></span>
+            <span>Multi-State Franchise</span>
+            <span class="sep"></span>
+            <span>First 18 Days</span>
+          </div>
+          <div class="cs-card-title"><em>~$150K</em> in pipeline booked. <em>~14&times;</em> return on spend.</div>
+          <div class="cs-card-desc">The founder of a 20-location coating franchise handed us 10 territories. We fund the ads, chase every lead, and book straight onto each location's calendar — 71 appointments in the first 18 days, closing at an audited 50%.</div>
+          <div class="cs-card-stats">
+            <div class="stat"><div class="k">Appointments &middot; 18 days</div><div class="v">71</div></div>
+            <div class="stat"><div class="k">Close rate</div><div class="v">50%</div></div>
+            <div class="stat"><div class="k">Territories we run</div><div class="v">10 of 20</div></div>
+          </div>
+          <span class="cs-card-link">Read the case study <span class="arrow">&rarr;</span></span>
+        </div>
+      </a>
+
       <!-- DC Electric -->
       <a class="cs-card" href="/case-study-dc-electric.html">
         <div class="cs-card-logo">
@@ -368,31 +440,6 @@
         </div>
       </a>
 
-      <!-- Multi-state coating franchise (client anonymised at their request) -->
-      <a class='cs-card' href='/case-study-franchise'>
-        <div class="cs-card-logo" style="background: #18181A; flex-direction: column; gap: 10px;">
-          <div style="font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 72px; line-height: 1; color: #F0A500; letter-spacing: -0.01em;">57</div>
-          <div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 0.24em; text-transform: uppercase; color: #FAF8F4;">Appointments · 15 Days</div>
-          <div style="font-family: 'Oswald', sans-serif; font-weight: 500; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A7570;">20-Location Coating Franchise</div>
-        </div>
-        <div class="cs-card-body">
-          <div class="cs-card-meta">
-            <span>Concrete Coatings</span>
-            <span class="sep"></span>
-            <span>Multi-State Franchise</span>
-            <span class="sep"></span>
-            <span>First 15 Days</span>
-          </div>
-          <div class="cs-card-title"><em>57 appointments</em> in 15 days. Half his 20-location map.</div>
-          <div class="cs-card-desc">The founder of a 20-location coating franchise handed us 10 territories. We fund the ads, chase every lead, and book straight onto each location's calendar — he pays per booked appointment. Nothing else.</div>
-          <div class="cs-card-stats">
-            <div class="stat"><div class="k">Territories we run</div><div class="v">10 of 20</div></div>
-            <div class="stat"><div class="k">Cost per sold job</div><div class="v">~$250</div></div>
-            <div class="stat"><div class="k">Return on spend</div><div class="v">~14×</div></div>
-          </div>
-          <span class="cs-card-link">Read the case study <span class="arrow">→</span></span>
-        </div>
-      </a>
 
       <!-- More coming -->
       <div class="cs-coming">
