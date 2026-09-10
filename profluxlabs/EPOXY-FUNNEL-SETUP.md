@@ -58,7 +58,13 @@ This is where the lead gets saved. **Make a NEW webhook for this funnel** (don't
 ### 2. GoHighLevel calendar embed — `GHL_CALENDAR_BASE` ✅ DONE
 
 Your real Epoxy Discovery Call calendar is already wired in:
-`https://api.leadconnectorhq.com/widget/booking/vlhhAVmm0RnenlMMEoRm`
+`https://api.leadconnectorhq.com/widget/booking/onF95pIwhuvYzJxiPrpx`
+
+**2026-09-10:** this is now a **Collective** calendar hosting **Jakob + Jason**, so an
+outbound booking lands on both their calendars and notifies both. It replaced
+`vlhhAVmm0RnenlMMEoRm` (Round Robin, Jakob only), which is why the id changed. A GHL
+calendar's type is fixed at creation — a `PUT` changing `calendarType` returns `200 OK`
+and does nothing — so this had to be a new calendar rather than an edit.
 
 GHL's `form_embed.js` auto-resize script is included, so the calendar sizes itself to its content (no scrollbars/cutoff). The funnel prefills it with the name/phone/email they just typed and passes the UTMs through — so booking is one click and attribution survives.
 
@@ -119,7 +125,7 @@ Meta auto-fills the `{{...}}` per ad. The funnel captures whatever's in the URL,
 
 - [ ] Create GHL workflow + inbound webhook → paste URL into `GHL_WEBHOOK_URL`
 - [ ] Map webhook fields + add the qualified/unqualified tags in the workflow
-- [x] ~~Create the Epoxy Discovery Call calendar → paste URL into `GHL_CALENDAR_BASE`~~ (done — calendar `vlhhAVmm0RnenlMMEoRm` wired in)
+- [x] ~~Create the Epoxy Discovery Call calendar → paste URL into `GHL_CALENDAR_BASE`~~ (done — collective calendar `onF95pIwhuvYzJxiPrpx` wired in 2026-09-10, replacing `vlhhAVmm0RnenlMMEoRm`)
 - [ ] Set that calendar's post-booking redirect to `/epoxy-thank-you`
 - [ ] Paste Meta Pixel ID into BOTH `epoxy.html` and `epoxy-thank-you.html`
 - [ ] In Meta Events Manager, confirm `Lead` and `Schedule` show up after a test run
