@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>You're Booked — Land More Calls</title>
+<meta name="description" content="Your discovery call is scheduled. Complete these quick steps before our call.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- ============================================================
+     META PIXEL — base code (same ID as the funnel page)
+     Fires a "Schedule" event here to mark an actual booking.
+     ============================================================ -->
+<script>
+var META_PIXEL_ID = '1557942752544196'; /* Land More Calls B2B dataset — same as ppl.html / epoxy.html */
+if (META_PIXEL_ID) {
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', META_PIXEL_ID);
+  fbq('track', 'PageView');
+  /* The "Schedule" conversion is fired from the bottom script so it can share an
+     event_id with the server-side CAPI call (Meta de-dupes the two). */
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,700;0,800;0,900;1,700;1,800;1,900&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#1E7BF5; --blue-dark:#1667D6; --blue-tint:#F4F7FC;
+    --navy:#0D1230; --navy-blue:#4FA0FF; --navy-body:#AEB6D0;
+    --ink:#0B0D12; --muted:#5A6273; --muted-2:#8A93A6; --muted-3:#9AA3B5;
+    --border:#E4E8F0; --border-2:#EDF0F6; --field-border:#D8DEEA;
+    --green:#129E6A; --green-tint:#E7F6EF; --amber:#F5A623; --err:#D64550;
+    --display:'Nunito',system-ui,sans-serif; --body:'Source Sans 3',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;background:#EEF1F6;-webkit-font-smoothing:antialiased;}
+  body{font-family:var(--body);color:var(--ink);}
+  a{color:var(--blue);text-decoration:none;}
+  a:hover{color:var(--blue-dark);}
+
+  .page{max-width:680px;margin:32px auto;background:#fff;border:1px solid #E1E6F0;border-radius:16px;overflow:hidden;box-shadow:0 24px 60px rgba(13,18,48,0.12);}
+  .accent-bar{height:5px;background:var(--green);}
+  .topbar{display:flex;align-items:center;justify-content:center;gap:9px;padding:15px 20px;border-bottom:1px solid var(--border-2);}
+  .logo-mark{width:20px;height:20px;border-radius:6px;background:var(--blue);}
+  .logo-word{font-family:var(--display);font-weight:900;font-size:18px;letter-spacing:-.01em;}
+
+  /* Hero */
+  .hero{background:var(--blue-tint);padding:40px 46px 34px;text-align:center;}
+  .badge-circle{width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;margin:0 auto 16px;font-family:var(--display);background:var(--green-tint);color:var(--green);}
+  .h1{font-family:var(--display);font-weight:900;font-size:29px;line-height:1.08;letter-spacing:-.01em;margin:0 0 10px;text-transform:uppercase;text-wrap:balance;}
+  .h1-sub{font-family:var(--display);font-weight:900;font-size:22px;line-height:1.15;margin:0;text-wrap:balance;}
+  .h1-sub .hl{color:var(--blue);}
+
+  /* Steps */
+  .steps{padding:34px 46px 12px;}
+  .rule{border:0;border-top:2px solid var(--ink);margin:0 0 26px;}
+  .step{margin-bottom:30px;}
+  .step-tag{font-family:var(--display);font-weight:900;font-size:18px;text-align:center;margin:0 0 4px;}
+  .step-tag .n{color:var(--blue);}
+  .step-desc{font-family:var(--display);font-weight:800;font-style:italic;font-size:16px;line-height:1.5;color:var(--ink);text-align:center;margin:0 auto 18px;max-width:520px;}
+  .checklist{max-width:440px;margin:0 auto 4px;padding:0;list-style:none;}
+  .checklist li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px solid var(--border-2);font-size:15.5px;color:var(--ink);}
+  .checklist li:last-child{border-bottom:none;}
+  .checklist .tick{width:24px;height:24px;border-radius:50%;background:var(--blue);color:#fff;font-size:14px;font-weight:800;font-family:var(--display);display:flex;align-items:center;justify-content:center;flex:none;}
+  .checklist b{font-family:var(--display);font-weight:800;}
+
+  /* Confirm-slot photo */
+  .cal-photo{display:block;max-width:520px;width:100%;margin:18px auto 0;border-radius:14px;border:1px solid var(--border);box-shadow:0 10px 30px rgba(13,18,48,.12);}
+  .cal-note{font-family:'Source Sans 3',sans-serif;font-size:12px;color:var(--muted-2);text-align:center;margin:10px 0 0;font-style:italic;}
+
+  .soft-note{background:var(--blue-tint);border:1px solid var(--border);border-radius:10px;padding:14px 16px;font-size:14.5px;color:var(--muted);text-align:center;max-width:480px;margin:0 auto;}
+  .soft-note b{color:var(--ink);font-family:var(--display);}
+
+  /* Social proof (navy band) */
+  .proof{background:var(--navy);padding:40px 40px 44px;margin-top:20px;}
+  .proof-title{font-family:var(--display);font-weight:900;font-size:25px;color:#fff;text-align:center;text-transform:uppercase;line-height:1.12;margin:0 0 26px;text-wrap:balance;}
+  .vids{display:grid;grid-template-columns:1fr;gap:16px;max-width:520px;margin:0 auto;}
+  .vidcard{position:relative;border-radius:14px;overflow:hidden;background:#000;border:2px solid rgba(255,255,255,.08);aspect-ratio:16/9;cursor:pointer;}
+  .vidcard video{width:100%;height:100%;object-fit:contain;display:block;background:#000;}
+  .vidcard .poster{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center;transition:opacity .2s;}
+  .vidcard.playing .poster{opacity:0;pointer-events:none;}
+  .vidcard .play{width:64px;height:64px;border-radius:50%;background:rgba(255,255,255,.95);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.45);transition:transform .15s;}
+  .vidcard:hover .play{transform:scale(1.06);}
+  .vidcard .play svg{margin-left:4px;}
+  .proof-photos{display:grid;grid-template-columns:1fr;gap:16px;max-width:520px;margin:16px auto 0;}
+  .proof-photo{width:100%;display:block;border-radius:14px;border:1px solid rgba(255,255,255,.1);}
+  .chat-proof{background:#0B0D12;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:14px;max-width:520px;margin:16px auto 0;}
+  .chat-proof img{display:block;width:100%;border-radius:6px;}
+  .chat-proof img + img{margin-top:8px;}
+  .phone-shot{display:block;width:100%;max-width:300px;margin:16px auto 0;border-radius:16px;border:1px solid rgba(255,255,255,.12);box-shadow:0 12px 32px rgba(0,0,0,.35);}
+  .proof-stars{color:var(--amber);text-align:center;font-size:15px;letter-spacing:2px;margin:18px 0 0;}
+
+  /* Footer */
+  .footer{padding:24px 46px 28px;border-top:1px solid var(--border-2);text-align:center;}
+  .footer .logo-row{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;}
+  .footer .logo-mark{width:16px;height:16px;border-radius:5px;}
+  .footer .logo-word{font-size:15px;}
+  .footer p{font-size:12.5px;color:var(--muted-2);margin:0 0 4px;}
+  .footer .fine{font-size:12px;color:#AAB2C0;margin:0;}
+
+  @media (max-width:640px){
+    .page{margin:0;border:none;border-radius:0;box-shadow:none;}
+    .hero,.steps,.footer{padding-left:20px;padding-right:20px;}
+    .proof{padding-left:18px;padding-right:18px;}
+    .h1{font-size:24px;}
+    .h1-sub{font-size:19px;}
+    .vids{gap:14px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="accent-bar"></div>
+  <div class="topbar">
+    <span class="logo-mark"></span>
+    <span class="logo-word">Land More Calls</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="badge-circle">&#10003;</div>
+    <h1 class="h1">Your Discovery Call<br>Is Scheduled<span id="ty-name"></span>!</h1>
+    <p class="h1-sub"><span class="hl">Important:</span> Before our call, complete these steps.</p>
+  </section>
+
+  <!-- STEPS -->
+  <section class="steps">
+    <hr class="rule">
+
+    <div class="step">
+      <p class="step-tag"><span class="n">Step 1:</span> Confirm Your Slot</p>
+      <p class="step-desc">Open your email inbox, press &ldquo;Add to Calendar,&rdquo; then press &ldquo;Yes&rdquo; to confirm your slot.</p>
+      <ul class="checklist">
+        <li><span class="tick">1</span><div>Open your <b>email inbox</b> (check spam/promotions if you don&rsquo;t see it).</div></li>
+        <li><span class="tick">2</span><div>Open the calendar invite and press <b>&ldquo;Add to Calendar.&rdquo;</b></div></li>
+        <li><span class="tick">3</span><div>Press <b>&ldquo;Yes&rdquo;</b> to confirm your slot &mdash; see below.</div></li>
+      </ul>
+
+      <!-- Google Calendar invite screenshot -->
+      <img class="cal-photo" src="case-studies/calendar-confirm.png" alt="Google Calendar invite for your LandMore Calls discovery call — press the blue Yes button to confirm">
+      <p class="cal-note">&uarr; Tap the blue &ldquo;Yes&rdquo; button in your invite to lock it in.</p>
+    </div>
+
+    <div class="step">
+      <p class="step-tag"><span class="n">Step 2:</span> Save Our Number</p>
+      <p class="step-desc">Our team will reach out to confirm the call via text.</p>
+      <div class="soft-note">Please reply to confirm and <b>save our number</b> so you don&rsquo;t miss us. We&rsquo;ll call you at the time of your appointment.</div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="proof">
+    <h2 class="proof-title">See What Contractors<br>Have To Say&hellip;</h2>
+    <div class="vids">
+      <div class="vidcard" data-video>
+        <video preload="none" playsinline poster="case-studies/rob-thumbnail.png">
+          <source src="testimonial-video-1.mp4" type="video/mp4">
+          <source src="testimonial-video-1.mov" type="video/quicktime">
+        </video>
+        <div class="poster">
+          <div class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#0D1230"><path d="M7 5v14l12-7z"/></svg></div>
+        </div>
+      </div>
+      <div class="vidcard" data-video>
+        <video preload="none" playsinline poster="case-studies/scott-thumbnail.png">
+          <source src="testimonial-video-2.mp4" type="video/mp4">
+          <source src="testimonial-video-2.mov" type="video/quicktime">
+        </video>
+        <div class="poster">
+          <div class="play"><svg width="26" height="26" viewBox="0 0 24 24" fill="#0D1230"><path d="M7 5v14l12-7z"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <div class="proof-photos">
+      <img class="proof-photo" src="case-studies/apex-epoxy-review.png" alt="Apex Epoxy 5-star review: I've been super happy with the work so far — close rate has been over 40%. Adding another crew soon.">
+      <img class="proof-photo" src="case-studies/philly-flooring-review.png" alt="Philadelphia Flooring Pros 5-star review from Reid: Best money I've spent on marketing so far. Just closed another $5,000 metallic job.">
+    </div>
+    <div class="chat-proof">
+      <img src="case-studies/text-msg-culdesac.jpg" alt="Client text: that older couple in the cul de sac signed today! went with the polyaspartic upsell too so like $4,600. appreciate u bro">
+      <img src="case-studies/text-msg-estimates.jpg" alt="Client text: booked 3 estimates for saturday off the batch you sent. one already put a deposit down">
+      <img src="case-studies/text-msg-oilfloor.jpg" alt="Client text: the guy with the oil stained floor I wasn't sure about ended up being my biggest job of the month. needed a lot of prep so came in around $5k">
+    </div>
+    <img class="phone-shot" src="case-studies/text-thread-full.png" alt="iMessage thread with a client: appointments going very well, crushing these">
+    <p class="proof-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="logo-row"><span class="logo-mark"></span><span class="logo-word">Land More Calls</span></div>
+    <p>&copy; 2026 Land More Calls — exclusive pre-sold leads for concrete coating contractors.</p>
+    <p class="fine"><a href="/privacy.html">Privacy Policy</a> &middot; <a href="/terms.html">Terms</a> &middot; Not affiliated with Meta Platforms, Inc.</p>
+  </footer>
+</div>
+
+<script>
+/* Personalize the headline if GHL passes ?first_name= on redirect */
+(function(){
+  var p = new URLSearchParams(location.search);
+  var first = (p.get('first_name') || p.get('firstName') || '').replace(/[<>&"']/g,'').trim();
+  if(first){
+    document.getElementById('ty-name').textContent = ', ' + first;
+  }
+})();
+
+/* Fire the "Schedule" conversion (an actual booking) — browser pixel + server-side
+   CAPI, de-duplicated by a shared event_id. Fires ONCE PER BOOKING, not once per
+   page load: this page gets refreshed, revisited from the confirmation email, and
+   re-opened on other devices, and every load used to mint a fresh random event_id
+   Meta couldn't de-dupe (113 Schedule events vs ~35 real bookings). The event_id
+   is now DERIVED from who booked + the UTC day, so Meta collapses every repeat —
+   any device, any session — into one conversion, and localStorage suppresses the
+   re-send from this browser entirely. A rebook on a later day is a new event on
+   purpose (no-shows get rebooked). Both sides no-op until configured. */
+(function(){
+  function readCookie(name){
+    var m = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+    return m ? m.pop() : '';
+  }
+  function hash(s){ /* djb2 — stable across devices; uniqueness, not security */
+    var h = 5381, i;
+    for (i = 0; i < s.length; i++) h = ((h << 5) + h + s.charCodeAt(i)) >>> 0;
+    return h.toString(36);
+  }
+  var p = new URLSearchParams(location.search);
+  var first = p.get('first_name') || p.get('firstName') || '';
+  var last  = p.get('last_name')  || p.get('lastName')  || '';
+  var email = p.get('email') || '';
+  var phone = p.get('phone') || '';
+  /* Who booked. If GHL's redirect carried no contact params, fall back to the
+     per-browser _fbp cookie — a param-less booking still counts once per visitor
+     instead of once per load (or colliding with other visitors). */
+  var who = (email || phone || (first + ' ' + last).trim() ||
+             ('anon:' + (readCookie('_fbp') || 'nofbp'))).toLowerCase();
+  var day = new Date().toISOString().slice(0, 10);
+  var eid = 'ppl-sched-' + hash(who + '|' + day);
+
+  var already = false;
+  try { already = localStorage.getItem('schedFired:' + eid) !== null; } catch(e){}
+  if (already) return;
+
+  if(window.fbq){
+    fbq('track', 'Schedule', { content_name:'PPL Discovery Call Booked' }, { eventID: eid });
+  }
+
+  var body = {
+    event_name: 'Schedule',
+    event_id: eid,
+    event_source_url: location.href,
+    content_name: 'PPL Discovery Call Booked',
+    first_name: first,
+    last_name:  last,
+    email: email,
+    phone: phone,
+    fbp: readCookie('_fbp'),
+    fbc: readCookie('_fbc')
+  };
+  try {
+    fetch('/.netlify/functions/meta-capi', {
+      method:'POST', headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body), keepalive:true
+    }).catch(function(){});
+  } catch(e){}
+
+  /* mark AFTER the fire attempts — if anything above threw, the next load retries */
+  try { localStorage.setItem('schedFired:' + eid, String(Date.now())); } catch(e){}
+})();
+
+/* Click-to-play video testimonials */
+document.querySelectorAll('.vidcard[data-video]').forEach(function(card){
+  var video = card.querySelector('video');
+  function play(){
+    card.classList.add('playing');
+    video.setAttribute('controls','');
+    video.play().catch(function(){});
+  }
+  card.addEventListener('click', function(){ if(!card.classList.contains('playing')) play(); });
+});
+</script>
+</body>
+</html>
