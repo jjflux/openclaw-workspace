@@ -380,6 +380,7 @@ function submitForm(){
   //     including $0-10k. (GHL still gets the `qualified` flag so you can segment.)
   saveToGoHighLevel(contact);
   saveToNetlify(contact);
+  notifyLeadOps(contact);
 
   // (2) Fire the Meta pixel Lead event ONLY for qualified leads ($10k+). Never for $0-10k.
   if(qualified){ fireLeadPixel(contact); }
@@ -427,6 +428,17 @@ function saveToGoHighLevel(contact){
   } catch(e){}
 }
 
+// Tell lead-ops a form was submitted: if no booking follows within 15 min, #sales-calls is pinged.
+// sendBeacon posts text/plain, so there is no CORS preflight and it survives the page changing.
+function notifyLeadOps(contact){
+  try {
+    var payload = JSON.stringify(contact);
+    var url = 'https://lead-ops.onrender.com/api/b2b/form-lead';
+    if(!(navigator.sendBeacon && navigator.sendBeacon(url, payload))){
+      fetch(url, { method:'POST', mode:'no-cors', headers:{'Content-Type':'text/plain'}, body:payload, keepalive:true }).catch(function(){});
+    }
+  } catch(e){}
+}
 // Backup copy into Netlify Forms (always).
 function saveToNetlify(contact){
   try {
